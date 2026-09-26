@@ -1,5 +1,5 @@
 interface:
-  display_name: "Inquiry Search"
+  display_name: "Soundings Search"
   short_description: "Find evidence and possibilities that change the work"
   default_prompt: "Use $search to investigate what outside evidence or possibility should change the current direction."
 policy:

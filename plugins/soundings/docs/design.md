@@ -1,8 +1,8 @@
-# Design
+# Soundings design
 
 ## Purpose
 
-Inquiry chooses the next useful way to reduce uncertainty or expand possibility. The unit of work is not “finish research” or “complete requirements”; it is making the active project better understood without losing momentum, authorship, or creative range.
+Soundings chooses the next useful way to reduce uncertainty or expand possibility. The unit of work is not “finish research” or “complete requirements”; it is making the active project better understood without losing momentum, authorship, or creative range.
 
 The design responds to two opposite failures:
 
@@ -28,7 +28,7 @@ flowchart LR
     W --> E
 ```
 
-There is no Inquiry orchestrator. The host discovers `search` or `shape` from their descriptions. Both can recur inside a task, but neither resets prior choices or creates a new brief.
+There is no Soundings orchestrator. The host discovers `search` or `shape` from their descriptions. Both can recur inside a task, but neither resets prior choices or creates a new brief.
 
 ## Why two Skills
 
@@ -44,11 +44,11 @@ They overlap at the handoff, not at the trigger. Search may uncover a product-le
 - Repository engineering methods keep responsibility for implementation, debugging, risk, verification, and integration. Ordinary local inspection and reuse checks remain part of engineering work.
 - Frontend and product-craft methods keep responsibility for content, interaction, rendering, accessibility, integration, and revision. Shape may reopen a mistaken product interpretation; it does not reduce design work to implementing a brief.
 - Domain-specific research and decision skills retain their subject-matter contracts. Search can supply broader discovery, but it does not override legal, security, medical, academic, or other specialized evidence standards.
-- Delegation is an execution choice, not an Inquiry stage. The coordinator must give a worker the privacy-safe context that changes its judgment and remain responsible for synthesis.
+- Delegation is an execution choice, not a Soundings stage. The coordinator must give a worker the privacy-safe context that changes its judgment and remain responsible for synthesis.
 
 ## The shared state model
 
-Inquiry distinguishes five kinds of state:
+Soundings distinguishes five kinds of state:
 
 1. desired outcome and qualities;
 2. settled choices;
@@ -68,7 +68,7 @@ Skill selection never grants authority. Search may run a probe only when the cur
 
 Version `0.1.0` intentionally excludes:
 
-- a global Inquiry router;
+- a global Soundings router;
 - fixed stages or mandatory artifacts;
 - automatic memory or personalization;
 - a custom web-search service or MCP server;

@@ -1,0 +1,20 @@
+{
+  "name": "soundings",
+  "interface": {
+    "displayName": "Soundings"
+  },
+  "plugins": [
+    {
+      "name": "soundings",
+      "source": {
+        "source": "local",
+        "path": "./plugins/soundings"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

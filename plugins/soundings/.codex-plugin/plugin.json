@@ -1,0 +1,36 @@
+{
+  "name": "soundings",
+  "version": "0.1.0",
+  "description": "Search outward and shape uncertain work into judgeable next steps without forcing a fixed workflow.",
+  "author": {
+    "name": "Faye Fang",
+    "url": "https://github.com/IndelibleVivi"
+  },
+  "homepage": "https://github.com/IndelibleVivi/soundings#readme",
+  "repository": "https://github.com/IndelibleVivi/soundings",
+  "license": "SUL-1.0",
+  "keywords": [
+    "codex",
+    "research",
+    "problem-shaping",
+    "decision-support"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Soundings",
+    "shortDescription": "Search outward and shape what matters next",
+    "longDescription": "Soundings helps Codex investigate outside facts and possibilities, expose consequential assumptions, and make uncertain directions easier to judge. Search and Shape are independent skills rather than stages in a mandatory process; they return discoveries and clarified decisions to the work already in progress.",
+    "developerName": "Faye Fang",
+    "category": "Productivity",
+    "capabilities": [
+      "Evidence discovery",
+      "Problem shaping",
+      "Decision support"
+    ],
+    "defaultPrompt": [
+      "Find outside evidence or references that could change this decision.",
+      "Make the most consequential uncertainty in this idea easier to judge.",
+      "Explore a more interesting direction without turning it into a fixed workflow."
+    ]
+  }
+}

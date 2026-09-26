@@ -8,7 +8,7 @@ These scenarios test decisions, not exact wording. Run them in fresh Codex sessi
 
 **Reject the candidate if:** it starts external research, opens a product-shaping discussion, creates a brief, or asks for preferences unrelated to the exact change.
 
-**Expected:** Inquiry yields; the active domain or engineering method completes the change directly.
+**Expected:** Soundings yields; the active domain or engineering method completes the change directly.
 
 ## 2. Fact-sensitive service choice reaches the experienced consequence
 
