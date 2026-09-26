@@ -101,10 +101,10 @@ See [`docs/dogfood-0.1.0.md`](docs/dogfood-0.1.0.md) for the bounded fresh-task 
 
 - **Source:** `0.1.0` candidate present in this repository.
 - **Validation:** both Skills and the plugin manifest pass their structural validators; the marketplace manifest resolves as `soundings`.
-- **Installation:** `soundings@soundings` installed from the local marketplace candidate and is enabled; the installed cache matched the canonical plugin package.
-- **Activation:** fresh ephemeral Codex CLI tasks resolved both Skills from the installed cache.
+- **Installation:** the two public commands above installed `soundings@soundings` from the Git marketplace; it is enabled, and the installed cache matched the canonical plugin package.
+- **Activation:** a fresh ephemeral Codex CLI task resolved Shape from the public-Git installation; the broader behavior matrix also resolved both Skills from the equivalent local candidate.
 - **Behavior:** bounded dogfood passed explicit Search, explicit Shape, implicit Search, implicit Shape, and a clear-small-task non-trigger. This is not yet the complete scenario suite.
-- **Publication:** public remote not yet created.
+- **Publication:** [`IndelibleVivi/soundings`](https://github.com/IndelibleVivi/soundings) is public on `main`; visibility, remote commit, README access, and anonymous GitHub API access were read back after publication.
 
 The dogfood host emitted a warning that aggregate Skill descriptions were shortened to fit its Skill-context budget. Every Skill remained visible, and the tested explicit and implicit invocations still resolved correctly; behavior under other heavily saturated plugin sets remains an environment-dependent limitation.
 

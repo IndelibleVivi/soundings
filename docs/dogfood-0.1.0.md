@@ -6,12 +6,12 @@ This is a bounded public evidence summary for the `0.1.0` candidate. The raw CLI
 
 - Date: 2026-09-26
 - Host: Codex CLI `0.147.0`
-- Installation source: local marketplace candidate at the canonical checkout
+- Installation sources: local marketplace candidate for the behavior matrix; public Git marketplace `IndelibleVivi/soundings` for the final installation and activation check
 - Installed plugin: `soundings@soundings`, version `0.1.0`, enabled
 - Session type: fresh ephemeral CLI task for every case
 - Authorization: read-only prompts; web search enabled only for the open-discovery Search case
 
-This evidence establishes installation, fresh-task discovery, and the bounded behaviors below. It does not establish the complete scenario suite, public Git installation, upgrade behavior, or usefulness across models and plugin combinations.
+This evidence establishes local and public-Git installation, fresh-task discovery, and the bounded behaviors below. It does not establish the complete scenario suite, upgrade behavior, or usefulness across models and plugin combinations.
 
 ## Observations
 
@@ -23,6 +23,7 @@ This evidence establishes installation, fresh-task discovery, and the bounded be
 | Implicit Shape | Discover Shape without the invocation token when an agent-added product model would govern substantial downstream work. | Announced `soundings:shape`, read the installed contract, produced two representative playable forms, and kept the four-axis model provisional. | Pass |
 | Implicit Search | Discover Search when a repetitive solution space needs a concrete adjacent reference and current evidence. | Announced `soundings:search`, read the installed contract and references, used a current Forum Theatre practice, separated source from transfer, and proposed one testable interaction. | Pass |
 | Specialized owner precedence | Yield when a more specific method owns the evidence standard. | A Codex CLI documentation question used `openai-docs` rather than Soundings Search and stayed within local help, matching Soundings' domain-owner boundary. | Pass |
+| Public Git installation | Install through the same commands given to public readers and activate from the resulting cache. | Added `IndelibleVivi/soundings` as a Git marketplace, installed `soundings@soundings`, observed `marketplaceSource.sourceType = git`, confirmed cache parity, and resolved Shape in a fresh task. | Pass |
 
 ## Observed limitation
 
@@ -31,7 +32,6 @@ The host warned that aggregate descriptions for all installed Skills were shorte
 ## Still unverified
 
 - the remaining cases in `plugins/soundings/docs/behavior-scenarios.md`;
-- installation from the public Git marketplace rather than the local checkout;
 - behavior after a marketplace upgrade and plugin version change;
 - cross-model consistency;
 - long-running project corrections that must propagate through real plans, code, and docs.

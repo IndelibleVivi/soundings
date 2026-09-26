@@ -101,10 +101,10 @@ skill-validate plugins/soundings/skills/shape
 
 - **Source：** repo 中已有 `0.1.0` candidate。
 - **Validation：** 两个 Skills 与 plugin manifest 均通过结构验证；marketplace manifest 正确解析为 `soundings`。
-- **Installation：** `soundings@soundings` 已从本地 marketplace candidate 安装并启用；installed cache 与 canonical plugin package 一致。
-- **Activation：** fresh ephemeral Codex CLI tasks 已从 installed cache 解析两个 Skills。
+- **Installation：** 上面的两条公开命令已从 Git marketplace 安装 `soundings@soundings`；plugin 已启用，installed cache 与 canonical plugin package 一致。
+- **Activation：** fresh ephemeral Codex CLI task 已从 public-Git installation 解析 Shape；更完整的 behavior matrix 也从等价的本地 candidate 解析了两个 Skills。
 - **Behavior：** bounded dogfood 已通过显式 Search、显式 Shape、隐式 Search、隐式 Shape，以及“清晰小任务不触发”案例；尚未跑完全部 scenario suite。
-- **Publication：** 尚未创建公开远端。
+- **Publication：** [`IndelibleVivi/soundings`](https://github.com/IndelibleVivi/soundings) 已在 `main` 公开；发布后已读回 visibility、remote commit、README access 与匿名 GitHub API access。
 
 dogfood host 曾提示：所有已安装 Skills 的 description 总量超过 Skill-context budget，因此 description 被缩短。每个 Skill 仍然可见，且本次显式与隐式调用都正确解析；在其他高度饱和的 plugin 组合下，表现仍属于 environment-dependent limitation。
 
