@@ -1,0 +1,6 @@
+interface:
+  display_name: "Inquiry Shape"
+  short_description: "Make an uncertain direction easier to judge"
+  default_prompt: "Use $shape to make the most consequential uncertainty judgeable and move the work forward."
+policy:
+  allow_implicit_invocation: true
