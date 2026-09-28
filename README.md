@@ -123,8 +123,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 
 - **Source:** four Skills and the optional evidence helper are implemented for `0.2.0`.
 - **Validation and behavior:** current observations and their limits are recorded in [dogfood-0.2.0](docs/dogfood-0.2.0.md).
-- **Installation and activation:** the previous public-Git installation is `0.1.0`; the `0.2.0` upgrade and fresh installed discovery are pending.
-- **Publication:** the public repository is [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings); candidate publication is pending.
+- **Installation and activation:** the public-Git installation was upgraded from `0.1.0` to enabled `0.2.0`; all 24 package files match source. Fresh tasks exposed all four installed Skills, naturally used Study and Explore, and left a clear typo fix outside Soundings.
+- **Publication:** the public repository is [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings); implementation commit `c0bac6a` is published on `main`; anonymous repository, rendered README, and marketplace readback succeeded.
 
 Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
 

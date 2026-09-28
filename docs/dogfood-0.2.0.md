@@ -1,6 +1,6 @@
 # Soundings 0.2.0 evidence
 
-Observed on 2026-09-28. This is a bounded development and dogfood record, not a benchmark or a claim of general improvement. Raw prompts, traces, and private continuity remain outside Git. Public examples use constructed material.
+Observed on 2026-09-28–29 (Asia/Singapore). This is a bounded development and dogfood record, not a benchmark or a claim of general improvement. Raw prompts, traces, and private continuity remain outside Git. Public examples use constructed material.
 
 ## Source and deterministic checks
 
@@ -25,11 +25,31 @@ Environment: Codex CLI `0.147.0`, ephemeral sessions, `gpt-5.6-sol` with high re
 
 [Worked examples](examples/inquiry-in-practice.md) show the Study reasoning and correction scope; [Six Minutes to Elsewhere](examples/six-minutes-to-elsewhere.md) contains the complete creative artifact.
 
-The source-candidate cases used explicit Skill invocation. Installed implicit discovery and clear-small-task behavior are pending the public upgrade; earlier `0.1.0` observations remain historical evidence in [their own record](dogfood-0.1.0.md).
+The source-candidate cases used explicit Skill invocation. Earlier `0.1.0` observations remain historical evidence in [their own record](dogfood-0.1.0.md).
+
+## Fresh installed observations
+
+A metadata-only check under the ordinary host configuration exposed all four Skills from the installed `soundings/0.2.0/skills/` package. These fresh tasks had no project-local Skill copies or invocation tokens. They used the same CLI/model, with the host configuration loaded and the built-in OpenAI provider selected for the ChatGPT-authenticated run.
+
+- **Implicit Study:** naturally selected the installed Study contract and its alignment/explanation references, then delivered the supplied-material synthesis with version, object, independent-evidence, concurrency, and portability conditions intact.
+- **Implicit Explore:** naturally read the installed Explore contract and candidate reference, then wrote a complete two-person impossible-museum activity with four consequential building moves, facilitator script, exhibit material, and a full playthrough. It repaired a reachability-rule inconsistency before completion and explicitly left human timing/playtesting unverified.
+- **Clear small task:** changed only the requested spelling and retained the original newline. No Soundings Skill was loaded; the host's general engineering method remained independent.
+
+Earlier test-launch attempts using `--ignore-user-config` did not expose Soundings in the task metadata, even with selected registration/enablement overrides. Their outputs are retained privately but are not counted as plugin behavior. Loading the ordinary host configuration resolved the metadata gap; no package edit or cache patch was required. No causal quality comparison is inferred from these attempts.
 
 ## Installation, activation, and publication
 
-At this source-validation point, the existing installed Git-marketplace copy is still `0.1.0`. Publication of `0.2.0`, version-to-version upgrade, installed-cache comparison, and fresh installed discovery are pending. Successful source cases are not presented as installed activation.
+The implementation was published to public `main` in commit `c0bac6a`. The documented sequence was exercised against the existing `0.1.0` Git installation:
+
+```bash
+codex plugin marketplace upgrade soundings
+codex plugin add soundings@soundings
+codex plugin list --json
+```
+
+Marketplace refresh reported no errors; plugin installation returned `0.2.0`, and listing showed it installed and enabled with a Git marketplace source. All 24 installed package files matched the canonical source byte-for-byte. No parallel local marketplace registration was added.
+
+Anonymous readback confirmed the public repository, default branch `main`, the remote implementation commit, rendered README HTML, and marketplace discovery manifest. Fresh installed method use is recorded above. These observations do not hot-reload a task that was already running, and owner acceptance remains separate.
 
 ## What remains unproven
 

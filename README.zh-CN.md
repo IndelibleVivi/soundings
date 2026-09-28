@@ -123,8 +123,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 
 - **Source：** `0.2.0` 的四个 Skills 与可选 evidence helper 已实现。
 - **Validation 与 behavior：** 当前观察及其边界记录在 [dogfood-0.2.0](docs/dogfood-0.2.0.md)。
-- **Installation 与 activation：** 此前 public-Git 安装为 `0.1.0`；`0.2.0` 升级与 fresh installed discovery 尚待验证。
-- **Publication：** 公开 repo 为 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings)；本次 candidate 尚未发布。
+- **Installation 与 activation：** public-Git 安装已从 `0.1.0` 升级到启用的 `0.2.0`，24 个 package 文件与源码一致。Fresh tasks 已发现全部四个入口，自然使用 Study 与 Explore；清晰 typo 修复未触发 Soundings。
+- **Publication：** 公开 repo 为 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings)；implementation commit `c0bac6a` 已发布到 `main`，匿名 repo、渲染后的 README 与 marketplace 读回成功。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。
 
