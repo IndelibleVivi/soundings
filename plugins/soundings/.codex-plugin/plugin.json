@@ -1,7 +1,7 @@
 {
   "name": "soundings",
-  "version": "0.1.0",
-  "description": "Search outward and shape uncertain work into judgeable next steps without forcing a fixed workflow.",
+  "version": "0.2.0",
+  "description": "Complete research and creative inquiry with independent Search, Study, Explore, and Shape skills.",
   "author": {
     "name": "Faye Fang",
     "url": "https://github.com/IndelibleVivi"
@@ -12,25 +12,30 @@
   "keywords": [
     "codex",
     "research",
+    "synthesis",
+    "creative-exploration",
     "problem-shaping",
-    "decision-support"
+    "evidence"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Soundings",
-    "shortDescription": "Search outward and shape what matters next",
-    "longDescription": "Soundings helps Codex investigate outside facts and possibilities, expose consequential assumptions, and make uncertain directions easier to judge. Search and Shape are independent skills rather than stages in a mandatory process; they return discoveries and clarified decisions to the work already in progress.",
+    "shortDescription": "Research, understand, explore, and shape the work",
+    "longDescription": "Soundings helps agents investigate external evidence, synthesize a body of material, develop concrete creative possibilities, and make consequential choices or corrections judgeable. Four independent skills can own complete commissions or contribute inside an existing task. An optional local Python helper preserves selected source snapshots for exact rereading and bounded evidence responses.",
     "developerName": "Faye Fang",
     "category": "Productivity",
     "capabilities": [
       "Evidence discovery",
+      "Material synthesis",
+      "Creative exploration",
       "Problem shaping",
-      "Decision support"
+      "Local evidence rereading"
     ],
     "defaultPrompt": [
-      "Find outside evidence or references that could change this decision.",
-      "Make the most consequential uncertainty in this idea easier to judge.",
-      "Explore a more interesting direction without turning it into a fixed workflow."
+      "Investigate the evidence and conditions that could change this decision.",
+      "Reconcile these materials into a useful explanation of what we know.",
+      "Develop this idea into a complete candidate I can react to.",
+      "Make this consequential choice judgeable and carry the correction through."
     ]
   }
 }

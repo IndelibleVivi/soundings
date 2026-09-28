@@ -1,15 +1,15 @@
 ---
 name: search
-description: "Investigate outside facts, options, mechanisms, references, or adjacent possibilities when external reality could materially change a decision or open a worthwhile direction. Use for explicit research and comparison, drift-prone claims that support consequential work, open invitations to find inspiration, repetitive solution spaces, or feedback suggesting the current frame may be wrong. Do not trigger for ordinary local repository inspection, a clear small task with sufficient evidence, framing a problem that can already be judged from current context, or research as an automatic project-opening ceremony."
+description: "Investigate external facts, options, mechanisms, and references; deliver usable evidence for a question, comparison, or discovery. Use when outside reality could change the answer or open a worthwhile direction. Not for routine local inspection, supplied-material synthesis, or a clear small task with sufficient evidence."
 ---
 
 # Search
 
-Use outside inquiry to improve the work that is already happening. A useful result may verify a fact, change a choice, introduce a mechanism, preserve an experience reference, or reveal a better question. It does not need to become code, a feature, or a report.
+Complete the requested inquiry with evidence the caller can actually use. A result may be a precise answer, a comparative judgment, a mechanism, an experience reference, or a changed question. Understanding can be the whole deliverable; it need not become code or a report.
 
 ## Establish why looking outward could help
 
-Recover the current goal, settled choices, live proposals, relevant evidence, and the authority already granted. Local files, repository state, and prior decisions are context for the inquiry; inspecting them is not itself a Search deliverable.
+Recover the requested outcome, settled choices, live proposals, relevant evidence, and authority already granted. Distinguish a small inquiry inside another task from a complete research commission. Local files and prior decisions provide context; inspecting them is not itself an external inquiry.
 
 Search when at least one of these conditions is present:
 
@@ -21,11 +21,11 @@ Search when at least one of these conditions is present:
 
 Do not search merely because a project is new, no reference was supplied, or research would make the work look more thorough. A clear local repair, faithful implementation of a settled reference, or decision already supported by adequate evidence should continue directly.
 
-If the needed material is already present but its meaning or product consequence is not yet judgeable, yield to Shape rather than searching for more links.
+When the materials are already present and the job is to explain their relationships, Study is the relevant capability. When the job is to develop a more interesting possibility, Explore may own the commission; when an interpretation or choice needs to become judgeable, Shape may help. Use the needed method without forcing a transfer ceremony or restarting the task.
 
-## Choose the inquiry intent without making the user select a mode
+## Put effort where the question needs it
 
-Infer the smallest useful intent from the task:
+Infer the intent from the requested outcome:
 
 - **Verify:** settle a specific factual or capability claim.
 - **Compare:** cover the differences that could plausibly change a choice in this context.
@@ -33,7 +33,13 @@ Infer the smallest useful intent from the task:
 
 These intents may change as evidence arrives. A comparison may expose a missing criterion; an open discovery may become a precise verification question. Do not preserve a stale research frame for procedural consistency.
 
+Search breadth, reading depth, synthesis effort, response size, and retention are different choices. Start a clearly complex comparison at the depth it needs. A narrow fact may require deep tracing; a creative reference may require close observation of only a few works. Keep the user-facing result as concise or extensive as the commission warrants.
+
+Choose available native search, connectors, browsers, or established providers by the capability needed. Retrieval, known-URL extraction, corpus lookup, and model-generated research are different operations. A provider switch must not silently turn original material into generated synthesis or ignore required language, date, or domain filters. Do not install tools, create credentials, or add paid routes merely because a reference mentions them.
+
 Read [evidence-and-stopping](references/evidence-and-stopping.md) when selecting sources, deciding how far to investigate, or evaluating whether the inquiry is complete. Read [returning-to-the-work](references/returning-to-the-work.md) when findings must influence an ongoing design, engineering task, creative project, or service choice.
+
+For long sources, repeated reading, or cross-session evidence reuse, read [evidence-reading](references/evidence-reading.md). It explains how to keep conditions visible and use the optional local snapshot helper. Ordinary search does not require it.
 
 ## Preserve what the source actually contributes
 
@@ -43,13 +49,15 @@ Separate:
 - what you infer from it;
 - why that matters here.
 
+Preserve the conditions that make a claim true: version, plan, population, date, units, exclusions, and observed context. A verbatim excerpt can still mislead when its qualification has been omitted. Search rank, similarity, and agreement among retrieval providers describe retrieval, not independent corroboration or factual confidence.
+
 Do not reduce every source to an adoption decision. A project may contribute one useful interaction while its architecture remains unsuitable. A work may change the quality being pursued without supplying reusable code. A negative result may close a route or strengthen the existing direction.
 
 For an experience-facing choice, inspect the consequence a person will actually encounter when feasible: the delivered email, exported artifact, waiting page, interaction, or rendered output. Feature tables and developer-facing setup notes may omit the deciding difference.
 
 ## Return to the original work
 
-When enough has been learned, make the effect explicit:
+When the inquiry's requested outcome is supported, make the effect explicit:
 
 - A verified fact corrects the basis of the current decision.
 - A mechanism is adopted, adapted, composed, or probed under the conditions that make it work.
@@ -57,10 +65,12 @@ When enough has been learned, make the effect explicit:
 - A reframing explains which earlier assumption changed and which choices are now genuinely open.
 - Insufficient or unsuitable evidence leaves a bounded unknown; do not manufacture novelty to justify the search.
 
+Stopping one query does not complete a comparison or research commission. Check the requested dimensions, material conflicts, and useful counterevidence before claiming completion. Conversely, do not keep searching after the answer is adequately supported merely to fill a source count. If authorized exploration is still producing materially different possibilities, continue developing them instead of stopping at the first actionable idea.
+
 Continue within the user's existing authorization. A local probe is appropriate when it is permitted and observation would answer the question better than more reading. Read-only research remains read-only; the Skill name grants no implementation, installation, purchase, account, production, or publication authority.
 
 Ask the user only when a newly exposed choice belongs to their authorship or values and has not already been delegated. Otherwise make the supported reversible decision and continue. Keep any answer scoped to the next action it actually supports.
 
 ## Yield to the active owner
 
-Search is not a second engineering, design, legal, or domain workflow. When a specialized method already owns the task, return the evidence and its implications to that method instead of producing a competing brief or restarting the user's context. Use [shared working context](../../references/working-context.md) when Search and another Skill need to continue the same line of work.
+When Search owns a research commission, deliver its complete result. When a specialized method owns a larger task, return the evidence and its implications to that method without producing a competing brief. Domain-specific evidence standards remain authoritative. Use [shared working context](../../references/working-context.md) when methods need to continue the same line of work.

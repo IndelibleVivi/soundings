@@ -25,6 +25,12 @@ If the user already authorized drafting, prototyping, comparing, or probing, del
 
 ## Keep the evidence scope visible
 
+Describe the observation that would distinguish the alternatives before judging a probe. For a proposed “keep a chosen relationship while varying the rest” interaction, check both whether the relationship survives and whether the remaining variation is still useful. A static attractive image tests neither behavior by itself.
+
+Interpret disappointing results at the layer actually exposed: mechanism, content, execution quality, learning cost, or compatibility with an accepted goal. Repair an inadequate sample when it has not tested the intended difference; change the mechanism when representative evidence challenges it. Do not keep building around a failed premise to protect sunk work.
+
+Bring the observation back into the artifact and dependent decisions. A probe that produces insight but leaves the rejected assumption active has not completed a correction. Conversely, an observed local failure does not justify shrinking unrelated scope.
+
 A preferred concept selects a direction for further development; it does not prove production quality. A successful technical probe establishes behavior; it does not establish that the user likes the result. A positive response to one component does not approve every adjacent choice.
 
 State what the material can decide and what remains outside its scope only when confusion is likely; do not wrap every response in approval language.

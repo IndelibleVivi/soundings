@@ -12,6 +12,24 @@ Use this reference when Search needs to decide where to look, how far to go, or 
 
 Search breadth and depth are independent. A narrow factual question may require deep source tracing; an open direction may need only enough range to reveal one genuinely distinct possibility.
 
+## Follow conditions and disagreements
+
+Treat a claim together with the conditions under which it holds. If a feature page, plan table, and observed output disagree, first align their dates, versions, plans, operation types, and audiences. A claim about a preview is not automatically a claim about an exported file. Preserve a real unresolved conflict when aligning those conditions does not explain it.
+
+Trace a decisive statement to its origin where feasible. Several engines returning one page provide several discovery paths, not several independent observations. Different pages may repeat one announcement. Prefer the source that can establish the claim; do not demand a second source when one authoritative specification settles it, or treat a promotional claim as observed behavior.
+
+A useful synthesis states what the disagreement changes. For example, if one export route supports transparent backgrounds while another does not, the result is conditional on the route; averaging the sources into “partial support” obscures the actionable distinction.
+
+When the consequence matters to a person, inspect the delivered artifact or interaction. The decisive criterion may be missing from the original query. Update the inquiry when an observation exposes it, rather than only re-ranking candidates against the initial wording.
+
+## Read enough to support the conclusion
+
+Expand a source when the answer depends on an exception, a clipped passage, a table heading or note, a precise version, a conflict, or an inference stronger than the excerpt supports. A link makes checking possible; it does not establish that checking happened. If the full source is inaccessible, weaken the conclusion and name the coverage limit.
+
+Read around decisive matches, including adjacent conditions and referenced notes. Keep literal material, extraction, and model-generated summaries distinguishable. An exact quotation is not a guarantee that all relevant context survived selection.
+
+Preserve useful room for discovery: strong filtering against the first question can discard the observation that would improve that question. Follow an unused detail when its mechanism or consequence is relevant to the goal, and explain that relevance. Do not turn every unrelated snippet into a new research branch.
+
 ## Keep the query open to disconfirmation
 
 Frame a question tightly enough to be answerable without preselecting the result. “How do tools keep generated variation editable?” is useful. “Find a node editor proving we need nodes” is not.
@@ -24,7 +42,11 @@ When the current solution was introduced by the agent and governs substantial wo
 - **Compare:** stop when the differences that could plausibly change this choice are covered. Do not enumerate every vendor or implementation.
 - **Discover:** stop when at least one concrete direction is worth making judgeable and more sources are repeating rather than changing the possibility space.
 
+These are stopping rules for inquiry actions, not permission to shrink the commission. A broad discovery request may require several developed directions; a complete research request may still need synthesis after retrieval ends. Judge completion against what the user asked to learn or receive, including important counterexamples and open questions. Do not hand back “research this next” when that research is already authorized and feasible.
+
 Continue when new evidence is still changing the question or the user explicitly requested broad exploration. Stop when investigation adds links but no longer changes facts, candidates, criteria, or the next useful experiment.
+
+Account for the work needed to reach a usable result: provider calls and cost, waiting, returned material, repeat reads, user effort, and likely rework. Do not collapse these into an invented score. Research effort, per-response payload, and authorized retention need separate controls. A small response that forces many follow-up reads may cost more overall; a deep investigation may still deserve a short final answer.
 
 ## Name unavailable coverage honestly
 

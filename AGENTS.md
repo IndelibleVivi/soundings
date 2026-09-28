@@ -4,11 +4,12 @@
 
 - `.agents/plugins/marketplace.json` owns the public marketplace identity and the route to the plugin package.
 - `plugins/soundings/.codex-plugin/plugin.json` owns plugin identity, version, discoverable components, publisher metadata, and UI metadata.
-- `plugins/soundings/skills/search/SKILL.md` and `plugins/soundings/skills/shape/SKILL.md` own runtime behavior and trigger boundaries.
+- `plugins/soundings/skills/{search,study,explore,shape}/SKILL.md` own runtime behavior and trigger boundaries.
 - Skill-local `references/` hold conditional methods loaded by their owning Skill.
 - `plugins/soundings/references/working-context.md` owns shared state and handoff semantics.
 - `plugins/soundings/docs/design.md` explains architecture and boundaries; `plugins/soundings/docs/behavior-scenarios.md` owns forward-test cases.
-- `docs/dogfood-0.1.0.md` owns the public evidence summary for the current dogfood candidate. Raw traces remain private and outside Git.
+- `plugins/soundings/skills/search/scripts/evidence.py` owns the optional local snapshot CLI; its adjacent tests own deterministic behavior checks. It is source, not a generated provider adapter or a network service.
+- `docs/dogfood-0.2.0.md` owns current bounded evidence; `docs/dogfood-0.1.0.md` preserves historical observations. Raw traces remain private and outside Git.
 - `README.md` and `README.zh-CN.md` are co-equal public entrypoints. Keep their status, install, usage, privacy, and rights claims aligned.
 
 ## Source, installation, and runtime
@@ -20,10 +21,11 @@
 
 ## Hard boundaries
 
-- Keep Search and Shape independently discoverable. Do not add a Soundings router or mandatory pipeline without an explicit product decision supported by observed behavior.
+- Keep Search, Study, Explore, and Shape independently discoverable. Each can own a complete commission; stopping a query or intervention does not automatically complete that commission. Do not add a Soundings router or mandatory pipeline without an explicit product decision supported by observed behavior.
 - Local repository inspection is context, not a Search deliverable by itself.
 - Do not add MCP servers, hooks, search backends, databases, automatic memory, or worker infrastructure without evidence of a concrete capability gap and explicit scope.
 - Skills never expand the current task's authorization.
+- The evidence helper writes only explicitly captured local files to an explicitly selected store. Preserve exact snapshot rereading, representation labels, visible omissions, and full JSON byte accounting. It does not promise automatic semantic grouping, source freshness, universal token limits, or tamper-proof storage. Keep captures outside the public repository and respect the task's retention authority.
 - Keep private evaluations, raw task transcripts, personal preference archives, and continuity outside this repository.
 - `LICENSING.md` owns the path-level rights map. Do not change its terms or scope without an explicit owner decision and a rights-boundary review.
 
@@ -33,13 +35,16 @@ Run after Skill or manifest changes:
 
 ```bash
 skill-validate plugins/soundings/skills/search
+skill-validate plugins/soundings/skills/study
+skill-validate plugins/soundings/skills/explore
 skill-validate plugins/soundings/skills/shape
 ~/.local/share/codex-skill-tooling/.venv/bin/python \
   ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py \
   plugins/soundings
+python3 -m unittest discover -s plugins/soundings/skills/search/scripts -p 'test_*.py' -v
 ```
 
-Run `git diff --check` when the repository is under Git. Structural validation does not prove trigger quality; changes to behavior require the smallest relevant scenarios from `plugins/soundings/docs/behavior-scenarios.md` in a fresh session.
+Run the Python checks after helper changes; Python 3.10+ is needed only for that optional helper. Run `git diff --check` when the repository is under Git. Structural validation does not prove trigger quality; changes to behavior require the smallest relevant scenarios from `plugins/soundings/docs/behavior-scenarios.md` in a fresh session. Keep retrieval quality, payload behavior, method use, and overall outcome claims separate.
 
 Before public push, inspect the exact staged tree and reachable history for private or machine-local material. Stage explicit public paths only. After publishing, read back repository visibility, default branch, remote commit, README rendering, marketplace discovery, and anonymous access.
 

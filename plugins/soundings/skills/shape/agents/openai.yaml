@@ -1,6 +1,6 @@
 interface:
   display_name: "Soundings Shape"
   short_description: "Make an uncertain direction easier to judge"
-  default_prompt: "Use $shape to make the most consequential uncertainty judgeable and move the work forward."
+  default_prompt: "Use $shape to make the consequential choice or correction judgeable and carry it through the work already authorized."
 policy:
   allow_implicit_invocation: true

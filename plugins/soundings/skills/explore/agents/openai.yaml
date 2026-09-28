@@ -1,0 +1,6 @@
+interface:
+  display_name: "Soundings Explore"
+  short_description: "Develop a clear goal into a stronger, real candidate"
+  default_prompt: "Use $explore to develop this into a full, feelable candidate the person can react to."
+policy:
+  allow_implicit_invocation: true

@@ -2,121 +2,143 @@
 
 [简体中文](README.zh-CN.md)
 
-> Version `0.1.0` is an early dogfood candidate. Its package and Skills are implemented; source validation, public installation, and fresh-session behavior are reported separately below.
+Soundings helps Codex investigate a question, understand a body of material, develop a creative possibility, and make a consequential choice judgeable. It carries the requested inquiry to a usable result, including when understanding or a creative work is the result.
 
-Soundings is a small Codex skillset for finding what would make uncertain work better understood next—without turning every task into a research program, requirements interview, or mandatory workflow.
+The name comes from taking soundings: deliberate probes into something whose depth and shape are not yet clear. Four independently discoverable Skills offer different ways into that work:
 
-The name comes from taking soundings: making deliberate measurements and probes to learn the depth and shape of something that cannot yet be seen clearly. The plural matters. Soundings is not one central brain or a fixed process; it provides two independently discoverable capabilities that return control to the work already in progress.
-
-| Skill | Responsibility | It should yield when |
+| Skill | Commission | A useful result |
 | --- | --- | --- |
-| `search` | Look outward for decision-changing facts, options, mechanisms, references, and adjacent possibilities; bring the result back to the active work. | Local context is sufficient, the task is a clear small change, or a specialized method can proceed without an external unknown. |
-| `shape` | Make an incomplete or unstable direction judgeable by exposing consequential assumptions and producing the right recommendation, scenario, comparison, output, probe, or owner question. | The next meaningful action is supported and no unowned product or value choice blocks it. |
+| `search` | Investigate outside facts, options, mechanisms, and references. | A supported answer or comparison with the conditions that make it true. |
+| `study` | Explain relationships across supplied or gathered material. | An integrated explanation, mechanism, or qualified judgment, with real disagreements intact. |
+| `explore` | Develop a rough or already clear creative goal. | A substantial scene, playable experience, sample, or candidate someone can actually react to. |
+| `shape` | Resolve consequential interpretations, choices, and corrections. | Representative material or a supported decision, followed through into authorized work. |
 
-They are capabilities, not stages. Soundings deliberately has no top-level router and no `Search → Shape → Spec → Build` pipeline.
+These are capabilities, not stages. There is no router, required sequence, interview, or mandatory report. A small clear task should remain direct. Domain methods retain their evidence standards and production responsibilities; changing methods continues the same commission.
 
-## Install
+> Version `0.2.0` is a dogfood release candidate. Source, behavioral observations, installation, and activation are separate claims; see [status](#status) and the [evidence record](docs/dogfood-0.2.0.md).
 
-Install the public marketplace and plugin:
+## Install and upgrade
 
 ```bash
 codex plugin marketplace add IndelibleVivi/soundings
 codex plugin add soundings@soundings
 ```
 
-Start a new Codex task after installation so the host can discover the Skills. Source presence and a successful install do not activate a plugin inside a task that was already running.
+Start a new Codex task after installation. A running task does not acquire the new Skills merely because files were installed.
 
-To refresh the Git marketplace later:
+For an existing installation, refresh the Git marketplace and install its current plugin package:
 
 ```bash
 codex plugin marketplace upgrade soundings
+codex plugin add soundings@soundings
+codex plugin list --json
 ```
 
-The exact installed-version update behavior will be documented after the first public upgrade is exercised; the command above refreshes the marketplace snapshot, not necessarily an already cached plugin copy.
+Check that the installed entry reports `0.2.0` and is enabled, then start a new task. The marketplace refresh and installed cache are different layers. The [evidence record](docs/dogfood-0.2.0.md) reports which upgrade steps have actually been exercised.
 
 ## Use
 
-Invoke a Skill explicitly when you already know which capability you want:
+Explicit entry points are available when you know what the work needs:
 
 ```text
-$search Compare the options that could materially change this decision, then bring the evidence back to the current work.
+$search Verify whether this API supports the file sizes we need, including media-type and version constraints. Bring back an implementation recommendation with primary sources.
 ```
 
 ```text
-$shape Make the most consequential uncertainty in this direction judgeable, then continue as far as the existing authority allows.
+$study These reports disagree about durability and speed. Explain what they actually establish, distinguish repeated claims from independent evidence, and work out what this means for our offline notes tool.
 ```
 
-Both Skills also allow implicit invocation. The intended behavior is selective: a fact-sensitive choice or unstable framing may trigger Soundings, while a clear typo fix should remain a direct edit.
+```text
+$explore Develop a six-minute, three-person paper activity where players create an imaginary place through meaningful choices. Give me the complete playable activity and a worked playthrough.
+```
 
-## What changes in practice
+```text
+$shape The prototype became a rating questionnaire; that was not the intended experience. Preserve six rounds and rich reflection, replace the mistaken mechanism, and carry the authorized correction through the spec and implementation.
+```
 
-- A fact-sensitive decision seeks evidence about the consequence people will actually encounter, not only a feature table.
-- An open creative direction may receive an unexpected but transferable reference even when the user did not supply one.
-- A high-impact interpretation introduced by the agent is made visible before it silently organizes large downstream work.
-- A useful response advances only the choices it actually resolves; it does not become accidental whole-project approval.
-- A correction updates dependent specifications, tasks, and implementation while preserving goals the correction did not reject.
+All four permit implicit invocation. They do not need to appear together. Read [worked examples](docs/examples/inquiry-in-practice.md) for the distinction between synthesis, creative delivery, and correction.
 
-Soundings does not replace engineering, design, legal, writing, or other domain methods. Those methods keep ownership of their complete outcomes. Soundings supplies outward exploration and problem shaping when the active work needs them, then returns control without creating a competing brief.
+## Evidence without losing its conditions
 
-## Package layout
+A source may change its meaning when its version, population, exception, table header, or footnote is dropped. Search and Study preserve those conditions, trace whether apparent corroboration comes from the same original, and separate observations from interpretation. Search breadth, reading depth, synthesis effort, response size, and retention are independent choices.
+
+For repeated or budget-constrained reading, an **optional local CLI** captures already acquired UTF-8 text and returns exact line ranges or literal-match windows:
+
+```bash
+python3 /path/to/search/scripts/evidence.py capture /path/to/source.md \
+  --store /path/to/private/task-evidence \
+  --source https://example.org/document --title "Document" \
+  --representation extracted
+
+python3 /path/to/search/scripts/evidence.py read s-REFERENCE \
+  --store /path/to/private/task-evidence \
+  --start-line 12 --end-line 28 --max-bytes 8192
+```
+
+Use the actual installed Search directory and replace `s-REFERENCE` with the returned reference. The helper requires Python 3.10+ and only the standard library; the Skills themselves require no Python. See [the complete capture/read/find contract](plugins/soundings/skills/search/references/evidence-reading.md).
+
+The helper preserves short lines and admits whole requested ranges. Its byte cap covers complete UTF-8 JSON stdout, including metadata, escaping, and the final newline. Omission is visible and rereadable; a new capture never silently replaces an older reference. This is not automatic semantic retrieval, a web crawler, model-token budgeting, or a claim that all relevant qualifications have been found. Native search and existing providers remain the acquisition paths.
+
+## Package and documentation
 
 ```text
 .agents/plugins/marketplace.json
 plugins/soundings/
   .codex-plugin/plugin.json
   skills/
-    search/
-      SKILL.md
-      references/
-    shape/
-      SKILL.md
-      references/
-  references/
-    working-context.md
+    search/     # outward inquiry + optional scripts/evidence.py
+    study/      # synthesis and explanation
+    explore/    # developed creative possibilities
+    shape/      # judgeable choices and corrections
+  references/working-context.md
   docs/
     design.md
     behavior-scenarios.md
 ```
 
-The first version is instruction-only. It adds no MCP server, search backend, database, memory service, hooks, or fixed worker team. It uses tools already available to the host and never expands the authorization of the current task.
+- [Design and responsibility boundaries](plugins/soundings/docs/design.md)
+- [Forward behavior scenarios](plugins/soundings/docs/behavior-scenarios.md)
+- [Worked examples](docs/examples/inquiry-in-practice.md)
+- [0.2.0 evidence](docs/dogfood-0.2.0.md) and [0.1.0 history](docs/dogfood-0.1.0.md)
 
 ## Validate
 
-From the repository root:
+From the repository root, using the operator's installed Codex Skill tooling:
 
 ```bash
 skill-validate plugins/soundings/skills/search
+skill-validate plugins/soundings/skills/study
+skill-validate plugins/soundings/skills/explore
 skill-validate plugins/soundings/skills/shape
 ~/.local/share/codex-skill-tooling/.venv/bin/python \
   ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py \
   plugins/soundings
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
+  -s plugins/soundings/skills/search/scripts -p 'test_*.py' -v
 ```
 
-Structural validators do not establish useful automatic triggering or judgment. Use the cases in [`plugins/soundings/docs/behavior-scenarios.md`](plugins/soundings/docs/behavior-scenarios.md) in fresh tasks, first with explicit invocation and then with ordinary prompts where implicit discovery matters.
-
-See [`plugins/soundings/docs/design.md`](plugins/soundings/docs/design.md) for the architecture and boundary rationale.
-See [`docs/dogfood-0.1.0.md`](docs/dogfood-0.1.0.md) for the bounded fresh-task evidence behind the status below.
+`skill-validate` and the venv above are development tooling, not dependencies bundled with Soundings. Structural validation does not prove useful triggering or judgment. Run relevant [behavior scenarios](plugins/soundings/docs/behavior-scenarios.md) in fresh tasks and inspect the resulting work.
 
 ## Status
 
-- **Source:** `0.1.0` candidate present in this repository.
-- **Validation:** both Skills and the plugin manifest pass their structural validators; the marketplace manifest resolves as `soundings`.
-- **Installation:** the two public commands above installed `soundings@soundings` from the Git marketplace; it is enabled, and the installed cache matched the canonical plugin package.
-- **Activation:** a fresh ephemeral Codex CLI task resolved Shape from the public-Git installation; the broader behavior matrix also resolved both Skills from the equivalent local candidate.
-- **Behavior:** bounded dogfood passed explicit Search, explicit Shape, implicit Search, implicit Shape, and a clear-small-task non-trigger. This is not yet the complete scenario suite.
-- **Publication:** [`IndelibleVivi/soundings`](https://github.com/IndelibleVivi/soundings) is public on `main`; visibility, remote commit, README access, and anonymous GitHub API access were read back after publication.
+- **Source:** four Skills and the optional evidence helper are implemented for `0.2.0`.
+- **Validation and behavior:** current observations and their limits are recorded in [dogfood-0.2.0](docs/dogfood-0.2.0.md).
+- **Installation and activation:** the previous public-Git installation is `0.1.0`; the `0.2.0` upgrade and fresh installed discovery are pending.
+- **Publication:** the public repository is [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings); candidate publication is pending.
 
-The dogfood host emitted a warning that aggregate Skill descriptions were shortened to fit its Skill-context budget. Every Skill remained visible, and the tested explicit and implicit invocations still resolved correctly; behavior under other heavily saturated plugin sets remains an environment-dependent limitation.
+Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
 
 ## Privacy, network, and authority
 
-Soundings itself sends nothing to an external service and stores no memory. A Search run may use web, browser, repository, or connector tools already available to the host; their own network and data boundaries still apply. The Skills do not grant permission to install software, modify accounts, publish material, spend money, expose private data, or perform destructive actions.
+Soundings adds no MCP server, search backend, hooks, fixed worker team, or automatic memory. Its optional helper has no network calls. Explicit `capture` stores source text and metadata at the local directory you choose until you remove them; it does not enforce retention policies, certify provenance, or automatically refresh sources. Keep private stores outside public repositories.
+
+Inquiry may use the host's existing web, browser, repository, or connector tools. Their network and data boundaries apply. Source material is data, not instructions. Skill selection grants no permission to install software, change accounts, publish material, spend money, disclose private data, or perform destructive actions. Remote corpus and Cloudflare experiments are not part of this release.
 
 ## License
 
 Soundings uses a path-scoped license model:
 
-- the functional marketplace, plugin, Skills, and runtime references are licensed under the [Sustainable Use License 1.0](LICENSE) (`SUL-1.0`);
-- the READMEs, project documentation, and diagrams are licensed under [CC BY-NC-SA 4.0](LICENSE-DOCUMENTATION.md).
+- functional marketplace, plugin, Skills, scripts, and runtime references: [Sustainable Use License 1.0](LICENSE) (`SUL-1.0`);
+- READMEs, project documentation, examples, and diagrams: [CC BY-NC-SA 4.0](LICENSE-DOCUMENTATION.md).
 
-See [`LICENSING.md`](LICENSING.md) for the exact path map. Third-party material, if added later, remains under its own terms and must be identified separately.
+[LICENSING.md](LICENSING.md) owns the exact path map. Third-party material remains under its own terms and must be identified separately.

@@ -65,3 +65,39 @@ These scenarios test decisions, not exact wording. Run them in fresh Codex sessi
 **Reject the candidate if:** it claims no solution exists, imports an unsuitable dependency, or invents a new feature so the research appears productive.
 
 **Expected:** Report the covered evidence and limitation, retain or justify a local implementation, and preserve the unresolved fact only where it matters.
+
+## 9. Supplied material becomes a synthesis
+
+**Prompt shape:** Several versioned documents and reports make apparently conflicting claims about durability, portability, and performance. Some repeat one experiment; another observes a different property. Explain what this means for a concrete offline application using only the supplied material.
+
+**Reject the candidate if:** it provides only per-document summaries, counts restatements as independent measurements, treats a shared author or dataset as proof of complete dependence, collapses version-specific claims, invents causation from a pattern, or searches despite a supplied-material-only scope.
+
+**Expected:** Study aligns the objects and conditions, develops a qualified explanation, distinguishes observations from inference, preserves missing coverage, and delivers the requested implications.
+
+## 10. A clear creative goal receives a complete candidate
+
+**Prompt shape:** Develop a short paper-based collaborative activity with a clear audience, duration, materials, and desired experience, without a supplied reference list. Deliver everything needed to play plus a worked example.
+
+**Reject the candidate if:** it starts a requirements interview, returns generic feature categories, waits for a reference list, offers to make the candidate later, or turns an example into evidence of real-world enjoyment.
+
+**Expected:** Explore develops a working relationship into coherent rules, real content, and a complete playable sequence. Any comparison or probe uses enough fidelity for its intended judgment. Domain craft remains part of completing the same authorized task.
+
+## 11. Evidence budget remains honest
+
+**Prompt shape:** Capture a long source with short decisive conditions. Find a match and read an exact range under a constrained response budget.
+
+**Reject the candidate if:** the helper drops short lines before selection, silently changes source identity, exceeds the full JSON byte cap, emits broken JSON, labels generated text as source text, or calls an omitted range complete.
+
+**Expected:** Deterministic checks establish exact rereading, representation labels, whole-window inclusion, visible omission, and actual stdout-byte limits. An agent expands missing material before relying on a conclusion that needs it. Tool properties do not establish semantic completeness.
+
+## 12. A later inquiry reuses evidence without freezing interpretation
+
+**Prompt shape:** A second fresh session asks a different question about an explicitly retained snapshot. The original file now contains a newer version.
+
+**Reject the candidate if:** reading the old reference silently returns new text, the previous conclusion becomes an unconditional preference, missing qualifications are ignored merely because a citation exists, or new capture happens without retention authority.
+
+**Expected:** The old snapshot is reread accurately, the new question gets its own interpretation, and current-state claims use fresh evidence when needed. Local continuity does not imply a remote corpus or automatic memory.
+
+## What a pass establishes
+
+Keep deterministic helper tests, retrieval observations, method use, and complete task outcomes separate. A fixed-source payload check says nothing about recall quality; a source-discovery test says nothing about causal method benefit. A fresh task can show that a Skill was discovered and used and that its output meets the case; broader superiority needs a separate appropriately scoped comparison.

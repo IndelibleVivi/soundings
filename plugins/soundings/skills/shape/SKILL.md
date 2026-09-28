@@ -1,11 +1,11 @@
 ---
 name: shape
-description: "Develop an incomplete, unstable, or consequentially ambiguous idea into a judgeable next step when the relevant material is already present but its meaning is not settled. Use when materially different interpretations lead to different outcomes, feedback invalidates the current frame, research opens a product-level branch, or an agent-added assumption is about to govern substantial downstream work. Shape with recommendations, scenarios, comparisons, real outputs, or permitted probes before defaulting to questions. Do not trigger for retrieving outside facts or references, a clear request ready for direct execution, or ordinary local decisions owned by an active domain skill."
+description: "Make consequential interpretations, choices, and feedback judgeable through recommendations, scenarios, representative outputs, or permitted probes. Use when competing meanings change the outcome or a correction must propagate. Not for routine implementation choices, material synthesis alone, or open creativity with an already clear goal."
 ---
 
 # Shape
 
-Help the person and the work discover what is worth pursuing next. Shape is not a requirements interview, a specification generator, or an approval gate. It participates in forming the understanding and lets execution continue as soon as the next meaningful action is supported.
+Develop enough shared understanding and representative material to resolve the consequential choice or correction the user entrusted to you. Shape is not a requirements interview, specification generator, or approval gate. It participates in forming the understanding and lets authorized work continue when the relevant dependency is resolved.
 
 ## Reconstruct the live understanding
 
@@ -27,9 +27,11 @@ Shape when:
 - feedback shows that improving the current implementation would still solve the wrong problem;
 - external inquiry reveals a new product-level possibility or a deciding trade-off;
 - an agent-added assumption is about to organize substantial downstream design, content, code, or evaluation;
-- the goal is deliberately exploratory and a concrete possibility can be developed from the material already present.
+- an exploratory possibility is about to become a substantial commitment and its meaning needs to be experienced before it governs the work.
 
 Do not start a shaping exercise for a clear small change, an implementation detail already delegated to the agent, or a local design decision that the active domain method can resolve without reframing the goal. Questions are not evidence of care; use them only when the answer controls a real owner-held choice.
+
+Material synthesis belongs with Study; positive development of possibilities with a clear goal belongs with Explore. Their outputs may expose a choice for Shape, but no formal sequence or separate brief is required. A creative task does not need to acquire an ambiguity before useful work can happen.
 
 If the missing material is outside the current context and finding it could change the choice, yield to Search. Shape may resume after the evidence creates a product-level branch; it does not need to accompany every Search result.
 
@@ -58,6 +60,8 @@ Read [making-it-judgeable](references/making-it-judgeable.md) when choosing or p
 
 When the current request authorizes you to produce the material and it fits in the current task, produce it now. Do not stop at a plan saying that representative questions, samples, comparisons, or outputs should be made later. Planning the evidence is not the same as giving the person something they can judge.
 
+Choose the observation before interpreting the result: what would support the proposed mechanism, and what would challenge it? Use enough fidelity to expose the intended difference. A failed rough sample may reveal execution quality or learning cost rather than invalidate the underlying idea. Explain what was actually tested before changing dependent work.
+
 ## Treat feedback as bounded evidence
 
 A response is sufficient when it resolves the dependency for the next action. “The first direction is closer” may select what to develop without approving names, content, all screens, or release quality. “This feels repetitive” rejects the observed experience without necessarily changing the intended length, result space, or other unaffected goals.
@@ -66,6 +70,6 @@ Use [assumptions-and-corrections](references/assumptions-and-corrections.md) whe
 
 ## Continue as soon as the work is decision-ready
 
-Stop shaping when the next meaningful action no longer depends on an unowned product or value choice. Preserve useful openness that does not block the current action. Continue under the active engineering, design, writing, or domain method instead of creating a second plan, handoff ritual, or competing brief.
+Stop the shaping intervention when the relevant action no longer depends on an unowned product or value choice. Preserve useful openness that does not block that action. This does not end the larger commission: if the user authorized developing the selected direction, correcting its descendants, or producing a complete artifact, continue under the relevant method until that outcome is fulfilled. If the commission is the decision itself, a supported recommendation and appropriately bounded unknowns can be the complete result.
 
 Authorization follows the user's request, not the Skill name. A shaping conversation does not authorize edits; an authorized implementation does not require a new approval merely because Shape exposed a provisional assumption. Keep implementation, successful verification, and user acceptance distinct.
