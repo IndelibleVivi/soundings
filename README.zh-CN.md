@@ -15,7 +15,7 @@ Soundings 帮助 Codex 查清一个问题、理解一组材料、发展一个创
 
 它们是能力，不是阶段。没有 router、规定顺序、访谈或强制报告。清晰的小任务应直接完成；domain methods 保留其证据标准与制作职责，换方法仍然是在继续同一份委托。
 
-> `0.3.0` 是 dogfood release candidate。源码、行为观察、安装与激活分别报告，见[当前状态](#当前状态)和[证据记录](docs/dogfood-0.3.0.md)。
+> `0.3.0` 是已发布的 dogfood 版本。源码、行为观察、安装与激活分别报告，见[当前状态](#当前状态)和[证据记录](docs/dogfood-0.3.0.md)。
 
 ## 安装与升级
 
@@ -142,8 +142,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 
 - **Source：** `0.3.0` 的四个 Skills、可恢复的证据捕获与有范围的查找、可选的便携研究包已实现。
 - **Validation 与 behavior：** 当前检查和观察记录在 [dogfood-0.3.0](docs/dogfood-0.3.0.md)，历史观察分别按版本保留。
-- **Installation 与 activation：** `0.2.0` 曾安装并在 fresh tasks 中观察；`0.3.0` 升级和安装后行为待验证。
-- **Publication：** 公开 repo 为 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings)，本版正在发布前验证。
+- **Installation 与 activation：** `0.3.0` 已通过 Git marketplace 安装启用，28 个 package 文件与 source 完全一致。Fresh 普通请求自然激活了 installed Search 与 Shape；研究交接和动态候选属于指定 source 的观察，分别报告。
+- **Publication：** `0.3.0` 已可从公开 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source 获取，Python 3.10 与 3.12 CI 均通过。证据记录也保留审阅纠正，以及交给工程方法、没有激活 Shape 的混合任务。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。
 

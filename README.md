@@ -15,7 +15,7 @@ The name comes from taking soundings: deliberate probes into something whose dep
 
 These are capabilities, not stages. There is no router, required sequence, interview, or mandatory report. A small clear task should remain direct. Domain methods retain their evidence standards and production responsibilities; changing methods continues the same commission.
 
-> Version `0.3.0` is a dogfood release candidate. Source, behavioral observations, installation, and activation are separate claims; see [status](#status) and the [evidence record](docs/dogfood-0.3.0.md).
+> Version `0.3.0` is a published dogfood edition. Source, behavioral observations, installation, and activation are separate claims; see [status](#status) and the [evidence record](docs/dogfood-0.3.0.md).
 
 ## Install and upgrade
 
@@ -142,8 +142,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 
 - **Source:** four Skills, recoverable evidence capture and scoped search, and an optional portable inquiry packet are implemented for `0.3.0`.
 - **Validation and behavior:** current checks and observations are recorded in [dogfood-0.3.0](docs/dogfood-0.3.0.md); historical observations remain versioned separately.
-- **Installation and activation:** `0.2.0` was installed and observed in fresh tasks. The `0.3.0` upgrade and fresh installed behavior are pending verification.
-- **Publication:** the public repository is [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings). This edition is being validated before publication.
+- **Installation and activation:** `0.3.0` was installed and enabled through the Git marketplace; all 28 package files matched source. Fresh ordinary prompts activated installed Search and Shape. The research handoff and motion candidate were source-directed observations, reported separately.
+- **Publication:** `0.3.0` is available from the public [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source. Python 3.10 and 3.12 CI passed. The evidence record includes review corrections and the mixed task that used the engineering method without activating Shape.
 
 Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
 
