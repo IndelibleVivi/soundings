@@ -1,0 +1,16 @@
+:root {
+  --soundings-paper: #F7F5EF;
+  --soundings-surface: #FFFFFF;
+  --soundings-ink: #183D47;
+  --soundings-muted: #526970;
+  --soundings-line: #8A9FA3;
+  --soundings-teal: #246F70;
+  --soundings-tealSoft: #E7F0ED;
+  --soundings-blue: #345C8B;
+  --soundings-blueSoft: #EAF0F7;
+  --soundings-ochre: #805A28;
+  --soundings-ochreSoft: #F6EDD9;
+  --soundings-body: Arial, "Noto Sans CJK SC", sans-serif;
+  --soundings-wordmark: Georgia, "Times New Roman", serif;
+  --soundings-radius: 12px;
+}

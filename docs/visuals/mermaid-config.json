@@ -1,0 +1,32 @@
+{
+  "theme": "base",
+  "securityLevel": "strict",
+  "startOnLoad": false,
+  "deterministicIds": true,
+  "deterministicIDSeed": "soundings-docs-01",
+  "fontFamily": "Arial, Noto Sans CJK SC, sans-serif",
+  "themeVariables": {
+    "fontFamily": "Arial, Noto Sans CJK SC, sans-serif",
+    "fontSize": "18px",
+    "primaryColor": "#E7F0ED",
+    "primaryTextColor": "#183D47",
+    "primaryBorderColor": "#246F70",
+    "lineColor": "#526970",
+    "secondaryColor": "#EAF0F7",
+    "tertiaryColor": "#F7F5EF",
+    "clusterBkg": "#F7F5EF",
+    "clusterBorder": "#8A9FA3",
+    "edgeLabelBackground": "#F7F5EF"
+  },
+  "flowchart": {
+    "htmlLabels": false,
+    "curve": "linear",
+    "nodeSpacing": 26,
+    "rankSpacing": 38,
+    "padding": 20,
+    "useMaxWidth": false,
+    "wrappingWidth": 400
+  },
+  "htmlLabels": false,
+  "themeCSS": ".edgePaths path {stroke-width:1.5px;} .cluster-label text {font-weight:600;}"
+}

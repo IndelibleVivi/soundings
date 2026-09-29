@@ -1,0 +1,29 @@
+flowchart TB
+  accTitle: Soundings — 可选证据工具 / optional evidence support
+  accDescr: Existing tools acquire material. A selected UTF-8 file is explicitly captured to a stable local snapshot. Read and find return whole ranges with byte budgets and omissions. Packet create copies an explicit brief and selected snapshots into a new directory; manifest is written last. A recipient inspects then rereads the copied evidence. None of these helpers uploads or executes a research task.
+  A["现有来源工具<br/>已经取得的材料"]:::host
+  F["选定 UTF-8 文件<br/>文本或 Markdown"]:::data
+  A -->|保存所需表示| F
+  C["evidence.py capture<br/>明确 store、source、representation"]:::optional
+  F -->|显式保留| C
+  S["本地 snapshot / s-ref<br/>完整暂存 → 不覆盖地发布<br/>旧引用继续读取旧内容"]:::data
+  C -->|创建新引用| S
+  R["evidence.py read / find<br/>精确行段 / 范围内字面查找"]:::optional
+  S -->|读取| R
+  J["有界 JSON 输出<br/>整窗返回或说明 omission<br/>处理 first_omitted 后再续读"]:::data
+  R -->|计量完整 stdout 字节| J
+  B["显式研究 brief<br/>目标、选定材料与范围"]:::data
+  P["packet.py create<br/>只复制选定 refs 与 brief"]:::optional
+  S -.->|选定快照| P
+  B -->|选定 brief| P
+  K["新目录 / Portable packet<br/>brief.md + evidence/ + manifest.json<br/>manifest 最后写入"]:::data
+  P -->|本地写入；不传输| K
+  I["packet.py inspect<br/>检查成员与可读性"]:::optional
+  K -->|在接收位置检查| I
+  X["接手者 / Recipient<br/>通过 evidence.py 重读副本<br/>不再依赖原 store"]:::host
+  I -->|检查后按需重读| X
+
+  classDef host fill:#EAF0F7,stroke:#345C8B,color:#183D47,stroke-width:1.6px;
+  classDef method fill:#E7F0ED,stroke:#246F70,color:#183D47,stroke-width:1.6px;
+  classDef data fill:#FFFFFF,stroke:#8A9FA3,color:#183D47,stroke-width:1.6px;
+  classDef optional fill:#F6EDD9,stroke:#805A28,color:#183D47,stroke-width:1.6px;
