@@ -1,0 +1,32 @@
+flowchart LR
+  accTitle: Soundings — 谁负责什么 / responsibilities
+  accDescr: Soundings is a package of independent instructions read by a coordinating agent, not four sequential agents. Codex coordinates the current task, uses existing domain methods and tools, maintains working understanding and delivers the result. The context is not a new database.
+  subgraph S["Soundings 方法"]
+    direction TB
+    SEARCH["Search / 查证<br/>外部事实与参考"]:::method
+    STUDY["Study / 研读<br/>综合材料、发现值得追的问题"]:::method
+    EXPLORE["Explore / 创造<br/>发展具体作品或体验"]:::method
+    SHAPE["Shape / 判断<br/>关键选择与纠偏"]:::method
+    SEARCH ~~~ STUDY
+    STUDY ~~~ EXPLORE
+    EXPLORE ~~~ SHAPE
+  end
+  U["用户 / User<br/>目标、材料、当前授权"]:::data
+  H["Codex / 协调 agent<br/>选择方法 · 执行 · 整合"]:::host
+  S -->|所选方法的指导| H
+  U -->|提出委托| H
+  subgraph E["宿主已有能力"]
+    direction TB
+    D["领域方法 / Craft<br/>工程、设计、写作与验证"]:::host
+    T["现有工具 / Tools<br/>搜索、文件、浏览器与连接器"]:::host
+    D ~~~ T
+  end
+  H -->|按需使用| E
+  C["工作理解 / Context<br/>目标、决定、提议、证据、授权<br/>留在上下文或项目已有记录"]:::data
+  H ---|维护| C
+  R["可用结果 / Outcome<br/>解释、比较、作品或授权实现"]:::data
+  H -->|交付| R
+  classDef host fill:#EAF0F7,stroke:#345C8B,color:#183D47,stroke-width:1.6px;
+  classDef method fill:#E7F0ED,stroke:#246F70,color:#183D47,stroke-width:1.6px;
+  classDef data fill:#FFFFFF,stroke:#8A9FA3,color:#183D47,stroke-width:1.6px;
+  classDef optional fill:#F6EDD9,stroke:#805A28,color:#183D47,stroke-width:1.6px;
