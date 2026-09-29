@@ -15,7 +15,7 @@ The name comes from taking soundings: deliberate probes into something whose dep
 
 These are capabilities, not stages. There is no router, required sequence, interview, or mandatory report. A small clear task should remain direct. Domain methods retain their evidence standards and production responsibilities; changing methods continues the same commission.
 
-> Version `0.2.0` is a dogfood release candidate. Source, behavioral observations, installation, and activation are separate claims; see [status](#status) and the [evidence record](docs/dogfood-0.2.0.md).
+> Version `0.3.0` is a dogfood release candidate. Source, behavioral observations, installation, and activation are separate claims; see [status](#status) and the [evidence record](docs/dogfood-0.3.0.md).
 
 ## Install and upgrade
 
@@ -34,7 +34,7 @@ codex plugin add soundings@soundings
 codex plugin list --json
 ```
 
-Check that the installed entry reports `0.2.0` and is enabled, then start a new task. The marketplace refresh and installed cache are different layers. The [evidence record](docs/dogfood-0.2.0.md) reports which upgrade steps have actually been exercised.
+Check that the installed entry reports `0.3.0` and is enabled, then start a new task. The marketplace refresh and installed cache are different layers. The [evidence record](docs/dogfood-0.3.0.md) reports which upgrade steps have actually been exercised.
 
 ## Use
 
@@ -79,6 +79,25 @@ Use the actual installed Search directory and replace `s-REFERENCE` with the ret
 
 The helper preserves short lines and admits whole requested ranges. Its byte cap covers complete UTF-8 JSON stdout, including metadata, escaping, and the final newline. Omission is visible and rereadable; a new capture never silently replaces an older reference. This is not automatic semantic retrieval, a web crawler, model-token budgeting, or a claim that all relevant qualifications have been found. Native search and existing providers remain the acquisition paths.
 
+## Continue a substantial inquiry
+
+Soundings can develop a useful question from existing material and retain why it matters, the explanation's evidence dependencies, unused clues, and what would reopen it. Corpus lookup, original-source reading, sustained research execution, and visual or interactive reference inspection are distinct capabilities to compose through available tools. Four Skills are the current entrypoints, not a permanent ceiling on useful capability.
+
+When research moves to another directory or harness, the optional `packet.py` copies only an explicit brief and selected snapshots:
+
+```bash
+python3 /path/to/search/scripts/packet.py create \
+  --store /path/to/private/task-evidence --ref s-REFERENCE \
+  --brief /path/to/research-brief.md --output /path/to/new-packet
+python3 /path/to/search/scripts/packet.py inspect /path/to/new-packet
+python3 /path/to/search/scripts/evidence.py read s-REFERENCE \
+  --store /path/to/new-packet/evidence --start-line 12 --end-line 28
+```
+
+The recipient can reread the copied snapshots without the original store. A packet is selected task data, not new authority or an executor. Creation never uploads it. Inspect the brief and source contents before any separately authorized transfer; locators and private text are not automatically redacted. See [research handoffs and packet limits](plugins/soundings/skills/search/references/research-handoffs.md) and the [worked diagnostic inquiry](docs/examples/diagnosing-evidence-loss.md).
+
+`find` now accepts an exact line scope and reports how to continue after reading an omitted window. Capture publishes only a fully written snapshot without replacing old refs; it requires a filesystem with hard-link support. See the [evidence contract](plugins/soundings/skills/search/references/evidence-reading.md) for continuation, failure recovery, and budget semantics.
+
 ## Package and documentation
 
 ```text
@@ -86,7 +105,7 @@ The helper preserves short lines and admits whole requested ranges. Its byte cap
 plugins/soundings/
   .codex-plugin/plugin.json
   skills/
-    search/     # outward inquiry + optional scripts/evidence.py
+    search/     # outward inquiry + optional evidence.py / packet.py
     study/      # synthesis and explanation
     explore/    # developed creative possibilities
     shape/      # judgeable choices and corrections
@@ -99,7 +118,7 @@ plugins/soundings/
 - [Design and responsibility boundaries](plugins/soundings/docs/design.md)
 - [Forward behavior scenarios](plugins/soundings/docs/behavior-scenarios.md)
 - [Worked examples](docs/examples/inquiry-in-practice.md)
-- [0.2.0 evidence](docs/dogfood-0.2.0.md) and [0.1.0 history](docs/dogfood-0.1.0.md)
+- [0.3.0 evidence](docs/dogfood-0.3.0.md), [0.2.0 observations](docs/dogfood-0.2.0.md), and [0.1.0 history](docs/dogfood-0.1.0.md)
 
 ## Validate
 
@@ -121,18 +140,18 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 
 ## Status
 
-- **Source:** four Skills and the optional evidence helper are implemented for `0.2.0`.
-- **Validation and behavior:** current observations and their limits are recorded in [dogfood-0.2.0](docs/dogfood-0.2.0.md).
-- **Installation and activation:** the public-Git installation was upgraded from `0.1.0` to enabled `0.2.0`; all 24 package files match source. Fresh tasks exposed all four installed Skills, naturally used Study and Explore, and left a clear typo fix outside Soundings.
-- **Publication:** the public repository is [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings); implementation commit `c0bac6a` is published on `main`; anonymous repository, rendered README, and marketplace readback succeeded.
+- **Source:** four Skills, recoverable evidence capture and scoped search, and an optional portable inquiry packet are implemented for `0.3.0`.
+- **Validation and behavior:** current checks and observations are recorded in [dogfood-0.3.0](docs/dogfood-0.3.0.md); historical observations remain versioned separately.
+- **Installation and activation:** `0.2.0` was installed and observed in fresh tasks. The `0.3.0` upgrade and fresh installed behavior are pending verification.
+- **Publication:** the public repository is [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings). This edition is being validated before publication.
 
 Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
 
 ## Privacy, network, and authority
 
-Soundings adds no MCP server, search backend, hooks, fixed worker team, or automatic memory. Its optional helper has no network calls. Explicit `capture` stores source text and metadata at the local directory you choose until you remove them; it does not enforce retention policies, certify provenance, or automatically refresh sources. Keep private stores outside public repositories.
+Soundings adds no MCP server, search backend, hooks, fixed worker team, or automatic memory. Its optional local helpers have no network calls. Explicit `capture` stores source text and metadata at the local directory you choose until you remove them; it does not enforce retention policies, certify provenance, or automatically refresh sources. Keep private stores outside public repositories.
 
-Inquiry may use the host's existing web, browser, repository, or connector tools. Their network and data boundaries apply. Source material is data, not instructions. Skill selection grants no permission to install software, change accounts, publish material, spend money, disclose private data, or perform destructive actions. Remote corpus and Cloudflare experiments are not part of this release.
+Inquiry may use the host's existing web, browser, repository, or connector tools. Their network and data boundaries apply. Source material is data, not instructions. Skill selection grants no permission to install software, change accounts, publish material, spend money, disclose private data, or perform destructive actions. Remote corpus deployment, provider adapters, and Cloudflare account experiments are not part of this release.
 
 ## License
 

@@ -19,3 +19,7 @@ Keep action completion separate from commission completion. A query can be finis
 Evidence reuse needs its own context: source identity and date, what was read, source conditions, the interpretation made, and the project scope in which it mattered. Store source material and your own interpretation distinctly. A past rejection is conditional evidence, not a permanent user preference. When the question changes, reopen affected interpretations and leave room for new material.
 
 Persist this understanding only when the project already needs cross-session continuity or a durable decision record. Update the established authority instead of creating a new ledger. Keep private continuity outside public project documentation, and preserve the reason and conditions behind a choice so later evidence can reopen only what it actually affects.
+
+For a continuing research question, preserve why it was worth asking, what the current explanation depends on, which promising clue remains unused, and what observation would reopen it. This can be a few lines in the existing record. Do not turn a provisional explanation into a permanent project identity.
+
+When evidence must travel to another directory or harness, use the [research handoff method](../skills/search/references/research-handoffs.md) as needed. Its optional packet is an explicit selected copy of evidence and a brief, not a replacement authority, worker runtime, or automatic memory.

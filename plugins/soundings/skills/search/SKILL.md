@@ -37,9 +37,13 @@ Search breadth, reading depth, synthesis effort, response size, and retention ar
 
 Choose available native search, connectors, browsers, or established providers by the capability needed. Retrieval, known-URL extraction, corpus lookup, and model-generated research are different operations. A provider switch must not silently turn original material into generated synthesis or ignore required language, date, or domain filters. Do not install tools, create credentials, or add paid routes merely because a reference mentions them.
 
+Read [source capabilities](references/source-capabilities.md) when the inquiry spans corpus discovery, sustained research execution, or visual/interactive references. Let a concrete commission justify useful new capability without turning the current toolset into a permanent ceiling.
+
 Read [evidence-and-stopping](references/evidence-and-stopping.md) when selecting sources, deciding how far to investigate, or evaluating whether the inquiry is complete. Read [returning-to-the-work](references/returning-to-the-work.md) when findings must influence an ongoing design, engineering task, creative project, or service choice.
 
 For long sources, repeated reading, or cross-session evidence reuse, read [evidence-reading](references/evidence-reading.md). It explains how to keep conditions visible and use the optional local snapshot helper. Ordinary search does not require it.
+
+For a research handoff across sessions or harnesses, read [research handoffs](references/research-handoffs.md). Its optional local packet helper carries an explicit brief and selected snapshots without depending on the original store.
 
 ## Preserve what the source actually contributes
 

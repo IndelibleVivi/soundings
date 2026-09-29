@@ -17,6 +17,8 @@ Look at what a reference does that makes it work, and at the conditions that let
 
 Then change the conditions on purpose: what if it is longer, slower, shared, riskier, or made for a different player or reader? Moving a condition is how a reference becomes this project instead of a copy.
 
+Inspect the medium that carries the effect. For motion or interaction, observe a sequence or actual controls when available; keep text-only reference coverage explicit. When edits or randomness are part of the creative goal, the candidate should demonstrate which relationships and user choices survive variation. A polished still or narrated animation cannot by itself establish that behavior.
+
 ## Let unexpected material open a new focus
 
 Unused material, a half-noticed detail, or something said in passing can be a better opening than the original goal. When a new focus grows from the material, follow it if it still serves the accepted goal, and say why the turn is worth taking. Do not invent a search to look productive, and do not force every observation back into the current frame.

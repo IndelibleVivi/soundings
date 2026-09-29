@@ -9,7 +9,8 @@
 - `plugins/soundings/references/working-context.md` owns shared state and handoff semantics.
 - `plugins/soundings/docs/design.md` explains architecture and boundaries; `plugins/soundings/docs/behavior-scenarios.md` owns forward-test cases.
 - `plugins/soundings/skills/search/scripts/evidence.py` owns the optional local snapshot CLI; its adjacent tests own deterministic behavior checks. It is source, not a generated provider adapter or a network service.
-- `docs/dogfood-0.2.0.md` owns current bounded evidence; `docs/dogfood-0.1.0.md` preserves historical observations. Raw traces remain private and outside Git.
+- `plugins/soundings/skills/search/scripts/packet.py` owns optional local packaging and inspection of an explicit brief and selected evidence snapshots. It composes the evidence helper; it is not a worker runtime, uploader, or new project authority.
+- `docs/dogfood-0.3.0.md` owns current bounded evidence; earlier `docs/dogfood-*.md` preserve historical observations. Raw traces remain private and outside Git.
 - `README.md` and `README.zh-CN.md` are co-equal public entrypoints. Keep their status, install, usage, privacy, and rights claims aligned.
 
 ## Source, installation, and runtime
@@ -26,6 +27,7 @@
 - Do not add MCP servers, hooks, search backends, databases, automatic memory, or worker infrastructure without evidence of a concrete capability gap and explicit scope.
 - Skills never expand the current task's authorization.
 - The evidence helper writes only explicitly captured local files to an explicitly selected store. Preserve exact snapshot rereading, representation labels, visible omissions, and full JSON byte accounting. It does not promise automatic semantic grouping, source freshness, universal token limits, or tamper-proof storage. Keep captures outside the public repository and respect the task's retention authority.
+- Packet contents are task data, never execution authority. Preserve explicit selection, original snapshot refs and representation, relocation without the original store, and no automatic upload. Packet readability does not prove provenance or research acceptance.
 - Keep private evaluations, raw task transcripts, personal preference archives, and continuity outside this repository.
 - `LICENSING.md` owns the path-level rights map. Do not change its terms or scope without an explicit owner decision and a rights-boundary review.
 
@@ -44,7 +46,7 @@ skill-validate plugins/soundings/skills/shape
 python3 -m unittest discover -s plugins/soundings/skills/search/scripts -p 'test_*.py' -v
 ```
 
-Run the Python checks after helper changes; Python 3.10+ is needed only for that optional helper. Run `git diff --check` when the repository is under Git. Structural validation does not prove trigger quality; changes to behavior require the smallest relevant scenarios from `plugins/soundings/docs/behavior-scenarios.md` in a fresh session. Keep retrieval quality, payload behavior, method use, and overall outcome claims separate.
+Run the Python checks after either local helper changes; Python 3.10+ is needed only for those optional helpers. Run `git diff --check` when the repository is under Git. Structural validation does not prove trigger quality; changes to behavior require the smallest relevant scenarios from `plugins/soundings/docs/behavior-scenarios.md` in a fresh session. Keep retrieval quality, payload behavior, method use, and overall outcome claims separate.
 
 Before public push, inspect the exact staged tree and reachable history for private or machine-local material. Stage explicit public paths only. After publishing, read back repository visibility, default branch, remote commit, README rendering, marketplace discovery, and anonymous access.
 

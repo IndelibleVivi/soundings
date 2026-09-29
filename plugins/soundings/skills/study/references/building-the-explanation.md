@@ -19,6 +19,8 @@ Put the candidate explanation to work and watch where it breaks:
 
 The aim is not to defend the first explanation but to find the one that covers the most material with the fewest special cases.
 
+For a multi-step system, locate the first observed loss rather than naming the whole outcome a failure of one component. Material may exist in storage yet be absent from retrieval, present in hits yet lose attribution during assembly, or reach the reader intact and still be misused. Compare neighboring representations or hold the retrieved set fixed when that can distinguish the explanations. A constructed transformation demonstrates its own information loss; it does not prove a real system performs that transformation. Identical final inputs can conceal different upstream causes, so retain the intermediate observation needed to diagnose them.
+
 ## A short illustration
 
 Three accounts of a tool disagree: two say it helped, one says it did not. Simply sorting them, "mostly positive, one negative", reports the disagreement and adds little. If the positive accounts concern repetitive work and the other concerns tasks needing judgment, task structure becomes a candidate explanation for the difference. That suggests comparing how much repetition the current project contains and whether the same mechanism is present. The accounts do not yet establish causation, nor does “did not help” establish harm; training, implementation quality, or task difficulty could also explain the pattern. The synthesis adds a useful conditional hypothesis and a way to distinguish it from rivals.

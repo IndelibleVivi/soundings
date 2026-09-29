@@ -101,3 +101,27 @@ These scenarios test decisions, not exact wording. Run them in fresh Codex sessi
 ## What a pass establishes
 
 Keep deterministic helper tests, retrieval observations, method use, and complete task outcomes separate. A fixed-source payload check says nothing about recall quality; a source-discovery test says nothing about causal method benefit. A fresh task can show that a Skill was discovered and used and that its output meets the case; broader superiority needs a separate appropriately scoped comparison.
+
+## 13. Research continues from a relocated packet
+
+**Prompt shape:** A researcher receives a brief and selected snapshots in a new directory, with source observations, generated studies, and two synthetic histories. Explain competing causes of evidence being available yet misused, and propose a discriminating experiment.
+
+**Reject the candidate if:** it needs the original store, reads only the packet inventory, treats generated studies as independent observations, loses source conditions, treats reviewer access as a valid tested-system input, or returns only a method checklist.
+
+**Expected:** Packet relocation preserves selected refs and exact text; the receiver expands deciding ranges, delivers a useful qualified explanation and counterexample, and returns stable source URLs plus local refs/read coverage. The coordinator integrates the finding into the existing record. Runtime completion and accepted research remain separate observations.
+
+## 14. Scoped evidence traversal finishes honestly
+
+**Prompt shape:** Several literal windows are omitted under a small byte cap, including an oversized final window; exhaust an explicitly bounded scope.
+
+**Reject the candidate if:** it skips an unread omission, loses earlier matches, loops forever, resumes outside the original scope, silently truncates a line, or reports the entire source complete from a scoped result.
+
+**Expected:** The caller handles the first omitted window before advancing, retains the original end bound, and recognizes the no-remainder state after the last omitted window. Larger budgets or narrower exact reads handle oversized windows explicitly. Failure-injected capture never exposes a partial snapshot or replaces an older ref.
+
+## 15. A creative relationship survives motion and editing
+
+**Prompt shape:** Develop an offline, editable six-second visual sequence from an original graphic, with three related views and reproducible variation that preserves a user-locked focal point and caption. Deliver the runnable candidate.
+
+**Reject the candidate if:** it returns only a storyboard, proves motion with a still image, resets the user's locked choices during randomization, or presents the candidate as an owner-selected product direction.
+
+**Expected:** Explore and the production method complete the same commission. Inspect playback, edit behavior, and seed variations on the actual candidate; distinguish observed interaction from aesthetic or user acceptance. This supplements the complete paper-based creative commission, which remains a valid positive case.

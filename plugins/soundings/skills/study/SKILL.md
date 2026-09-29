@@ -13,6 +13,8 @@ Recover the goal, the decisions this understanding will support, the material al
 
 Understanding is often a complete deliverable on its own. Do not defer the synthesis, hand the person the pieces to conclude from, or let the work settle into "read these and summarize".
 
+An unresolved relationship in existing material can supply the next worthwhile question. Explain why answering it would change understanding or making, and pursue it within the commission. Preserve the user's open horizon; a promising question does not become the only permissible thesis.
+
 ## Reconcile the materials
 
 Read across the material for what each piece actually establishes and how the pieces relate: where they agree, where they conflict, and where they are really describing different objects. Align definitions, populations, versions, and conditions before treating two results as comparable; much apparent disagreement is scope, not substance. Read [aligning-materials](references/aligning-materials.md) when sources use the same word for different things, when the amount of independent evidence matters, or when source fact, inference, and transfer must stay apart.

@@ -4,7 +4,7 @@
 
 Soundings develops evidence, understanding, possibilities, and judgeable choices without losing momentum, authorship, or creative range. It can complete an inquiry commission or contribute a bounded intervention inside a larger task. Understanding and creative development are valid outcomes in themselves.
 
-Version 0.2 separates the completion of an inquiry action from the completion of the commission. A query may end before synthesis is done; a choice may be settled while its authorized correction still needs to reach the artifacts. The requested outcome determines delivery.
+Version 0.2 separated the completion of an inquiry action from the completion of the commission. Version 0.3 adds explicit portable research handoffs and develops questions from existing material, while preserving that distinction. A query may end before synthesis is done; a choice may be settled while its authorized correction still needs to reach the artifacts. The requested outcome determines delivery.
 
 The design responds to two opposite failures:
 
@@ -51,6 +51,8 @@ Methods can overlap while the primary commission stays clear. Search can synthes
 
 Study and Explore make two previously underrepresented commissions directly discoverable: understanding a supplied body of material, and developing a clear creative goal. Their inclusion is a product choice supported by these distinct tasks; bounded behavior observations do not establish that four is an optimal number for all hosts.
 
+These entrypoints do not impose a permanent size or instruction-only ceiling. A new capability should make a concrete commission possible, deeper, or easier to continue. Existing tools need not fail completely before growth is justified. Source discovery, corpus lookup, original-source reading, sustained research execution, and inspection of visual/interactive works have different contracts; the [source-capability reference](../skills/search/references/source-capabilities.md) explains their composition without creating a provider registry or required pipeline.
+
 ## Boundaries with existing methods
 
 - Repository engineering methods keep responsibility for implementation, debugging, risk, verification, and integration. Ordinary local inspection and reuse checks remain part of engineering work.
@@ -84,11 +86,32 @@ This is a narrow composition decision: the project does not need to own provider
 
 The contract distinguishes source representation from generated interpretation, local capture time from source freshness, and a stable local reference from a public citation. `complete` describes the requested range output, not research completeness. Soundings' reading method supplies the judgment about when to expand; the CLI cannot infer all distant qualifications or cause the agent to inspect them automatically.
 
+Scoped `find` admits literal windows only within the selected line range and supplies an explicit continuation after the first omitted window has been handled. Capture stages complete JSON and uses a no-clobber hard link before exposing a snapshot name; it requires filesystem hard-link support and does not promise power-loss durability.
+
+## Portable research handoffs
+
+The previous helper could be used by another harness only with access to the selected store. The optional `skills/search/scripts/packet.py` now makes that selection portable: an explicit brief, a manifest, and copies of named evidence snapshots. It reuses the existing evidence schema and loader. The recipient reads the copied store with the same evidence CLI; no import or original file path is required.
+
+```mermaid
+flowchart LR
+    R[Existing project record] -->|selected brief| P[Local inquiry packet]
+    S[Explicit snapshot store] -->|named snapshots only| P
+    P -->|authorized file transfer| T[Recipient directory or harness]
+    T -->|reread evidence and continue inquiry| J[Findings and limits]
+    J -->|coordinator accepts and integrates| R
+```
+
+This diagram describes implemented local selection/readback and the caller-owned handoff. The tool performs no transfer, delegation, or acceptance itself. Packet creation writes a manifest last, refuses an existing output, and reports failure rather than a successful partial packet. Inspection checks membership and readability, not authenticity, confidentiality, evidence quality, or task permission. An interrupted packet stays local for diagnosis; no automatic cleanup or upload occurs.
+
+The brief preserves why the question matters, settled choices versus proposals, evidence dependencies, competing explanations, read coverage, and the remaining responsibility. Use the project's existing record for accepted findings, useful unused clues, and reopening conditions. The packet is a selected copy for continuation, never a second canonical project record. A generated synthesis can travel alongside source text with its representation intact; it is not independent corroboration of its own sources.
+
+Source locators and content are copied as supplied and may contain sensitive material. Transfer authorization and content inspection remain with the caller. Media files and sources merely linked from the brief are not automatically bundled. A research assistant may inspect an experiment's competing histories while a system under test must receive only its authorized test input; portability does not erase that boundary.
+
 Research effort, response size, and retention remain separate. Capture is an explicit authorized local write, not a side effect of searching. A new capture creates a new reference; old reads do not refresh silently. Optional remote corpus experiments, including Cloudflare, remain separate proposals with their own account, retention, and deployment decisions.
 
 ## Current boundaries
 
-Version `0.2.0` has no:
+Version `0.3.0` has no:
 
 - a global Soundings router;
 - fixed stages or mandatory artifacts;
@@ -98,4 +121,4 @@ Version `0.2.0` has no:
 - required edits to other installed Skills or harness configuration;
 - automatic retention, source uploading, model-generated compression, or semantic index.
 
-See the [current evidence summary](../../../docs/dogfood-0.2.0.md) for source, behavior, installation, and publication observations, and the [0.1.0 evidence](../../../docs/dogfood-0.1.0.md) for the earlier bounded tests. These are different claims; installation success does not establish useful inquiry, and a successful example does not prove broad effectiveness.
+See the [current evidence summary](../../../docs/dogfood-0.3.0.md) for source, behavior, installation, and publication observations, and the [0.2.0](../../../docs/dogfood-0.2.0.md) and [0.1.0](../../../docs/dogfood-0.1.0.md) records for earlier observations. These are different claims; installation success does not establish useful inquiry, and a successful example does not prove broad effectiveness.

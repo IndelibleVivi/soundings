@@ -6,6 +6,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 import evidence
 
@@ -115,6 +116,245 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(result.returncode, 2)
         self.assertEqual(result.stdout, b"")
         self.assertIn(b"byte budget", result.stderr)
+
+    # Scoped find and explicit continuation. The previous helper had no scope
+    # parameters, so these cases reject the earlier behavior directly: the
+    # keyword arguments did not exist and no response carried ``continuation``.
+
+    def test_find_scope_restricts_matches_and_reports_scope(self):
+        ref = self.capture("match one\nplain\nmatch two\nplain\nmatch three\n")
+        result = evidence.find(self.store, ref, "match", context=0, start=3, end=5)
+        self.assertEqual(result["scope"], {"start_line": 3, "end_line": 5})
+        self.assertEqual(result["matching_lines"], 2)
+        self.assertEqual([r["start_line"] for r in result["ranges"]], [3, 5])
+        self.assertTrue(result["complete"])
+        self.assertIsNone(result["continuation"])
+        self.assertEqual(result["ranges"][1]["text"], "match three\n")
+
+    def test_find_scope_boundaries_are_inclusive_and_invalid_scopes_fail(self):
+        ref = self.capture("a\nmatch b\nc\nd\n")
+        single = evidence.find(self.store, ref, "match", context=0, start=2, end=2)
+        self.assertEqual(single["ranges"], [{"start_line": 2, "end_line": 2, "text": "match b\n"}])
+        full = evidence.find(self.store, ref, "match", context=0, start=1, end=4)
+        self.assertEqual(full["scope"], {"start_line": 1, "end_line": 4})
+        self.assertTrue(full["complete"])
+        for start, end in ((0, 4), (3, 2), (1, 5), (2, 0)):
+            with self.assertRaises(evidence.EvidenceError):
+                evidence.find(self.store, ref, "match", start=start, end=end)
+
+    def test_find_context_is_clipped_to_the_requested_scope(self):
+        ref = self.capture("l1\nl2\nmatch l3\nl4\nl5\n")
+        result = evidence.find(self.store, ref, "match", context=5, start=3, end=3)
+        self.assertEqual(result["ranges"],
+                         [{"start_line": 3, "end_line": 3, "text": "match l3\n"}])
+        self.assertTrue(result["complete"])
+
+    def test_find_scope_still_merges_overlapping_contexts(self):
+        ref = self.capture("one\nmatch A\nthree\nmatch B\nfive\n")
+        scoped = evidence.find(self.store, ref, "match", context=1, start=2, end=4)
+        self.assertEqual(len(scoped["ranges"]), 1)
+        self.assertEqual(scoped["ranges"][0]["text"], "match A\nthree\nmatch B\n")
+        self.assertEqual(scoped["matching_lines"], 2)
+        self.assertTrue(scoped["complete"])
+
+    def test_find_continuation_exhausts_a_multi_omission_result(self):
+        total = 8
+        body = "".join(f"match {index:02d} " + "p" * 60 + "\nseparator\n" for index in range(total))
+        expected = {index * 2 + 1: f"match {index:02d} " + "p" * 60 + "\n" for index in range(total)}
+        ref = self.capture(body)
+        budget = 900
+
+        collected: dict[int, str] = {}
+        cursor = 1
+        guard = 0
+        while True:
+            guard += 1
+            self.assertLess(guard, total + 5, "continuation did not terminate")
+            result = evidence.find(self.store, ref, "match", context=0, max_bytes=budget, start=cursor)
+            self.assertEqual(result["scope"]["start_line"], cursor)
+            for item in result["ranges"]:
+                collected[item["start_line"]] = item["text"]
+            if result["complete"]:
+                self.assertIsNone(result["continuation"])
+                break
+            # Account for the earliest omitted window before advancing the scope.
+            omitted = result["first_omitted"]
+            reread = evidence.read(self.store, ref, omitted["start_line"], omitted["end_line"], budget)
+            self.assertTrue(reread["complete"])
+            for item in reread["ranges"]:
+                collected[item["start_line"]] = item["text"]
+            self.assertEqual(result["continuation"]["next_start_line"], omitted["end_line"] + 1)
+            cursor = result["continuation"]["next_start_line"]
+
+        self.assertEqual(sorted(collected), sorted(expected))
+        for line, text in collected.items():
+            self.assertEqual(text, expected[line])
+
+    def test_line_exceeding_the_budget_cannot_be_returned_and_needs_a_larger_budget(self):
+        huge = "match " + "Z" * 900 + "\n"
+        ref = self.capture("small match\nseparator\n" + huge)
+        result = evidence.find(self.store, ref, "match", context=0, max_bytes=700)
+        self.assertEqual([r["start_line"] for r in result["ranges"]], [1])
+        self.assertFalse(result["complete"])
+        self.assertEqual(result["first_omitted"], {"start_line": 3, "end_line": 3})
+        self.assertEqual(result["continuation"], {"next_start_line": None})
+        # Reading the exact oversized window is whole-or-omitted, not truncated.
+        too_big = evidence.read(self.store, ref, 3, 3, 700)
+        self.assertFalse(too_big["complete"])
+        self.assertEqual(too_big["ranges"], [])
+        self.assertEqual(too_big["first_omitted"], {"start_line": 3, "end_line": 3})
+        # Only a larger budget can carry that single line, and it stays exact.
+        raised = evidence.read(self.store, ref, 3, 3, 6000)
+        self.assertTrue(raised["complete"])
+        self.assertEqual(raised["ranges"][0]["text"], huge)
+
+    def test_continuation_stops_at_the_scope_boundary_when_the_last_window_is_omitted(self):
+        huge = "match " + "Z" * 900 + "\n"
+        ref = self.capture("small match\nseparator\n" + huge)
+        result = evidence.find(self.store, ref, "match", context=0, max_bytes=700, end=3)
+        self.assertEqual(result["scope"], {"start_line": 1, "end_line": 3})
+        self.assertFalse(result["complete"])
+        self.assertEqual([r["start_line"] for r in result["ranges"]], [1])
+        self.assertEqual(result["first_omitted"], {"start_line": 3, "end_line": 3})
+        # No remainder exists after the last in-scope window, so the caller finishes
+        # here instead of resuming past the scope end.
+        self.assertEqual(result["continuation"], {"next_start_line": None})
+        last = evidence.read(self.store, ref, 3, 3, 6000)
+        self.assertTrue(last["complete"])
+        self.assertEqual(last["ranges"][0]["text"], huge)
+
+    def test_continuation_is_null_when_the_only_window_is_omitted(self):
+        huge = "match " + "Y" * 900 + "\n"
+        ref = self.capture(huge)
+        result = evidence.find(self.store, ref, "match", context=0, max_bytes=700)
+        self.assertEqual(result["scope"], {"start_line": 1, "end_line": 1})
+        self.assertEqual(result["ranges"], [])
+        self.assertEqual(result["first_omitted"], {"start_line": 1, "end_line": 1})
+        self.assertEqual(result["continuation"], {"next_start_line": None})
+
+    def test_cli_scoped_find_reports_scope_and_keeps_stdout_bounded(self):
+        ref = self.capture("a\nmatch b\nc\n" + "match " + "q" * 900 + "\n")
+        command = [sys.executable, str(Path(evidence.__file__)), "find", ref, "match",
+                   "--store", str(self.store), "--context", "0", "--start-line", "1", "--max-bytes", "700"]
+        result = subprocess.run(command, capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertLessEqual(len(result.stdout), 700)
+        payload = json.loads(result.stdout)
+        self.assertEqual(payload["scope"], {"start_line": 1, "end_line": 4})
+        self.assertFalse(payload["complete"])
+        self.assertEqual(payload["first_omitted"], {"start_line": 4, "end_line": 4})
+        self.assertEqual(payload["continuation"], {"next_start_line": None})
+
+    # Capture publication. These exercise the real write path with injected
+    # faults and confirm a partial or failed write never appears as a snapshot.
+
+    def test_publish_stages_complete_content_in_store_before_linking(self):
+        original_link = evidence.os.link
+        observed: dict[str, object] = {}
+
+        def spy(source, destination):
+            observed["source_dir"] = Path(source).parent
+            observed["payload"] = Path(source).read_bytes()
+            observed["published_at_link"] = Path(destination).exists()
+            return original_link(source, destination)
+
+        self.input.write_bytes("atomic body\n".encode("utf-8"))
+        with mock.patch.object(evidence.os, "link", side_effect=spy):
+            result = evidence.capture(self.input, self.store, "https://example.org/s", "T", "verbatim", 8192)
+        ref = result["snapshot"]["ref"]
+        self.assertEqual(observed["source_dir"], self.store)
+        self.assertFalse(observed["published_at_link"])
+        self.assertTrue(observed["payload"].endswith(b"\n"))
+        self.assertEqual(observed["payload"], (self.store / (ref + ".json")).read_bytes())
+        self.assertEqual(evidence.read(self.store, ref)["ranges"][0]["text"], "atomic body\n")
+        self.assertEqual(sorted(p.name for p in self.store.iterdir()), [ref + ".json"])
+
+    def test_failed_publish_leaves_no_snapshot_and_cleans_the_temp_file(self):
+        self.input.write_bytes("data\n".encode("utf-8"))
+        with mock.patch.object(evidence.os, "link", side_effect=OSError("link failed")):
+            with self.assertRaises(OSError):
+                evidence.capture(self.input, self.store, "s", "t", "extracted", 8192)
+        self.assertEqual(sorted(p.name for p in self.store.iterdir()), [])
+
+    def test_interrupted_write_is_cleaned_and_publishes_nothing(self):
+        self.input.write_bytes("data\n".encode("utf-8"))
+        with mock.patch.object(evidence.os, "fsync", side_effect=OSError("fsync failed")):
+            with self.assertRaises(OSError):
+                evidence.capture(self.input, self.store, "s", "t", "extracted", 8192)
+        self.assertEqual(sorted(p.name for p in self.store.iterdir()), [])
+
+    def test_partial_write_is_never_published_and_preserves_older_snapshots(self):
+        good = self.capture("kept evidence\n")
+        original_fdopen = evidence.os.fdopen
+
+        class PartialStream:
+            def __init__(self, stream):
+                self._stream = stream
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return self._stream.__exit__(*exc)
+
+            def write(self, data):
+                self._stream.write(data[: max(1, len(data) // 2)])
+                raise OSError("disk full after a partial write")
+
+            def flush(self):
+                return self._stream.flush()
+
+            def fileno(self):
+                return self._stream.fileno()
+
+        def partial_fdopen(descriptor, *args, **kwargs):
+            return PartialStream(original_fdopen(descriptor, *args, **kwargs))
+
+        self.input.write_bytes("doomed partial\n".encode("utf-8"))
+        with mock.patch.object(evidence.os, "fdopen", side_effect=partial_fdopen):
+            with self.assertRaises(OSError):
+                evidence.capture(self.input, self.store, "s", "t", "extracted", 8192)
+        names = sorted(p.name for p in self.store.iterdir())
+        self.assertEqual(names, [good + ".json"])
+        self.assertFalse(any(name.startswith(".tmp-") for name in names))
+        self.assertEqual(evidence.read(self.store, good)["ranges"][0]["text"], "kept evidence\n")
+
+    def test_existing_reference_is_preserved_and_never_overwritten(self):
+        fixed = mock.Mock()
+        fixed.hex = "0" * 32
+        self.input.write_bytes("first\n".encode("utf-8"))
+        with mock.patch.object(evidence.uuid, "uuid4", return_value=fixed):
+            ref = evidence.capture(self.input, self.store, "s", "t", "extracted", 8192)["snapshot"]["ref"]
+        stored = (self.store / (ref + ".json")).read_bytes()
+        self.input.write_bytes("second\n".encode("utf-8"))
+        with mock.patch.object(evidence.uuid, "uuid4", return_value=fixed):
+            with self.assertRaises(evidence.EvidenceError):
+                evidence.capture(self.input, self.store, "s", "t", "extracted", 8192)
+        self.assertEqual((self.store / (ref + ".json")).read_bytes(), stored)
+        self.assertEqual(sorted(p.name for p in self.store.iterdir()), [ref + ".json"])
+        self.assertEqual(evidence.read(self.store, ref)["ranges"][0]["text"], "first\n")
+
+    def test_failed_capture_keeps_older_snapshots_readable(self):
+        good = self.capture("kept evidence\n")
+        self.input.write_bytes("doomed\n".encode("utf-8"))
+        with mock.patch.object(evidence.os, "link", side_effect=OSError("boom")):
+            with self.assertRaises(OSError):
+                evidence.capture(self.input, self.store, "s", "t", "extracted", 8192)
+        self.assertEqual(sorted(p.name for p in self.store.iterdir()), [good + ".json"])
+        self.assertEqual(evidence.read(self.store, good)["ranges"][0]["text"], "kept evidence\n")
+
+    def test_snapshot_written_in_the_previous_format_stays_readable(self):
+        text = "legacy body\nsecond line\n"
+        ref = "s-" + "1" * 32
+        snapshot = {"schema": evidence.SCHEMA, "ref": ref, "source": "https://example.org/old",
+                    "title": "Old", "representation": "extracted",
+                    "captured_at": "2024-01-01T00:00:00+00:00", "content": text}
+        self.store.mkdir(parents=True, exist_ok=True)
+        (self.store / (ref + ".json")).write_bytes(
+            (json.dumps(snapshot, ensure_ascii=False, separators=(",", ":")) + "\n").encode("utf-8"))
+        result = evidence.read(self.store, ref)
+        self.assertTrue(result["complete"])
+        self.assertEqual(result["ranges"][0]["text"], text)
 
 
 if __name__ == "__main__":

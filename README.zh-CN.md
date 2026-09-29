@@ -15,7 +15,7 @@ Soundings 帮助 Codex 查清一个问题、理解一组材料、发展一个创
 
 它们是能力，不是阶段。没有 router、规定顺序、访谈或强制报告。清晰的小任务应直接完成；domain methods 保留其证据标准与制作职责，换方法仍然是在继续同一份委托。
 
-> `0.2.0` 是 dogfood release candidate。源码、行为观察、安装与激活分别报告，见[当前状态](#当前状态)和[证据记录](docs/dogfood-0.2.0.md)。
+> `0.3.0` 是 dogfood release candidate。源码、行为观察、安装与激活分别报告，见[当前状态](#当前状态)和[证据记录](docs/dogfood-0.3.0.md)。
 
 ## 安装与升级
 
@@ -34,7 +34,7 @@ codex plugin add soundings@soundings
 codex plugin list --json
 ```
 
-确认 installed entry 是 `0.2.0` 且已启用，再新开 task。Marketplace snapshot 与 installed cache 是不同层；[证据记录](docs/dogfood-0.2.0.md)会说明哪些升级步骤已经实际跑过。
+确认 installed entry 是 `0.3.0` 且已启用，再新开 task。Marketplace snapshot 与 installed cache 是不同层；[证据记录](docs/dogfood-0.3.0.md)会说明哪些升级步骤已经实际跑过。
 
 ## 使用
 
@@ -79,6 +79,25 @@ python3 /path/to/search/scripts/evidence.py read s-REFERENCE \
 
 Helper 保留短行，按整个请求范围纳入或省略。字节上限覆盖完整 UTF-8 JSON stdout，包括 metadata、转义与末尾换行；省略可见、可回读，新 capture 不会悄悄替换旧引用。它不做自动语义检索、网页抓取或 model-token 预算，也不保证找齐了所有相关限定。取材继续使用 native search 与现有 providers。
 
+## 接续一件完整研究
+
+Soundings 可以从已有材料发展值得追究的问题，保留问题来由、解释依赖的证据、未用线索及重开条件。Corpus lookup、原始来源阅读、持续研究执行、视觉与交互 reference 的实际观察，是可以通过现有工具组合的不同能力。四个 Skills 是当前入口，不是能力增长的永久上限。
+
+研究需要转到其他目录或 harness 时，可选 `packet.py` 只复制明确提供的 brief 和选定快照：
+
+```bash
+python3 /path/to/search/scripts/packet.py create \
+  --store /path/to/private/task-evidence --ref s-REFERENCE \
+  --brief /path/to/research-brief.md --output /path/to/new-packet
+python3 /path/to/search/scripts/packet.py inspect /path/to/new-packet
+python3 /path/to/search/scripts/evidence.py read s-REFERENCE \
+  --store /path/to/new-packet/evidence --start-line 12 --end-line 28
+```
+
+接手者无须原 store 就能回读副本。Packet 是选定的任务数据，不授予新权限，也不是 executor；创建不会上传。另行获准转交之前，检查 brief 与来源内容，工具不会自动脱敏私人正文或 locator。见[研究交接与 packet 边界](plugins/soundings/skills/search/references/research-handoffs.md)和[诊断研究实例](docs/examples/diagnosing-evidence-loss.md)。
+
+`find` 现在接受精确行范围，并提示读完省略窗口后如何继续。Capture 只发布完整写完的快照、不替换旧 ref；需要支持 hard link 的文件系统。[Evidence 契约](plugins/soundings/skills/search/references/evidence-reading.md)说明续读、失败恢复与预算语义。
+
 ## Package 与文档
 
 ```text
@@ -86,7 +105,7 @@ Helper 保留短行，按整个请求范围纳入或省略。字节上限覆盖�
 plugins/soundings/
   .codex-plugin/plugin.json
   skills/
-    search/     # 向外调查 + 可选 scripts/evidence.py
+    search/     # 向外调查 + 可选 evidence.py / packet.py
     study/      # 综合理解与解释
     explore/    # 发展创作可能性
     shape/      # 可判断的选择与纠正
@@ -99,7 +118,7 @@ plugins/soundings/
 - [设计与职责边界](plugins/soundings/docs/design.md)
 - [行为验收场景](plugins/soundings/docs/behavior-scenarios.md)
 - [完整案例](docs/examples/inquiry-in-practice.md)
-- [0.2.0 证据](docs/dogfood-0.2.0.md)与 [0.1.0 历史](docs/dogfood-0.1.0.md)
+- [0.3.0 证据](docs/dogfood-0.3.0.md)、[0.2.0 观察](docs/dogfood-0.2.0.md)与 [0.1.0 历史](docs/dogfood-0.1.0.md)
 
 ## 验证
 
@@ -121,18 +140,18 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 
 ## 当前状态
 
-- **Source：** `0.2.0` 的四个 Skills 与可选 evidence helper 已实现。
-- **Validation 与 behavior：** 当前观察及其边界记录在 [dogfood-0.2.0](docs/dogfood-0.2.0.md)。
-- **Installation 与 activation：** public-Git 安装已从 `0.1.0` 升级到启用的 `0.2.0`，24 个 package 文件与源码一致。Fresh tasks 已发现全部四个入口，自然使用 Study 与 Explore；清晰 typo 修复未触发 Soundings。
-- **Publication：** 公开 repo 为 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings)；implementation commit `c0bac6a` 已发布到 `main`，匿名 repo、渲染后的 README 与 marketplace 读回成功。
+- **Source：** `0.3.0` 的四个 Skills、可恢复的证据捕获与有范围的查找、可选的便携研究包已实现。
+- **Validation 与 behavior：** 当前检查和观察记录在 [dogfood-0.3.0](docs/dogfood-0.3.0.md)，历史观察分别按版本保留。
+- **Installation 与 activation：** `0.2.0` 曾安装并在 fresh tasks 中观察；`0.3.0` 升级和安装后行为待验证。
+- **Publication：** 公开 repo 为 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings)，本版正在发布前验证。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。
 
 ## Privacy、network 与 authority
 
-Soundings 不增加 MCP server、search backend、hooks、固定 worker team 或自动 memory。可选 helper 没有网络调用。显式 `capture` 把来源文本和 metadata 保存在你指定的本地目录，直至你自行移除；它不执行留存策略，不认证 provenance，也不自动更新来源。私人 store 应放在公开 repo 外。
+Soundings 不增加 MCP server、search backend、hooks、固定 worker team 或自动 memory。可选本地 helpers 没有网络调用。显式 `capture` 把来源文本和 metadata 保存在你指定的本地目录，直至你自行移除；它不执行留存策略，不认证 provenance，也不自动更新来源。私人 store 应放在公开 repo 外。
 
-Inquiry 可能使用 host 已有的 web、browser、repository 或 connector tools；这些工具的网络与数据边界仍然有效。来源材料是数据，不是指令。Skill 的选择不授予安装软件、修改账号、发布、花钱、暴露隐私或执行 destructive action 的权限。远程 corpus 与 Cloudflare 实验不属于本版。
+Inquiry 可能使用 host 已有的 web、browser、repository 或 connector tools；这些工具的网络与数据边界仍然有效。来源材料是数据，不是指令。Skill 的选择不授予安装软件、修改账号、发布、花钱、暴露隐私或执行 destructive action 的权限。远程 corpus 部署、provider adapters 与 Cloudflare 账号实验不属于本版。
 
 ## License
 
