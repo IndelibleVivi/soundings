@@ -4,7 +4,7 @@
 
 Soundings develops evidence, understanding, possibilities, and judgeable choices without losing momentum, authorship, or creative range. It can complete an inquiry commission or contribute a bounded intervention inside a larger task. Understanding and creative development are valid outcomes in themselves.
 
-Version 0.2 separated the completion of an inquiry action from the completion of the commission. Version 0.3 adds explicit portable research handoffs and develops questions from existing material, while preserving that distinction. A query may end before synthesis is done; a choice may be settled while its authorized correction still needs to reach the artifacts. The requested outcome determines delivery.
+Version 0.2 separated the completion of an inquiry action from the completion of the commission. Version 0.3.1 makes project-grounded inquiry explicit: Soundings can discover a consequential unresolved question in existing work and pursue it to a result the project can use. It also corrects the initial 0.3.0 framing by keeping portable research handoffs at optional maintenance scope and removing a rejected generic motion artifact from the forward product contract. A query may end before synthesis is done; a choice may be settled while its authorized correction still needs to reach the artifacts. The requested outcome determines delivery.
 
 The design responds to two opposite failures:
 
@@ -53,6 +53,27 @@ Study and Explore make two previously underrepresented commissions directly disc
 
 These entrypoints do not impose a permanent size or instruction-only ceiling. A new capability should make a concrete commission possible, deeper, or easier to continue. Existing tools need not fail completely before growth is justified. Source discovery, corpus lookup, original-source reading, sustained research execution, and inspection of visual/interactive works have different contracts; the [source-capability reference](../skills/search/references/source-capabilities.md) explains their composition without creating a provider registry or required pipeline.
 
+## Project-grounded inquiry
+
+When a person asks what in an existing project is worth pursuing, Study can own the complete commission even though the narrower question has not yet been supplied. It recovers the project's accepted outcome, current artifacts, settled choices, and live proposals; identifies the unresolved relationship or failure with the greatest consequence; and pursues it through the method that can produce a usable result.
+
+```mermaid
+flowchart LR
+    P[Accepted outcome and current project material]
+    Q[Consequential unresolved question]
+    M[Relevant Soundings or domain method]
+    R[Explanation, observed probe, candidate, correction, or implementation]
+    C[Existing project context]
+
+    P -->|discover by consequence| Q
+    Q -->|continue the same commission| M
+    M --> R
+    R -->|integrate result and reopening conditions| C
+    C -->|later evidence or failure| Q
+```
+
+The diagram is a feedback loop, not a required sequence of Skills. The question may be answered by Study itself or require Search, Explore, Shape, engineering, design, or another active method. Discovery is incomplete if the agent returns only a repository summary, feature backlog, plan, or proposal for work it can perform within the current authority. A technically successful side artifact is not representative product progress unless it answers the project-grounded question or advances the accepted outcome.
+
 ## Boundaries with existing methods
 
 - Repository engineering methods keep responsibility for implementation, debugging, risk, verification, and integration. Ordinary local inspection and reuse checks remain part of engineering work.
@@ -78,7 +99,7 @@ This state usually remains in conversation. Durable records are warranted only w
 
 Skill selection never grants authority. Search may run a probe only when the current request permits it. Shape may continue an already authorized reversible implementation without creating a new approval gate. Read-only requests remain read-only, and external account, production, purchase, publication, private-data, and destructive actions retain their own boundaries.
 
-## Optional evidence support
+## Optional evidence maintenance
 
 Native search and existing providers remain the acquisition paths. The optional Python helper in `skills/search/scripts/evidence.py` adds explicit local capture, exact snapshot/range rereading, literal finding, and a byte cap on complete JSON stdout. It has no external dependencies or network calls and can be invoked from other harnesses.
 
@@ -88,7 +109,7 @@ The contract distinguishes source representation from generated interpretation, 
 
 Scoped `find` admits literal windows only within the selected line range and supplies an explicit continuation after the first omitted window has been handled. Capture stages complete JSON and uses a no-clobber hard link before exposing a snapshot name; it requires filesystem hard-link support and does not promise power-loss durability.
 
-## Portable research handoffs
+## Optional portable research handoffs
 
 The previous helper could be used by another harness only with access to the selected store. The optional `skills/search/scripts/packet.py` now makes that selection portable: an explicit brief, a manifest, and copies of named evidence snapshots. It reuses the existing evidence schema and loader. The recipient reads the copied store with the same evidence CLI; no import or original file path is required.
 
@@ -111,7 +132,7 @@ Research effort, response size, and retention remain separate. Capture is an exp
 
 ## Current boundaries
 
-Version `0.3.0` has no:
+Version `0.3.1` has no:
 
 - a global Soundings router;
 - fixed stages or mandatory artifacts;
@@ -121,4 +142,4 @@ Version `0.3.0` has no:
 - required edits to other installed Skills or harness configuration;
 - automatic retention, source uploading, model-generated compression, or semantic index.
 
-See the [current evidence summary](../../../docs/dogfood-0.3.0.md) for source, behavior, installation, and publication observations, and the [0.2.0](../../../docs/dogfood-0.2.0.md) and [0.1.0](../../../docs/dogfood-0.1.0.md) records for earlier observations. These are different claims; installation success does not establish useful inquiry, and a successful example does not prove broad effectiveness.
+See the [current evidence summary](../../../docs/dogfood-0.3.1.md) for source, behavior, installation, and publication observations; [0.3.0](../../../docs/dogfood-0.3.0.md) preserves the corrected release history, and the [0.2.0](../../../docs/dogfood-0.2.0.md) and [0.1.0](../../../docs/dogfood-0.1.0.md) records preserve earlier observations. These are different claims; installation success does not establish useful inquiry, and a successful example does not prove broad effectiveness.

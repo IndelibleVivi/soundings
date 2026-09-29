@@ -4,6 +4,8 @@
 
 Soundings 帮助 Codex 查清一个问题、理解一组材料、发展一个创作方向，以及让后果重大的选择变得可判断。它负责把当前 inquiry 做到可用的结果；理解本身、一个完整创作，也可以就是交付。
 
+当一个项目已经存在、但下一件值得追的事并不明确时，Soundings 可以从项目已接受的目标与当前 artifacts 出发，找到后果最大的未解问题，并继续做到解释、实际 probe、完整 candidate、纠正或其他项目能用的结果。Backlog、repo 摘要或与项目脱节的 demonstration 都不算这个结果。
+
 名字来自 taking soundings：对尚且看不清的事物做有意的测深与探测。四个可独立发现的 Skills 提供不同入口：
 
 | Skill | 委托 | 有用的结果 |
@@ -15,7 +17,7 @@ Soundings 帮助 Codex 查清一个问题、理解一组材料、发展一个创
 
 它们是能力，不是阶段。没有 router、规定顺序、访谈或强制报告。清晰的小任务应直接完成；domain methods 保留其证据标准与制作职责，换方法仍然是在继续同一份委托。
 
-> `0.3.0` 是已发布的 dogfood 版本。源码、行为观察、安装与激活分别报告，见[当前状态](#当前状态)和[证据记录](docs/dogfood-0.3.0.md)。
+> `0.3.1` 修正了 `0.3.0` 的产品叙事：面向用户的能力是 project-grounded inquiry；evidence packet 仍是可选 maintenance，一个已被否定的通用动效 demo 也不再是前向产品案例。源码、行为观察、安装、激活与发布仍分别报告，见[当前状态](#当前状态)和[证据记录](docs/dogfood-0.3.1.md)。
 
 ## 安装与升级
 
@@ -34,7 +36,7 @@ codex plugin add soundings@soundings
 codex plugin list --json
 ```
 
-确认 installed entry 是 `0.3.0` 且已启用，再新开 task。Marketplace snapshot 与 installed cache 是不同层；[证据记录](docs/dogfood-0.3.0.md)会说明哪些升级步骤已经实际跑过。
+确认 installed entry 是 `0.3.1` 且已启用，再新开 task。Marketplace snapshot 与 installed cache 是不同层；[证据记录](docs/dogfood-0.3.1.md)会说明哪些升级步骤已经实际跑过。
 
 ## 使用
 
@@ -58,6 +60,14 @@ $shape 原型变成了评分问卷，这不是想要的体验。保留六轮与�
 
 四个入口均允许隐式调用，不必一起出现。[完整案例](docs/examples/inquiry-in-practice.md)展示综合理解、创作交付与纠正之间的区别。
 
+从已有项目开始时，可以直接这样委托：
+
+```text
+看看这个项目已经接受的目标与当前 artifacts，找出最值得追的未解问题，并把它做到项目能用的结果，不要只给我 backlog。
+```
+
+当问题需要从现有材料的关系里长出来时，由 Study 接住发现；真正决定答案的工作可以继续交给 Search、Explore、Shape 或当前 domain method，无须变成强制 pipeline。
+
 ## 保留证据成立的条件
 
 版本、适用人群、例外、表头或脚注一旦被丢掉，来源可能就变了意思。Search 与 Study 保留这些条件，追踪所谓相互印证是否来自同一原始材料，并区分观察与解释。搜索广度、阅读深度、综合投入、返回大小和留存策略分别决定。
@@ -79,9 +89,11 @@ python3 /path/to/search/scripts/evidence.py read s-REFERENCE \
 
 Helper 保留短行，按整个请求范围纳入或省略。字节上限覆盖完整 UTF-8 JSON stdout，包括 metadata、转义与末尾换行；省略可见、可回读，新 capture 不会悄悄替换旧引用。它不做自动语义检索、网页抓取或 model-token 预算，也不保证找齐了所有相关限定。取材继续使用 native search 与现有 providers。
 
-## 接续一件完整研究
+## 从未解问题继续一个项目
 
-Soundings 可以从已有材料发展值得追究的问题，保留问题来由、解释依赖的证据、未用线索及重开条件。Corpus lookup、原始来源阅读、持续研究执行、视觉与交互 reference 的实际观察，是可以通过现有工具组合的不同能力。四个 Skills 是当前入口，不是能力增长的永久上限。
+Soundings 可以从已有项目材料发展值得追究的问题，保留问题来由、结果依赖的证据、未用线索及重开条件。它按问题对已接受目标的影响来选择，然后继续用相应方法做下去，而不是停在发现。Corpus lookup、原始来源阅读、持续研究执行、视觉与交互 reference 的实际观察，仍是可以通过现有工具组合的不同能力。
+
+### 可选的交接 maintenance
 
 研究需要转到其他目录或 harness 时，可选 `packet.py` 只复制明确提供的 brief 和选定快照：
 
@@ -118,7 +130,7 @@ plugins/soundings/
 - [设计与职责边界](plugins/soundings/docs/design.md)
 - [行为验收场景](plugins/soundings/docs/behavior-scenarios.md)
 - [完整案例](docs/examples/inquiry-in-practice.md)
-- [0.3.0 证据](docs/dogfood-0.3.0.md)、[0.2.0 观察](docs/dogfood-0.2.0.md)与 [0.1.0 历史](docs/dogfood-0.1.0.md)
+- [0.3.1 证据](docs/dogfood-0.3.1.md)、[0.3.0 纠正记录](docs/dogfood-0.3.0.md)、[0.2.0 观察](docs/dogfood-0.2.0.md)与 [0.1.0 历史](docs/dogfood-0.1.0.md)
 
 ## 验证
 
@@ -129,21 +141,19 @@ skill-validate plugins/soundings/skills/search
 skill-validate plugins/soundings/skills/study
 skill-validate plugins/soundings/skills/explore
 skill-validate plugins/soundings/skills/shape
-~/.local/share/codex-skill-tooling/.venv/bin/python \
-  ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py \
-  plugins/soundings
+python3 -m json.tool plugins/soundings/.codex-plugin/plugin.json >/dev/null
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
   -s plugins/soundings/skills/search/scripts -p 'test_*.py' -v
 ```
 
-这里的 `skill-validate` 与 venv 是开发工具，不是 Soundings 附带的依赖。结构验证不能证明触发或判断质量；请在 fresh tasks 中运行相关[行为场景](plugins/soundings/docs/behavior-scenarios.md)，并检查实际成果。
+`skill-validate` 是开发工具，不是 Soundings 附带的依赖。JSON 检查只建立 manifest 语法成立；一次成功的 marketplace 安装会另行建立当前 host 接受这个 package。结构验证不能证明触发或判断质量；请在 fresh tasks 中运行相关[行为场景](plugins/soundings/docs/behavior-scenarios.md)，并检查实际成果。
 
 ## 当前状态
 
-- **Source：** `0.3.0` 的四个 Skills、可恢复的证据捕获与有范围的查找、可选的便携研究包已实现。
-- **Validation 与 behavior：** 当前检查和观察记录在 [dogfood-0.3.0](docs/dogfood-0.3.0.md)，历史观察分别按版本保留。
-- **Installation 与 activation：** `0.3.0` 已通过 Git marketplace 安装启用，28 个 package 文件与 source 完全一致。Fresh 普通请求自然激活了 installed Search 与 Shape；研究交接和动态候选属于指定 source 的观察，分别报告。
-- **Publication：** `0.3.0` 已可从公开 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source 获取，Python 3.10 与 3.12 CI 均通过。证据记录也保留审阅纠正，以及交给工程方法、没有激活 Shape 的混合任务。
+- **Source：** `0.3.1` 在 Study 与 shared working context 中明确实现 project-grounded question discovery and pursuit，并让 Shape 把已被否定的 side artifact 撤出代表性位置。本地 evidence 与 packet helpers 保持为可选 maintenance。
+- **Validation 与 behavior：** 当前检查和观察记录在 [dogfood-0.3.1](docs/dogfood-0.3.1.md)，更早记录继续作为历史证据保留。
+- **Installation 与 activation：** exact installed version、package comparison 与 fresh-session 行为观察写入当前证据记录，不从 source completion 推断。
+- **Publication：** 公开 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source 与当前证据记录会标明 published commit，并与安装或 runtime activation 分开。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。
 

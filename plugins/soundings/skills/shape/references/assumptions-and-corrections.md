@@ -26,6 +26,8 @@ When feedback or evidence changes an assumption:
 
 Do not keep an old active path “just in case” after its behavior has been replaced. Version control and explicit candidate artifacts provide recovery; stale parallel instructions recreate the same misunderstanding later.
 
+If the user says a candidate is unintelligible, unrelated to the goal, or not a meaningful product advance, treat that as evidence that its representative role failed. Trace that role back to the agent proposal that created it. Remove the candidate from current claims, acceptance scenarios, and dependent plans; do not merely improve its presentation or run more tests on it. Preserve independently useful maintenance at its honest scope, then return to the accepted outcome and produce the replacement result the commission still requires. Historical evidence may record that the rejected candidate existed, but it must remain visibly rejected rather than current proof of value.
+
 ## Bound feedback to what it establishes
 
 - A rejection establishes that the current result is not accepted; diagnosing and repairing the cause remains the agent's work.

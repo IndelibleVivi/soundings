@@ -2,9 +2,11 @@
 
 Observed on 2026-09-30. This is a published dogfood edition with bounded observations, not a claim of broad method effectiveness. Raw traces, selected research packets, and local working continuity remain outside Git.
 
+> **Historical correction:** the owner later rejected this edition's product framing. The portable packet remains useful optional maintenance, but it is not the serious capability growth this record initially implied. The generic six-second motion candidate was technically exercised but was unintelligible and unrelated as a representative Soundings result; it is preserved below only as rejected historical evidence. Version `0.3.1` replaces the forward behavior claim with project-grounded question discovery and pursuit. See the [current evidence record](dogfood-0.3.1.md).
+
 ## Source and deterministic behavior
 
-- Four Skills remain independently discoverable. New conditional references cover source capabilities and portable research handoffs; Study distinguishes loss at neighboring representations, and Explore checks the medium and relationships that must survive editing or variation.
+- Four Skills remain independently discoverable. New conditional references covered source capabilities and portable research handoffs; Study distinguished loss at neighboring representations. The motion/editing emphasis in Explore was later narrowed because the example that motivated it did not represent accepted product value.
 - `evidence.py` supports scoped literal search with explicit continuation, including a no-remainder state after the final omitted window. Capture stages full JSON before no-clobber publication. Existing evidence v1 snapshots remain readable; no migration is required.
 - `packet.py` creates and inspects a selected brief plus evidence snapshots. Relocation does not require an original store. It performs no upload, provider call, worker execution, or automatic material collection.
 - Coordinator validation on Python 3.13.3: **35 unittest checks passed**, covering both local helpers. Four `skill-validate` runs and the plugin validator passed.
@@ -13,7 +15,7 @@ Observed on 2026-09-30. This is a published dogfood edition with bounded observa
 
 The packet checks include exact Unicode/newline preservation after relocation and removal of the original store, selected-only membership, generated representation, missing evidence, explicit output refusal, interrupted creation, and complete stdout byte caps. Readability and selected membership do not establish provenance, secrecy, meaningful coverage, or that an agent used the evidence.
 
-## Project-grounded inquiry
+## Historical portable handoff experiment
 
 The coordinator reproduced Relata's canonical RC-005 offline input audit at source commit `6685486a`: 0/3 full-history collisions, 3/3 after removing speaker, and 2/3 for the last two events. These are three correlated checkpoints in one synthetic development family, with no model reader or memory system run.
 
@@ -34,15 +36,15 @@ The CLI observations below used fresh ephemeral tasks with the ordinary host con
 | Mechanism-oriented public corpus comparison | Ordinary prompt read installed `0.3.0` Search and its source-capability references | Investigated official Cloudflare sources, separated retrieval from generated answers and exact snapshots, exposed documentation conflicts, and proposed an adoption comparison. No service execution occurred; numeric decision thresholds were proposals, not calibrated findings. |
 | Product interpretation and representative choices | Ordinary prompt read installed `0.3.0` Shape and its judgeable-material reference | Recommended a change in interpretation, preserved two players/six rounds/reflection, produced two comparable concrete scenes, and stated experience feedback that could reverse the recommendation. No human playtest was performed. |
 | Mixed correction plus full CLI implementation | Ordinary prompt used Servotab; no Shape read was observed | Replaced the score-to-type mechanism across the spec and a complete six-round activity. A demo and tests ran. Coordinator review fixed a remaining branch that falsely described changed joint choices as agreement; four local tests then passed. This is an engineering handoff observation, **not** an implicit Shape pass. |
-| Editable six-second motion candidate | Explicit source-directed Explore, followed by frontend production references | Produced one offline HTML work with shared original SVG, three related views, caption/focal-point edits, two locks, reproducible seed variation, playback, seek and reset. Coordinator browser inspection confirmed the controls, equal fixed-time frames for the same seed, changed frames for a different seed, and preservation of locked choices. Opening, middle and return states and a 390px layout were inspected. |
+| **Rejected as representative:** editable six-second motion candidate | Explicit source-directed Explore, followed by frontend production references | Produced one offline HTML work with shared original SVG, three related views, caption/focal-point edits, two locks, reproducible seed variation, playback, seek and reset. Those technical observations remain true. The owner rejected the result as unintelligible and unrelated to Soundings' product purpose, so it is not current evidence of product value or a forward acceptance case. |
 
-The motion task could not open a browser in its own restricted execution environment; its runtime harness did not count as browser verification. The coordinator inspected the same candidate through the existing in-app browser and saved local screenshots. The reduced-motion branch was source/runtime checked by the producing task, but the system preference was not toggled in the browser. Visual polish and owner acceptance remain separate from control correctness. The handoff architecture diagram was also rendered and visually inspected. No browser installation was needed.
+The motion task could not open a browser in its own restricted execution environment; its runtime harness did not count as browser verification. The coordinator inspected the same candidate through the existing in-app browser and saved local screenshots. The reduced-motion branch was source/runtime checked by the producing task, but the system preference was not toggled in the browser. These checks established control behavior only. They did not establish relevance, intelligibility, or owner acceptance, and the candidate was later rejected on those grounds. The handoff architecture diagram was also rendered and visually inspected. No browser installation was needed.
 
 ## Installation and publication
 
 Implementation commit `8c6ff5154217a6b6b99fb52e33fd1029e25da010` was pushed to the public Git marketplace source. The existing registration was refreshed with `codex plugin marketplace upgrade soundings`, then `codex plugin add soundings@soundings` installed enabled version `0.3.0`. All **28 package files** matched the canonical source byte for byte. No parallel local marketplace registration was added.
 
-Fresh Search and Shape traces read the installed `0.3.0` paths. The research receiver and motion case explicitly read candidate source, so their results do not prove implicit installed selection for Study or Explore. Historical `0.2.0` Study/Explore observations remain historical. A running main conversation's already-loaded instructions were not treated as hot-upgraded.
+Fresh Search and Shape traces read the installed `0.3.0` paths. The research receiver and rejected motion case explicitly read candidate source, so their results do not prove implicit installed selection for Study or Explore. Historical `0.2.0` Study/Explore observations remain historical. A running main conversation's already-loaded instructions were not treated as hot-upgraded.
 
 ## Limits
 

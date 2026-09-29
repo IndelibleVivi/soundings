@@ -10,7 +10,7 @@
 - `plugins/soundings/docs/design.md` explains architecture and boundaries; `plugins/soundings/docs/behavior-scenarios.md` owns forward-test cases.
 - `plugins/soundings/skills/search/scripts/evidence.py` owns the optional local snapshot CLI; its adjacent tests own deterministic behavior checks. It is source, not a generated provider adapter or a network service.
 - `plugins/soundings/skills/search/scripts/packet.py` owns optional local packaging and inspection of an explicit brief and selected evidence snapshots. It composes the evidence helper; it is not a worker runtime, uploader, or new project authority.
-- `docs/dogfood-0.3.0.md` owns current bounded evidence; earlier `docs/dogfood-*.md` preserve historical observations. Raw traces remain private and outside Git.
+- `docs/dogfood-0.3.1.md` owns current bounded evidence; earlier `docs/dogfood-*.md` preserve historical observations, including the corrected `0.3.0` record. Raw traces remain private and outside Git.
 - `README.md` and `README.zh-CN.md` are co-equal public entrypoints. Keep their status, install, usage, privacy, and rights claims aligned.
 
 ## Source, installation, and runtime
@@ -40,13 +40,11 @@ skill-validate plugins/soundings/skills/search
 skill-validate plugins/soundings/skills/study
 skill-validate plugins/soundings/skills/explore
 skill-validate plugins/soundings/skills/shape
-~/.local/share/codex-skill-tooling/.venv/bin/python \
-  ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py \
-  plugins/soundings
+python3 -m json.tool plugins/soundings/.codex-plugin/plugin.json >/dev/null
 python3 -m unittest discover -s plugins/soundings/skills/search/scripts -p 'test_*.py' -v
 ```
 
-Run the Python checks after either local helper changes; Python 3.10+ is needed only for those optional helpers. Run `git diff --check` when the repository is under Git. Structural validation does not prove trigger quality; changes to behavior require the smallest relevant scenarios from `plugins/soundings/docs/behavior-scenarios.md` in a fresh session. Keep retrieval quality, payload behavior, method use, and overall outcome claims separate.
+Run the Python tests after either local helper changes; Python 3.10+ is needed only for those optional helpers. The JSON check establishes manifest syntax; a successful marketplace install separately establishes that the current host accepts the package. Run `git diff --check` when the repository is under Git. Structural validation does not prove trigger quality; changes to behavior require the smallest relevant scenarios from `plugins/soundings/docs/behavior-scenarios.md` in a fresh session. Keep retrieval quality, payload behavior, method use, and overall outcome claims separate.
 
 Before public push, inspect the exact staged tree and reachable history for private or machine-local material. Stage explicit public paths only. After publishing, read back repository visibility, default branch, remote commit, README rendering, marketplace discovery, and anonymous access.
 

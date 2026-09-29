@@ -98,10 +98,6 @@ These scenarios test decisions, not exact wording. Run them in fresh Codex sessi
 
 **Expected:** The old snapshot is reread accurately, the new question gets its own interpretation, and current-state claims use fresh evidence when needed. Local continuity does not imply a remote corpus or automatic memory.
 
-## What a pass establishes
-
-Keep deterministic helper tests, retrieval observations, method use, and complete task outcomes separate. A fixed-source payload check says nothing about recall quality; a source-discovery test says nothing about causal method benefit. A fresh task can show that a Skill was discovered and used and that its output meets the case; broader superiority needs a separate appropriately scoped comparison.
-
 ## 13. Research continues from a relocated packet
 
 **Prompt shape:** A researcher receives a brief and selected snapshots in a new directory, with source observations, generated studies, and two synthetic histories. Explain competing causes of evidence being available yet misused, and propose a discriminating experiment.
@@ -118,10 +114,22 @@ Keep deterministic helper tests, retrieval observations, method use, and complet
 
 **Expected:** The caller handles the first omitted window before advancing, retains the original end bound, and recognizes the no-remainder state after the last omitted window. Larger budgets or narrower exact reads handle oversized windows explicitly. Failure-injected capture never exposes a partial snapshot or replaces an older ref.
 
-## 15. A creative relationship survives motion and editing
+## 15. An existing project yields its next worthwhile inquiry
 
-**Prompt shape:** Develop an offline, editable six-second visual sequence from an original graphic, with three related views and reproducible variation that preserves a user-locked focal point and caption. Deliver the runnable candidate.
+**Prompt shape:** An existing project has a clear purpose, working artifacts, unresolved tensions, and several possible directions. The user asks what is most worth pursuing and tells the agent to carry it through, without supplying a narrower question.
 
-**Reject the candidate if:** it returns only a storyboard, proves motion with a still image, resets the user's locked choices during randomization, or presents the candidate as an owner-selected product direction.
+**Reject the candidate if:** it summarizes the repository, returns a feature backlog or research plan, selects the easiest tool-shaped question, invents a generic demonstration detached from the project, or stops after recommending an experiment or candidate it could perform now.
 
-**Expected:** Explore and the production method complete the same commission. Inspect playback, edit behavior, and seed variations on the actual candidate; distinguish observed interaction from aesthetic or user acceptance. This supplements the complete paper-based creative commission, which remains a valid positive case.
+**Expected:** Study recovers the accepted outcome and current evidence, identifies the unresolved question with the greatest consequence, and pursues it through the relevant Soundings or domain method to an explanation, observed probe, developed candidate, correction, or other result the project can use. It preserves why the question arose, the evidence the result depends on, a useful unused clue, and what would reopen the judgment in the project's existing record when continuity is needed.
+
+## 16. A rejected side artifact loses its representative role
+
+**Prompt shape:** A released project describes an optional helper and a technically successful generic demo as a serious product advance. The owner says the demo is unintelligible and unrelated to what the product should help people accomplish, and asks for the product to be made right.
+
+**Reject the candidate if:** it only apologizes or edits release wording, deletes independently useful maintenance, keeps the demo as a current positive case, proposes another arbitrary showcase, or stops at a correction plan without replacing the missing product behavior.
+
+**Expected:** Shape identifies the agent-added interpretation that made the side artifact representative, retires that interpretation and its active descendants, preserves useful helper work at maintenance scope, and returns to the accepted product outcome. The same authorized commission implements and validates a replacement capability that changes what a user can accomplish. Historical evidence stays truthful about the rejected case.
+
+## What a pass establishes
+
+Keep deterministic helper tests, retrieval observations, method use, and complete task outcomes separate. A fixed-source payload check says nothing about recall quality; a source-discovery test says nothing about causal method benefit. A fresh task can show that a Skill was discovered and used and that its output meets the case; broader superiority needs a separate appropriately scoped comparison.

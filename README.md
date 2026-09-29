@@ -4,6 +4,8 @@
 
 Soundings helps Codex investigate a question, understand a body of material, develop a creative possibility, and make a consequential choice judgeable. It carries the requested inquiry to a usable result, including when understanding or a creative work is the result.
 
+When a project already exists but its next question is unclear, Soundings can start from the accepted outcome and current artifacts, find the unresolved question with the greatest consequence, and pursue it to an explanation, observed probe, developed candidate, correction, or another result the project can use. A backlog, repository summary, or detached demonstration is not that result.
+
 The name comes from taking soundings: deliberate probes into something whose depth and shape are not yet clear. Four independently discoverable Skills offer different ways into that work:
 
 | Skill | Commission | A useful result |
@@ -15,7 +17,7 @@ The name comes from taking soundings: deliberate probes into something whose dep
 
 These are capabilities, not stages. There is no router, required sequence, interview, or mandatory report. A small clear task should remain direct. Domain methods retain their evidence standards and production responsibilities; changing methods continues the same commission.
 
-> Version `0.3.0` is a published dogfood edition. Source, behavioral observations, installation, and activation are separate claims; see [status](#status) and the [evidence record](docs/dogfood-0.3.0.md).
+> Version `0.3.1` corrects the product framing of `0.3.0`: project-grounded inquiry is the user-facing capability; the evidence packet remains optional maintenance, and a rejected generic motion demo is no longer a forward product case. Source, behavioral observations, installation, activation, and publication remain separate claims; see [status](#status) and the [evidence record](docs/dogfood-0.3.1.md).
 
 ## Install and upgrade
 
@@ -34,7 +36,7 @@ codex plugin add soundings@soundings
 codex plugin list --json
 ```
 
-Check that the installed entry reports `0.3.0` and is enabled, then start a new task. The marketplace refresh and installed cache are different layers. The [evidence record](docs/dogfood-0.3.0.md) reports which upgrade steps have actually been exercised.
+Check that the installed entry reports `0.3.1` and is enabled, then start a new task. The marketplace refresh and installed cache are different layers. The [evidence record](docs/dogfood-0.3.1.md) reports which upgrade steps have actually been exercised.
 
 ## Use
 
@@ -58,6 +60,14 @@ $shape The prototype became a rating questionnaire; that was not the intended ex
 
 All four permit implicit invocation. They do not need to appear together. Read [worked examples](docs/examples/inquiry-in-practice.md) for the distinction between synthesis, creative delivery, and correction.
 
+An existing-project commission can begin naturally:
+
+```text
+Look through this project's accepted goals and current artifacts. Find the unresolved question that is most worth pursuing, and carry it to a result the project can use rather than giving me a backlog.
+```
+
+Study owns discovery when the question must emerge from relationships in existing material. Search, Explore, Shape, or the active domain method may do the deciding work without turning the commission into a required pipeline.
+
 ## Evidence without losing its conditions
 
 A source may change its meaning when its version, population, exception, table header, or footnote is dropped. Search and Study preserve those conditions, trace whether apparent corroboration comes from the same original, and separate observations from interpretation. Search breadth, reading depth, synthesis effort, response size, and retention are independent choices.
@@ -79,9 +89,11 @@ Use the actual installed Search directory and replace `s-REFERENCE` with the ret
 
 The helper preserves short lines and admits whole requested ranges. Its byte cap covers complete UTF-8 JSON stdout, including metadata, escaping, and the final newline. Omission is visible and rereadable; a new capture never silently replaces an older reference. This is not automatic semantic retrieval, a web crawler, model-token budgeting, or a claim that all relevant qualifications have been found. Native search and existing providers remain the acquisition paths.
 
-## Continue a substantial inquiry
+## Continue a project from its unresolved question
 
-Soundings can develop a useful question from existing material and retain why it matters, the explanation's evidence dependencies, unused clues, and what would reopen it. Corpus lookup, original-source reading, sustained research execution, and visual or interactive reference inspection are distinct capabilities to compose through available tools. Four Skills are the current entrypoints, not a permanent ceiling on useful capability.
+Soundings can develop a useful question from existing project material and retain why it matters, the result's evidence dependencies, unused clues, and what would reopen it. It chooses by consequence for the accepted outcome, then continues through the relevant method instead of stopping after discovery. Corpus lookup, original-source reading, sustained research execution, and visual or interactive reference inspection remain distinct capabilities to compose through available tools.
+
+### Optional handoff maintenance
 
 When research moves to another directory or harness, the optional `packet.py` copies only an explicit brief and selected snapshots:
 
@@ -118,7 +130,7 @@ plugins/soundings/
 - [Design and responsibility boundaries](plugins/soundings/docs/design.md)
 - [Forward behavior scenarios](plugins/soundings/docs/behavior-scenarios.md)
 - [Worked examples](docs/examples/inquiry-in-practice.md)
-- [0.3.0 evidence](docs/dogfood-0.3.0.md), [0.2.0 observations](docs/dogfood-0.2.0.md), and [0.1.0 history](docs/dogfood-0.1.0.md)
+- [0.3.1 evidence](docs/dogfood-0.3.1.md), [0.3.0 correction history](docs/dogfood-0.3.0.md), [0.2.0 observations](docs/dogfood-0.2.0.md), and [0.1.0 history](docs/dogfood-0.1.0.md)
 
 ## Validate
 
@@ -129,21 +141,19 @@ skill-validate plugins/soundings/skills/search
 skill-validate plugins/soundings/skills/study
 skill-validate plugins/soundings/skills/explore
 skill-validate plugins/soundings/skills/shape
-~/.local/share/codex-skill-tooling/.venv/bin/python \
-  ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py \
-  plugins/soundings
+python3 -m json.tool plugins/soundings/.codex-plugin/plugin.json >/dev/null
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
   -s plugins/soundings/skills/search/scripts -p 'test_*.py' -v
 ```
 
-`skill-validate` and the venv above are development tooling, not dependencies bundled with Soundings. Structural validation does not prove useful triggering or judgment. Run relevant [behavior scenarios](plugins/soundings/docs/behavior-scenarios.md) in fresh tasks and inspect the resulting work.
+`skill-validate` is development tooling, not a dependency bundled with Soundings. The JSON check establishes manifest syntax; a successful marketplace install separately establishes that the current host accepts the package. Structural validation does not prove useful triggering or judgment. Run relevant [behavior scenarios](plugins/soundings/docs/behavior-scenarios.md) in fresh tasks and inspect the resulting work.
 
 ## Status
 
-- **Source:** four Skills, recoverable evidence capture and scoped search, and an optional portable inquiry packet are implemented for `0.3.0`.
-- **Validation and behavior:** current checks and observations are recorded in [dogfood-0.3.0](docs/dogfood-0.3.0.md); historical observations remain versioned separately.
-- **Installation and activation:** `0.3.0` was installed and enabled through the Git marketplace; all 28 package files matched source. Fresh ordinary prompts activated installed Search and Shape. The research handoff and motion candidate were source-directed observations, reported separately.
-- **Publication:** `0.3.0` is available from the public [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source. Python 3.10 and 3.12 CI passed. The evidence record includes review corrections and the mixed task that used the engineering method without activating Shape.
+- **Source:** `0.3.1` makes project-grounded question discovery and pursuit explicit in Study and shared working context, and makes rejected side artifacts lose their representative role through Shape. The local evidence and packet helpers remain optional maintenance.
+- **Validation and behavior:** current checks and observations are recorded in [dogfood-0.3.1](docs/dogfood-0.3.1.md); earlier records remain versioned as historical evidence.
+- **Installation and activation:** the exact installed version, package comparison, and fresh-session behavior observations are reported in the current evidence record rather than inferred from source completion.
+- **Publication:** the public [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source and the current evidence record identify the published commit and distinguish it from installation or runtime activation.
 
 Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
 

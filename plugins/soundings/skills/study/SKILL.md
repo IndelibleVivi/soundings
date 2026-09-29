@@ -1,6 +1,6 @@
 ---
 name: study
-description: "Reconcile a body of material into an explanation, mechanism, real disagreement, or new judgment the work can use, instead of reading sources one by one. Use when several studies or reports must be combined, versions and applicability decide how far a claim holds, or understanding the material is itself the result. Yields to straight fact-finding, a single-source lookup, or ordinary summary."
+description: "Reconcile a body of material into an explanation, mechanism, real disagreement, or new judgment the work can use, instead of reading sources one by one. Use when several studies or reports must be combined, versions and applicability decide how far a claim holds, an existing project should yield its next worthwhile question and a pursued result, or understanding the material is itself the result. Yields to straight fact-finding, a single-source lookup, or ordinary summary."
 ---
 
 # Study
@@ -13,7 +13,7 @@ Recover the goal, the decisions this understanding will support, the material al
 
 Understanding is often a complete deliverable on its own. Do not defer the synthesis, hand the person the pieces to conclude from, or let the work settle into "read these and summarize".
 
-An unresolved relationship in existing material can supply the next worthwhile question. Explain why answering it would change understanding or making, and pursue it within the commission. Preserve the user's open horizon; a promising question does not become the only permissible thesis.
+An unresolved relationship in existing material can supply the next worthwhile question. Explain why answering it would change understanding or making, and pursue it within the commission. Preserve the user's open horizon; a promising question does not become the only permissible thesis. When the request is to continue, grow, or sound out an existing project, read [project-grounded sounding](references/project-grounded-sounding.md). Naming promising questions is intermediate work, not the result.
 
 ## Reconcile the materials
 

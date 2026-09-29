@@ -1,6 +1,6 @@
 {
   "name": "soundings",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Complete research and creative inquiry with independent Search, Study, Explore, and Shape skills.",
   "author": {
     "name": "Faye Fang",
@@ -21,20 +21,21 @@
   "interface": {
     "displayName": "Soundings",
     "shortDescription": "Research, understand, explore, and shape the work",
-    "longDescription": "Soundings helps agents investigate external evidence, synthesize a body of material, develop concrete creative possibilities, and make consequential choices or corrections judgeable. Four independent skills can own complete commissions or contribute inside an existing task. An optional local Python helper preserves selected source snapshots for exact rereading and bounded evidence responses. Selected evidence and a research brief can travel in an optional local packet for continuation across directories and harnesses.",
+    "longDescription": "Soundings helps agents investigate external evidence, synthesize a body of material, develop concrete creative possibilities, and make consequential choices or corrections judgeable. It can also begin with an existing project, find the unresolved question that most affects its accepted outcome, and pursue that question to a useful result. Four independent skills can own complete commissions or contribute inside an existing task.",
     "developerName": "Faye Fang",
     "category": "Productivity",
     "capabilities": [
       "Evidence discovery",
       "Material synthesis",
+      "Project-grounded inquiry",
       "Creative exploration",
       "Problem shaping",
-      "Local evidence rereading",
-      "Portable research handoff"
+      "Local evidence rereading"
     ],
     "defaultPrompt": [
       "Investigate the evidence and conditions that could change this decision.",
       "Reconcile these materials into a useful explanation of what we know.",
+      "Find the unresolved question in this project that is most worth pursuing, and carry it to a useful result.",
       "Develop this idea into a complete candidate I can react to.",
       "Make this consequential choice judgeable and carry the correction through."
     ]

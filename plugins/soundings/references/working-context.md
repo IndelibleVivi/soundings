@@ -12,6 +12,8 @@ Keep a compact working understanding, usually in context rather than as a new fi
 
 Do not confuse these categories while compressing or handing off work. A recommendation is not a settled choice; a successful probe is not adoption; a user preference about one artifact is not whole-project approval; a committed implementation is not deployment.
 
+When the commission asks what in an existing project is worth pursuing, discovering the question is part of the work rather than a reason to return a backlog. Ground candidates in the accepted outcome and current artifacts, choose by consequence, and pursue the strongest question to a usable result within the current authority. Do not manufacture an unrelated demo because it is easier to show than the project's real uncertainty.
+
 Switching Skills must not reset prior choices, repeat questions already answered, or require a new brief. Pass only the context that changes the receiving method's decisions. A worker or external model does not inherit the task automatically; provide the minimum sufficient, privacy-safe contract when delegation is authorized.
 
 Keep action completion separate from commission completion. A query can be finished while synthesis remains; a choice can be settled while its authorized implementation remains. Carry forward the full requested outcome, important findings not adopted, and the reason a route was deferred. Do not equate “a next step exists” with delivery, or invent additional work after the commission is satisfied.
