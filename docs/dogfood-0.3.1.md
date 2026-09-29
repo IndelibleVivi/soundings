@@ -28,11 +28,19 @@ The previously documented `plugin-creator/scripts/validate_plugin.py` path no lo
 
 ## Fresh behavior observations
 
-Fresh installed behavior has not yet been recorded in this source-candidate entry. Scenario 15 now requires an ordinary existing-project request to discover and pursue one consequential unresolved question; scenario 16 requires a rejected side artifact to lose its representative role while useful maintenance stays bounded. Source structure alone does not establish either behavior.
+A fresh ephemeral task used the installed `0.3.1` package, built-in OpenAI provider, and `gpt-5.6-sol` at high reasoning effort. The ordinary Chinese prompt did not name a Soundings Skill. It asked the agent to inspect the public Soundings repository, select the most consequential unresolved product question, and pursue it to a usable read-only judgment rather than a summary, backlog, or plan.
+
+The task explicitly selected installed `soundings:study`, read its project-grounded sounding reference, and also read the installed Shape correction reference. It chose whether Soundings' product value is a collection of working Skills and helpers or the ability to select and complete an inquiry whose narrower question has not yet been supplied. It concluded that the latter is the primary capability and proposed **commission delta**—which previously incomplete or impossible real commission can now be completed—as the unit for future capability-growth claims.
+
+The result related historical evidence, current runtime contracts, and missing acceptance evidence; produced a directly reusable ordinary prompt; named an unused clue from the earlier evidence-loss inquiry; and specified observations that would reopen the implementation, product-centrality, or causal-improvement judgments. It did not edit files, delegate, return a feature backlog, or treat helper correctness and the rejected demo as product progress. This is one self-referential public-repository case, not cross-project or causal evidence.
+
+The run exposed a separate manifest issue: the host supports at most three `interface.defaultPrompt` entries and ignored the previous longer array. Version `0.3.1` now supplies three prompts that cover external investigation, synthesis/project-grounded inquiry, and creative development/consequential correction. Skill discovery in the observed run came from the installed Skill description rather than the ignored prompt array.
 
 ## Installation and publication
 
-This source-candidate entry does not yet claim marketplace refresh, installed-file identity, fresh-session activation, or public remote readback. Those observations must be added after the corresponding actions succeed.
+Behavior implementation commit `ac21dc9` was pushed to the public Git marketplace source. The existing Git registration was refreshed with `codex plugin marketplace upgrade soundings`, and `codex plugin add soundings@soundings` installed enabled version `0.3.1`. The first installed candidate contained **29 package files**, all identical to canonical source after an untracked local `__pycache__` was removed from the comparison. No parallel local marketplace registration was added.
+
+The default-prompt correction requires one final marketplace refresh, reinstall, package comparison, and fresh-session startup before this record can claim the final installed tree and public readback.
 
 ## Limits
 

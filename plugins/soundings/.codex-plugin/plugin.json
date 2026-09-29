@@ -34,10 +34,8 @@
     ],
     "defaultPrompt": [
       "Investigate the evidence and conditions that could change this decision.",
-      "Reconcile these materials into a useful explanation of what we know.",
-      "Find the unresolved question in this project that is most worth pursuing, and carry it to a useful result.",
-      "Develop this idea into a complete candidate I can react to.",
-      "Make this consequential choice judgeable and carry the correction through."
+      "Reconcile these materials, or find the unresolved project question most worth pursuing, and carry it to a useful result.",
+      "Develop a concrete creative possibility, or make a consequential correction judgeable and carry it through."
     ]
   }
 }
