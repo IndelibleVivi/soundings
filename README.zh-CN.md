@@ -153,7 +153,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 - **Source：** `0.3.1` 在 Study 与 shared working context 中明确实现 project-grounded question discovery and pursuit，并让 Shape 把已被否定的 side artifact 撤出代表性位置。本地 evidence 与 packet helpers 保持为可选 maintenance。
 - **Validation 与 behavior：** 当前检查和观察记录在 [dogfood-0.3.1](docs/dogfood-0.3.1.md)，更早记录继续作为历史证据保留。
 - **Installation 与 activation：** Git marketplace 安装接受了 enabled `0.3.1`，installed candidate 与 29 个 canonical package 文件一致。一个普通 fresh prompt 自然选择了 installed Study，并完成了一次 project-grounded 产品判断。精确范围与限制见当前证据记录。
-- **Publication：** behavior implementation commit `ac21dc9` 与 final package follow-up `9cf0d4d` 已可从公开 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source 获取。当前证据记录继续把发布、安装和 runtime behavior 分开。
+- **Publication：** behavior implementation commit `ac21dc9` 与截至 `1a33654` 的 package follow-ups 已可从公开 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source 获取。当前证据记录继续把发布、安装和 runtime behavior 分开。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。
 

@@ -153,7 +153,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 - **Source:** `0.3.1` makes project-grounded question discovery and pursuit explicit in Study and shared working context, and makes rejected side artifacts lose their representative role through Shape. The local evidence and packet helpers remain optional maintenance.
 - **Validation and behavior:** current checks and observations are recorded in [dogfood-0.3.1](docs/dogfood-0.3.1.md); earlier records remain versioned as historical evidence.
 - **Installation and activation:** Git marketplace installation accepted enabled version `0.3.1`, and the installed candidate matched 29 canonical package files. An ordinary fresh prompt selected installed Study and completed one project-grounded product judgment. Exact scope and limits are in the current evidence record.
-- **Publication:** behavior implementation commit `ac21dc9` and the final package follow-up `9cf0d4d` are available from the public [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source. The current evidence record keeps publication separate from installation and runtime behavior.
+- **Publication:** behavior implementation commit `ac21dc9` and package follow-ups through `1a33654` are available from the public [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source. The current evidence record keeps publication separate from installation and runtime behavior.
 
 Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
 
