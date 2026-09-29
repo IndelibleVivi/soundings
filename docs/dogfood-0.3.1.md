@@ -36,11 +36,13 @@ The result related historical evidence, current runtime contracts, and missing a
 
 The run exposed a separate manifest issue: the host supports at most three `interface.defaultPrompt` entries and ignored the previous longer array. Version `0.3.1` now supplies three prompts that cover external investigation, synthesis/project-grounded inquiry, and creative development/consequential correction. Skill discovery in the observed run came from the installed Skill description rather than the ignored prompt array.
 
+After the prompt-array correction and final reinstall, a second fresh ordinary Chinese prompt audited whether the rejected 0.3 interpretation still had an active descendant. It found the runtime contracts, forward scenarios, manifest capability list, bilingual public status, and corrected historical evidence aligned. It distinguished packet regression protection from product capability and returned one decisive reopening condition: an ordinary prompt on a new, non-self-referential real project again yields only a summary, backlog, proposed experiment, or detached demo instead of completing the consequential inquiry. No explicit installed Shape selection was observed in this second task, so it is a final-tree correction audit rather than implicit Shape activation evidence.
+
 ## Installation and publication
 
-Behavior implementation commit `ac21dc9` was pushed to the public Git marketplace source. The existing Git registration was refreshed with `codex plugin marketplace upgrade soundings`, and `codex plugin add soundings@soundings` installed enabled version `0.3.1`. The first installed candidate contained **29 package files**, all identical to canonical source after an untracked local `__pycache__` was removed from the comparison. No parallel local marketplace registration was added.
+Behavior implementation commit `ac21dc9` and the default-prompt/evidence follow-up `9cf0d4d` were pushed to the public Git marketplace source. The existing Git registration was refreshed with `codex plugin marketplace upgrade soundings`, and `codex plugin add soundings@soundings` installed enabled version `0.3.1`. The final installed package contained **29 files**, all identical to canonical `plugins/soundings/`. No parallel local marketplace registration was added.
 
-The default-prompt correction requires one final marketplace refresh, reinstall, package comparison, and fresh-session startup before this record can claim the final installed tree and public readback.
+A fresh task started from the final installed candidate without the earlier `interface.defaultPrompt` limit warning. The package was therefore accepted by the host after the manifest correction. This does not turn installation into behavior evidence; the two fresh observations above retain their separate scopes.
 
 ## Limits
 
