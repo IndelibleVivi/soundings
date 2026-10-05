@@ -69,7 +69,7 @@ change and let the same workflow rebuild; do not manually edit `dist/`.
 - `app/garden-terrain.tsx` — the oblique whole-garden hero and its four landmark
   entry points.
 - `app/garden-architecture.tsx` — shared SVG architecture: lattice, method
-  glyphs, interactive porch, quiet window.
+  glyphs and the interactive porch.
 - `app/garden-scenes.tsx` — the four fixed method demonstrations
   (Search/Explore/Shape).
 - `app/study-evidence.tsx` — the fixed Study demonstration.
@@ -77,9 +77,10 @@ change and let the same workflow rebuild; do not manually edit `dist/`.
 - `lib/` — base-URL helper, copy-to-clipboard helper, class merge helper.
 - `app/globals.css` — Tailwind + shadcn theme tokens.
 - `app/courtyard.css` — base layout/presentation for the garden composition.
-- `app/terrain.css` — R4 terrain layer: the whole-garden scale and method scenes.
-- `app/refinement.css` — architectural/book refinement layer, loaded last.
-- `public/assets/` — paintings and method glyph SVGs.
+- `app/terrain.css` — the whole-garden scale, landmarks and method scenes.
+- `app/refinement.css` — focus, brand mark and reading-dialog margins, loaded last.
+- `public/assets/` — the current watercolor paintings; small method glyphs
+  are inline SVGs in `garden-architecture.tsx`.
 - `public/fonts/` — self-hosted subset fonts and their OFL sources.
 - `public/favicon.svg` — site favicon.
 - `scripts/third-party-notices.mjs` — retains third-party notices in the static build.
@@ -89,28 +90,42 @@ change and let the same workflow rebuild; do not manually edit `dist/`.
 
 ## Design commitments
 
-The whole oblique garden is the visual centre, not a hero image beside ordinary
-sections. Garden identity carries through the header, method navigation, prompt
-sheets, the bound album leaves of the reading room, the album reading dialog,
-and the desk controls. Details are original and code-native (CSS/SVG/HTML): slim
-lattice joinery, hung paper title slips, stitched spines, folded source sheets,
-deliberate album margins, and restrained roof/water/botanical motifs at section
-transitions. No detail claims historical authority or imitates a seal. See
+The whole oblique garden is the visual centre. Its four architectural forms
+connect to outward investigation, reading across materials, developing possible
+routes, and comparing framed views. Garden identity continues through the header,
+method navigation, prompt sheets, illustrated album leaves, reading dialog, and
+desk controls. Watercolor paintings combine with original SVG architecture,
+spare linework, inscriptions, and deliberate album margins. No detail claims
+historical authority or imitates a historical seal. See
 [website design](../docs/website-design.md) for the accepted visual commitments.
 
 The final logo remains a candidate; the marks shipped are functional joinery.
 
 ## Self-hosted fonts
 
-The Chinese reading font is **Jiandi Song**, a renamed, content-subset build of
-Adobe Source Han Serif SC 2.003 (Regular and Medium).
+Chinese headings and short inscriptions use **Jiandi Kai**, renamed,
+content-specific Regular/Medium subsets of LXGW WenKai 1.522. Longer Chinese
+reading uses **Jiandi Song**, renamed Regular/Medium subsets of Adobe Source Han
+Serif SC 2.003.
 
-- License: SIL Open Font License 1.1, retained in `public/fonts/OFL.txt`.
-- Sources, byte sizes and SHA-256 hashes: `public/fonts/SOURCES.json`.
-- Requested family names avoid the reserved name "Source" per the OFL.
-- Rebuild with `python3 scripts/subset-brand-fonts.py /path/to/original-fonts`
-  after adding new Chinese text (requires fontTools); the script scans the site source for the glyph
-  set and writes `public/fonts/jiandi-song-{regular,medium}.woff`.
+- Both remain under SIL Open Font License 1.1. Notices are retained in
+  `public/fonts/OFL-WenKai.txt` and `public/fonts/OFL.txt`.
+- Original download records: `public/fonts/KAI-SOURCES.json` and
+  `public/fonts/SOURCES.json`. Derivatives use distinct primary family names.
+- After adding Chinese text, run
+  `python3 scripts/subset-brand-fonts.py /path/to/wenkai-originals --family kai`
+  and `python3 scripts/subset-brand-fonts.py /path/to/serif-originals --family song`
+  (requires fontTools). The script scans actual site text and writes the two
+  corresponding `public/fonts/jiandi-{kai,song}-{regular,medium}.woff` subsets.
+
+## Painting assets
+
+`public/assets/` holds five current watercolor illustrations: the whole inquiry
+garden, magnolia and bird, two reading albums, the unfolding creation map, and a
+small lotus motif. They are original AI-generated assets; their publication does
+not expand the rights map. Use base-aware URLs and preserve transparency. Keep
+large source PNGs, generation records, and rejected candidates outside the public
+source and build. WebP conversion changes file encoding, not composition.
 
 ## Bundled stylesheet notice
 

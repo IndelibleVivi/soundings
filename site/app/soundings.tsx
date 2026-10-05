@@ -1,8 +1,9 @@
 import { copyTextToClipboard } from '@/lib/copy-text';
+import { assetUrl } from '@/lib/base';
 
 import { useEffect, useRef, useState } from 'react';
 import { SkillScene } from './garden-scenes';
-import { BookWindow, GardenPorch, MethodGlyph } from './garden-architecture';
+import { GardenPorch, MethodGlyph } from './garden-architecture';
 import { GardenTerrain } from './garden-terrain';
 import { Check, Copy, GitFork, Menu, X, BookOpen } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -148,16 +149,15 @@ export default function Soundings() {
         }} />
 
         <section className="methods-section" id="methods" aria-labelledby="methods-title">
-          <span className="motif motif-roofline" aria-hidden="true"><i /><i /><i /><i /><i /></span>
           <div className="section-width">
             <div className="section-heading"><div><p className="eyebrow">{zh ? '园中 · 各有一境' : 'WITHIN THE GARDEN'}</p><h2 id="methods-title">{zh ? '从你需要的那一处，进去。' : 'Enter where the work needs you.'}</h2></div><p className="section-intro">{zh ? '向外寻，向内读，动手做，看清再定。每一种方法，都可以独立开始。' : 'Look outward. Read across. Make something. See the difference. Each method is its own beginning.'}</p></div>
             <Tabs className="method-tabs" value={activeMethod} onValueChange={setActiveMethod}>
               <TabsList className="method-list" variant="line" aria-label={zh ? '选择一种探问方式' : 'Choose an inquiry method'}>
-                {methods.map(method => <TabsTrigger key={method.id} value={method.id} className="method-trigger" data-method={method.id}><span className="method-joinery" aria-hidden="true" /><span className="method-glyph-panel" aria-hidden="true"><MethodGlyph method={method.id} /></span><span className="method-names"><span className="method-slip">{method.name}</span><small>{method.english}</small></span></TabsTrigger>)}
+                {methods.map(method => <TabsTrigger key={method.id} value={method.id} className="method-trigger" data-method={method.id}><span className="method-glyph-panel" aria-hidden="true"><MethodGlyph method={method.id} /></span><span className="method-names"><span className="method-slip">{method.name}</span><small>{method.english}</small></span></TabsTrigger>)}
               </TabsList>
               {methods.map(method => <TabsContent className="method-panel" key={method.id} value={method.id}>
                 <aside className="method-commentary"><div className="method-explanation"><span className="method-category">{method.english.toUpperCase()} · {method.name}</span><h3>{t(method.title)}</h3><p>{t(method.description)}</p><div className="method-result"><span>{zh ? '这一程，可以带走' : 'WHAT YOU TAKE WITH YOU'}</span><p>{t(method.result)}</p></div></div>
-                  <details className="prompt-sheet"><summary><span className="prompt-tab" aria-hidden="true" />{zh ? '把它带到我的工作里' : 'Bring it to my work'}</summary><div className="prompt-inside"><span className="prompt-fold" aria-hidden="true" /><p className="sample-prompt">{t(method.prompt)}</p><div className="prompt-bottom"><button className="copy-button" onClick={() => copyText(t(method.prompt), method.id)} aria-label={(zh ? '复制' : 'Copy ') + method.english + (zh ? '示例提示词' : ' example prompt')}>{copyState.key === method.id && copyState.success ? <Check size={15} /> : <Copy size={15} />}<span>{copyLabel(method.id)}</span></button></div></div></details>
+                  <details className="prompt-sheet"><summary>{zh ? '把它带到我的工作里' : 'Bring it to my work'}</summary><div className="prompt-inside"><p className="sample-prompt">{t(method.prompt)}</p><div className="prompt-bottom"><button className="copy-button" onClick={() => copyText(t(method.prompt), method.id)} aria-label={(zh ? '复制' : 'Copy ') + method.english + (zh ? '示例提示词' : ' example prompt')}>{copyState.key === method.id && copyState.success ? <Check size={15} /> : <Copy size={15} />}<span>{copyLabel(method.id)}</span></button></div></div></details>
                   <p className="method-small-poem">{t(method.note)}</p>
                 </aside>
                 <div className="method-artpage"><SkillScene method={method.id} language={language} /></div>
@@ -169,17 +169,16 @@ export default function Soundings() {
         <section className="library-section section-width" id="library" aria-labelledby="library-title">
           <div className="section-heading"><div><p className="eyebrow">{zh ? '书房 · 展卷有得' : 'THE READING ROOM'}</p><h2 id="library-title">{zh ? '有些理解，长成了作品。' : 'Some understanding grows into a work.'}</h2></div><p className="section-intro">{zh ? '两份具体的工作，留在这里。翻开，看它们如何一步步有了自己的样子。' : 'Two pieces of work, kept here to read. Open one and see how it found its own form.'}</p></div>
           <div className="case-shelf">
-            {cases.map((item,index) => <button key={item.id} className={'case-book ' + item.className} onClick={event => { openedBook.current = event.currentTarget; setActiveCase(item.id); }} aria-haspopup="dialog"><span className="book-binding" aria-hidden="true">{Array.from({length:5},(_,i)=><i key={i} />)}</span><span className="book-page-edges" aria-hidden="true" /><span className="case-cover"><span className="case-window" aria-hidden="true"><BookWindow variant={item.id} /></span><span className="case-label">{item.category}</span><span className="case-title">{t(item.title)}</span><span className="case-description">{t(item.description)}</span><span className="case-book-bottom"><span>{t(item.meta)}</span><span className="read-case"><BookOpen size={17} />{zh ? '展卷' : 'Open the leaf'}</span></span></span><span className="book-corner-mark" aria-hidden="true">{index === 0 ? '游' : '读'}</span></button>)}
+            {cases.map(item => <button key={item.id} className={'case-book ' + item.className} onClick={event => { openedBook.current = event.currentTarget; setActiveCase(item.id); }} aria-haspopup="dialog"><span className="case-illustration" aria-hidden="true"><img src={assetUrl('assets/' + (item.id === 'elsewhere' ? 'wandering-map-watercolor.webp' : 'reading-album-watercolor.webp'))} width="1536" height="1024" alt="" loading="lazy" /></span><span className="case-cover"><span className="case-label">{item.category}</span><span className="case-title">{t(item.title)}</span><span className="case-description">{t(item.description)}</span><span className="case-book-bottom"><span>{t(item.meta)}</span><span className="read-case"><BookOpen size={17} />{zh ? '展卷' : 'Open the leaf'}</span></span></span></button>)}
           </div><p className="library-source-note">{zh ? '来自 Soundings 的公开示例；册页内附完整原文。' : 'From the public Soundings examples. Each leaf keeps its complete source.'}</p>
         </section>
 
         <section className="about-section" id="about" aria-labelledby="about-title">
-          <span className="motif motif-water" aria-hidden="true"><i /><i /><i /></span>
           <div className="section-width about-layout"><div className="about-window"><GardenPorch zh={zh} /><span className="about-window-note">{zh ? '推窗见枝' : 'AN OPEN WINDOW'}</span></div><div className="about-copy"><p className="eyebrow">{zh ? '见地题记' : 'A NOTE ON SOUNDINGS'}</p><h2 id="about-title">{zh ? <>见其所从来，<br />亦见其可往。</> : <>See where it comes from.<br />Leave room for where it goes.</>}</h2><p>{zh ? '窗框取一段景，游廊带来另一个视角。走过一重遮挡，眼前材料的关系也会改变。我们借园林来表达探问：每次看见，都与正在做的事相连。' : 'A window frames a view; a corridor offers another position. Beyond an obstruction, the relationship between things changes. The garden gives inquiry a form: each act of seeing belongs to the work at hand.'}</p><p>{zh ? 'Soundings 让 agent 继续追问、理解、营造与辨定。成果可以是有来处的回答、一种更准确的解释，也可以是一件足够完整、能被亲自感受的新作品。' : 'Soundings helps an agent investigate, understand, develop and discern. The result can be a supported answer, a clearer explanation, or a substantial new work someone can experience.'}</p><a href={repo + '/blob/main/plugins/soundings/docs/design.md'} target="_blank" rel="noreferrer" className="text-link">{zh ? '读完整的设计主张' : 'Read the design principles'}</a></div></div>
         </section>
 
         <section className="start-section section-width" id="start" aria-labelledby="start-title">
-          <span className="motif motif-botanical" aria-hidden="true"><i /><i /><i /><i /><i /></span>
+          <img className="start-lotus" src={assetUrl('assets/lotus-watercolor.webp')} width="1983" height="793" alt="" aria-hidden="true" loading="lazy" />
           <div className="start-copy"><p className="eyebrow">{zh ? '入园 · 从手边开始' : 'BRING IT TO YOUR WORK'}</p><h2 id="start-title">{zh ? <>下一次探问，<br />就从手边开始。</> : <>Bring your next question.<br />Start with the work at hand.</>}</h2><p>{zh ? '在 Codex 中安装 Soundings，新开一次任务，即可使用四个独立的 skill。' : 'Install Soundings in Codex, then start a new task to use the four independent skills.'}</p><a className="github-link" href={repo} target="_blank" rel="noreferrer"><GitFork size={18} />{zh ? '在 GitHub 查看项目' : 'View the project on GitHub'}</a></div>
           <div className="install-desk"><div className="desk-rail" aria-hidden="true" /><div className="install-card"><div className="install-heading"><span>CODEX · {zh ? '安装' : 'INSTALL'}</span><button className="copy-button" onClick={() => copyText(installation, 'install')} aria-label={zh ? '复制安装命令' : 'Copy installation commands'}>{copyState.key === 'install' && copyState.success ? <Check size={15} /> : <Copy size={15} />}<span>{copyLabel('install')}</span></button></div><pre><code>{installation}</code></pre><p>{zh ? '直接描述你的任务，或用 $search、$study、$explore、$shape 指定方法。' : 'Describe your task naturally, or choose a method with $search, $study, $explore or $shape.'}</p><a href={repo + (zh ? '/blob/main/README.zh-CN.md#安装与升级' : '/blob/main/README.md#install-and-upgrade')} target="_blank" rel="noreferrer" className="text-link">{zh ? '安装与升级说明' : 'Installation and upgrade guide'}</a></div><div className="desk-legs" aria-hidden="true"><i /><i /></div></div>
         </section>

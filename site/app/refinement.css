@@ -1,15 +1,4 @@
-/* Refinement layer (loaded last)
-   ------------------------------------------------------------------
-   The r4 composition keeps the whole oblique garden as the visual
-   centre. This layer carries the garden's architecture and book
-   grammar into the header, method navigation, prompt sheets, the
-   reading room and the album dialog, so orientation, selection and
-   reading stay legible and quiet. It revises existing selectors
-   rather than piling on a second theme, and adds no image assets:
-   every detail is CSS/SVG. No seals claim authority; these marks are
-   functional joinery and paper, not historical inscriptions. */
-
-/* --- Quiet, non-red focus: a thin ink underline + soft field --------- */
+/* Quiet focus, the candidate brand mark and reading-dialog margins. Palette and font tokens are owned by globals.css. */
 button:focus-visible,
 a:focus-visible,
 summary:focus-visible,
@@ -19,253 +8,107 @@ summary:focus-visible,
   outline-offset: 3px;
   box-shadow: none;
 }
-
-/* --- Header: a slim lattice brand seal and hairline rule ------------- */
-.brand-seal { display: inline-flex; align-self: center; width: 30px; height: 30px; flex-shrink: 0; }
-.brand-seal svg { width: 100%; height: 100%; }
-.brand-seal rect { fill: #eef4ec; stroke: #6d8b74; stroke-width: 1.2; }
-.brand-seal path { stroke: #2f5c4a; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-.brand-lockup { align-items: center; }
-.header-inner { position: relative; }
-.site-header::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
-  background: linear-gradient(90deg, transparent, #8aa78f 22%, #8aa78f 78%, transparent);
-  opacity: .5;
+.brand-seal {
+  display: inline-flex;
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
-.main-nav a::before {
-  content: ''; position: absolute; left: 50%; bottom: 4px; width: 5px; height: 5px;
-  transform: translateX(-50%) rotate(45deg); background: #7d9b80; opacity: 0; transition: opacity .25s;
+.brand-seal svg {
+  width: 100%;
+  height: 100%;
 }
-.main-nav a:hover::before { opacity: .8; }
-
-/* --- Method navigation: slim lattice joinery and hung title slips ---- */
-.method-list[data-slot=tabs-list] {
-  border-top: 1px solid #7d9a83;
-  border-bottom: 1px solid #a8bfad;
-  background:
-    repeating-linear-gradient(90deg, transparent 0 26px, #e4ece1 26px 27px) top/100% 1px no-repeat,
-    linear-gradient(#eef3ea, #eef3ea);
-  box-shadow: inset 0 7px 12px -12px #7d9a83, inset 0 -1px 0 #ffffff88;
+.brand-seal rect {
+  fill: #eef4ec;
+  stroke: #6d8b74;
+  stroke-width: 1.2;
 }
-.method-list[data-slot=tabs-list]::after,
-.method-list[data-slot=tabs-list]::before { display: none; }
-.method-trigger[data-slot=tabs-trigger] {
-  overflow: visible;
-  background: #eef3ea;
-  color: #4f6c52;
-  padding: 17px 22px 15px;
+.brand-seal path {
+  stroke: #2f5c4a;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
-.method-trigger[data-slot=tabs-trigger]:hover:not([data-state=active]) { background: #e8f0e3; color: #2f4f36; }
-.method-glyph-panel {
-  display: grid; place-items: center; color: #618456; width: 52px; height: 52px; flex-shrink: 0;
-  border: 1px solid #b7cbae; background: #fbfdf7; border-radius: 2px;
-  box-shadow: 2px 2px 0 #dde7d6;
-  transition: background .3s, border-color .3s, box-shadow .3s, transform .3s;
-}
-.method-trigger[data-state=active] .method-glyph-panel {
-  background: #f2f8ec; border-color: #7f9c72; box-shadow: 2px 3px 0 #b9ceac;
-  transform: translateY(-2px);
-}
-.method-slip {
-  position: relative; display: inline-block; padding: 3px 10px 4px;
-  background: #f4f8ee; border: 1px solid #cddcc0; border-radius: 1px;
-  box-shadow: 1px 2px 0 #dbe6cf;
-  transition: background .3s, border-color .3s, box-shadow .3s, color .3s;
-}
-.method-slip::before {
-  content: ''; position: absolute; left: 50%; top: -7px; width: 9px; height: 6px;
-  transform: translateX(-50%); background: #dfe9d4; border: 1px solid #bccfad;
-  border-bottom: 0; border-radius: 3px 3px 0 0; opacity: 0; transition: opacity .3s;
-}
-.method-trigger[data-state=active] .method-slip { background: #fffdf6; border-color: #77966b; box-shadow: 1px 3px 0 #a9c29a; color: #244e2c; }
-.method-trigger[data-state=active] .method-slip::before { opacity: 1; }
-.method-joinery {
-  position: absolute; left: 22px; right: 22px; bottom: 0; height: 6px; pointer-events: none;
-  background:
-    linear-gradient(#8dab82, #8dab82) center/100% 1px no-repeat,
-    repeating-linear-gradient(115deg, transparent 0 6px, #cddcc0 6px 7px);
-  opacity: 0; transition: opacity .3s;
-}
-.method-trigger[data-state=active] .method-joinery { opacity: 1; }
-.method-names { row-gap: 2px; }
-
-/* --- Prompt sheet: a folded source sheet, not a generic disclosure --- */
-.prompt-sheet { border-top: 1px solid #b9cdb4; border-bottom: 1px solid #cddcc0; background: linear-gradient(#fbfdf7, #f4f8ee); }
-.prompt-sheet summary { padding-left: 12px; }
-.prompt-tab {
-  position: absolute; left: 0; top: 18px; width: 4px; height: 15px; background: #8aa87f; border-radius: 2px;
-  transition: background .25s, height .25s, top .25s;
-}
-.prompt-sheet[open] .prompt-tab { background: #4f7546; height: 21px; top: 14px; }
-.prompt-inside { padding-left: 12px; }
-.prompt-fold {
-  display: block; height: 9px; margin: 2px 0 13px;
-  background:
-    linear-gradient(135deg, #e7efe0 25%, transparent 25%) 0 0/10px 10px,
-    linear-gradient(#c9dabc, #c9dabc) left bottom/100% 1px no-repeat;
-  border-top: 1px dashed #cad9bc;
-  opacity: .9;
-}
-
-/* --- Section-transition motifs: restained roof / water / botanical --- */
-.motif { position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: flex-end; justify-content: center; gap: 9px; pointer-events: none; opacity: .6; }
-.motif i { display: block; background: currentColor; }
-.motif-roofline { top: 15px; color: #7f9b83; }
-.motif-roofline i { width: 1px; height: 12px; }
-.motif-roofline i:nth-child(1), .motif-roofline i:nth-child(5) { height: 6px; opacity: .7; }
-.motif-roofline i:nth-child(2), .motif-roofline i:nth-child(4) { height: 9px; }
-.motif-water { top: 20px; color: #8fb0ab; gap: 7px; }
-.motif-water i { height: 8px; width: 22px; background: none; border-top: 1px solid currentColor; border-radius: 50%; }
-.motif-water i:nth-child(2) { width: 34px; height: 11px; }
-.motif-botanical { bottom: 14px; color: #86a07f; gap: 12px; }
-.motif-botanical i { width: 5px; height: 5px; transform: rotate(45deg); background: none; border: 1px solid currentColor; }
-.motif-botanical i:nth-child(1), .motif-botanical i:nth-child(5) { border-radius: 50%; height: 3px; }
-.motif-botanical i:nth-child(3) { width: 7px; height: 7px; background: currentColor; opacity: .5; }
-.methods-section, .about-section, .start-section { position: relative; }
-
-/* --- Reading room: a bound album leaf with stitched spine ----------- */
-.case-shelf::after { height: 4px; background: linear-gradient(#dbe6d2, #cfddc4); border-block: 1px solid #b7caa8; }
-.case-book {
-  border-color: #a3bd9c;
-  background: linear-gradient(#cfe0cb, #c3d8c0);
-  box-shadow: 4px 5px 0 #d6e1cc, 7px 9px 0 #e4ead9;
-}
-.case-book::after {
-  content: ''; position: absolute; right: -2px; top: -2px; bottom: -2px; width: 2px;
-  background: repeating-linear-gradient(#c9d6bb 0 3px, #e8eedd 3px 5px); opacity: .9;
-}
-.case-cover {
-  background:
-    linear-gradient(180deg, #fbfdf6, #f3f8ec 62%, #eef5e6);
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
-  border-right: 1px solid #cbdabd;
-  border-bottom: 1px solid #cbdabd;
-}
-.case-book:hover .case-cover { transform: rotateY(-4deg) translateZ(2px); }
-.case-window {
-  position: absolute; top: 90px; right: 27px; width: 62px; height: 82px;
-  border: 1px solid #9fb697; border-radius: 50% 50% 3px 3px;
-  background: #f7fbf1; overflow: hidden; box-shadow: inset 2px 0 0 #e0e9d6, 2px 2px 0 #dae4cf;
-}
-.case-window svg { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); fill: none; stroke: #72907c; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
-.case-title { max-width: 74%; }
-.book-binding { width: 14px; border-inline: 1px solid #9fb28c; background: linear-gradient(#c7d8b8, #b9cda8); }
-.book-binding i { height: 14px; border-color: #7f9569; box-shadow: 0 1px 0 #eef4e4; }
-.book-binding i::after { background: #8fa477; }
-.book-page-edges {
-  right: -6px; top: 6px; bottom: -6px; width: 6px;
-  background: repeating-linear-gradient(#ffffff 0 2px, #e6ecdb 2px 3px);
-  border-inline: 1px solid #c8d6b6; box-shadow: inset 1px 0 0 #eef3e4, 1px 1px 0 #d9e2c9;
-}
-.book-corner-mark { writing-mode: vertical-rl; border-color: #c3d5b2; background: #f2f7ea; }
-.case-evidence .case-cover { background: linear-gradient(180deg, #2b5a44, #1f4a37); }
-.case-evidence .book-corner-mark { color: #416a47; }
-.case-evidence .case-window { border-color: #7ea77f; box-shadow: inset 2px 0 0 #1c4030, 2px 2px 0 #16362a; }
-
-/* --- Album reading dialog: deliberate header, margins and colophon -- */
 .reading-sheet[data-slot="dialog-content"] {
   padding: 30px 0 0;
   border: 1px solid #c6d6ba;
   border-radius: 3px;
-  background: linear-gradient(#f7faf0, #fdfef8 120px);
+  background: #fffdf7;
   box-shadow: 0 26px 90px rgba(31,57,40,.18);
+  border-color: #deded1;
 }
 .reading-toolbar {
-  align-items: center; margin: 0 0 20px; padding: 0 54px 13px;
+  align-items: center;
+  margin: 0 0 20px;
+  padding: 0 54px 13px;
   border-bottom: 1px solid #d5e1c9;
 }
-.reading-running-head { display: inline-flex; align-items: center; gap: 9px; }
-.reading-running-head i { width: 13px; height: 1px; background: #8aa17e; display: inline-block; }
-.reading-toolbar > span { font-size: 12px; letter-spacing: .16em; color: #6f8464; }
-.reading-close { margin-right: 44px; }
-.reading-title, .reading-description, .reading-body, .reading-source { margin-inline: 54px; }
+.reading-running-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+.reading-running-head i {
+  width: 13px;
+  height: 1px;
+  background: #8aa17e;
+  display: inline-block;
+}
+.reading-toolbar > span {
+  font-size: 12px;
+  letter-spacing: .16em;
+  color: #6f8464;
+}
+.reading-close {
+  margin-right: 44px;
+}
+.reading-title, .reading-description, .reading-body, .reading-source {
+  margin-inline: 54px;
+}
 .reading-source {
-  margin: 26px 54px 0; padding: 20px 0 24px; border-top: 1px solid #d7e2cb;
-  background: linear-gradient(#eef4e6, transparent);
+  margin: 26px 54px 0;
+  padding: 20px 0 24px;
+  border-top: 1px solid #d7e2cb;
+  background: none;
 }
-.reading-sheet[data-slot="dialog-content"]::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
-  background: repeating-linear-gradient(90deg, #b9cda8 0 9px, #dce7cf 9px 18px);
-  opacity: .55; border-radius: 0 0 3px 3px;
-}
-
-/* --- Desk: fine wood edge and a quiet clipboard control ------------- */
-.install-desk { padding-top: 22px; }
-.desk-rail { height: 14px; background: linear-gradient(#e7f0dc, #d7e5c8); border-color: #aec49b; box-shadow: 0 1px 0 #f4f8ec; }
-.install-desk::before {
-  content: ''; position: absolute; left: -3px; right: -3px; top: 0; height: 3px;
-  background: linear-gradient(90deg, #cbb890, #e2d3ae 30%, #cbb890 70%, #e2d3ae);
-  border-radius: 2px; opacity: .85;
-}
-.install-card {
-  border: 1px solid #bfd2ad;
-  background:
-    linear-gradient(#f6f9ef, #eef5e5),
-    repeating-linear-gradient(90deg, transparent 0 30px, #e9f0df 30px 31px);
-  box-shadow: 5px 6px 0 #dbe6ce, 0 1px 0 #ffffff inset;
-}
-.install-card::before {
-  content: ''; position: absolute; left: 16px; top: 15px; right: 16px; height: 1px;
-  background: repeating-linear-gradient(90deg, #cfe0bd 0 7px, transparent 7px 13px);
-}
-.install-heading { padding-left: 2px; }
-.install-card pre {
-  background: #fbfcf5; border: 1px solid #d7e3c9; border-left: 3px solid #7f9c72;
-  padding: 14px 16px; border-radius: 2px; box-shadow: inset 0 1px 0 #ffffff;
-}
-.copy-button {
-  border: 1px solid #c7d8b8; background: #f6faef; padding: 5px 10px 5px 9px;
-  border-radius: 2px; box-shadow: 1px 1px 0 #dde7d1;
-}
-.copy-button:hover { background: #eef6e4; border-color: #a9c298; color: #3d6236; }
-.desk-legs { border-top: 4px solid #cfdec0; }
-.desk-legs i { background: linear-gradient(#d7e5c8, #e7f0db); border-color: #aec49b; }
-
-/* --- Footer: hairline joinery and quiet spacing --------------------- */
-.site-footer { border-top: 1px solid #d5e0c9; }
-.site-footer::after {
-  content: ''; position: absolute; left: 0; right: 0; top: -3px; height: 1px;
-  background: repeating-linear-gradient(90deg, #c3d4b2 0 12px, transparent 12px 22px); opacity: .6;
-}
-.site-footer { position: relative; }
-.site-footer a { position: relative; }
-.site-footer a:hover { color: #3f6236; }
-
-/* --- Terrain controls read as a small ink strip --------------------- */
-.terrain-tools { gap: 10px; padding: 3px 5px; background: #f8fbf8cc; border: 1px solid #cfe0d3; border-radius: 2px; }
-.terrain-tools button { border: 0; background: none; padding: 6px 8px; border-radius: 2px; }
-.terrain-tools button:hover:not(:disabled) { background: #e8f2e8; }
-.terrain-tools button:disabled { opacity: .38; }
-.terrain-foot { border-top: 1px solid #a9c0af; }
-.terrain-foot nav button[aria-pressed=true] { border-bottom: 2px solid #2f6a52; }
-
-/* --- Method demo surfaces keep the same joinery restraint ----------- */
-.skill-demo { box-shadow: 5px 7px 0 #d6e3d0, 0 1px 0 #ffffff inset; }
-.skill-demo::before { border-color: #a9c29a; }
-
-/* --- Reduced motion: keep the layout, drop the movement ------------- */
-@media (prefers-reduced-motion: reduce) {
-  .motif { opacity: .5; }
-}
-
-/* --- Narrow layouts: keep slips and spines legible, drop tight joinery --- */
 @media (max-width: 900px) {
-  .method-trigger[data-slot=tabs-trigger] { padding: 14px 12px 12px; }
-  .method-glyph-panel { width: 44px; height: 44px; }
-  .method-joinery { left: 12px; right: 12px; }
-  .reading-toolbar { padding-inline: 30px; }
-  .reading-title, .reading-description, .reading-body, .reading-source { margin-inline: 30px; }
-  .reading-source { margin-inline: 30px; }
-  .reading-close { margin-right: 20px; }
+  .reading-toolbar {
+    padding-inline: 30px;
+  }
+  .reading-title, .reading-description, .reading-body, .reading-source {
+    margin-inline: 30px;
+  }
+  .reading-source {
+    margin-inline: 30px;
+    background: none;
+  }
+  .reading-close {
+    margin-right: 20px;
+  }
 }
 @media (max-width: 650px) {
-  .method-trigger[data-slot=tabs-trigger] { padding: 10px 4px 12px; }
-  .method-glyph-panel { width: 40px; height: 40px; box-shadow: 1px 1px 0 #dde7d6; }
-  .method-slip { padding: 2px 7px 3px; }
-  .method-joinery { display: none; }
-  .case-window { top: 92px; right: 18px; width: 48px; height: 64px; }
-  .case-title { max-width: 80%; }
-  .reading-toolbar { padding-inline: 22px; }
-  .reading-title, .reading-description, .reading-body { margin-inline: 22px; }
-  .reading-source { margin-inline: 22px; }
+  .reading-toolbar {
+    padding-inline: 22px;
+  }
+  .reading-title, .reading-description, .reading-body {
+    margin-inline: 22px;
+  }
+  .reading-source {
+    margin-inline: 22px;
+    background: none;
+  }
+}
+.reading-title,.reading-body h3 {
+  font-family: var(--font-kai);
+}
+.reading-description,.reading-body {
+  font-family: var(--font-reading);
+}
+html[lang=en] .reading-title,html[lang=en] .reading-body h3 {
+  font-family: Georgia,serif;
+}
+html[lang=en] .reading-description,html[lang=en] .reading-body {
+  font-family: var(--font-sans);
 }

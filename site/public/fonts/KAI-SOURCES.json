@@ -1,0 +1,22 @@
+{
+  "family": "LXGW WenKai",
+  "font_version": "1.522",
+  "subset_family": "Jiandi Kai",
+  "upstream_repository": "https://github.com/lxgw/LxgwWenKai",
+  "release": "https://github.com/lxgw/LxgwWenKai/releases/tag/v1.522",
+  "license": "SIL Open Font License 1.1",
+  "notice": "OFL-WenKai.txt",
+  "files": [
+    {
+      "file": "LXGWWenKai-Regular.ttf",
+      "weight": 400,
+      "source_url": "https://github.com/lxgw/LxgwWenKai/releases/download/v1.522/LXGWWenKai-Regular.ttf"
+    },
+    {
+      "file": "LXGWWenKai-Medium.ttf",
+      "weight": 500,
+      "source_url": "https://github.com/lxgw/LxgwWenKai/releases/download/v1.522/LXGWWenKai-Medium.ttf"
+    }
+  ],
+  "integration_note": "Content-specific WOFF subsets use a distinct primary family name. Copyright and license remain in the font and adjacent OFL notice. Rebuild after changing Chinese website content."
+}

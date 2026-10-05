@@ -24,5 +24,6 @@ for (const [location] of packages) {
 }
 notices.push("\n" + "=".repeat(72) + "\nAdapted shadcn UI components and theme CSS\n", await readFile(path.join(root, "vendor/shadcn-tailwind-4.13.0.LICENSE.md"), "utf8"));
 notices.push("\n" + "=".repeat(72) + "\nJiandi Song — renamed Adobe Source Han Serif subsets\n", await readFile(path.join(root, "public/fonts/OFL.txt"), "utf8"));
+notices.push("\n" + "=".repeat(72) + "\nJiandi Kai — renamed LXGW WenKai subsets\n", await readFile(path.join(root, "public/fonts/OFL-WenKai.txt"), "utf8"));
 await writeFile(path.join(root, "dist/THIRD_PARTY_NOTICES.txt"), notices.join("\n"));
 console.log(`Retained ${packages.length} package notices, shadcn MIT and font OFL in dist/THIRD_PARTY_NOTICES.txt`);
