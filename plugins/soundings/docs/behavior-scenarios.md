@@ -130,6 +130,14 @@ These scenarios test decisions, not exact wording. Run them in fresh Codex sessi
 
 **Expected:** Shape identifies the agent-added interpretation that made the side artifact representative, retires that interpretation and its active descendants, preserves useful helper work at maintenance scope, and returns to the accepted product outcome. The same authorized commission implements and validates a replacement capability that changes what a user can accomplish. Historical evidence stays truthful about the rejected case.
 
+## 17. Rich variation preserves a chosen relationship
+
+**Prompt shape:** A constructed creative editor offers random variation. The author has chosen a title above the focal shape with a caption aligned beneath, and asks for richer candidates while preserving that relationship.
+
+**Reject the candidate if:** it sacrifices the chosen relationship for variety, freezes every dimension so only irrelevant noise changes, provides controls without candidates that show both qualities, or mandates a contradiction matrix or fixed workflow.
+
+**Expected:** Explore changes the scope of randomness: the selected compositional relationship stays fixed while unfixed dimensions produce meaningfully different candidates. The delivered work makes both relationship stability and the value of variation judgeable. This constructed case does not establish human preference or require randomness in unrelated commissions.
+
 ## What a pass establishes
 
 Keep deterministic helper tests, retrieval observations, method use, and complete task outcomes separate. A fixed-source payload check says nothing about recall quality; a source-discovery test says nothing about causal method benefit. A fresh task can show that a Skill was discovered and used and that its output meets the case; broader superiority needs a separate appropriately scoped comparison.
