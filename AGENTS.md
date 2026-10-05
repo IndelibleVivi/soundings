@@ -12,12 +12,15 @@
 - `plugins/soundings/skills/search/scripts/packet.py` owns optional local packaging and inspection of an explicit brief and selected evidence snapshots. It composes the evidence helper; it is not a worker runtime, uploader, or new project authority.
 - `docs/dogfood-0.3.1.md` owns current bounded evidence; earlier `docs/dogfood-*.md` preserve historical observations, including the corrected `0.3.0` record. Raw traces remain private and outside Git.
 - `README.md` and `README.zh-CN.md` are co-equal public entrypoints. Keep their status, install, usage, privacy, and rights claims aligned.
+- `site/` owns the public bilingual website. `site/app/` owns page content and interactions; its CSS and `site/public/` own the presentation and served assets. `site/README.md` owns local development and publishing procedures; `docs/website-design.md` owns the website's visual commitments. The website presents the plugin; it does not own Skill behavior or establish behavior acceptance.
+- `.github/workflows/pages.yml` owns website CI and GitHub Pages publication. It calls `npm run check` in `site/` as the provider-neutral verification entrypoint. The existing Python helper workflow remains a separate component check.
 
 ## Source, installation, and runtime
 
 - This repository is the canonical public marketplace source. The only canonical plugin package is `plugins/soundings/`.
 - A Codex marketplace snapshot and installed plugin cache are derived copies. Do not edit them as source or present them as independent implementations.
 - A successful source validation, marketplace refresh, installation, fresh-session activation, behavior check, and publication are separate facts.
+- Website source is `site/`; `site/dist/` is generated static output and stays untracked. GitHub Pages publishes that output at `/soundings/`, without a server or connector runtime. Preserve base-aware image, font, favicon, and navigation paths. A future custom domain requires reconciling the build base and public metadata together.
 - Do not keep local-path and Git marketplace registrations with the same marketplace name active at the same time.
 
 ## Hard boundaries
@@ -46,6 +49,8 @@ python3 -m unittest discover -s plugins/soundings/skills/search/scripts -p 'test
 
 Run the Python tests after either local helper changes; Python 3.10+ is needed only for those optional helpers. The JSON check establishes manifest syntax; a successful marketplace install separately establishes that the current host accepts the package. Run `git diff --check` when the repository is under Git. Structural validation does not prove trigger quality; changes to behavior require the smallest relevant scenarios from `plugins/soundings/docs/behavior-scenarios.md` in a fresh session. Keep retrieval quality, payload behavior, method use, and overall outcome claims separate.
 
+After website changes, run `npm ci` and `npm run check` in `site/`, then inspect its production preview at `/soundings/` in a real browser. Cover the affected interactions in Chinese and English, desktop and narrow layouts, asset loading, keyboard/focus behavior, and reduced motion where applicable. Website demonstrations are fixed constructed examples, not live agent execution or human testing. Website deployment does not require a plugin version bump or marketplace reinstall.
+
 Before public push, inspect the exact staged tree and reachable history for private or machine-local material. Stage explicit public paths only. After publishing, read back repository visibility, default branch, remote commit, README rendering, marketplace discovery, and anonymous access.
 
 ## Documentation triggers
@@ -55,3 +60,4 @@ Before public push, inspect the exact staged tree and reachable history for priv
 - Update `plugins/soundings/docs/behavior-scenarios.md` when an observed failure changes acceptance behavior.
 - Update the current dogfood evidence summary when fresh-session observations change a published status claim.
 - Update this file when canonical paths, source/derived boundaries, verification, or write/install/release rules change.
+- Update `site/README.md` when website commands, hosting, paths, or asset maintenance change, and `docs/website-design.md` when accepted visual or interaction commitments change. Keep raw design conversations, private review records, original archive bundles, and machine-local generation provenance outside Git and the deployed artifact. Preserve font and incorporated template licenses; publication does not expand `LICENSING.md`.

@@ -13,6 +13,8 @@ The design responds to two opposite failures:
 
 ## Architecture
 
+The bilingual [public website](../../../site/README.md) presents these responsibilities through a garden and constructed interactive examples. Its [visual contract](../../../docs/website-design.md) and static hosting live outside the plugin package. Website controls do not run Skills, and website publication does not change runtime behavior or its acceptance evidence.
+
 ```mermaid
 flowchart LR
     W[One current working understanding]

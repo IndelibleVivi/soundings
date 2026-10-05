@@ -1,0 +1,1 @@
+Jiandi Song is a renamed, content-subset build of Adobe Source Han Serif SC 2.003, Regular and Medium. Copyright and SIL OFL 1.1 retained in OFL.txt. Source file hashes and URLs in SOURCES.json. This free font subset covers the Chinese and Latin content shipped in the Soundings garden prototype; rebuild it when adding new Chinese text.

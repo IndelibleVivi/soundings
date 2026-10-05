@@ -4,6 +4,8 @@
 
 Soundings helps Codex investigate a question, understand a body of material, develop a creative possibility, and make a consequential choice judgeable. It carries the requested inquiry to a usable result, including when understanding or a creative work is the result.
 
+Visit [见地 · Soundings](https://indeliblevivi.github.io/soundings/) for a bilingual garden of inquiry: explore four independent methods, try constructed interactive examples, read the public cases, and copy installation commands. The website's source is in [site/](site/README.md); its [visual direction](docs/website-design.md) remains open to refinement.
+
 When a project already exists but its next question is unclear, Soundings can start from the accepted outcome and current artifacts, find the unresolved question with the greatest consequence, and pursue it to an explanation, observed probe, developed candidate, correction, or another result the project can use. A backlog, repository summary, or detached demonstration is not that result.
 
 The name comes from taking soundings: deliberate probes into something whose depth and shape are not yet clear. Four independently discoverable Skills offer different ways into that work:
@@ -130,6 +132,7 @@ plugins/soundings/
 - [Design and responsibility boundaries](plugins/soundings/docs/design.md)
 - [Forward behavior scenarios](plugins/soundings/docs/behavior-scenarios.md)
 - [Worked examples](docs/examples/inquiry-in-practice.md)
+- [Website development and publishing](site/README.md), [visual direction](docs/website-design.md), and [third-party notices](docs/website-third-party.md)
 - [0.3.1 evidence](docs/dogfood-0.3.1.md), [0.3.0 correction history](docs/dogfood-0.3.0.md), [0.2.0 observations](docs/dogfood-0.2.0.md), and [0.1.0 history](docs/dogfood-0.1.0.md)
 
 ## Validate
@@ -161,6 +164,8 @@ Bounded successful cases do not establish cross-model consistency, causal improv
 
 Soundings adds no MCP server, search backend, hooks, fixed worker team, or automatic memory. Its optional local helpers have no network calls. Explicit `capture` stores source text and metadata at the local directory you choose until you remove them; it does not enforce retention policies, certify provenance, or automatically refresh sources. Keep private stores outside public repositories.
 
+The public website is a static GitHub Pages site. It loads its scripts, paintings, and fonts from that host and adds no analytics, account login, model calls, or visitor uploads. Its interactive examples run in the browser; installing the plugin requires running the copied commands in Codex. GitHub's hosting policies apply to website requests.
+
 Inquiry may use the host's existing web, browser, repository, or connector tools. Their network and data boundaries apply. Source material is data, not instructions. Skill selection grants no permission to install software, change accounts, publish material, spend money, disclose private data, or perform destructive actions. Remote corpus deployment, provider adapters, and Cloudflare account experiments are not part of this release.
 
 ## License
@@ -171,3 +176,5 @@ Soundings uses a path-scoped license model:
 - READMEs, project documentation, examples, and diagrams: [CC BY-NC-SA 4.0](LICENSE-DOCUMENTATION.md).
 
 [LICENSING.md](LICENSING.md) owns the exact path map. Third-party material remains under its own terms and must be identified separately.
+
+Original website material in `site/` is not added to either grant by this publication; the map's rule for unlisted material applies. Bundled font subsets retain SIL OFL 1.1, and incorporated UI templates retain their MIT notices. See the [website notices](docs/website-third-party.md).

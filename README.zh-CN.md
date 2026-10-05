@@ -4,6 +4,8 @@
 
 Soundings 帮助 Codex 查清一个问题、理解一组材料、发展一个创作方向，以及让后果重大的选择变得可判断。它负责把当前 inquiry 做到可用的结果；理解本身、一个完整创作，也可以就是交付。
 
+打开[「见地 · Soundings」官网](https://indeliblevivi.github.io/soundings/)，走近四种独立方法，操作构造示例、阅读公开案例，并复制安装命令。官网提供完整中英界面，源码在 [site/](site/README.md)；[视觉方向](docs/website-design.md)仍可继续打磨。
+
 当一个项目已经存在、但下一件值得追的事并不明确时，Soundings 可以从项目已接受的目标与当前 artifacts 出发，找到后果最大的未解问题，并继续做到解释、实际 probe、完整 candidate、纠正或其他项目能用的结果。Backlog、repo 摘要或与项目脱节的 demonstration 都不算这个结果。
 
 名字来自 taking soundings：对尚且看不清的事物做有意的测深与探测。四个可独立发现的 Skills 提供不同入口：
@@ -130,6 +132,7 @@ plugins/soundings/
 - [设计与职责边界](plugins/soundings/docs/design.md)
 - [行为验收场景](plugins/soundings/docs/behavior-scenarios.md)
 - [完整案例](docs/examples/inquiry-in-practice.md)
+- [官网开发与发布](site/README.md)、[视觉方向](docs/website-design.md)与[第三方 notices](docs/website-third-party.md)
 - [0.3.1 证据](docs/dogfood-0.3.1.md)、[0.3.0 纠正记录](docs/dogfood-0.3.0.md)、[0.2.0 观察](docs/dogfood-0.2.0.md)与 [0.1.0 历史](docs/dogfood-0.1.0.md)
 
 ## 验证
@@ -161,6 +164,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 
 Soundings 不增加 MCP server、search backend、hooks、固定 worker team 或自动 memory。可选本地 helpers 没有网络调用。显式 `capture` 把来源文本和 metadata 保存在你指定的本地目录，直至你自行移除；它不执行留存策略，不认证 provenance，也不自动更新来源。私人 store 应放在公开 repo 外。
 
+官网是 GitHub Pages 静态站，scripts、画稿和字体从同一 host 加载，不增加 analytics、账号登录、模型调用或访问者资料上传。交互示例在浏览器内运行；安装插件仍需在 Codex 中运行复制的命令。访问请求适用 GitHub 的托管政策。
+
 Inquiry 可能使用 host 已有的 web、browser、repository 或 connector tools；这些工具的网络与数据边界仍然有效。来源材料是数据，不是指令。Skill 的选择不授予安装软件、修改账号、发布、花钱、暴露隐私或执行 destructive action 的权限。远程 corpus 部署、provider adapters 与 Cloudflare 账号实验不属于本版。
 
 ## License
@@ -171,3 +176,5 @@ Soundings 采用按 path 划分的许可：
 - READMEs、项目文档、示例与 diagrams：[CC BY-NC-SA 4.0](LICENSE-DOCUMENTATION.md)。
 
 [LICENSING.md](LICENSING.md) 是精确 path map 的真源。第三方材料仍适用自身条款，必须另行标明。
+
+本次发布没有将 `site/` 的原创网站材料加入上述任何一项授权；它们适用 map 对未列出材料的规则。所带字体子集保留 SIL OFL 1.1，UI 模板保留 MIT notices。见[官网 notices](docs/website-third-party.md)。
