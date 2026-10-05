@@ -26,6 +26,8 @@ A copied reference reproduces its context; a developed one keeps the relationshi
 
 Each changed condition is a place the project can become its own thing. Say which condition you moved and what it bought, so the choice is visible rather than looking accidental.
 
+Constructed example: an editor should offer rich random variation while its author keeps a chosen composition. Fix the selected relationship—for example, a title above the focal shape with its caption aligned beneath—and vary only unfixed dimensions, such as supporting marks or texture. Show several candidates that visibly preserve that relationship and make the variation worth choosing between. Irrelevant noise does not establish useful variation; attractive variations that displace the chosen relationship do not preserve the goal. The moved condition is what randomness may affect, improving the candidate set without requiring a contradiction matrix or prescribing a workflow.
+
 ## Move it across domains when it pays
 
 A relationship that works elsewhere can be a strong source of directions, but you do not have to roam across unrelated references. Read widely when the current frame is thin or repetitive; stay with one well-understood reference when it already carries the effect you want. When you do transfer across domains, carry the relationship and name what must be true for it to work here.
