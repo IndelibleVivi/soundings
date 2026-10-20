@@ -1,6 +1,6 @@
 interface:
   display_name: "Soundings Study"
-  short_description: "Turn a body of material into usable understanding"
-  default_prompt: "Use $study to reconcile these materials into the explanation, disagreement, or judgment the work needs."
+  short_description: "Explain material, or find a project's real question first"
+  default_prompt: "Use $study to reconcile these materials into a usable explanation, or to find and pursue the consequential unresolved question in this project."
 policy:
   allow_implicit_invocation: true

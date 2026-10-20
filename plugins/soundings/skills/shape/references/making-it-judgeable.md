@@ -27,9 +27,11 @@ If the user already authorized drafting, prototyping, comparing, or probing, del
 
 Describe the observation that would distinguish the alternatives before judging a probe. For a proposed “keep a chosen relationship while varying the rest” interaction, check both whether the relationship survives and whether the remaining variation is still useful. A static attractive image tests neither behavior by itself.
 
-Interpret disappointing results at the layer actually exposed: mechanism, content, execution quality, learning cost, or compatibility with an accepted goal. Repair an inadequate sample when it has not tested the intended difference; change the mechanism when representative evidence challenges it. Do not keep building around a failed premise to protect sunk work.
+Interpret disappointing results at the layer actually exposed: interpretation, interaction relationship, content, execution quality, learning cost, candidate fidelity, or compatibility with an accepted goal. Repair an inadequate sample when it has not tested the intended difference; change the relationship when representative evidence challenges it. Do not keep building around a failed premise to protect sunk work.
 
-Bring the observation back into the artifact and dependent decisions. A probe that produces insight but leaves the rejected assumption active has not completed a correction. Conversely, an observed local failure does not justify shrinking unrelated scope.
+Set competing explanations against the same observation when possible. If an attractive external mechanism conflicts with an accepted state owner, input method, license, or runtime condition, that incompatibility is part of what the person must judge. Do not merge complementary pieces into a candidate whose combined preconditions have not been tested.
+
+Bring the observation back into the artifact and dependent decisions. A probe that produces insight but leaves the rejected assumption active has not completed a correction. Conversely, an observed local failure does not justify shrinking unrelated scope. Return to the initiating use scene, and if the action still fails, use [returning findings to the work](../../search/references/returning-to-the-work.md) to locate the affected layer before revising more work.
 
 A preferred concept selects a direction for further development; it does not prove production quality. A successful technical probe establishes behavior; it does not establish that the user likes the result. A positive response to one component does not approve every adjacent choice.
 

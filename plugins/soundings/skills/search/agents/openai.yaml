@@ -1,6 +1,6 @@
 interface:
   display_name: "Soundings Search"
-  short_description: "Find evidence and possibilities that change the work"
-  default_prompt: "Use $search to complete this inquiry with usable outside evidence, its conditions, and its implications for the work."
+  short_description: "Find outside evidence and possibilities that change the work"
+  default_prompt: "Use $search to investigate this external question or still-open choice, then return usable evidence, its conditions, and its implications for the work."
 policy:
   allow_implicit_invocation: true

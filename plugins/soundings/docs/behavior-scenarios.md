@@ -1,6 +1,6 @@
 # Behavior scenarios
 
-These scenarios test decisions, not exact wording. Run them in fresh Codex sessions against the installed candidate, first with explicit Skill invocation and then with ordinary prompts where implicit discovery matters. Preserve the raw output outside this repository when it contains private project context.
+These scenarios test decisions, not exact wording. Where implicit discovery matters, start with ordinary prompts in fresh sessions against the candidate. Use a separate explicit invocation when needed to distinguish selection failure from a method that was read but did not help. Record whether the candidate came from source or an installed package. Preserve raw output outside this repository when it contains private project context. A scenario description is not an observed pass or authorization for a live model run.
 
 ## 1. Clear small repair stays direct
 
@@ -138,6 +138,58 @@ These scenarios test decisions, not exact wording. Run them in fresh Codex sessi
 
 **Expected:** Explore changes the scope of randomness: the selected compositional relationship stays fixed while unfixed dimensions produce meaningfully different candidates. The delivered work makes both relationship stability and the value of variation judgeable. This constructed case does not establish human preference or require randomness in unrelated commissions.
 
+## 18. An open choice prompts discovery before commitment
+
+**Prompt shape:** “Continue making this workbench easier to use.” The project can launch and cancel work, but its information organization and interaction are still open. The user gives no references, search words, or Skill name.
+
+**Reject the candidate if:** it treats a clear goal or an implementable first idea as a settled solution, requires the user to prove a defect before looking outward, reads only local files, or returns links without letting them affect the work.
+
+**Expected:** After enough local inspection to understand the task, the agent independently encounters relevant external solutions or actual interfaces before substantial commitment. It distinguishes materially different relationships, reads enough for its intended use, and carries a justified choice into a coherent candidate or authorized implementation. Reusing identified, still-relevant evidence is valid. If the original route survives comparison, explain the condition that makes it fit; novelty is not required.
+
+Reading the open-choice cue and then immediately choosing an implementation does not pass this case. The [0.4.0 source-catalog comparison](../../../docs/dogfood-0.4.0.md) observed that failure on a constructed reading-desk task despite a functioning final artifact.
+
+## 19. Multiple named targets become a local judgment
+
+**Prompt shape:** The user names several repositories and asks what their approaches to continuing work can contribute to an existing workbench. One describes a live process, another a saved conversation, and another a task's artifacts; two candidates share an upstream implementation.
+
+**Reject the candidate if:** it silently drops a named target, counts names or README summaries as direct coverage, treats all “resume” claims as equivalent, counts forks as independent corroboration, or combines incompatible state owners into a recommendation.
+
+**Expected:** Each named target receives observation proportionate to the commission, with inaccessible material explicit. The agent compares the same return-to-work scene across sources, distinguishes competing and complementary mechanisms and their conditions, and makes a local recommendation. A source can contribute an interaction without being adopted as a dependency. Discovered candidates can be triaged; there is no fixed source count or requirement to audit every repository in full.
+
+## 20. Repeated rejection changes the next candidate's information
+
+**Prompt shape:** Several versions of an interface have been rejected as “still hard to understand.” Its underlying operations work, and some visual choices are already accepted. The user asks the agent to improve it.
+
+**Reject the candidate if:** it repeats cosmetic changes without inspecting the rejected results, interprets code volume as owner acceptance, abandons accepted qualities by default, turns a local rejection into a universal ban, or presents an underdeveloped fragment that cannot distinguish the possible causes.
+
+**Expected:** Inspect the actual failed work and relevant reference media. Distinguish a mistaken interpretation, an ineffective interaction relationship, production quality, and a sample too thin to judge. Develop enough of a candidate to discriminate the consequential explanations, preserving accepted dimensions. Return to the same confusing use scene and report what was observed; constructed walkthroughs are not human testing.
+
+## 21. A mature project can contain an open new domain
+
+**Prompt shape:** “Add local voice to this established tool and carry it through.” The existing task and data model are accepted, while interruption, feedback, latency handling, and the voice implementation remain open.
+
+**Reject the candidate if:** it skips discovery because the repo is mature, reopens settled product identity because voice is new, or adopts an external stack without comparing its state and lifecycle assumptions with the current system.
+
+**Expected:** Explore the open voice choices at a depth appropriate to the intended adoption, retain the current system as a baseline, and integrate within the existing authority and interfaces. Verify the interaction that motivated the addition as well as technical correctness. A need for installation, private audio transfer, or an external service still has its own permission boundary.
+
+## 22. Returned research can overturn the question that launched it
+
+**Prompt shape:** An implementation task is trying to prevent use of superseded decisions. Research on ranking improvements returns, while local fixtures show that both old and new decisions are retrieved correctly but their dates, scope, and replacement relation disappear in the final context.
+
+**Reject the candidate if:** it merely summarizes the ranking reports, adds a reranker without relating it to the local loss, records a new interpretation while leaving the old implementation plan active, or stops at recommending a correction the task already authorizes.
+
+**Expected:** The receiver distinguishes the desired outcome, the initial explanation, and the narrower research question. It forms a judgment from returned and local evidence, locates the first supported loss, and corrects the actual context-producing object and affected acceptance within authority. It revisits the superseded-decision scene and limits its claim to what was observed. A failed effect reopens the relevant interpretation, transfer, or implementation boundary rather than triggering the whole inquiry again.
+
+## 23. Settled references and a research-only commission retain their boundaries
+
+**Prompt shape:** In one task, an empty repository has an explicitly accepted interaction reference and the user requests faithful implementation. In a separate task, all materials are supplied and the user asks only for a comparative explanation.
+
+**Reject the candidate if:** it treats an empty repo as permission to reopen the chosen form, performs new search without a decision-relevant need, or implements a proposal when only an explanation was requested.
+
+**Expected:** Deepen the supplied reference where needed for faithful production; independently investigate a newly exposed implementation uncertainty only when it matters. For the understanding-only task, complete the cross-source judgment and its limits without manufacturing implementation work. “Continue the commission” preserves its actual outcome and authority.
+
 ## What a pass establishes
 
 Keep deterministic helper tests, retrieval observations, method use, and complete task outcomes separate. A fixed-source payload check says nothing about recall quality; a source-discovery test says nothing about causal method benefit. A fresh task can show that a Skill was discovered and used and that its output meets the case; broader superiority needs a separate appropriately scoped comparison.
+
+For a bounded configuration comparison, keep the model, harness, task starting state, and available tools comparable. Start with the same natural request on baseline and candidate; do not put the answer discovered in one run into the other's prompt. Inspect useful understanding and actual deliverables, the reminders the user still had to supply, and added time or unnecessary work. A more elaborate report without a better task result is no demonstrated benefit. Test another model or harness only under its own authorized scope; do not extrapolate from one combination.

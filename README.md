@@ -19,7 +19,7 @@ The name comes from taking soundings: deliberate probes into something whose dep
 
 These are capabilities, not stages. There is no router, required sequence, interview, or mandatory report. A small clear task should remain direct. Domain methods retain their evidence standards and production responsibilities; changing methods continues the same commission.
 
-> Version `0.3.1` corrects the product framing of `0.3.0`: project-grounded inquiry is the user-facing capability; the evidence packet remains optional maintenance, and a rejected generic motion demo is no longer a forward product case. Source, behavioral observations, installation, activation, and publication remain separate claims; see [status](#status) and the [evidence record](docs/dogfood-0.3.1.md).
+> The `0.4.0` source candidate strengthens the methods for proactive discovery before substantial open choices and continuation after research returns. It includes runtime-readable worked examples. In a [bounded comparison](docs/dogfood-0.4.0.md), the candidate read the new guidance but still skipped external discovery; small repairs stayed direct. Behavior improvement is not established. See [current state](docs/current-state.md); the [0.3.1 observations](docs/dogfood-0.3.1.md) remain historical evidence.
 
 ## Install and upgrade
 
@@ -38,7 +38,7 @@ codex plugin add soundings@soundings
 codex plugin list --json
 ```
 
-Check that the installed entry reports `0.3.1` and is enabled, then start a new task. The marketplace refresh and installed cache are different layers. The [evidence record](docs/dogfood-0.3.1.md) reports which upgrade steps have actually been exercised.
+Check the installed version and enabled state against [current state](docs/current-state.md), then start a new task. The marketplace refresh and installed cache are different layers; the latest source candidate and the last behavior-observed installation may differ.
 
 ## Use
 
@@ -69,6 +69,16 @@ Look through this project's accepted goals and current artifacts. Find the unres
 ```
 
 Study owns discovery when the question must emerge from relationships in existing material. Search, Explore, Shape, or the active domain method may do the deciding work without turning the commission into a required pipeline.
+
+## Let references change the work
+
+For a substantial choice that remains open—product form, interaction, visual expression, architecture, or implementation—Search calls for relevant external discovery before substantial commitment. A clear goal does not settle how to achieve it. Reuse references that still fit; a precise repair or faithful implementation of an accepted choice stays direct.
+
+Reading follows the intended use. A description can identify a candidate; an experience claim needs observation of the actual medium; a mechanism claim needs its relevant implementation; adoption also needs local fit. Named targets receive proportionate direct coverage. Multiple results are compared around a shared question, including incompatible assumptions and useful contributions that do not justify adopting a whole project. The [runtime worked examples](plugins/soundings/skills/search/references/proactive-inquiry-examples.md) show these moves in constructed workbench and interaction cases, alongside a small edit that stays direct.
+
+When findings return, the task owner relates them to the original outcome and local evidence, forms a judgment, and carries it into the actual explanation, candidate, or implementation. Revisit the initiating situation to see whether the intended effect appeared. Research-only requests remain research-only, and finding a next step does not complete an implementation commission.
+
+Ordinary prompts can be as simple as “Continue making this workbench easier to use” or “This page works, but it still feels weak; improve it.” Whether a host selects and follows the relevant method remains something to observe. The [host integration guide](plugins/soundings/docs/host-integration.md) explains early visibility, resource delivery, and continuation without a mandatory dependency or new runtime.
 
 ## Evidence without losing its conditions
 
@@ -131,6 +141,8 @@ plugins/soundings/
 
 - [Design and responsibility boundaries](plugins/soundings/docs/design.md)
 - [Forward behavior scenarios](plugins/soundings/docs/behavior-scenarios.md)
+- [Host integration and activation boundaries](plugins/soundings/docs/host-integration.md)
+- [0.4.0 candidate comparison and failed discovery criterion](docs/dogfood-0.4.0.md)
 - [Worked examples](docs/examples/inquiry-in-practice.md)
 - [Website development and publishing](site/README.md), [visual direction](docs/website-design.md), and [third-party notices](docs/website-third-party.md)
 - [0.3.1 evidence](docs/dogfood-0.3.1.md), [0.3.0 correction history](docs/dogfood-0.3.0.md), [0.2.0 observations](docs/dogfood-0.2.0.md), and [0.1.0 history](docs/dogfood-0.1.0.md)
@@ -153,10 +165,10 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 
 ## Status
 
-- **Source:** `0.3.1` makes project-grounded question discovery and pursuit explicit in Study and shared working context, and makes rejected side artifacts lose their representative role through Shape. The local evidence and packet helpers remain optional maintenance.
-- **Validation and behavior:** current checks and observations are recorded in [dogfood-0.3.1](docs/dogfood-0.3.1.md); earlier records remain versioned as historical evidence.
-- **Installation and activation:** Git marketplace installation accepted enabled version `0.3.1`, and the installed candidate matched 29 canonical package files. An ordinary fresh prompt selected installed Study and completed one project-grounded product judgment. Exact scope and limits are in the current evidence record.
-- **Publication:** behavior implementation commit `ac21dc9` and package follow-ups through `1a33654` are available from the public [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source. The current evidence record keeps publication separate from installation and runtime behavior.
+- **Source:** `0.4.0` is a candidate for proactive open-choice discovery, purpose-matched multi-source reading, and receiver-side continuation. Four independent Skills and optional local helpers remain the package shape.
+- **Validation and behavior:** the [0.4.0 comparison](docs/dogfood-0.4.0.md) records passing source checks and small repairs, functioning artifacts, and failed proactive discovery in its open candidate task. [Current state](docs/current-state.md) keeps the remaining gate explicit. [0.3.1](docs/dogfood-0.3.1.md) records earlier installed-host observations.
+- **Installation and activation:** the historically observed installation is enabled `0.3.1`. That evidence does not establish delivery or behavior of the `0.4.0` candidate.
+- **Publication:** the public [marketplace repository](https://github.com/IndelibleVivi/soundings) distributes its current package. Source publication, local installation, activation, and behavior acceptance remain separate; no new tagged release is implied by a source version.
 
 Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
 

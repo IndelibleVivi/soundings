@@ -16,7 +16,7 @@ If using an existing research executor, preserve its actual session identifier a
 
 [`../scripts/packet.py`](../scripts/packet.py) copies an explicitly selected brief and snapshots made by [`evidence.py`](../scripts/evidence.py) into a new local directory. Both use Python 3.10+ and the standard library. Resolve scripts from the actual installed Search directory.
 
-Write a brief from the current task's existing understanding. Include only what the receiver needs: question and purpose, settled choices versus proposals, evidence refs and read ranges, competing explanations, limits, authorized responsibility, and the next useful observation. This is a guide to content, not required headings or permission to copy private continuity wholesale.
+Write a brief from the current task's existing understanding. Include only what the receiver needs: the original desired outcome and use scene, the current explanation, the live inquiry question, settled choices versus proposals, evidence refs and read ranges, competing explanations, limits, authorized responsibility, and the next useful observation. This is a guide to content, not required headings or permission to copy private continuity wholesale. Read [returning findings to the work](returning-to-the-work.md) for the receiver method; it is not a second brief or required output format.
 
 ```sh
 python3 /path/to/search/scripts/packet.py create \
@@ -38,6 +38,10 @@ Creation validates the selected inputs before writing, refuses an existing outpu
 
 Creating a local packet does not authorize sending it anywhere. Inspect its brief, source text, locators, and membership before any separately authorized transfer; the tool does not redact sensitive material. A generated synthesis can be useful material but is not a new independent observation. Original evidence and the receiver's interpretation should remain distinct.
 
+## Continue from the receiver's side
+
+Read [returning findings to the work](returning-to-the-work.md) when forming the judgment and carrying it into the local project. The handoff supplies evidence and responsibility; the receiver still determines what the project needs from it.
+
 ## Return the useful residue
 
-After acceptance, update the project's existing record with the question answered, explanation and evidence dependencies, consequential unused clues, and a condition that would reopen the inquiry. Record failures of access or coverage where they change the conclusion. Do not preserve every search step or let the handoff become a second project authority.
+After acceptance, update the project's existing record only when it already needs continuity. Preserve the question answered, the explanation and evidence it depends on, the adopted or retained effect, the observed outcome, consequential unused clues, and a condition that would reopen the inquiry. Record failures of access or coverage where they change the conclusion. Do not preserve every search step or let the handoff become a second project authority.

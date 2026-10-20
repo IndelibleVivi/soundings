@@ -2,6 +2,8 @@
 
 Use this reference when a reference should change the work rather than be copied, when a clear goal is still too thin to build, or when an idea from another domain has to become concrete here. The examples below are constructed illustrations, not findings about real projects.
 
+If the person names works, experiences, or mechanisms, give each named target proportionate direct coverage before triaging broader candidates. Compare them across the same use scene or effect rather than writing parallel summaries. A fork, derivative, or same-family project may be useful without being an independent direction. Read [proactive inquiry and reference choice](../../search/references/proactive-inquiry.md) when several references must become a decision or when the current frame keeps circling one vocabulary.
+
 ## Find the working relationship
 
 A reference works through some relationship between its parts. Name it before borrowing anything:

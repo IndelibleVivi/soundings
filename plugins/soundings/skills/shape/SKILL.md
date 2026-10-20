@@ -19,6 +19,8 @@ Before asking anything, recover:
 
 Do not convert an unspecified dimension into a hidden requirement. Do not treat an agent proposal as a user decision because it appeared in a polished plan or specification. Use [shared working context](../../references/working-context.md) when another Skill or worker is part of the same task.
 
+When returned findings have changed the working understanding, recover the original desired outcome and live choice before judging the new proposal. Read [returning findings to the work](../search/references/returning-to-the-work.md) when another task produced the evidence or explanation.
+
 ## Trigger only where the understanding changes the result
 
 Shape when:
@@ -33,7 +35,9 @@ Do not start a shaping exercise for a clear small change, an implementation deta
 
 Material synthesis belongs with Study; positive development of possibilities with a clear goal belongs with Explore. Their outputs may expose a choice for Shape, but no formal sequence or separate brief is required. A creative task does not need to acquire an ambiguity before useful work can happen.
 
-If the missing material is outside the current context and finding it could change the choice, yield to Search. Shape may resume after the evidence creates a product-level branch; it does not need to accompany every Search result.
+Explore is the stronger entrypoint when the request is to make a thin or unsatisfying visual, interaction, or creative experience materially better. Shape becomes primary when the meaning of the result, competing interpretations, or correction propagation is the blocker. The boundary guides discovery; it does not force a handoff ceremony.
+
+If relevant outside evidence or possibilities are needed to make the interpretation judgeable, continue through Search or Explore within the same commission.
 
 ## Find the uncertainty with the largest downstream effect
 
@@ -62,14 +66,18 @@ When the current request authorizes you to produce the material and it fits in t
 
 Choose the observation before interpreting the result: what would support the proposed mechanism, and what would challenge it? Use enough fidelity to expose the intended difference. A failed rough sample may reveal execution quality or learning cost rather than invalidate the underlying idea. Explain what was actually tested before changing dependent work.
 
+Keep competing explanations when local evidence does not discriminate them, and choose the next representative observation that could. Reconcile outside support, conflict, and conditions with the project's actual constraints. When a promising direction comes with incompatible state ownership or operational conditions, expose that trade-off instead of assembling the attractive parts into an incoherent proposal.
+
 ## Treat feedback as bounded evidence
 
 A response is sufficient when it resolves the dependency for the next action. “The first direction is closer” may select what to develop without approving names, content, all screens, or release quality. “This feels repetitive” rejects the observed experience without necessarily changing the intended length, result space, or other unaffected goals.
 
-Use [assumptions-and-corrections](references/assumptions-and-corrections.md) when feedback changes the current frame, a plan or specification contains agent-added product meaning, or the correction must propagate across artifacts. Update affected descendants and preserve independent goals. Do not over-correct by removing wanted behavior that the feedback did not reject.
+Use [assumptions-and-corrections](references/assumptions-and-corrections.md) when feedback changes the current frame, a plan or specification contains agent-added product meaning, or the correction must propagate across artifacts. Update affected descendants, retire superseded active paths within authority, and preserve independent goals. Do not over-correct by removing wanted behavior that the feedback did not reject.
 
 ## Continue as soon as the work is decision-ready
 
-Stop the shaping intervention when the relevant action no longer depends on an unowned product or value choice. Preserve useful openness that does not block that action. This does not end the larger commission: if the user authorized developing the selected direction, correcting its descendants, or producing a complete artifact, continue under the relevant method until that outcome is fulfilled. If the commission is the decision itself, a supported recommendation and appropriately bounded unknowns can be the complete result.
+Stop the shaping intervention when the relevant action no longer depends on an unowned product or value choice. Preserve useful openness that does not block that action. Carry the revised relationship through affected plans, specifications, tasks, code, and acceptance criteria within the current authority; a decision that leaves the old active path in place is not a complete correction. This does not end the larger commission: if the user authorized developing the selected direction, correcting its descendants, or producing a complete artifact, continue under the relevant method until that outcome is fulfilled. If the commission is the decision itself, a supported recommendation and appropriately bounded unknowns can be the complete result.
+
+Return the result to the original use scene and state what can now be judged or done. If the action still fails, read [returning findings to the work](../search/references/returning-to-the-work.md) before changing more work. Do not force novelty or continue researching after the decision is adequately supported.
 
 Authorization follows the user's request, not the Skill name. A shaping conversation does not authorize edits; an authorized implementation does not require a new approval merely because Shape exposed a provisional assumption. Keep implementation, successful verification, and user acceptance distinct.

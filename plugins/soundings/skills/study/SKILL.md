@@ -1,6 +1,6 @@
 ---
 name: study
-description: "Reconcile a body of material into an explanation, mechanism, real disagreement, or new judgment the work can use, instead of reading sources one by one. Use especially when someone asks what an existing project should pursue next without naming a narrower question, including inside a repository: inspection supplies the material, while discovering and completing the inquiry is the commission. Also use when several studies or reports must be combined, versions and applicability decide how far a claim holds, or understanding the material is itself the result. Yields to straight fact-finding, a single-source lookup, ordinary summary, or codebase investigation whose question is already clear."
+description: "Find and pursue the unresolved question most worth understanding in an existing project, then reconcile its material into an explanation the work can use. Also use for supplied materials whose relationships and applicability need explanation. Not for fact lookup, simple summary, or repository work whose question is already clear."
 ---
 
 # Study
@@ -9,13 +9,15 @@ Turn material into understanding the work can act on. The material may already b
 
 ## Establish what the understanding must serve
 
-Recover the goal, the decisions this understanding will support, the material already present, and the authority granted. Note the user's important targets and any counterexamples or alternatives they want covered, so the result answers the questions that matter instead of every question the material happens to allow.
+Recover the desired outcome, the decisions this understanding will support, the material already present, and the authority granted. For an active project, frontload project inquiry: inspect its accepted purpose, current artifacts and use, accepted constraints, and live proposals before choosing what the inquiry should be. Note important targets and any counterexamples or alternatives the person wants covered, so the result answers the questions that matter instead of every question the material happens to allow.
+
+When the person asks what a project should pursue next, the missing narrower question is part of the commission. Discover it from the project's accepted outcome, artifacts, and use rather than from a generic repository tour, and continue the same work without waiting for the question to be supplied. Ordinary repository investigation belongs with the active engineering method when its question is already clear.
 
 Understanding is often a complete deliverable on its own. Do not defer the synthesis, hand the person the pieces to conclude from, or let the work settle into "read these and summarize".
 
 An unresolved relationship in existing material can supply the next worthwhile question. Explain why answering it would change understanding or making, and pursue it within the commission. Preserve the user's open horizon; a promising question does not become the only permissible thesis. When the request is to continue, grow, or sound out an existing project, read [project-grounded sounding](references/project-grounded-sounding.md). Naming promising questions is intermediate work, not the result.
 
-Project-grounded Study can begin inside a repository. Local files, implementation, tests, and history are then the body of material; the distinguishing commission is to discover which unresolved relationship matters most and pursue it to a judgment or other usable result. Ordinary repository investigation remains with the active engineering method when the question is already supplied. If the discovered answer requires implementation, engineering continues the same commission after Study establishes what the implementation must change.
+If the discovered question turns on an external possibility, inspect it under the active task's authority. Read [proactive inquiry and reference choice](../search/references/proactive-inquiry.md) when the missing understanding depends on a substantial open choice and what implemented systems, experiences, mechanisms, or adoption conditions can show. Use enough material for the judgment rather than settling for descriptions of the surface.
 
 ## Reconcile the materials
 
@@ -29,11 +31,11 @@ Reconciling the materials is not the endpoint; the study should leave you with a
 
 ## Fill only the gaps that matter
 
-Material already present does not force a new search. Use what is there when it can support the judgment, and verify outward only when a precise, decision-relevant gap remains and the current request permits it. If important material cannot be reached, name the specific gap and how it bounds the conclusion. Read [coverage-and-limits](references/coverage-and-limits.md) when deciding how much more to gather, when coverage is partial, or when a conclusion risks reading stronger than the evidence.
+Material already present does not force a new search. Use what is there when it can support the judgment, and look outward when the commission itself asks for possibilities or when a decision-relevant gap remains and the current request permits it. Discovery can be useful without an already-known defect. If important material cannot be reached, name the specific gap and how it bounds the conclusion. Read [coverage-and-limits](references/coverage-and-limits.md) when deciding how much more to gather, when coverage is partial, or when a conclusion risks reading stronger than the evidence.
 
 ## Deliver the judgment
 
-State what the material supports, what you infer from it, and what would be needed to carry a finding into this context. Surface the mechanism or relationship, not only the outcome, and keep a useful counterexample visible instead of smoothing it away. Study does not need a unified score, a mandatory conclusion format, a fixed source count, or a new store of truth that the material does not justify.
+State what the material supports, what you infer from it, and what would be needed to carry a finding into this context. Surface the mechanism or relationship, not only the outcome, and keep a useful counterexample visible instead of smoothing it away. If a discovered project question produced an explanation, return it to the project's original use scene. Study does not need a unified score, a mandatory conclusion format, a fixed source count, or a new store of truth that the material does not justify.
 
 ## Stay within the owner's boundary
 

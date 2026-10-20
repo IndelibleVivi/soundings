@@ -6,6 +6,8 @@ Soundings develops evidence, understanding, possibilities, and judgeable choices
 
 Version 0.2 separated the completion of an inquiry action from the completion of the commission. Version 0.3.1 makes project-grounded inquiry explicit: Soundings can discover a consequential unresolved question in existing work and pursue it to a result the project can use. It also corrects the initial 0.3.0 framing by keeping portable research handoffs at optional maintenance scope and removing a rejected generic motion artifact from the forward product contract. A query may end before synthesis is done; a choice may be settled while its authorized correction still needs to reach the artifacts. The requested outcome determines delivery.
 
+The `0.4.0` candidate addresses two connected gaps: discovery can be skipped before an open choice because the agent already knows a plausible implementation, and returned research can stop at a summary without changing the initiating work. Its source contract makes the open choice itself a reason for discovery and makes the receiver responsible for a local judgment, a concrete effect, and a return to the original scene. These are intended behaviors; [current state](../../../docs/current-state.md) separates their implementation from observed effect.
+
 The design responds to two opposite failures:
 
 - **Over-expansion:** every task becomes research, interviews, reports, artifacts, or approval gates.
@@ -39,6 +41,8 @@ flowchart LR
 ```
 
 There is no Soundings orchestrator. The host discovers the relevant capability from its description. The capabilities may recur inside one task; none resets prior choices, requires the others, or creates a competing brief.
+
+The [host integration guide](host-integration.md) describes how an existing engineering method or custom harness can make the open-choice condition visible before selection, keep method resources readable, and return results to the commission owner. It does not configure that host. Soundings owns method content; a host owns delivery, execution continuity, and permission enforcement; actual outcomes still require observation.
 
 ## Why four independent Skills
 
@@ -83,15 +87,28 @@ The diagram is a feedback loop, not a required sequence of Skills. The question 
 - Domain-specific research and decision skills retain their subject-matter contracts. Search can supply broader discovery, but it does not override legal, security, medical, academic, or other specialized evidence standards.
 - Delegation is an execution choice, not a Soundings stage. The coordinator must give a worker the privacy-safe context that changes its judgment and remain responsible for synthesis.
 
+## Discovery and return inside one commission
+
+The unit of discovery is a substantial open choice, not a project's age or code volume. Existing implementation, accepted behavior, open dimensions, and reference coverage are distinct. An empty repo may already have an accepted form; a mature system may contain an entirely new interaction domain. A settled small repair remains direct.
+
+Source depth follows its intended contribution. Discovery may begin with a description; experience judgments need the relevant medium; mechanism claims need the decisive implementation path; adoption needs local compatibility and operating conditions. Named targets receive proportionate coverage, while discovered candidates can be triaged. Cross-source understanding compares shared questions and distinguishes alternatives, complementary contributions, and incompatible premises.
+
+The receiver relates returned evidence to the original desired outcome, the explanation being tried, and the narrower inquiry question. It forms a local judgment rather than inheriting a source's recommendation. That judgment identifies the actual object or behavior to change, preserves the learned relationship through production, and updates dependent plans and acceptance when a premise changes. A return to the initiating scene distinguishes a useful effect from a technically correct but irrelevant patch.
+
+Repeated rejection warrants inspecting the actual failed work and identifying what the next candidate can distinguish: intent, interaction relationship, execution quality, or inadequate fidelity. Repeated search or replanning without new evidence or progress does not advance the commission. Positive discovery can also open a worthwhile direction without a prior defect. Understanding-only work may finish with a sufficient explanation; implementation work continues within its granted scope.
+
+Worked examples live in the runtime reference paths that use them. They show a complete constructed development, including an attractive route not adopted and a nearby direct-action case. They are teaching material, not live research evidence, fixed output formats, or a requirement to reproduce their domain.
+
 ## The shared state model
 
-Soundings distinguishes five kinds of state:
+Soundings distinguishes the following parts of its working understanding:
 
 1. desired outcome and qualities;
 2. settled choices;
 3. agent proposals or provisional mechanisms;
 4. evidence and open unknowns;
-5. current authority and next action.
+5. the live inquiry question, where one exists;
+6. current authority and next action.
 
 The distinction prevents three common category errors: a polished specification turning an agent interpretation into a user decision; a successful experiment turning into product commitment; and a bounded preference turning into whole-project approval.
 
@@ -134,7 +151,7 @@ Research effort, response size, and retention remain separate. Capture is an exp
 
 ## Current boundaries
 
-Version `0.3.1` has no:
+The `0.4.0` candidate has no:
 
 - a global Soundings router;
 - fixed stages or mandatory artifacts;
@@ -144,4 +161,4 @@ Version `0.3.1` has no:
 - required edits to other installed Skills or harness configuration;
 - automatic retention, source uploading, model-generated compression, or semantic index.
 
-See the [current evidence summary](../../../docs/dogfood-0.3.1.md) for source, behavior, installation, and publication observations; [0.3.0](../../../docs/dogfood-0.3.0.md) preserves the corrected release history, and the [0.2.0](../../../docs/dogfood-0.2.0.md) and [0.1.0](../../../docs/dogfood-0.1.0.md) records preserve earlier observations. These are different claims; installation success does not establish useful inquiry, and a successful example does not prove broad effectiveness.
+See [current state](../../../docs/current-state.md) for candidate status and the [0.3.1 evidence summary](../../../docs/dogfood-0.3.1.md) for earlier behavior and installation observations; [0.3.0](../../../docs/dogfood-0.3.0.md) preserves the corrected release history, and the [0.2.0](../../../docs/dogfood-0.2.0.md) and [0.1.0](../../../docs/dogfood-0.1.0.md) records preserve earlier observations. These are different claims; installation success does not establish useful inquiry, and a successful example does not prove broad effectiveness.

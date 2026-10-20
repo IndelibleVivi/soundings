@@ -19,7 +19,7 @@ Soundings 帮助 Codex 查清一个问题、理解一组材料、发展一个创
 
 它们是能力，不是阶段。没有 router、规定顺序、访谈或强制报告。清晰的小任务应直接完成；domain methods 保留其证据标准与制作职责，换方法仍然是在继续同一份委托。
 
-> `0.3.1` 修正了 `0.3.0` 的产品叙事：面向用户的能力是 project-grounded inquiry；evidence packet 仍是可选 maintenance，一个已被否定的通用动效 demo 也不再是前向产品案例。源码、行为观察、安装、激活与发布仍分别报告，见[当前状态](#当前状态)和[证据记录](docs/dogfood-0.3.1.md)。
+> `0.4.0` 源码候选强化了重要开放选择前主动发现、研究返回后继续原任务的方法，并加入运行时可读的完整案例。[有限对照](docs/dogfood-0.4.0.md)中，候选读到了新指导，但仍跳过了外部取材；小修保持直接。尚未证明行为改善，见[当前状态](docs/current-state.md)。[0.3.1 观察](docs/dogfood-0.3.1.md)继续作为历史证据保留。
 
 ## 安装与升级
 
@@ -38,7 +38,7 @@ codex plugin add soundings@soundings
 codex plugin list --json
 ```
 
-确认 installed entry 是 `0.3.1` 且已启用，再新开 task。Marketplace snapshot 与 installed cache 是不同层；[证据记录](docs/dogfood-0.3.1.md)会说明哪些升级步骤已经实际跑过。
+对照[当前状态](docs/current-state.md)确认 installed version 与 enabled 状态，再新开 task。Marketplace snapshot 与 installed cache 是不同层；最新源码候选与最近做过行为观察的安装版本可能不同。
 
 ## 使用
 
@@ -69,6 +69,16 @@ $shape 原型变成了评分问卷，这不是想要的体验。保留六轮与�
 ```
 
 当问题需要从现有材料的关系里长出来时，由 Study 接住发现；真正决定答案的工作可以继续交给 Search、Explore、Shape 或当前 domain method，无须变成强制 pipeline。
+
+## 让参考进入正在做的工作
+
+产品形态、交互、视觉表达、架构或实现仍有重要开放选择时，Search 要求在大量投入前主动接触相关外部可能性。目标清楚不等于做法已定。仍然适用的参考可以复用；明确的小修和已接受方向的忠实实施应直接继续。
+
+阅读深度跟着用途走：介绍可以帮助发现候选；体验判断需要观察实际媒介；机制判断需要相关实现；真正采用还要核对本地条件。点名的 targets 获得与委托相称的直接覆盖。多个结果围绕共同问题比较，辨认前提冲突，以及值得借鉴但不必整体采用的贡献。[运行时完整案例](plugins/soundings/skills/search/references/proactive-inquiry-examples.md)用构造的工作台与交互场景展示这些转化，也保留应直接执行的小改动对照。
+
+材料返回后，原任务的负责人要结合最初目标和本地证据形成判断，再把判断落实到实际解释、候选或实现中。回到启动调查的场景，观察想要的效果是否出现。只要求研究的委托仍然只做研究；发现了下一步，也不等于完成了实施委托。
+
+普通请求可以只是“继续把这个工作台做得更顺手”或“这个页面能用了，但整体还是很弱，帮我改善”。Host 是否选择并使用相应方法仍需观察。[Host 接线说明](plugins/soundings/docs/host-integration.md)解释早期可见性、资源送达与任务接续，不引入强制依赖或新 runtime。
 
 ## 保留证据成立的条件
 
@@ -131,6 +141,8 @@ plugins/soundings/
 
 - [设计与职责边界](plugins/soundings/docs/design.md)
 - [行为验收场景](plugins/soundings/docs/behavior-scenarios.md)
+- [Host 接线与激活边界](plugins/soundings/docs/host-integration.md)
+- [0.4.0 候选对照与未通过的主动发现验收](docs/dogfood-0.4.0.md)
 - [完整案例](docs/examples/inquiry-in-practice.md)
 - [官网开发与发布](site/README.md)、[视觉方向](docs/website-design.md)与[第三方 notices](docs/website-third-party.md)
 - [0.3.1 证据](docs/dogfood-0.3.1.md)、[0.3.0 纠正记录](docs/dogfood-0.3.0.md)、[0.2.0 观察](docs/dogfood-0.2.0.md)与 [0.1.0 历史](docs/dogfood-0.1.0.md)
@@ -153,10 +165,10 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
 
 ## 当前状态
 
-- **Source：** `0.3.1` 在 Study 与 shared working context 中明确实现 project-grounded question discovery and pursuit，并让 Shape 把已被否定的 side artifact 撤出代表性位置。本地 evidence 与 packet helpers 保持为可选 maintenance。
-- **Validation 与 behavior：** 当前检查和观察记录在 [dogfood-0.3.1](docs/dogfood-0.3.1.md)，更早记录继续作为历史证据保留。
-- **Installation 与 activation：** Git marketplace 安装接受了 enabled `0.3.1`，installed candidate 与 29 个 canonical package 文件一致。一个普通 fresh prompt 自然选择了 installed Study，并完成了一次 project-grounded 产品判断。精确范围与限制见当前证据记录。
-- **Publication：** behavior implementation commit `ac21dc9` 与截至 `1a33654` 的 package follow-ups 已可从公开 [IndelibleVivi/soundings](https://github.com/IndelibleVivi/soundings) marketplace source 获取。当前证据记录继续把发布、安装和 runtime behavior 分开。
+- **Source：** `0.4.0` 是主动发现开放选择、按用途阅读多来源材料、接收结果后继续原任务的候选。Package 仍由四个独立 Skills 与可选本地 helpers 构成。
+- **Validation 与 behavior：** [0.4.0 对照](docs/dogfood-0.4.0.md)记录通过的源码检查与小修、可运行的产物，以及开放候选任务中未通过的主动发现验收。[当前状态](docs/current-state.md)明确保留未完成的行为条件；[0.3.1](docs/dogfood-0.3.1.md)保留早先 installed-host 观察。
+- **Installation 与 activation：** 历史上实际观察过的安装是 enabled `0.3.1`；它不能证明 `0.4.0` 候选已送达或产生行为效果。
+- **Publication：** 公开 [marketplace repo](https://github.com/IndelibleVivi/soundings)分发其中的当前 package。源码发布、本地安装、激活与行为接受分别报告；源码版本不代表新增 tagged release。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。
 

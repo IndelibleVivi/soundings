@@ -34,5 +34,7 @@ If the user says a candidate is unintelligible, unrelated to the goal, or not a 
 - A preference establishes the next relevant direction at the fidelity shown.
 - A complaint about repetition does not automatically change total length, scope, or result diversity.
 - A technical pass does not establish experiential acceptance, and experiential approval does not replace technical verification.
+- Repeated rejection establishes that the current candidates did not serve the accepted scene. Inspect the actual failed outputs, prior explanations, and reference relationships before deciding whether interpretation, interaction relationship, execution, or candidate fidelity caused the miss.
+- A rejection of one surface or mechanism does not forbid a related idea under different preconditions. Retain the distinctions the next attempt needs to discriminate.
 
-Continue all work supported by the feedback and existing authority. Ask again only if the correction reveals a genuinely new owner-held choice.
+Continue all work supported by the feedback and existing authority. Propagate revised assumptions through plans, specifications, tasks, code, and acceptance criteria, and retire superseded active paths rather than keeping both versions actionable. Return to the original use scene to judge whether the learned relationship survived. Ask again only if the correction reveals a genuinely new owner-held choice.

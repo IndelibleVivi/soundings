@@ -36,15 +36,28 @@ Frame a question tightly enough to be answerable without preselecting the result
 
 When the current solution was introduced by the agent and governs substantial work, include evidence that could change or disconfirm it. Do not use research only to decorate a path already chosen.
 
+## Choose the next useful action
+
+At any point, choose the action that can resolve the live uncertainty:
+
+- **Broaden:** continue discovery for new relevant families when the current results repeat one vocabulary, inherit the same assumptions, or leave a named target uncovered.
+- **Deepen:** inspect the shared decisive distinction when several candidates appear competitive or complementary for different reasons.
+- **Probe local fit:** observe state, interface, version, license, performance, or integration conditions when the source works but adoption remains uncertain.
+- **Inspect or build the medium:** use the actual interaction, timed sequence, rendered artifact, or representative candidate when experience is the open question.
+- **Execute:** change, implement, or deliver the authorized work once the evidence supports it and no unresolved owner choice obstructs the next action.
+- **Stop:** finish the commission when its requested result and important counterevidence are adequately supported, or when another source would add links without changing the answer.
+
+These are choices, not mandatory stages or a quality score. Move directly to the action that resolves the uncertainty, and return to discovery only when new evidence or an open choice makes it useful.
+
 ## Stop according to the intent
 
-- **Verify:** stop when the decision-relevant claim has adequate current support or the remaining uncertainty is explicit and cannot be resolved proportionately.
-- **Compare:** stop when the differences that could plausibly change this choice are covered. Do not enumerate every vendor or implementation.
-- **Discover:** stop when at least one concrete direction is worth making judgeable and more sources are repeating rather than changing the possibility space.
+- **Verify:** complete when the decision-relevant claim has adequate current support or the remaining uncertainty is explicit and cannot be resolved proportionately.
+- **Compare:** complete when the differences that could plausibly change this choice are covered. Do not enumerate every vendor or implementation.
+- **Discover:** complete when the concrete directions and decisive distinctions the commission requested are covered, or the results have stopped changing the possibility space. One promising direction may justify designing or making it rather than searching endlessly.
 
-These are stopping rules for inquiry actions, not permission to shrink the commission. A broad discovery request may require several developed directions; a complete research request may still need synthesis after retrieval ends. Judge completion against what the user asked to learn or receive, including important counterexamples and open questions. Do not hand back “research this next” when that research is already authorized and feasible.
+These are stopping rules for inquiry actions, not permission to shrink the commission. A broad discovery request may require several developed directions; a complete research request may still need synthesis after retrieval ends. Judge completion against what the user asked to learn or receive, including important counterexamples and open questions. An experiment design can be the requested deliverable; a proposal is incomplete only when the authorized experiment, artifact, or implementation is still due. Do not hand back “research this next” when that research is already authorized and feasible.
 
-Continue when new evidence is still changing the question or the user explicitly requested broad exploration. Stop when investigation adds links but no longer changes facts, candidates, criteria, or the next useful experiment.
+Continue when new evidence is still changing the question or the user explicitly requested broad exploration. Stop when investigation adds links but no longer changes facts, candidates, criteria, or the next useful action.
 
 Account for the work needed to reach a usable result: provider calls and cost, waiting, returned material, repeat reads, user effort, and likely rework. Do not collapse these into an invented score. Research effort, per-response payload, and authorized retention need separate controls. A small response that forces many follow-up reads may cost more overall; a deep investigation may still deserve a short final answer.
 
