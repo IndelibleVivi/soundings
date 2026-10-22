@@ -101,6 +101,12 @@ Use the actual installed Search directory and replace `s-REFERENCE` with the ret
 
 The helper preserves short lines and admits whole requested ranges. Its byte cap covers complete UTF-8 JSON stdout, including metadata, escaping, and the final newline. Omission is visible and rereadable; a new capture never silently replaces an older reference. This is not automatic semantic retrieval, a web crawler, model-token budgeting, or a claim that all relevant qualifications have been found. Native search and existing providers remain the acquisition paths.
 
+The source candidate fixes a small-budget rejection of fitting complete results
+and avoids repeatedly serializing accumulated output on dense matches. The
+optional [synthetic benchmark](plugins/soundings/skills/search/scripts/benchmark_evidence.py)
+compares the previous admission loop with the current one; it is a local
+diagnostic, not an agent-quality test or a runtime fallback.
+
 ## Continue a project from its unresolved question
 
 Soundings can develop a useful question from existing project material and retain why it matters, the result's evidence dependencies, unused clues, and what would reopen it. It chooses by consequence for the accepted outcome, then continues through the relevant method instead of stopping after discovery. Corpus lookup, original-source reading, sustained research execution, and visual or interactive reference inspection remain distinct capabilities to compose through available tools.

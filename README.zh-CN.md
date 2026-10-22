@@ -101,6 +101,8 @@ python3 /path/to/search/scripts/evidence.py read s-REFERENCE \
 
 Helper 保留短行，按整个请求范围纳入或省略。字节上限覆盖完整 UTF-8 JSON stdout，包括 metadata、转义与末尾换行；省略可见、可回读，新 capture 不会悄悄替换旧引用。它不做自动语义检索、网页抓取或 model-token 预算，也不保证找齐了所有相关限定。取材继续使用 native search 与现有 providers。
 
+Source candidate 修复了极小预算下拒绝本来装得下的完整结果的问题，并避免在密集命中时反复序列化已累计的输出。可选[合成 benchmark](plugins/soundings/skills/search/scripts/benchmark_evidence.py)比较旧 admission loop 与当前实现；它只做本地诊断，不是 agent 质量测试或 runtime fallback。
+
 ## 从未解问题继续一个项目
 
 Soundings 可以从已有项目材料发展值得追究的问题，保留问题来由、结果依赖的证据、未用线索及重开条件。它按问题对已接受目标的影响来选择，然后继续用相应方法做下去，而不是停在发现。Corpus lookup、原始来源阅读、持续研究执行、视觉与交互 reference 的实际观察，仍是可以通过现有工具组合的不同能力。

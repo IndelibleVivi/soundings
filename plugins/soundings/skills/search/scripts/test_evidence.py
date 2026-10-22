@@ -70,6 +70,70 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(result["omitted_ranges"], 1)
         self.assertEqual(result["first_omitted"], {"start_line": 1, "end_line": 1})
 
+    def test_complete_find_response_fits_even_when_all_omitted_metadata_is_larger(self):
+        ref = self.capture("m\n")
+        result = evidence.find(self.store, ref, "m", context=0, max_bytes=8192)
+        wire_size = len(evidence.encode(result, 8192))
+        omitted = dict(
+            result,
+            ranges=[],
+            omitted_ranges=1,
+            first_omitted={"start_line": 1, "end_line": 1},
+            continuation={"next_start_line": None},
+            complete=False,
+        )
+        self.assertGreater(len(evidence.encode(omitted, 8192)), wire_size)
+
+        fitting = evidence.find(self.store, ref, "m", context=0, max_bytes=wire_size)
+        self.assertTrue(fitting["complete"])
+        self.assertEqual(fitting, result)
+        self.assertEqual(evidence.encode(fitting, wire_size), evidence.encode(result, 8192))
+        with self.assertRaises(evidence.EvidenceError):
+            evidence.find(self.store, ref, "m", context=0, max_bytes=wire_size - 1)
+
+    def test_oversized_read_returns_its_exact_minimum_omission_response(self):
+        ref = self.capture("a\nb\nc\nd\ne\n")
+        snapshot = evidence.load(self.store, ref)
+        expected = {
+            "operation": "read",
+            "snapshot": evidence.metadata(snapshot),
+            "line_count": 5,
+            "requested_range": {"start_line": 1, "end_line": 5},
+            "ranges": [],
+            "omitted_ranges": 1,
+            "first_omitted": {"start_line": 1, "end_line": 5},
+            "complete": False,
+        }
+        maximum = len(evidence.encode(expected, 8192))
+        omitted = evidence.read(self.store, ref, 1, 5, max_bytes=maximum)
+        wire = evidence.encode(omitted, maximum)
+        self.assertFalse(omitted["complete"])
+        self.assertEqual(omitted["ranges"], [])
+        self.assertEqual(omitted["first_omitted"], {"start_line": 1, "end_line": 5})
+        self.assertEqual(omitted, expected)
+        self.assertEqual(len(wire), maximum)
+        with self.assertRaises(evidence.EvidenceError):
+            evidence.read(self.store, ref, 1, 5, maximum - 1)
+
+    def test_find_boundary_accounts_for_unicode_escapes_and_final_newline(self):
+        text = 'match 猫 "quote" \\ slash\nseparator\nmatch end\n'
+        ref = self.capture(text)
+        result = evidence.find(self.store, ref, "match", context=0, max_bytes=8192)
+        wire = evidence.encode(result, 8192)
+        self.assertEqual([item["text"] for item in result["ranges"]],
+                         ['match 猫 "quote" \\ slash\n', "match end\n"])
+        self.assertEqual(len(wire), wire.rfind(b"\n") + 1)
+        self.assertIn("猫".encode("utf-8"), wire)
+        self.assertEqual(evidence.encode(
+            evidence.find(self.store, ref, "match", context=0, max_bytes=len(wire)),
+            len(wire),
+        ), wire)
+        partial = evidence.find(self.store, ref, "match", context=0, max_bytes=len(wire) - 5)
+        self.assertFalse(partial["complete"])
+        self.assertEqual(evidence.encode(partial, len(wire) - 5),
+                         evidence.encode(partial, 8192))
+        self.assertLessEqual(len(evidence.encode(partial, len(wire) - 5)), len(wire) - 5)
+
     def test_byte_accounting_includes_unicode_json_and_final_newline(self):
         payload = {"text": "猫\n\"quoted\"", "ranges": [1, 2]}
         wire = evidence.encode(payload, 8192)
@@ -244,6 +308,28 @@ class EvidenceTests(unittest.TestCase):
         self.assertFalse(payload["complete"])
         self.assertEqual(payload["first_omitted"], {"start_line": 4, "end_line": 4})
         self.assertEqual(payload["continuation"], {"next_start_line": None})
+
+    def test_many_hits_serialize_the_complete_response_once(self):
+        count = 4000
+        text = "".join(f"match {index:05d}\nseparator\n" for index in range(count))
+        ref = self.capture(text)
+        real_encode = evidence.encode
+        payload_sizes = []
+
+        def measured(payload, max_bytes):
+            payload_sizes.append(len(real_encode(payload, 8192)))
+            return real_encode(payload, max_bytes)
+
+        with mock.patch.object(evidence, "encode", side_effect=measured):
+            result = evidence.find(self.store, ref, "match", context=0, max_bytes=1024)
+
+        wire = real_encode(result, 1024)
+        self.assertLessEqual(len(wire), 1024)
+        self.assertLess(len(payload_sizes), 5)
+        self.assertEqual(payload_sizes, [len(wire)])
+        self.assertEqual(result["matching_lines"], count)
+        self.assertEqual(result["omitted_ranges"], count - len(result["ranges"]))
+        self.assertEqual(result["first_omitted"]["start_line"], 21)
 
     # Capture publication. These exercise the real write path with injected
     # faults and confirm a partial or failed write never appears as a snapshot.

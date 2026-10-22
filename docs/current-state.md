@@ -32,6 +32,16 @@ validation of five subjects and four cases, all four fixture/expected selftests,
 and five pinned plans (four times eight plus the separate eight-run control).
 The entrypoint is `python3 evals/check.py`, which also runs the helper suite.
 
+The helper repair passes 39 deterministic evidence/packet tests. A fitting
+411-byte complete response that the old omission-first admission rejected now
+returns successfully. Admission uses exact serialized fragments rather than
+repeatedly rebuilding the accumulated response. A five-repeat synthetic local
+diagnostic (Python 3.13.3, 8,000 lines, 4,000 non-adjacent hits, 1,024-byte cap)
+measured medians of about 1.34s for the previous loop and 0.041s for the repair,
+with identical 1,006-byte output. This is workload-specific instrumentation,
+not a general performance or research-quality claim. The reproducible script is
+[`benchmark_evidence.py`](../plugins/soundings/skills/search/scripts/benchmark_evidence.py).
+
 Offline fixtures, a valid plan and source delivery are not behavior acceptance.
 Annotations require anchored returned content rather than a mentioned path;
 host selection remains unknown and content application requires semantic

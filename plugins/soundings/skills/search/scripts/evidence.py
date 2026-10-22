@@ -30,10 +30,14 @@ def encode(payload: dict, max_bytes: int) -> bytes:
     """Measure the complete successful stdout response, including its newline."""
     if max_bytes < 1:
         raise EvidenceError("max-bytes must be positive")
-    wire = (json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n").encode("utf-8")
+    wire = (compact_json(payload) + "\n").encode("utf-8")
     if len(wire) > max_bytes:
         raise EvidenceError("byte budget cannot fit the complete response metadata; increase --max-bytes")
     return wire
+
+
+def compact_json(value) -> str:
+    return json.dumps(value, ensure_ascii=False, separators=(",", ":"))
 
 
 def metadata(snapshot: dict) -> dict:
@@ -127,42 +131,94 @@ def pack(snapshot: dict, operation: str, windows: list[dict], max_bytes: int,
     no remainder, so ``next_start_line`` is null and the caller finishes after
     handling that window.
     """
-    def response(selected: list[dict], omitted: set[int]) -> dict:
-        first = windows[min(omitted)] if omitted else None
-        result = {
-            "operation": operation, "snapshot": metadata(snapshot),
-            "line_count": len(snapshot["content"].splitlines()),
-            **details,
-        }
-        if scope is not None:
-            result["scope"] = scope
+    if max_bytes < 1:
+        raise EvidenceError("max-bytes must be positive")
+
+    fixed = {
+        "operation": operation,
+        "snapshot": metadata(snapshot),
+        "line_count": len(snapshot["content"].splitlines()),
+        **details,
+    }
+    if scope is not None:
+        fixed["scope"] = scope
+
+    # Serialize each window once and compose exact candidate sizes from those
+    # compact fragments. This keeps wire accounting exact without rebuilding the
+    # selected list, omission set, and complete response for every window.
+    fragments = [compact_json(item).encode("utf-8") for item in windows]
+    prefix = compact_json(fixed)[:-1].encode("utf-8")
+    first_omitted = [
+        {"start_line": item["start_line"], "end_line": item["end_line"]}
+        for item in windows
+    ]
+    first_fragments = [compact_json(item).encode("utf-8") for item in first_omitted]
+    continuation_values = []
+    for item in windows:
+        if scope is not None and item["end_line"] >= scope["end_line"]:
+            continuation_values.append({"next_start_line": None})
+        else:
+            continuation_values.append({"next_start_line": item["end_line"] + 1})
+    continuation_fragments = [
+        compact_json(value).encode("utf-8") for value in continuation_values
+    ]
+
+    def response(selected: list[dict], omitted_count: int, first_index: int | None) -> dict:
+        result = dict(fixed)
         result["ranges"] = selected
-        result["omitted_ranges"] = len(omitted)
-        result["first_omitted"] = ({"start_line": first["start_line"], "end_line": first["end_line"]}
-                                   if first else None)
+        result["omitted_ranges"] = omitted_count
+        result["first_omitted"] = (
+            first_omitted[first_index] if first_index is not None else None
+        )
         if continuation:
-            if first is None:
-                result["continuation"] = None
-            elif scope is not None and first["end_line"] >= scope["end_line"]:
-                result["continuation"] = {"next_start_line": None}
-            else:
-                result["continuation"] = {"next_start_line": first["end_line"] + 1}
-        result["complete"] = not omitted
+            result["continuation"] = (
+                continuation_values[first_index] if first_index is not None else None
+            )
+        result["complete"] = omitted_count == 0
+        return result
+
+    def size(selected_bytes: int, selected_count: int, omitted_count: int,
+             first_index: int | None) -> int:
+        wire_size = len(prefix) + len(b',"ranges":[')
+        if selected_count:
+            wire_size += selected_bytes + selected_count - 1
+        wire_size += len(b'],"omitted_ranges":') + len(str(omitted_count))
+        wire_size += len(b',"first_omitted":')
+        wire_size += (len(first_fragments[first_index])
+                      if first_index is not None else len(b"null"))
+        if continuation:
+            wire_size += len(b',"continuation":')
+            wire_size += (len(continuation_fragments[first_index])
+                          if first_index is not None else len(b"null"))
+        wire_size += len(b',"complete":') + (
+            len(b"true") if omitted_count == 0 else len(b"false")
+        )
+        return wire_size + len(b"}\n")
+
+    total_fragment_bytes = sum(map(len, fragments))
+    if size(total_fragment_bytes, len(windows), 0, None) <= max_bytes:
+        result = response(list(windows), 0, None)
+        encode(result, max_bytes)
         return result
 
     selected: list[dict] = []
-    omitted = set(range(len(windows)))
-    result = response(selected, omitted)
-    encode(result, max_bytes)
+    selected_bytes = 0
+    omitted_count = len(windows)
+    first_index = 0 if windows else None
     for index, item in enumerate(windows):
-        candidate = response(selected + [item], omitted - {index})
-        try:
-            encode(candidate, max_bytes)
-        except EvidenceError:
-            continue
-        selected.append(item)
-        omitted.remove(index)
-        result = candidate
+        candidate_first = first_index
+        if candidate_first == index:
+            candidate_first = index + 1 if index + 1 < len(windows) else None
+        fragment_bytes = len(fragments[index])
+        if size(selected_bytes + fragment_bytes, len(selected) + 1,
+                omitted_count - 1, candidate_first) <= max_bytes:
+            selected.append(item)
+            selected_bytes += fragment_bytes
+            omitted_count -= 1
+            first_index = candidate_first
+
+    result = response(selected, omitted_count, first_index)
+    encode(result, max_bytes)
     return result
 
 
