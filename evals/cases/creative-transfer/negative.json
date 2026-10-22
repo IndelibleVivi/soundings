@@ -1,0 +1,32 @@
+{
+  "wrong-applicability": {
+    "mechanism": "progressive disclosure",
+    "keyboard": true,
+    "analytics": "cloud",
+    "form": "cards",
+    "rationale": "Orientation stays visible while details open on demand.",
+    "sources": [
+      "reference-2"
+    ]
+  },
+  "citation-without-use": {
+    "mechanism": "flat exhaustive wall",
+    "keyboard": true,
+    "analytics": "none",
+    "form": "cards",
+    "rationale": "Orientation stays visible while details open on demand.",
+    "sources": [
+      "reference-2"
+    ]
+  },
+  "lost-keyboard": {
+    "mechanism": "progressive disclosure",
+    "keyboard": false,
+    "analytics": "none",
+    "form": "cards",
+    "rationale": "Orientation stays visible while details open on demand.",
+    "sources": [
+      "reference-2"
+    ]
+  }
+}

@@ -144,6 +144,7 @@ plugins/soundings/
 - [Host integration and activation boundaries](plugins/soundings/docs/host-integration.md)
 - [0.4.0 candidate comparison and failed discovery criterion](docs/dogfood-0.4.0.md)
 - [Worked examples](docs/examples/inquiry-in-practice.md)
+- [Offline research pack, counterexamples and observation tools](evals/README.md) — constructed fixtures and fixed plans; no new live behavior evidence.
 - [Website development and publishing](site/README.md), [visual direction](docs/website-design.md), and [third-party notices](docs/website-third-party.md)
 - [0.3.1 evidence](docs/dogfood-0.3.1.md), [0.3.0 correction history](docs/dogfood-0.3.0.md), [0.2.0 observations](docs/dogfood-0.2.0.md), and [0.1.0 history](docs/dogfood-0.1.0.md)
 
@@ -159,9 +160,20 @@ skill-validate plugins/soundings/skills/shape
 python3 -m json.tool plugins/soundings/.codex-plugin/plugin.json >/dev/null
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
   -s plugins/soundings/skills/search/scripts -p 'test_*.py' -v
+python3 evals/check.py
 ```
 
 `skill-validate` is development tooling, not a dependency bundled with Soundings. The JSON check establishes manifest syntax; a successful marketplace install separately establishes that the current host accepts the package. Structural validation does not prove useful triggering or judgment. Run relevant [behavior scenarios](plugins/soundings/docs/behavior-scenarios.md) in fresh tasks and inspect the resulting work.
+
+The optional `evals/` tools require Python 3.10+ and the standard library. Their
+provider-neutral check exercises constructed fixtures, semantic counterexamples
+and observation boundaries without starting a target model. A separately
+materialized Field Lab pack fixes four task families across four historical/current
+Soundings/Servotab combinations with two repetitions: 32 planned runs, plus an
+optional separate eight-run no-Skill control. Generated packs stay outside Git.
+Plans do not authorize execution; offline checks do not establish research
+quality or implicit Skill selection. See the [research guide](evals/README.md)
+for source pinning, private artifact handling and receipt-bound semantic review.
 
 ## Status
 
@@ -188,5 +200,8 @@ Soundings uses a path-scoped license model:
 - READMEs, project documentation, examples, and diagrams: [CC BY-NC-SA 4.0](LICENSE-DOCUMENTATION.md).
 
 [LICENSING.md](LICENSING.md) owns the exact path map. Third-party material remains under its own terms and must be identified separately.
+
+The new `evals/` material is not added to either grant; the map's existing
+all-rights-reserved rule for unlisted material applies.
 
 Original website material in `site/` is not added to either grant by this publication; the map's rule for unlisted material applies. Bundled font subsets retain SIL OFL 1.1, and incorporated UI templates retain their MIT notices. See the [website notices](docs/website-third-party.md).

@@ -1,0 +1,11 @@
+{
+  "choice": "memory",
+  "offline": true,
+  "qualifier": "v2 single process",
+  "lineage": "bench-v2",
+  "route": "local-memory",
+  "sources": [
+    "bench-v2"
+  ],
+  "independent_observations": 1
+}

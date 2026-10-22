@@ -1,0 +1,10 @@
+{
+  "mechanism": "progressive disclosure",
+  "keyboard": true,
+  "analytics": "none",
+  "form": "cards",
+  "rationale": "Orientation stays visible while details open on demand.",
+  "sources": [
+    "reference-2"
+  ]
+}

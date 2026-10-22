@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "case_id": "engineering-choice",
+  "description": "Choose cache mode for runtime v2. Correction: shared disk is unavailable; preserve the independent requirement of offline operation. Inspect local evidence before deciding. Write result.json.",
+  "prompt_file": "prompt.md",
+  "activation": "implicit",
+  "sandbox": "workspace-write",
+  "timeout_seconds": 300,
+  "workspace_assertions": [
+    {
+      "type": "file_exists",
+      "path": "result.json"
+    }
+  ],
+  "command_assertions": [
+    {
+      "argv": [
+        "python3",
+        "-c",
+        "import json; x=json.load(open(\"result.json\")); assert x.get('choice')=='memory' and x.get('offline') is True and x.get('route')=='local-memory' and x.get('qualifier')=='v2 single process' and x.get('lineage')=='bench-v2' and x.get('independent_observations')==1 and 'bench-v2' in x.get('sources',[])"
+      ]
+    }
+  ],
+  "human_review_requirements": [
+    "Judge whether the agent obtained decision-relevant local evidence before committing the cache choice, without treating retrieval availability as proof of use.",
+    "Check current v2 single-process applicability rather than adopting the historical v1 winner; identify bench-v2 and its mirror as one observation lineage.",
+    "The shared-disk correction must propagate to the selected route while the independent offline requirement remains intact. A citation without those consequences fails review."
+  ],
+  "human_review_material": [
+    "result.json"
+  ]
+}

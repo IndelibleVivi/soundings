@@ -120,6 +120,16 @@ Skill selection never grants authority. Search may run a probe only when the cur
 
 ## Optional evidence maintenance
 
+The repository-level [offline research slice](../../../evals/README.md) is a
+development surface outside the plugin package. Soundings owns constructed
+tasks, reference corpora, counterexamples, visible-event annotations and research
+interpretation. Existing Skill Field Lab owns execution, fixed inputs, receipts
+and review binding. Four historical/current component combinations are normal
+canary subjects; a true no-Skill control remains distinct. Generated compositions
+and raw run artifacts stay outside Git. No new runner, backend, router, hook,
+automatic memory or runtime state has been added. Offline invariant checks and
+explicit annotations do not prove autonomous inquiry or useful evidence use.
+
 Native search and existing providers remain the acquisition paths. The optional Python helper in `skills/search/scripts/evidence.py` adds explicit local capture, exact snapshot/range rereading, literal finding, and a byte cap on complete JSON stdout. It has no external dependencies or network calls and can be invoked from other harnesses.
 
 This is a narrow composition decision: the project does not need to own provider adapters or another research runtime to preserve already acquired text. A stored snapshot keeps selected short lines instead of filtering them by length. Whole requested ranges are included or visibly omitted. These properties address observed selection and budget failure paths; they do not prove general semantic completeness or superior search quality.

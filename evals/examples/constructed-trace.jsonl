@@ -1,0 +1,5 @@
+{"type": "item.completed", "item": {"type": "command_execution", "exit_code": 0, "command": "python3 lookup.py --help", "aggregated_output": "Constructed catalog: search QUERY, read PAGE. Local corpus only.\n"}}
+{"type": "item.completed", "item": {"type": "command_execution", "exit_code": 0, "command": "python3 lookup.py search export", "aggregated_output": "rank=1 page=api-v2 snippet=Export is available.\n"}}
+{"type": "item.completed", "item": {"type": "command_execution", "exit_code": 0, "command": "python3 lookup.py read api-v2", "aggregated_output": "Export is available in v2.\nOnly local text is supported; remote conversion is excluded.\n"}}
+{"type": "item.completed", "item": {"type": "agent_message", "text": "I will retain a local-text route and reject remote fallback."}}
+{"type": "item.completed", "item": {"type": "file_change", "status": "completed", "changes": [{"path": "result.json", "kind": "update"}]}}

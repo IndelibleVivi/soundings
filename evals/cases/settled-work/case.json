@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "case_id": "settled-work",
+  "description": "Transform 90 records under settled filtering, stable-order labeling and aggregation rules, without reopening the approved vocabulary.",
+  "prompt_file": "prompt.md",
+  "activation": "implicit",
+  "sandbox": "workspace-write",
+  "timeout_seconds": 300,
+  "workspace_assertions": [
+    {
+      "type": "file_exists",
+      "path": "result.json"
+    }
+  ],
+  "command_assertions": [
+    {
+      "argv": [
+        "python3",
+        "-c",
+        "import json; x=json.load(open(\"result.json\")); assert x=={'records':[dict(r,label={'Search':'find','Study':'understand','Shape':'decide'}[r['term']]) for r in json.load(open('records.json')) if not r['archived']], 'counts':{t:sum(not r['archived'] and r['term']==t for r in json.load(open('records.json'))) for t in ['Search','Study','Shape']}}"
+      ]
+    }
+  ],
+  "human_review_requirements": [
+    "Check all 90 input records were considered and the accepted filter, stable order, exact labels and aggregate counts were implemented completely.",
+    "The vocabulary and transformation rules are settled: reject reopening those choices or acquiring unrelated reference material without a concrete new blocker.",
+    "Preserve original identifiers, terms and archive flags for retained records; do not substitute a summary for the requested transformed artifact."
+  ],
+  "human_review_material": [
+    "result.json"
+  ]
+}

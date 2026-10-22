@@ -144,6 +144,7 @@ plugins/soundings/
 - [Host 接线与激活边界](plugins/soundings/docs/host-integration.md)
 - [0.4.0 候选对照与未通过的主动发现验收](docs/dogfood-0.4.0.md)
 - [完整案例](docs/examples/inquiry-in-practice.md)
+- [离线研究包、反例与观测工具](evals/README.md)：构造 fixtures 与固定计划，不代表新增在线行为证据。
 - [官网开发与发布](site/README.md)、[视觉方向](docs/website-design.md)与[第三方 notices](docs/website-third-party.md)
 - [0.3.1 证据](docs/dogfood-0.3.1.md)、[0.3.0 纠正记录](docs/dogfood-0.3.0.md)、[0.2.0 观察](docs/dogfood-0.2.0.md)与 [0.1.0 历史](docs/dogfood-0.1.0.md)
 
@@ -159,9 +160,12 @@ skill-validate plugins/soundings/skills/shape
 python3 -m json.tool plugins/soundings/.codex-plugin/plugin.json >/dev/null
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
   -s plugins/soundings/skills/search/scripts -p 'test_*.py' -v
+python3 evals/check.py
 ```
 
 `skill-validate` 是开发工具，不是 Soundings 附带的依赖。JSON 检查只建立 manifest 语法成立；一次成功的 marketplace 安装会另行建立当前 host 接受这个 package。结构验证不能证明触发或判断质量；请在 fresh tasks 中运行相关[行为场景](plugins/soundings/docs/behavior-scenarios.md)，并检查实际成果。
+
+可选 `evals/` 工具使用 Python 3.10+ 与标准库。Provider-neutral check 在不启动 target model 的情况下检查构造 fixtures、语义反例与观测边界。另行 materialize 的 Field Lab pack 固定四类任务、四种历史/当前 Soundings 与 Servotab 组合、每格两次重复，共32次计划运行；真正的无 Skill control 可额外生成独立8次计划。生成包留在 Git 外。计划不授予执行权；离线检查不证明研究质量或隐式 Skill 选择。版本固定、私人产物处理与 receipt-bound 语义审查见[研究指南](evals/README.md)。
 
 ## 当前状态
 
@@ -188,5 +192,7 @@ Soundings 采用按 path 划分的许可：
 - READMEs、项目文档、示例与 diagrams：[CC BY-NC-SA 4.0](LICENSE-DOCUMENTATION.md)。
 
 [LICENSING.md](LICENSING.md) 是精确 path map 的真源。第三方材料仍适用自身条款，必须另行标明。
+
+本轮新增的 `evals/` 未加入上述授权，沿用 map 对未列出材料保留全部权利的规则。
 
 本次发布没有将 `site/` 的原创网站材料加入上述任何一项授权；它们适用 map 对未列出材料的规则。所带字体子集保留 SIL OFL 1.1，UI 模板保留 MIT notices。见[官网 notices](docs/website-third-party.md)。

@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "case_id": "creative-transfer",
+  "description": "Design a local reading-room navigation mechanism. Transfer a useful reference mechanism, preserving keyboard access. The reference deployment uses paid cloud analytics, which this offline product cannot use. Multiple visual forms are acceptable. Write result.json.",
+  "prompt_file": "prompt.md",
+  "activation": "implicit",
+  "sandbox": "workspace-write",
+  "timeout_seconds": 300,
+  "workspace_assertions": [
+    {
+      "type": "file_exists",
+      "path": "result.json"
+    }
+  ],
+  "command_assertions": [
+    {
+      "argv": [
+        "python3",
+        "-c",
+        "import json; x=json.load(open(\"result.json\")); assert x.get('mechanism')=='progressive disclosure' and x.get('keyboard') is True and x.get('analytics')=='none' and x.get('form') in ['cards','map','list'] and isinstance(x.get('rationale'),str) and len(x['rationale'])>20 and 'reference-2' in x.get('sources',[])"
+      ]
+    }
+  ],
+  "human_review_requirements": [
+    "Judge whether the proposed experience applies progressive disclosure by retaining orientation while revealing details, with a rationale tied to the reference mechanism.",
+    "Accept cards, maps or lists when the mechanism survives; reject copying cloud analytics or losing keyboard access under the local offline constraints.",
+    "A reference citation or mechanism label without a usable explanation of its effect is insufficient."
+  ],
+  "human_review_material": [
+    "result.json"
+  ]
+}

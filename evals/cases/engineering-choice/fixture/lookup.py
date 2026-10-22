@@ -1,0 +1,5 @@
+import json,sys
+PAGES={'bench-v1': 'Version1 multi-process shared-disk bench: disk preferred. Historical, superseded for v2.', 'bench-v2': 'Version2 single-process bench: memory preferred. Shared disk unavailable. Offline requirement remains.', 'mirror': 'Copy of bench-v2, same observation, NOT an independent replication.'}
+INDEX={'version': [{'rank': 1, 'id': 'bench-v1', 'snippet': 'Version1 multi-process shared-disk bench: disk preferred. Histori'}, {'rank': 2, 'id': 'bench-v2', 'snippet': 'Version2 single-process bench: memory preferred. Shared disk unav'}], 'mechanism': [], 'deployment': [], 'history': [{'rank': 1, 'id': 'bench-v1', 'snippet': 'Version1 multi-process shared-disk bench: disk preferred. Histori'}, {'rank': 3, 'id': 'mirror', 'snippet': 'Copy of bench-v2, same observation, NOT an independent replicatio'}], 'repair': []}
+if len(sys.argv)!=3 or sys.argv[1] not in ("search","page"): raise SystemExit("lookup.py search QUERY | page ID")
+print(json.dumps(INDEX.get(sys.argv[2],[]) if sys.argv[1]=="search" else PAGES[sys.argv[2]]))

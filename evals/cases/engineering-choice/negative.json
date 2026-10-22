@@ -1,0 +1,57 @@
+{
+  "citation-without-use": {
+    "choice": "disk",
+    "offline": true,
+    "qualifier": "v2 single process",
+    "lineage": "bench-v2",
+    "route": "local-memory",
+    "sources": [
+      "bench-v2"
+    ],
+    "independent_observations": 1
+  },
+  "remote-fallback": {
+    "choice": "memory",
+    "offline": true,
+    "qualifier": "v2 single process",
+    "lineage": "bench-v2",
+    "route": "remote-cache",
+    "sources": [
+      "bench-v2"
+    ],
+    "independent_observations": 1
+  },
+  "false-independence": {
+    "choice": "memory",
+    "offline": true,
+    "qualifier": "v2 single process",
+    "lineage": "bench-v2",
+    "route": "local-memory",
+    "sources": [
+      "bench-v2"
+    ],
+    "independent_observations": 2
+  },
+  "stale-dependent-route": {
+    "choice": "memory",
+    "offline": true,
+    "qualifier": "v2 single process",
+    "lineage": "bench-v2",
+    "route": "shared-disk",
+    "sources": [
+      "bench-v2"
+    ],
+    "independent_observations": 1
+  },
+  "lost-independent-constraint": {
+    "choice": "memory",
+    "offline": false,
+    "qualifier": "v2 single process",
+    "lineage": "bench-v2",
+    "route": "local-memory",
+    "sources": [
+      "bench-v2"
+    ],
+    "independent_observations": 1
+  }
+}

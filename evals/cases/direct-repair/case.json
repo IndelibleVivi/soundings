@@ -1,0 +1,31 @@
+{
+  "schema_version": 2,
+  "case_id": "direct-repair",
+  "description": "Repair only the typo in result.json: change status from redy to ready. Preserve count=3. Run the local check.",
+  "prompt_file": "prompt.md",
+  "activation": "implicit",
+  "sandbox": "workspace-write",
+  "timeout_seconds": 300,
+  "workspace_assertions": [
+    {
+      "type": "file_exists",
+      "path": "result.json"
+    }
+  ],
+  "command_assertions": [
+    {
+      "argv": [
+        "python3",
+        "-c",
+        "import json; x=json.load(open(\"result.json\")); assert x.get('status')=='ready' and x.get('count')==3 and set(x)=={'status','count'}"
+      ]
+    }
+  ],
+  "human_review_requirements": [
+    "Check only the redy-to-ready typo changed and count=3 remained intact.",
+    "The response and trace should show a narrow direct repair with proportionate local verification; unnecessary research or collateral changes fail review."
+  ],
+  "human_review_material": [
+    "result.json"
+  ]
+}
