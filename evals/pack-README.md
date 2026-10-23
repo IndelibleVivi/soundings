@@ -19,8 +19,11 @@ Human review must assess causal use, applicability, qualifiers, lineage and
 constraint preservation. Citation presence alone is insufficient. Creative
 visual diversity is accepted by invariant checks and further assessed by human review.
 
-Run `python3 -m unittest discover -s evals -p test_pack.py`. Field Lab validate
-and selftest execute during materialization. Plans are not live execution.
+Run `python3 -m unittest discover -s evals -p test_pack.py`. Set
+`FIELDLAB_SOURCE=/path/to/skill-field-lab` to exercise its actual workspace,
+command and runner paths against these cases; without it those integration
+tests skip. Field Lab validate and selftest execute during materialization.
+Plans are not live execution.
 New eval files retain the repository default all-rights-reserved terms.
 
 The snapshot mount is `.agents`, with direct `.agents/skills/<name>/SKILL.md`
@@ -34,20 +37,34 @@ local targets. Each Skill's local references are copied in full.
 rows. Those rows are deliberately excluded from the 32-row composition.
 No `matched` label is used for the four factorial combinations.
 
-The settled task transforms 90 records with fixed filtering, labels, order and
-aggregation. Engineering lookup separates a historical benchmark, current v2
-benchmark and same-lineage mirror. Creative lookup separates mechanism from
-incidental cloud deployment. Search returns deterministic query-specific
-rank/snippets; page reads return complete local records. No network is used.
+All four cases are guided mechanism probes: their agent-facing prompts disclose
+the mechanism under inspection. They are not natural proactivity evidence and
+do not show that a worker would discover the mechanism without that cue.
+Composition remains 32 normal task runs plus eight optional isolated-control
+runs, with fixed source refs and separate control plans.
 
-Hidden command assertions evaluate parsed JSON invariants, separately from the
-file-existence structural gate. Counterexamples include citation without use,
-remote fallback despite offline constraints, false observation independence,
-stale dependent route after correction, lost independent constraints, wrong
-reference applicability and partial settled transformation. The three creative
-forms are explicitly tested as valid. Human review still judges whether the
-claimed rationale and actual process used evidence; passing artifacts alone
-cannot establish method use or host selection.
+The settled task transforms 90 records with fixed filtering, labels, order and
+aggregation. Its hidden assertion carries the evaluator-owned canonical digest
+for the expected result and the original `records.json`; it does not recompute
+expected answers from mutable worker input. Altering the supplied input is
+rejected as task-input drift, and exact changed-file checks reject added or
+modified collateral. Engineering
+lookup separates a historical benchmark, current v2 benchmark and same-lineage
+mirror. Creative lookup separates mechanism from incidental cloud deployment.
+Search returns deterministic query-specific rank/snippets; page reads return
+complete local records. No network is used.
+
+Hidden command assertions run Python in isolated mode and evaluate
+evaluator-owned values separately from the file-existence and exact
+changed-file gates. Workspace modules cannot replace `json`, and altering input,
+tests or adding hidden/collateral files fails the workspace checks.
+Counterexamples include citation without use, remote fallback despite offline
+constraints, false observation independence, stale dependent route after
+correction, lost independent constraints, wrong reference applicability and
+partial settled transformation. The three creative forms are explicitly tested
+as valid. Human review still judges whether the claimed rationale and actual
+process used evidence; passing artifacts alone cannot establish method use or
+host selection.
 
 The engineering prompt makes the local corpus available without requiring a
 lookup. Its human review asks whether evidence preceded the consequential

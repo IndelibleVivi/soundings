@@ -1,42 +1,79 @@
 {
-  "schema": "soundings.observations.v1",
+  "schema": "soundings.observations.v2",
   "trace_sha256": "beeffe47652c37948d8f6ead5d203b3db2fefa8dd545d3859a1ac3573c227d12",
   "events": [
     {
       "kind": "capability.catalog",
-      "trace_line": 1,
       "pointer": "/item/aggregated_output",
       "excerpt": "search QUERY, read PAGE",
-      "note": "Constructed visible tool catalog; not a real-host preflight."
+      "note": "Constructed visible tool catalog; not a real-host preflight.",
+      "line": 1,
+      "stream": "trace"
     },
     {
       "kind": "acquisition.succeeded",
-      "trace_line": 2,
       "pointer": "/item/aggregated_output",
       "excerpt": "rank=1 page=api-v2",
-      "note": "Constructed query result was returned; the page is not yet delivered."
+      "note": "Constructed query result was returned; the page is not yet delivered.",
+      "line": 2,
+      "stream": "trace"
     },
     {
       "kind": "content.delivered",
-      "trace_line": 3,
       "pointer": "/item/aggregated_output",
       "excerpt": "Only local text is supported; remote conversion is excluded.",
       "representation": "generated",
-      "note": "Constructed source qualifier is present in actual tool output; source authenticity and application are separate."
+      "note": "Constructed source qualifier is present in actual tool output; source authenticity and application are separate.",
+      "line": 3,
+      "stream": "trace",
+      "role": "source_body",
+      "origin": "fixed_corpus",
+      "completeness": "excerpt",
+      "source_id": "constructed-api-v2",
+      "relations": [
+        {
+          "decision_id": "conversion-route",
+          "relevance": "refutes",
+          "note": "Excludes the proposed remote fallback."
+        }
+      ]
     },
     {
       "kind": "commitment",
-      "trace_line": 4,
       "pointer": "/item/text",
       "excerpt": "retain a local-text route",
-      "note": "Visible decision selected by annotator, not hidden reasoning."
+      "note": "Visible decision selected by annotator, not hidden reasoning.",
+      "line": 4,
+      "stream": "trace",
+      "decision_id": "conversion-route"
     },
     {
       "kind": "artifact.changed",
-      "trace_line": 5,
       "pointer": "/item/changes/0/path",
       "excerpt": "result.json",
-      "note": "Trace reports a change; artifact correctness requires independent inspection."
+      "note": "Trace reports a change; artifact correctness requires independent inspection.",
+      "line": 5,
+      "stream": "trace",
+      "decision_id": "conversion-route"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "conversion-route",
+      "question": "Which conversion route satisfies local text constraints?"
+    }
+  ],
+  "coverage": [
+    {
+      "decision_id": "conversion-route",
+      "trace_ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "delivery_annotations": "partial",
+      "host_context": "unknown"
     }
   ]
 }

@@ -181,6 +181,13 @@ Plans do not authorize execution; offline checks do not establish research
 quality or implicit Skill selection. See the [research guide](evals/README.md)
 for source pinning, private artifact handling and receipt-bound semantic review.
 
+The historical four cases are guided mechanism probes. A separate
+[natural-task suite](evals/natural/README.md) uses ordinary outcome prompts,
+paired synthetic runtime behavior and a working local reading desk. Observation
+v2 separates method text from source bodies and reports per-decision ordering as
+yes/no/unknown; comparison now requires pinned plans and sealed run metadata.
+These are offline research tools, not new evidence that proactive discovery works.
+
 ## Status
 
 - **Source:** `0.4.0` is a candidate for proactive open-choice discovery, purpose-matched multi-source reading, and receiver-side continuation. Four independent Skills and optional local helpers remain the package shape.

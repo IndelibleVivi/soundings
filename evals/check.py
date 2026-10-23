@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
-for directory in ("plugins/soundings/skills/search/scripts", "evals"):
+for directory in ("plugins/soundings/skills/search/scripts", "evals", "evals/natural"):
     result = subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", directory,
                              "-p", "test_*.py", "-v"], cwd=ROOT, env=env)
     if result.returncode:

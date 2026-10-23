@@ -10,14 +10,21 @@
     {
       "type": "file_exists",
       "path": "result.json"
+    },
+    {
+      "type": "changed_files_exact",
+      "paths": [
+        "result.json"
+      ]
     }
   ],
   "command_assertions": [
     {
       "argv": [
         "python3",
+        "-I",
         "-c",
-        "import json; x=json.load(open(\"result.json\")); assert x=={'records':[dict(r,label={'Search':'find','Study':'understand','Shape':'decide'}[r['term']]) for r in json.load(open('records.json')) if not r['archived']], 'counts':{t:sum(not r['archived'] and r['term']==t for r in json.load(open('records.json'))) for t in ['Search','Study','Shape']}}"
+        "import hashlib,json; x=json.load(open('result.json')); assert hashlib.sha256(open('records.json','rb').read()).hexdigest()=='4c4938b43e0f61785107f27f13f11332e58afabb987136f9f8648301ce04feff' and hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()=='7efd6bd974d174a50bc8da07c1d51cae88946a97d9fc77fcead5870000c96c82'"
       ]
     }
   ],

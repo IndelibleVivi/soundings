@@ -1,0 +1,16 @@
+[
+  {
+    "id": "river",
+    "title": "River pilot report",
+    "author": "A. Lin",
+    "url": "https://example.invalid/river",
+    "text": "Protected banks reduced erosion in the pilot; seasonal floods were not measured."
+  },
+  {
+    "id": "estuary",
+    "title": "Estuary field notes",
+    "author": "B. Rao",
+    "url": "https://example.invalid/estuary",
+    "text": "Unprotected sites lost topsoil after flooding; the small sample limits generalization."
+  }
+]

@@ -10,14 +10,21 @@
     {
       "type": "file_exists",
       "path": "result.json"
+    },
+    {
+      "type": "changed_files_exact",
+      "paths": [
+        "result.json"
+      ]
     }
   ],
   "command_assertions": [
     {
       "argv": [
         "python3",
+        "-I",
         "-c",
-        "import json; x=json.load(open(\"result.json\")); assert x.get('mechanism')=='progressive disclosure' and x.get('keyboard') is True and x.get('analytics')=='none' and x.get('form') in ['cards','map','list'] and isinstance(x.get('rationale'),str) and len(x['rationale'])>20 and 'reference-2' in x.get('sources',[])"
+        "import json; x=json.load(open('result.json')); assert x.get('mechanism')=='progressive disclosure' and x.get('keyboard') is True and x.get('analytics')=='none' and x.get('form') in ('cards','map','list') and isinstance(x.get('rationale'),str) and len(x['rationale'])>20 and 'reference-2' in x.get('sources',[])"
       ]
     }
   ],

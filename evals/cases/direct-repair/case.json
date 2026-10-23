@@ -10,14 +10,21 @@
     {
       "type": "file_exists",
       "path": "result.json"
+    },
+    {
+      "type": "changed_files_exact",
+      "paths": [
+        "result.json"
+      ]
     }
   ],
   "command_assertions": [
     {
       "argv": [
         "python3",
+        "-I",
         "-c",
-        "import json; x=json.load(open(\"result.json\")); assert x.get('status')=='ready' and x.get('count')==3 and set(x)=={'status','count'}"
+        "import hashlib,json; x=json.load(open('result.json')); assert hashlib.sha256(json.dumps(x,sort_keys=True,separators=(',',':')).encode()).hexdigest()=='f515cadad031873aee2a604a554d3a9126160751502a52a6e79c24cc6ea4ef4c'"
       ]
     }
   ],

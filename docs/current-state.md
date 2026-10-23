@@ -14,23 +14,59 @@ The [0.3.1 observations](dogfood-0.3.1.md) remain historical installed-host evid
 
 ## Offline research instrumentation
 
-The [research slice](../evals/README.md) adds four constructed task families,
-hidden invariant oracles and targeted counterexamples, fixed local reference
-lookup, visible-event annotations, receipt-bound review worksheets and
-descriptive grouping within tasks. It does not modify the four Skill methods.
-No new target-model evaluations have run.
+The [research instrumentation](../evals/README.md) now separates the original
+four **guided mechanism probes** from a new [natural-task suite](../evals/natural/README.md).
+The original prompts disclose mechanism cues; their 32 planned runs and separate
+optional eight-run no-Skill control remain structural/mechanism probes, without
+being relabeled as natural proactivity evidence. Their fixed composition uses
+historical/current Soundings and Servotab commits through the existing Field Lab
+v2 interface. The pinned Soundings candidate is `84accd1`; later helper repairs
+are not silently substituted into that condition.
 
-The pack builder composes fixed historical/current Soundings and Servotab
-commits through the existing Field Lab v2 interface. Four separate canary
-plans enumerate 32 task runs; a true no-Skill control is a separate optional
-eight-run plan. Source snapshots, local paths, plans and future raw runs stay
-outside Git. The pinned Soundings candidate in this first comparison is
-`84accd1`; later helper repairs are not silently substituted into that condition.
+The natural suite contains 28 constructed cases: seven family/runtime-world
+combinations under ordinary-task, bounded-inquiry, supplied-evidence and
+no-additional-corpus conditions. It includes actual process-local and durable
+storage runtimes, a 120-record transformation, Unicode repair, a changed-release
+obstacle and a working HTML reading desk. Ordinary and no-corpus prompts are
+byte-identical. The browser oracle exercises source collection, argument writing,
+restore and attributed export. Two original runnable references supply different
+writing mechanisms. These conditions have explicit information, instruction and
+affordance confounds; they do not establish causal benefit.
 
-Fresh offline verification passed: 22 research/observation tests, Field Lab
-validation of five subjects and four cases, all four fixture/expected selftests,
-and five pinned plans (four times eight plus the separate eight-run control).
-The entrypoint is `python3 evals/check.py`, which also runs the helper suite.
+Verifier hardening keeps accepted inputs and treatment materials fixed, runs
+Python command assertions in isolated mode and executes natural-task programs in
+scratch copies. A working program cannot conceal edited inputs. The generated
+pack, hidden oracles, local paths, access logs, plans and raw runs stay outside Git.
+No new target-model evaluations have run, and the four runtime Skills are unchanged.
+
+Observation annotations now use `soundings.observations.v2`: role, origin,
+source identity, relevance and coverage are recorded per decision. Skill guidance
+and search summaries are distinct from source bodies. Missing coverage and
+ambiguous ordering remain `unknown`; a recorded host-context sidecar is not
+proof of actual host delivery. Old v1 annotations need explicit migration.
+
+The canonical [comparison command](../evals/compare-README.md) is now
+`evals/compare.py`; the old `observe.py compare` entry is retired. It binds
+explicit plans and summaries to sealed metadata, preserves missing rows and
+retry identity, and carries review identity and independence through the output.
+It uses native Field Lab integrity checks plus the fields consumed by this
+analysis; full receipt JSON Schema validation is explicitly not performed.
+
+Fresh integrated verification passed: **91 tests** (39 helper/packet, 40
+research/observation/comparison and 12 natural-suite tests), including native
+Field Lab integration through an explicit `FIELDLAB_SOURCE` checkout. Without
+that optional checkout, 85 pass and six integration tests skip. The entrypoint
+is `python3 evals/check.py`.
+
+A fresh guided pack passed five-subject/four-case validation, all four selftests
+and five eight-row plans (32 normal rows plus eight separate control rows). A
+fresh natural pack passed one-subject/28-case validation and all 28 selftests;
+its A/E pilot plan has 14 rows with one repeat and explicit model/effort metadata.
+Nine native command-copy checks passed without verifier workspace mutation.
+Actual browser regressions accept a split CSS/JS implementation with an extra
+Save button and reject lost evidence or external requests on restore. These
+checks use executable fixtures and a local fake-adapter runner probe, with no
+target-model calls. The earlier 22-test research slice remains historical.
 
 The helper repair passes 39 deterministic evidence/packet tests. A fitting
 411-byte complete response that the old omission-first admission rejected now

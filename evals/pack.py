@@ -13,6 +13,19 @@ HERE = Path(__file__).resolve().parent
 def git(repo, *args):
     return subprocess.check_output(['git', '-C', str(repo), *args])
 
+def case_names(cases_root):
+    return {
+        case_dir.name
+        for case_dir in sorted(Path(cases_root).iterdir())
+        if case_dir.is_dir() and not case_dir.name.startswith('.')
+    }
+
+def classify_cases(cases_root):
+    for case in sorted(Path(cases_root).iterdir()):
+        spec = json.loads((case / 'case.json').read_text())
+        spec['tags'] = sorted(set(spec.get('tags', [])) | {'guided-mechanism-probe'})
+        (case / 'case.json').write_text(json.dumps(spec, indent=2) + '\n')
+
 def snapshot(repo, ref, prefix, dest):
     commit = git(repo, 'rev-parse', ref + '^{commit}').decode().strip()
     names = git(repo, 'ls-tree', '-r', '--name-only', commit, prefix).decode().splitlines()
@@ -52,6 +65,8 @@ def build(a):
         raise ValueError('output parent belongs to Git')
     out.mkdir(parents=False, exist_ok=False)
     shutil.copytree(HERE / 'cases', out / 'cases')
+    names = case_names(out / 'cases')
+    classify_cases(out / 'cases')
     subjects = {}; provenance = {}; rows = []
     for s, t in itertools.product(('old', 'current'), repeat=2):
         name = 'soundings-' + s + '-servotab-' + t
@@ -71,7 +86,14 @@ def build(a):
         subjects[name] = dict(kind='agent-skill', label=name, source=dict(type='snapshot', path='subjects/' + name), mount='.agents')
         provenance[name] = dict(soundings=sc, servotab=tc)
     subjects['isolated-control'] = dict(kind='control', label='True no-Skill isolated control')
-    manifest = dict(schema_version=2, lab_id='soundings-offline-research', description='Constructed offline cases; no behavior evidence yet.', cases_root='cases', subjects=subjects, defaults=dict(adapter='codex-exec', approval_policy='never', network_access=False, output_root='runs', keep_workspace=False))
+    composition = dict(
+        task_family='guided mechanism probes',
+        meaning='Agent-facing instructions disclose the mechanism under inspection; these cases are not natural proactivity evidence.',
+        case_ids=sorted(names),
+        normal_task_runs=4 * len(names) * 2,
+        control_task_runs=len(names) * 2 if a.control else 0,
+    )
+    manifest = dict(schema_version=2, lab_id='soundings-offline-research', description='Constructed guided mechanism probes; no behavior evidence yet.', cases_root='cases', subjects=subjects, defaults=dict(adapter='codex-exec', approval_policy='never', network_access=False, output_root='runs', keep_workspace=False), metadata=dict(composition=composition))
     (out / 'fieldlab.json').write_text(json.dumps(manifest, indent=2))
     env = dict(os.environ, PYTHONPATH=str(Path(a.fieldlab).resolve()))
     def lab(*args):
@@ -86,7 +108,7 @@ def build(a):
             for rep in (1,2):
                 if subject != 'isolated-control': rows.append(dict(subject=subject, case=case.name, repetition=rep))
         lab(*args)
-    (out / 'composition.json').write_text(json.dumps(dict(schema_version=1, authorization='offline only; plans grant no invocation authority', provenance=provenance, invocations=rows), indent=2))
+    (out / 'composition.json').write_text(json.dumps(dict(schema_version=1, authorization='offline only; plans grant no invocation authority', classification=composition, provenance=provenance, invocations=rows), indent=2))
     return out
 
 def main():

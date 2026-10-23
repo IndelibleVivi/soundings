@@ -130,6 +130,16 @@ and raw run artifacts stay outside Git. No new runner, backend, router, hook,
 automatic memory or runtime state has been added. Offline invariant checks and
 explicit annotations do not prove autonomous inquiry or useful evidence use.
 
+Guided JSON probes and ordinary implementation commissions are separate test
+surfaces. The natural suite changes real synthetic runtime semantics alongside
+factual documentation and checks resulting behavior; its reading desk checks
+attribution, persistence and export in a browser without prescribing a layout.
+The observation schema's v2 decision identities, content roles and declared
+coverage prevent method delivery from being conflated with relevant source
+acquisition. Plan-bound comparison uses sealed metadata to identify repeats and
+retains retries, missing rows and reviewer independence. These research formats
+do not alter the runtime Skills or provide instruction/execution authority.
+
 Native search and existing providers remain the acquisition paths. The optional Python helper in `skills/search/scripts/evidence.py` adds explicit local capture, exact snapshot/range rereading, literal finding, and a byte cap on complete JSON stdout. It has no external dependencies or network calls and can be invoked from other harnesses.
 
 This is a narrow composition decision: the project does not need to own provider adapters or another research runtime to preserve already acquired text. A stored snapshot keeps selected short lines instead of filtering them by length. Whole requested ranges are included or visibly omitted. These properties address observed selection and budget failure paths; they do not prove general semantic completeness or superior search quality.

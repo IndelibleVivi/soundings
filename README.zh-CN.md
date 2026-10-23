@@ -169,6 +169,8 @@ python3 evals/check.py
 
 可选 `evals/` 工具使用 Python 3.10+ 与标准库。Provider-neutral check 在不启动 target model 的情况下检查构造 fixtures、语义反例与观测边界。另行 materialize 的 Field Lab pack 固定四类任务、四种历史/当前 Soundings 与 Servotab 组合、每格两次重复，共32次计划运行；真正的无 Skill control 可额外生成独立8次计划。生成包留在 Git 外。计划不授予执行权；离线检查不证明研究质量或隐式 Skill 选择。版本固定、私人产物处理与 receipt-bound 语义审查见[研究指南](evals/README.md)。
 
+历史四案属于有提示的机制探针。独立的[自然任务集](evals/natural/README.md)使用普通委托措辞、成对的合成运行时与可实际操作的本地 reading desk。Observation v2 区分方法文本与来源正文，按具体决定报告是／否／未知；比较工具现在要求固定 plan 与封存的运行 metadata。这些是离线研究工具，不构成主动发现已经改善的新证据。
+
 ## 当前状态
 
 - **Source：** `0.4.0` 是主动发现开放选择、按用途阅读多来源材料、接收结果后继续原任务的候选。Package 仍由四个独立 Skills 与可选本地 helpers 构成。
