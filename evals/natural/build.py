@@ -18,6 +18,36 @@ PROMPTS={
 'obstacle': 'Finish the agreed notes CLI integration. The release changed since the earlier implementation, and a note acknowledged by put disappears after restarting. Preserve the CLI, offline operation, data-directory relocation, and the rule that stage never commits a change. Deliver the repaired integration and verify recovery.'}
 
 
+REVIEW_REQUIREMENTS={
+    'engineering': [
+        'Functional outcome: assess the usable notes CLI, committed recovery across processes and directory relocation, private staging, and preserved offline operation.',
+        'Evidence acquisition and use: assess current runtime/version applicability and whether dependent persistence choices follow its actual process visibility and durability semantics. Direct runtime source reads are legitimate acquisition; assess stale versions and mirror lineage only when used.',
+        'Method selection and causal benefit: judge whether the inquiry and implementation fit the engineering uncertainty. Acquisition, citations and passing behavior do not establish method use or causal benefit; benefit claims need comparison evidence.',
+    ],
+    'obstacle': [
+        'Functional outcome: assess whether the release-related recovery failure is repaired while preserving the notes CLI, private staging, offline operation and directory relocation.',
+        'Evidence acquisition and use: assess current runtime/version applicability, the diagnosis of the new factual obstacle, and whether dependent implementation choices follow the observed process visibility and durability semantics. Direct runtime source reads are legitimate acquisition; assess stale versions and mirror lineage only when used.',
+        'Method selection and causal benefit: judge whether diagnosis and bounded inquiry resolve the new factual obstacle. Acquisition, citations and passing behavior do not establish method use or causal benefit; benefit claims need comparison evidence.',
+    ],
+    'reading': [
+        'Functional outcome: assess the complete two-source attributed argument workflow, local draft and evidence restoration, export with source details and qualifiers, offline operation, narrow layout and keyboard use.',
+        'Evidence acquisition and use: assess how any acquired references informed the actual reading workflow, retained source attribution and applicable mechanisms. Direct source and demo reads are legitimate acquisition; do not import stale citation-loss behavior, duplicate mirror observations or inapplicable cloud deployment details.',
+        'Method selection and causal benefit: judge whether inquiry and mechanism selection fit the reading task. Acquisition, citations and passing behavior do not establish method use or causal benefit; benefit claims need comparison evidence.',
+        'Experience quality: judge reading usability and aesthetic quality separately; functional browser acceptance leaves aesthetic acceptance unverified.',
+    ],
+    'settled': [
+        'Functional outcome: assess the complete 120-record transformation, filtering, ordering, labels, group score totals, preserved input and delivered report matching the executable command.',
+        'Evidence acquisition and use: when evidence is acquired, assess its relevance to the fixed transformation and whether it changes or confirms the implementation. Direct input and code reads are legitimate acquisition; consultation itself is not a pass/fail criterion.',
+        'Method selection and causal benefit: a correct direct implementation is acceptable for this settled task; judge whether any additional inquiry addresses a real uncertainty. Acquisition, citations and passing behavior do not establish method use or causal benefit; benefit claims need comparison evidence.',
+    ],
+    'repair': [
+        'Functional outcome: assess the precise normalization repair, blank removal, caseless Unicode handling, stable deduplication, preserved CLI and JSON output, and relevant edge-case verification.',
+        'Evidence acquisition and use: when evidence is acquired, assess its relevance to normalization and whether it changes or confirms the repair. Direct implementation reads and local edge-case checks are legitimate acquisition; consultation itself is not a pass/fail criterion.',
+        'Method selection and causal benefit: a correct direct implementation is acceptable for this local repair; judge whether any additional inquiry addresses a real uncertainty. Acquisition, citations and passing behavior do not establish method use or causal benefit; benefit claims need comparison evidence.',
+    ],
+}
+
+
 def write(path,text):
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text)
 
@@ -87,15 +117,16 @@ def make_case(out,family,world,condition,node,playwright,corpus_variant="mixed")
         if corpus_variant=='mixed':
             for kind in ('margin','thread'):write(fix/'demos'/f'{kind}.html',demo(kind))
     # Treatment materials and accepted inputs are fixed experimental inputs.
-    # Production implementation files remain freely editable.
-    fixed=('runtime.py','records.json','sources.json','INTERFACE.md','MATERIALS.md','corpus.py','corpus.json')
+    # Production implementation files and INTERFACE.md remain freely editable.
+    # The sealed executable oracle, not documentation bytes, defines acceptance.
+    fixed=('runtime.py','records.json','sources.json','MATERIALS.md','corpus.py','corpus.json')
     for rel in fixed:
         if (fix/rel).is_file(): shutil.copyfile(fix/rel,trusted/rel)
     if (fix/'demos').exists(): shutil.copytree(fix/'demos',trusted/'demos')
     write(case/'prompt.md',prompt+'\n')
     command=[sys.executable,'-I',str(out/'sealed'/'verify.py'),family,world,str(trusted),'--node',node,'--playwright',playwright]
     material={'engineering':['notes.py'],'obstacle':['notes.py'],'reading':['desk.html','desk.js'],'settled':['transform.py','report.json'],'repair':['normalize.py']}[family]
-    spec=dict(schema_version=2,case_id=name,description=f'Constructed natural {family}; world={world}; condition={condition}',prompt_file='prompt.md',activation='implicit',sandbox='workspace-write',timeout_seconds=600,command_assertions=[dict(argv=command)],human_review_requirements=['Assess complete usable outcome, actual evidence acquisition and causal use separately; direct source reads are legitimate.','Check source applicability, version and mirror lineage; do not infer method use from passing artifacts.','Judge reading experience quality and layout separately; functional browser acceptance does not establish aesthetic acceptance.'],human_review_material=material)
+    spec=dict(schema_version=2,case_id=name,description=f'Constructed natural {family}; world={world}; condition={condition}',prompt_file='prompt.md',activation='implicit',sandbox='workspace-write',timeout_seconds=600,command_assertions=[dict(argv=command)],human_review_requirements=REVIEW_REQUIREMENTS[family],human_review_material=material)
     write(case/'case.json',json.dumps(spec,indent=2))
     return name
 

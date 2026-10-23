@@ -171,6 +171,8 @@ python3 evals/check.py
 
 历史四案属于有提示的机制探针。独立的[自然任务集](evals/natural/README.md)使用普通委托措辞、成对的合成运行时与可实际操作的本地 reading desk。Observation v2 区分方法文本与来源正文，按具体决定报告是／否／未知；比较工具现在要求固定 plan 与封存的运行 metadata。这些是离线研究工具，不构成主动发现已经改善的新证据。
 
+另一次[评估工具实跑](docs/tools-canary-2026-10-23.md)观察到通过的小修、两份独立功能诊断通过的工程实现，以及 reading desk 在实现中断前的参考取材。原始 host errors 与 fixture failures 均保留。这促成了未来 pack 的产品文档与 review criteria 修复，尚未证明 Soundings 收益或完整主动发现验收通过。
+
 ## 当前状态
 
 - **Source：** `0.4.0` 是主动发现开放选择、按用途阅读多来源材料、接收结果后继续原任务的候选。Package 仍由四个独立 Skills 与可选本地 helpers 构成。

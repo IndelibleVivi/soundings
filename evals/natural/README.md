@@ -44,6 +44,19 @@ documentation together. These interventions are explicit causal confounds, not
 exchangeable observations of a single isolated mechanism. No scores or benefit
 claims are published here.
 
+Human review criteria are task-family specific and identical across A/F/E/N
+within each family. Functional outcome, evidence acquisition/use, and method
+selection/causal benefit are separate judgments. Engineering and obstacle review
+check current runtime applicability and the dependent implementation; obstacle
+review also checks the release-related diagnosis. Settled-work and precise-repair
+review allow correct direct work and assess any acquired evidence conditionally;
+consultation itself is not a pass/fail criterion. Reading review assesses its
+attributed workflow and applicable reference mechanisms, with a separate quality
+criterion that leaves aesthetic acceptance unverified by functional checks.
+Passing artifacts, citations and acquisition events alone establish neither method
+use nor causal benefit; benefit claims require comparison evidence. Prompt
+interventions remain as described above and do not change these outcome criteria.
+
 The canonical `corpus.py` supports lexical natural-language query ranking,
 query-dependent snippets and complete page reads. Every result identifies role,
 version and observation lineage. The corpus includes old releases, same-lineage
@@ -95,9 +108,14 @@ functional pass. Add `--model EXPLICIT_MODEL --effort high` to prepare the
 `sealed/` and case `expected/` overlays remain outside worker fixtures. Command
 assertions run the sealed Python verifier with `-I`; no worker code is imported
 into the verifier. Submitted production programs execute in child processes.
-Accepted runtime, record and source inputs, interface documentation, corpus tool,
-corpus pages and reference demos must match sealed copies exactly;
-drift is rejected even with an otherwise valid program. Production programs
+Accepted runtime, record and source inputs, `MATERIALS.md`, corpus tool, corpus
+pages and reference demos must match sealed copies exactly;
+drift is rejected even with an otherwise valid program. `INTERFACE.md` is editable
+product documentation: a worker may document completed behavior there. Actual CLI
+and browser acceptance are defined by the sealed executable oracle; changing the
+document cannot make a broken program pass. This applies to newly built packs;
+previously frozen packs retain their original fixed-input and review contracts.
+The builder never edits or migrates historical packs or run records. Production programs
 execute with `-B` in a separate temporary tree containing sealed accepted inputs.
 The verifier never writes into the final verifier workspace, including bytecode.
 The settled task checks both the delivered report and a fresh executable run. Field Lab
@@ -135,7 +153,11 @@ requesting external sync only after reopening. It checks both assertion success 
 mutation without invoking any target adapter.
 
 The unit suite rejects unresolved applications, declarations without execution,
-input tampering and premature stage commits. It verifies real differences
+input tampering and premature stage commits. It accepts a valid notes program
+with a product-documentation extension while rejecting the same documentation
+extension paired with the original broken program. Task-fit checks keep review
+roles distinct, conditions aligned and reading-only quality criteria out of other
+families. It verifies real differences
 between runtime worlds, accepts a native durable solution and an adaptive
 solution, and checks prompt matching, corpus rank/version/lineage and fixture
 separation. Field Lab selftest additionally executes baseline and valid browser

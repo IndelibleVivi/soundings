@@ -188,6 +188,13 @@ v2 separates method text from source bodies and reports per-decision ordering as
 yes/no/unknown; comparison now requires pinned plans and sealed run metadata.
 These are offline research tools, not new evidence that proactive discovery works.
 
+A separate [live tools canary](docs/tools-canary-2026-10-23.md) observed a passing
+repair, two engineering implementations with separate passing functional
+diagnostics, and reference acquisition before an interrupted reading-desk
+implementation. Original host errors and fixture failures remain recorded.
+This prompted future-pack documentation and review-criteria fixes; it does not
+establish a Soundings benefit or completed proactive-discovery acceptance.
+
 ## Status
 
 - **Source:** `0.4.0` is a candidate for proactive open-choice discovery, purpose-matched multi-source reading, and receiver-side continuation. Four independent Skills and optional local helpers remain the package shape.

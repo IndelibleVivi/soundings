@@ -4,6 +4,13 @@ This source-only pack makes research conditions and failure modes inspectable.
 It does not establish that Soundings improves inquiry, and it never starts a
 target model. The four independent runtime Skills remain unchanged.
 
+A separately authorized [live tools canary](../docs/tools-canary-2026-10-23.md)
+has exercised Field Lab execution, annotations and plan-bound comparison. Its
+host errors, interrupted delivery and original fixture failures remain explicit;
+it is not evidence of causal benefit or completed proactive discovery. New
+natural packs permit product-documentation edits and use task-family review
+criteria; historical pack contracts and receipts remain unchanged.
+
 ## Build a fixed plan
 
 Python 3.10+ and the standard library run the local checks:

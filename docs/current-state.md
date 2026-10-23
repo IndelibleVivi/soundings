@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-10-23.
+Updated: 2026-10-24.
 
 ## Candidate and evidence
 
@@ -37,7 +37,11 @@ Verifier hardening keeps accepted inputs and treatment materials fixed, runs
 Python command assertions in isolated mode and executes natural-task programs in
 scratch copies. A working program cannot conceal edited inputs. The generated
 pack, hidden oracles, local paths, access logs, plans and raw runs stay outside Git.
-No new target-model evaluations have run, and the four runtime Skills are unchanged.
+New natural packs allow `INTERFACE.md` product-documentation edits while sealed
+executable oracles retain actual acceptance. Their review requirements now fit
+each task family, with identical criteria across its conditions/runtime worlds.
+Historical packs and receipts keep their original contracts. The four runtime
+Skills are unchanged; the separate bounded live trial is reported below.
 
 Observation annotations now use `soundings.observations.v2`: role, origin,
 source identity, relevance and coverage are recorded per decision. Skill guidance
@@ -52,11 +56,11 @@ retry identity, and carries review identity and independence through the output.
 It uses native Field Lab integrity checks plus the fields consumed by this
 analysis; full receipt JSON Schema validation is explicitly not performed.
 
-Fresh integrated verification passed: **91 tests** (39 helper/packet, 40
-research/observation/comparison and 12 natural-suite tests), including native
-Field Lab integration through an explicit `FIELDLAB_SOURCE` checkout. Without
-that optional checkout, 85 pass and six integration tests skip. The entrypoint
-is `python3 evals/check.py`.
+Fresh integrated verification passed: **93 tests** (39 helper/packet, 40
+research/observation/comparison and 14 natural-suite tests), including native
+Field Lab integration through an explicit `FIELDLAB_SOURCE` checkout. Six native
+integration tests skip without that optional checkout. The entrypoint is
+`python3 evals/check.py`.
 
 A fresh guided pack passed five-subject/four-case validation, all four selftests
 and five eight-row plans (32 normal rows plus eight separate control rows). A
@@ -85,6 +89,30 @@ review. Missing reviews remain pending. Fixed order is not random assignment,
 and repeated attempts within a task are not independent projects. The existing
 failed proactive-discovery criterion remains open.
 
+## Bounded live tools trial
+
+The [2026-10-23 canary](tools-canary-2026-10-23.md) used one pinned
+Soundings/Servotab subject and an explicitly authorized seven target-process
+starts, with no runner automatic retry or additional model grader. Three plans
+retain eight rows: six sealed receipts, one interrupted/unsealed start and one
+unstarted original repair row. Plan-bound comparison reported no integrity
+errors; missing valid receipts are not zero spending.
+
+Two initial engineering starts hit host authentication errors, and the initial
+reading start was interrupted. After correcting the private CLI wrapper, repair
+passed. Additional engineering A/E both delivered implementations that passed
+the separate unchanged sealed runtime oracle; their original receipts remain
+fails because the old pack froze truthful `INTERFACE.md` additions. Additional
+reading read Explore, corpus and two demo source files, then suffered a stream
+disconnect before editing. It supplied no working reading experience.
+
+This observed acquisition and a concrete proposal, with early and later
+commitments kept distinct. It did not establish reference-medium browser
+observation, independent semantic support, causal benefit or complete Explore
+delivery. The future-pack documentation/rubric repairs above follow this trial;
+they do not relabel historical receipts. Raw artifacts and local wiring remain
+private outside Git.
+
 ## Installation and integration
 
 The historically observed installed package is `0.3.1`. The `0.4.0` candidate has not been installed or activated as part of this change. Updating source does not update an existing task's loaded methods.
@@ -95,4 +123,11 @@ The [host integration guide](../plugins/soundings/docs/host-integration.md) is a
 
 This is a source candidate, not a new tagged release. No candidate installation, website deployment, or marketplace reinstall was performed.
 
-The remaining behavior gate is the transition from reading the open-choice guidance to acting on it before a design commitment. Source visibility and useful implementation were observed; proactive external inquiry was not. Further diagnosis must retain the small-repair control and inspect actual judgment and delivery. The four-run budget is exhausted; further live model evaluation requires its applicable authorization.
+The remaining behavior gate is the transition from reading open-choice guidance
+through applicable inquiry into a completed useful result. The earlier
+comparison failed proactive inquiry; the later tools trial observed constructed
+reference-source acquisition but no completed reading-desk implementation.
+Further diagnosis must retain direct-work controls and inspect judgment and
+delivery. Both the historical four-run budget and this separate seven-start
+trial budget are exhausted; further live evaluation requires its own scope and
+authorization.

@@ -70,10 +70,58 @@ class NaturalTests(unittest.TestCase):
             result,_=self.verify(c,True);self.assertNotEqual(result.returncode,0);self.assertIn('accepted input drift',result.stderr)
 
     def test_treatment_material_drift_rejected_and_production_variant_allowed(self):
-        for family,world,name in [('repair','ordinary','corpus.json'),('engineering','local','INTERFACE.md'),('settled','ordinary','corpus.py'),('reading','ordinary','demos/margin.html')]:
+        for family,world,name in [('repair','ordinary','corpus.json'),('engineering','local','MATERIALS.md'),('settled','ordinary','corpus.py'),('reading','ordinary','demos/margin.html')]:
             c=self.case(family,world);target=c/'expected'/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes((c/'fixture'/name).read_bytes()+b' ')
             result,_=self.verify(c,True);self.assertNotEqual(result.returncode,0);self.assertIn('accepted input drift',result.stderr)
         c=self.case('repair','ordinary','N');p=c/'expected'/'normalize.py';p.write_text('# valid production variation\n'+p.read_text());result,_=self.verify(c,True);self.assertEqual(result.returncode,0,result.stderr)
+
+    def test_product_interface_extension_accepts_valid_code_not_document_only_claims(self):
+        extension='put persists to DATA_DIRECTORY; stage is process-local and is never persisted.\n'
+        for family in ('engineering','obstacle'):
+            for world in ('local','durable'):
+                with self.subTest(family=family,world=world):
+                    c=self.case(family,world)
+                    interface=c/'expected'/'INTERFACE.md'
+                    interface.write_text((c/'fixture'/'INTERFACE.md').read_text()+extension)
+                    self.assertFalse((self.root/'sealed'/c.name/'INTERFACE.md').exists())
+                    good,work=self.verify(c,True)
+                    self.assertEqual(good.returncode,0,good.stderr)
+                    self.assertTrue((work/'INTERFACE.md').read_text().endswith(extension))
+                    # Documentation cannot make the unchanged broken CLI pass.
+                    shutil.copyfile(c/'fixture'/'notes.py',c/'expected'/'notes.py')
+                    bad,_=self.verify(c,True)
+                    self.assertNotEqual(bad.returncode,0)
+                    self.assertNotIn('accepted input drift',bad.stderr)
+
+    def test_review_criteria_fit_family_and_are_condition_invariant(self):
+        obligations={
+            'engineering':('across processes','private staging','runtime/version applicability','dependent persistence'),
+            'obstacle':('release-related','private staging','runtime/version applicability','dependent implementation'),
+            'reading':('two-source','restoration','source attribution','aesthetic'),
+            'settled':('120-record','group score totals','direct implementation is acceptable','not a pass/fail criterion'),
+            'repair':('caseless unicode','stable deduplication','direct implementation is acceptable','not a pass/fail criterion'),
+        }
+        for family in build.FAMILIES:
+            world='local' if family in ('engineering','obstacle') else 'ordinary'
+            criteria=[]
+            for condition in build.CONDITIONS:
+                c=self.case(family,world,condition)
+                criteria.append(json.loads((c/'case.json').read_text())['human_review_requirements'])
+            self.assertTrue(all(value==criteria[0] for value in criteria))
+            by_role={line.split(':',1)[0]:line.split(':',1)[1] for line in criteria[0]}
+            self.assertTrue({'Functional outcome','Evidence acquisition and use','Method selection and causal benefit'} <= by_role.keys())
+            self.assertIn('comparison evidence',by_role['Method selection and causal benefit'])
+            self.assertIn('legitimate acquisition',by_role['Evidence acquisition and use'])
+            combined=' '.join(criteria[0]).lower()
+            for obligation in obligations[family]:self.assertIn(obligation,combined)
+            if family=='reading':self.assertIn('aesthetic acceptance unverified',by_role['Experience quality'])
+            else:
+                self.assertEqual(len(criteria[0]),3)
+                self.assertNotIn('Experience quality',by_role)
+                for unrelated in ('reading workflow','aesthetic','browser acceptance'):self.assertNotIn(unrelated,combined)
+            if family in ('engineering','obstacle'):
+                other=self.case(family,'durable')
+                self.assertEqual(criteria[0],json.loads((other/'case.json').read_text())['human_review_requirements'])
 
     def test_valid_verification_leaves_worker_workspace_unchanged(self):
         for family,world in [('engineering','local'),('engineering','durable'),('settled','ordinary'),('repair','ordinary')]:
