@@ -21,6 +21,8 @@ Do not discard a good relationship because a rough draft hid it, and do not poli
 
 Make the next candidate discriminate among the remaining explanations. Preserve accepted goals, content, controls, and relationships unless the observation gives a reason to change them. An attractive alternative can still be wrong for this scene if its preconditions or state ownership conflict with the accepted experience.
 
+For a longer inquiry that already records reference observations and candidate judgments, [evidence-linked synthesis](../../study/references/evidence-linked-synthesis.md) can keep those grounds recoverable through revision. Distinguish what was observed in a reference from the relationship inferred and its proposed local transfer. Its optional workpaper preserves cited text and declared dependencies; observing the actual creative medium and making a complete candidate remain part of this commission.
+
 ## Control the comparison, not the whole work
 
 When you compare two candidates to learn which difference caused an effect, change one condition and hold the rest steady, so a reaction tells you what did it. That discipline belongs to a deliberate comparison, not to the work itself: a whole scene, experience, or product can be developed as an integrated thing, and you are not required to isolate single variables while making it.

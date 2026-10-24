@@ -1,10 +1,48 @@
 # Current state
 
-Updated: 2026-10-24.
+Updated: 2026-10-25.
 
-## Candidate and evidence
+## Current construction and programme
 
-The source package is a `0.4.0` candidate. It strengthens proactive discovery at substantial open choices, purpose-matched multi-source reading, and continuation after research returns. Four independent Skills and the optional evidence/packet helpers remain the package structure.
+The source package is a `0.5.0` candidate for evidence-linked synthesis and
+targeted revision. Study connects deciding passages, conditions, counterevidence,
+inferences, and dependent judgments. The optional local `workpaper.py` checks
+explicit citations, renders a standalone research artifact, and reports declared
+direct and transitive impact. It reuses evidence snapshots without changing the
+existing evidence or packet formats. Four independent Skills remain the entrypoints.
+
+The [development programme](programme.md) records the durable vision, capability
+map, maturity conditions, and the connected construction line. Workpaper
+correctness supports inquiry; it does not establish semantic adequacy, useful
+host selection, improved judgment, or completed correction in actual project
+artifacts. The [runnable constructed walkthrough](examples/evidence-linked-synthesis.md)
+keeps those proof layers distinct.
+
+Fresh source checks passed: all four Skill validations, plugin JSON syntax,
+and the provider-neutral `python3 evals/check.py` gate: **107 tests** (53
+helper/packet/workpaper, 40 research/observation/comparison, 14 natural-suite),
+including native integration through an explicit existing Field Lab checkout.
+The 14 workpaper tests include exact bounds and representations, mixed support
+and challenges, relocation, unchanged inputs, no-clobber output, shared-range
+presentation, a reversed 1,100-finding chain, long-cycle rejection, and exact
+Unicode/CRLF output under a forced ASCII stdout encoding.
+
+The exact public walkthrough ran successfully. Relocation produced an identical
+report; a changed premise reached its declared direct/transitive dependents
+while an independent requirement stayed unchanged. A local GFM parser check
+also exposed and fixed accidental URL autolinks and mismatched evidence-heading
+targets. The architecture diagram was rendered and inspected in a real browser.
+
+A coordinator-owned source-directed inquiry identified and corrected the
+installation-state drift across both READMEs and this file. It retained the
+historical installation observation and failed behavior evidence. This is one
+applied task and deterministic tool use, not an independent fresh-session
+activation test, causal comparison, or proof of generally improved judgment.
+
+## Historical behavior evidence
+
+The `0.4.0` methods strengthened proactive discovery at substantial open choices,
+purpose-matched multi-source reading, and continuation after research returns.
 
 The 2026-10-21 source review, all four Skill validations, plugin JSON syntax, 35 deterministic helper tests, and local documentation-link checks passed. A [four-run comparison](dogfood-0.4.0.md) of baseline/candidate source catalogs under one configured dsf/ACP harness is complete.
 
@@ -12,7 +50,7 @@ The 2026-10-21 source review, all four Skill validations, plugin JSON syntax, 35
 
 The [0.3.1 observations](dogfood-0.3.1.md) remain historical installed-host evidence. They include an explicit Study pass on a real project and two useful ordinary-prompt outcomes that did not select Study. They do not establish causal benefit, cross-model consistency, or installed behavior of this candidate.
 
-## Offline research instrumentation
+## Offline research instrumentation through 2026-10-24
 
 The [research instrumentation](../evals/README.md) now separates the original
 four **guided mechanism probes** from a new [natural-task suite](../evals/natural/README.md).
@@ -115,7 +153,15 @@ private outside Git.
 
 ## Installation and integration
 
-The historically observed installed package is `0.3.1`. The `0.4.0` candidate has not been installed or activated as part of this change. Updating source does not update an existing task's loaded methods.
+On 2026-10-25, the local Codex host reported installed and enabled `0.4.0` from
+the Git marketplace. Its 33 package files matched the pre-change canonical
+source byte for byte. This corrects the previously stale current-state claim
+that the last installation observed was `0.3.1`; the dated historical behavior
+records retain their original scope. This readback does not establish when the
+installation occurred or a new fresh-session behavior pass.
+
+The `0.5.0` candidate has not been installed or activated in this change.
+Updating source does not update an existing task's loaded methods.
 
 The [host integration guide](../plugins/soundings/docs/host-integration.md) is a portable contract for early visibility, resource delivery, and continuation. It does not install a hook or configure a harness. A companion Servotab source candidate adds the open-choice cue to its canonical router and Design method, with generated package checks passing; see [Servotab's own state](https://github.com/IndelibleVivi/servotab/blob/main/docs/current-state.md). Its source changes do not establish installation or activation.
 
@@ -123,7 +169,7 @@ The [host integration guide](../plugins/soundings/docs/host-integration.md) is a
 
 This is a source candidate, not a new tagged release. No candidate installation, website deployment, or marketplace reinstall was performed.
 
-The remaining behavior gate is the transition from reading open-choice guidance
+The remaining proactive-discovery behavior gate is the transition from reading open-choice guidance
 through applicable inquiry into a completed useful result. The earlier
 comparison failed proactive inquiry; the later tools trial observed constructed
 reference-source acquisition but no completed reading-desk implementation.
@@ -131,3 +177,9 @@ Further diagnosis must retain direct-work controls and inspect judgment and
 delivery. Both the historical four-run budget and this separate seven-start
 trial budget are exhausted; further live evaluation requires its own scope and
 authorization.
+
+For the new construction line, forward scenarios 24–25 require a useful
+cross-source explanation and an authorized correction that reaches actual
+artifacts after a changed premise. Exact excerpts and a dependency warning alone
+do not pass those scenarios. Local tool and documentation checks do not consume
+or imply a new target-model invocation budget.

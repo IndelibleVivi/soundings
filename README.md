@@ -19,7 +19,7 @@ The name comes from taking soundings: deliberate probes into something whose dep
 
 These are capabilities, not stages. There is no router, required sequence, interview, or mandatory report. A small clear task should remain direct. Domain methods retain their evidence standards and production responsibilities; changing methods continues the same commission.
 
-> The `0.4.0` source candidate strengthens the methods for proactive discovery before substantial open choices and continuation after research returns. It includes runtime-readable worked examples. In a [bounded comparison](docs/dogfood-0.4.0.md), the candidate read the new guidance but still skipped external discovery; small repairs stayed direct. Behavior improvement is not established. See [current state](docs/current-state.md); the [0.3.1 observations](docs/dogfood-0.3.1.md) remain historical evidence.
+> The `0.5.0` source candidate connects cross-source judgments to exact evidence and targeted revision, with an optional local workpaper. The earlier [0.4.0 comparison](docs/dogfood-0.4.0.md) still records failed proactive discovery after guidance was read; small repairs stayed direct. New supporting capability does not establish a behavior improvement. See the [development programme](docs/programme.md) and [current state](docs/current-state.md); the [0.3.1 observations](docs/dogfood-0.3.1.md) remain historical evidence.
 
 ## Install and upgrade
 
@@ -107,6 +107,35 @@ optional [synthetic benchmark](plugins/soundings/skills/search/scripts/benchmark
 compares the previous admission loop with the current one; it is a local
 diagnostic, not an agent-quality test or a runtime fallback.
 
+## Keep a synthesis checkable through revision
+
+A substantial explanation can retain its deciding source passages, conditions,
+counterevidence, and inference while remaining readable. Study's
+[evidence-linked synthesis method](plugins/soundings/skills/study/references/evidence-linked-synthesis.md)
+connects these grounds to judgments that depend on them. A changed premise
+reopens the affected work while independent goals remain intact.
+
+For repeated citation assembly and dependency checking, the optional
+[workpaper CLI](plugins/soundings/skills/search/references/workpaper-format.md)
+uses an explicitly authored JSON record and existing evidence snapshots:
+
+```bash
+python3 /path/to/search/scripts/workpaper.py inspect /path/to/workpaper.json \
+  --store /path/to/private/task-evidence
+python3 /path/to/search/scripts/workpaper.py render /path/to/workpaper.json \
+  --store /path/to/private/task-evidence --output /path/to/new-research.md
+python3 /path/to/search/scripts/workpaper.py impact /path/to/workpaper.json \
+  --store /path/to/private/task-evidence --finding persistence-premise
+```
+
+The render includes exact cited excerpts, source locators, representation,
+support and challenges, so it can be read without the original store. Impact
+reports direct and transitive declared dependents; it does not change artifacts
+or discover unrecorded relationships. Cited coverage is not a reading log, and
+valid links do not prove a sound inference. Ordinary tasks can stay in prose.
+The [runnable walkthrough](docs/examples/evidence-linked-synthesis.md) covers
+comparison, export, relocation, and correction with constructed sources.
+
 ## Continue a project from its unresolved question
 
 Soundings can develop a useful question from existing project material and retain why it matters, the result's evidence dependencies, unused clues, and what would reopen it. It chooses by consequence for the accepted outcome, then continues through the relevant method instead of stopping after discovery. Corpus lookup, original-source reading, sustained research execution, and visual or interactive reference inspection remain distinct capabilities to compose through available tools.
@@ -135,7 +164,7 @@ The recipient can reread the copied snapshots without the original store. A pack
 plugins/soundings/
   .codex-plugin/plugin.json
   skills/
-    search/     # outward inquiry + optional evidence.py / packet.py
+    search/     # outward inquiry + optional local evidence tools
     study/      # synthesis and explanation
     explore/    # developed creative possibilities
     shape/      # judgeable choices and corrections
@@ -146,6 +175,7 @@ plugins/soundings/
 ```
 
 - [Design and responsibility boundaries](plugins/soundings/docs/design.md)
+- [Vision, capability map, and development programme](docs/programme.md)
 - [Forward behavior scenarios](plugins/soundings/docs/behavior-scenarios.md)
 - [Host integration and activation boundaries](plugins/soundings/docs/host-integration.md)
 - [0.4.0 candidate comparison and failed discovery criterion](docs/dogfood-0.4.0.md)
@@ -197,9 +227,9 @@ establish a Soundings benefit or completed proactive-discovery acceptance.
 
 ## Status
 
-- **Source:** `0.4.0` is a candidate for proactive open-choice discovery, purpose-matched multi-source reading, and receiver-side continuation. Four independent Skills and optional local helpers remain the package shape.
-- **Validation and behavior:** the [0.4.0 comparison](docs/dogfood-0.4.0.md) records passing source checks and small repairs, functioning artifacts, and failed proactive discovery in its open candidate task. [Current state](docs/current-state.md) keeps the remaining gate explicit. [0.3.1](docs/dogfood-0.3.1.md) records earlier installed-host observations.
-- **Installation and activation:** the historically observed installation is enabled `0.3.1`. That evidence does not establish delivery or behavior of the `0.4.0` candidate.
+- **Source:** `0.5.0` is a candidate for evidence-linked synthesis and targeted revision, building on the open-choice and continuation methods. Four independent Skills and optional local helpers remain the package shape.
+- **Validation and behavior:** [current state](docs/current-state.md) records the current source, tool, and walkthrough checks. The [0.4.0 comparison](docs/dogfood-0.4.0.md) retains passing small repairs, functioning artifacts, and failed proactive discovery in its open candidate task. [0.3.1](docs/dogfood-0.3.1.md) records earlier installed-host observations. These checks and observations do not establish behavior improvement for `0.5.0`.
+- **Installation and activation:** on 2026-10-25, the local host reported enabled `0.4.0`, with all 33 package files matching the pre-change source. This is a fresh installation-state observation, not a new behavior pass. The `0.5.0` candidate has not been installed or activated in this change.
 - **Publication:** the public [marketplace repository](https://github.com/IndelibleVivi/soundings) distributes its current package. Source publication, local installation, activation, and behavior acceptance remain separate; no new tagged release is implied by a source version.
 
 Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
@@ -207,6 +237,12 @@ Bounded successful cases do not establish cross-model consistency, causal improv
 ## Privacy, network, and authority
 
 Soundings adds no MCP server, search backend, hooks, fixed worker team, or automatic memory. Its optional local helpers have no network calls. Explicit `capture` stores source text and metadata at the local directory you choose until you remove them; it does not enforce retention policies, certify provenance, or automatically refresh sources. Keep private stores outside public repositories.
+
+An explicitly authored workpaper and its rendered report can contain source text,
+private locators, and interpretation. Inspect them before any separately
+authorized transfer. Inspection and impact are read-only; rendering writes only
+to an explicitly selected new output, or prints to stdout. It does not update a
+project record, execute a proposal, or upload material.
 
 The public website is a static GitHub Pages site. It loads its scripts, paintings, and fonts from that host and adds no analytics, account login, model calls, or visitor uploads. Its interactive examples run in the browser; installing the plugin requires running the copied commands in Codex. GitHub's hosting policies apply to website requests.
 

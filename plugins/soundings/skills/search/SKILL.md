@@ -48,6 +48,8 @@ Read [evidence-and-stopping](references/evidence-and-stopping.md) when selecting
 
 For long sources, repeated reading, or cross-session evidence reuse, read [evidence-reading](references/evidence-reading.md). It explains how to keep conditions visible and use the optional local snapshot helper. Ordinary search does not require it.
 
+For a substantial comparison whose conclusions will be reused or revised, read [evidence-linked synthesis](../study/references/evidence-linked-synthesis.md). Connect the deciding source ranges and counterevidence to the local inference; its optional workpaper checks citations and declared dependencies without doing the research or deciding the answer.
+
 For a research handoff across sessions or harnesses, read [research handoffs](references/research-handoffs.md). Its optional local packet helper carries an explicit brief and selected snapshots without depending on the original store.
 
 ## Preserve what the source actually contributes

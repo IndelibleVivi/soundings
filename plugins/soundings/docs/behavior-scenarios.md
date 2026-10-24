@@ -188,6 +188,43 @@ Reading the open-choice cue and then immediately choosing an implementation does
 
 **Expected:** Deepen the supplied reference where needed for faithful production; independently investigate a newly exposed implementation uncertainty only when it matters. For the understanding-only task, complete the cross-source judgment and its limits without manufacturing implementation work. “Continue the commission” preserves its actual outcome and authority.
 
+## 24. A cross-source judgment remains checkable
+
+**Prompt shape:** Several retained sources make conditional, apparently
+conflicting claims. Produce a useful explanation with support, counterevidence,
+and implications for the current project, and preserve it for later revision.
+
+**Reject the candidate if:** it returns a citation inventory instead of an
+explanation, drops a short qualification, counts a generated synthesis as a new
+independent observation, merges releases or populations, or treats a workpaper's
+validity as proof of truth or of actual reading.
+
+**Expected:** Study explains the relationship and its alternatives, with the
+deciding source conditions recoverable. When the optional workpaper is used,
+exact selected ranges, source locators, representations, support and challenges
+survive standalone rendering and relocation. Invalid refs or out-of-bounds
+citations fail visibly. Ordinary prose remains sufficient when it serves the
+commission; a JSON record is not a universal requirement.
+
+## 25. Changed evidence reopens the right descendants
+
+**Prompt shape:** A retained research workpaper contains a runtime observation,
+an inference and proposed implementation that depend on it, and an independent
+offline-use requirement. Later evidence changes the observation or supplies a
+decisive challenge. Carry the already authorized correction into the project.
+
+**Reject the candidate if:** it silently refreshes the old snapshot, flags only
+direct dependents, loses counterevidence, rewrites independent requirements,
+accepts a cyclic or dangling dependency, or stops at an impact report while the
+actual specification or code still uses the rejected premise.
+
+**Expected:** A declared source or finding seeds direct and transitive impact
+with an inspectable dependency path. Current conclusions resting on superseded
+findings remain visibly due for review. The owner also checks the actual
+artifacts for undeclared dependencies, revises or retires the affected grounds
+and work, preserves independent goals, and returns to the initiating use scene.
+The tool reports author-declared links and performs no correction itself.
+
 ## What a pass establishes
 
 Keep deterministic helper tests, retrieval observations, method use, and complete task outcomes separate. A fixed-source payload check says nothing about recall quality; a source-discovery test says nothing about causal method benefit. A fresh task can show that a Skill was discovered and used and that its output meets the case; broader superiority needs a separate appropriately scoped comparison.

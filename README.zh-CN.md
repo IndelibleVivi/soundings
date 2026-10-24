@@ -19,7 +19,7 @@ Soundings 帮助 Codex 查清一个问题、理解一组材料、发展一个创
 
 它们是能力，不是阶段。没有 router、规定顺序、访谈或强制报告。清晰的小任务应直接完成；domain methods 保留其证据标准与制作职责，换方法仍然是在继续同一份委托。
 
-> `0.4.0` 源码候选强化了重要开放选择前主动发现、研究返回后继续原任务的方法，并加入运行时可读的完整案例。[有限对照](docs/dogfood-0.4.0.md)中，候选读到了新指导，但仍跳过了外部取材；小修保持直接。尚未证明行为改善，见[当前状态](docs/current-state.md)。[0.3.1 观察](docs/dogfood-0.3.1.md)继续作为历史证据保留。
+> `0.5.0` 源码候选把跨来源判断接到精确证据和定向纠正，并提供可选的本地 workpaper。[0.4.0 对照](docs/dogfood-0.4.0.md)中读到指导后仍跳过主动发现的结果保持不变；小修保持直接。新增支持能力不等于已经建立行为改善。见[发展 programme](docs/programme.md)和[当前状态](docs/current-state.md)；[0.3.1 观察](docs/dogfood-0.3.1.md)保留历史范围。
 
 ## 安装与升级
 
@@ -103,6 +103,31 @@ Helper 保留短行，按整个请求范围纳入或省略。字节上限覆盖�
 
 Source candidate 修复了极小预算下拒绝本来装得下的完整结果的问题，并避免在密集命中时反复序列化已累计的输出。可选[合成 benchmark](plugins/soundings/skills/search/scripts/benchmark_evidence.py)比较旧 admission loop 与当前实现；它只做本地诊断，不是 agent 质量测试或 runtime fallback。
 
+## 让综合判断经得起复查与纠正
+
+复杂解释可以同时保留决定性的原文、条件、反证与推断，并保持可读。
+Study 的[证据关联综合方法](plugins/soundings/skills/study/references/evidence-linked-synthesis.md)
+把这些依据接到依赖它们的判断上。前提改变时，重看受影响的工作，保留独立目标。
+
+需要反复组装引用、检查依赖时，可选的
+[workpaper CLI](plugins/soundings/skills/search/references/workpaper-format.md)
+使用显式编写的 JSON 研究稿与已有 evidence snapshots：
+
+```bash
+python3 /path/to/search/scripts/workpaper.py inspect /path/to/workpaper.json \
+  --store /path/to/private/task-evidence
+python3 /path/to/search/scripts/workpaper.py render /path/to/workpaper.json \
+  --store /path/to/private/task-evidence --output /path/to/new-research.md
+python3 /path/to/search/scripts/workpaper.py impact /path/to/workpaper.json \
+  --store /path/to/private/task-evidence --finding persistence-premise
+```
+
+生成稿包含精确引用的原文、source locators、representation、支持与反证，
+离开原 store 仍可阅读。Impact 报告显式依赖中的直接与间接后继，不修改 artifacts，
+也不发现未记录的关系。引用覆盖不等于阅读记录；有效链接不能证明推断成立。
+普通任务继续用 prose 即可。[可运行 walkthrough](docs/examples/evidence-linked-synthesis.md)
+用构造来源走完比较、导出、搬迁与纠正。
+
 ## 从未解问题继续一个项目
 
 Soundings 可以从已有项目材料发展值得追究的问题，保留问题来由、结果依赖的证据、未用线索及重开条件。它按问题对已接受目标的影响来选择，然后继续用相应方法做下去，而不是停在发现。Corpus lookup、原始来源阅读、持续研究执行、视觉与交互 reference 的实际观察，仍是可以通过现有工具组合的不同能力。
@@ -131,7 +156,7 @@ python3 /path/to/search/scripts/evidence.py read s-REFERENCE \
 plugins/soundings/
   .codex-plugin/plugin.json
   skills/
-    search/     # 向外调查 + 可选 evidence.py / packet.py
+    search/     # 向外调查 + 可选本地 evidence tools
     study/      # 综合理解与解释
     explore/    # 发展创作可能性
     shape/      # 可判断的选择与纠正
@@ -142,6 +167,7 @@ plugins/soundings/
 ```
 
 - [设计与职责边界](plugins/soundings/docs/design.md)
+- [愿景、能力版图与发展 programme](docs/programme.md)
 - [行为验收场景](plugins/soundings/docs/behavior-scenarios.md)
 - [Host 接线与激活边界](plugins/soundings/docs/host-integration.md)
 - [0.4.0 候选对照与未通过的主动发现验收](docs/dogfood-0.4.0.md)
@@ -175,9 +201,9 @@ python3 evals/check.py
 
 ## 当前状态
 
-- **Source：** `0.4.0` 是主动发现开放选择、按用途阅读多来源材料、接收结果后继续原任务的候选。Package 仍由四个独立 Skills 与可选本地 helpers 构成。
-- **Validation 与 behavior：** [0.4.0 对照](docs/dogfood-0.4.0.md)记录通过的源码检查与小修、可运行的产物，以及开放候选任务中未通过的主动发现验收。[当前状态](docs/current-state.md)明确保留未完成的行为条件；[0.3.1](docs/dogfood-0.3.1.md)保留早先 installed-host 观察。
-- **Installation 与 activation：** 历史上实际观察过的安装是 enabled `0.3.1`；它不能证明 `0.4.0` 候选已送达或产生行为效果。
+- **Source：** `0.5.0` 是证据关联综合与定向纠正的候选，继续保留开放选择与任务接续方法。Package 仍由四个独立 Skills 与可选本地 helpers 构成。
+- **Validation 与 behavior：** [当前状态](docs/current-state.md)记录本轮源码、工具和 walkthrough 检查；[0.4.0 对照](docs/dogfood-0.4.0.md)保留通过的小修、可运行产物，以及开放候选任务中未通过的主动发现验收。[0.3.1](docs/dogfood-0.3.1.md)保留早先 installed-host 观察。这些检查与观察不建立 `0.5.0` 的行为改善。
+- **Installation 与 activation：** 2026-10-25 实读本机 enabled `0.4.0`，33 个 package 文件与本轮修改前源码逐字节一致。这是新的安装状态观察，不是新的行为 pass；本轮尚未安装或激活 `0.5.0` 候选。
 - **Publication：** 公开 [marketplace repo](https://github.com/IndelibleVivi/soundings)分发其中的当前 package。源码发布、本地安装、激活与行为接受分别报告；源码版本不代表新增 tagged release。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。
@@ -185,6 +211,10 @@ python3 evals/check.py
 ## Privacy、network 与 authority
 
 Soundings 不增加 MCP server、search backend、hooks、固定 worker team 或自动 memory。可选本地 helpers 没有网络调用。显式 `capture` 把来源文本和 metadata 保存在你指定的本地目录，直至你自行移除；它不执行留存策略，不认证 provenance，也不自动更新来源。私人 store 应放在公开 repo 外。
+
+显式编写的 workpaper 和生成稿可能含原文、私人 locators 与解释；另行获准转交前须检查
+实际内容。Inspect 与 impact 只读；render 只写明确选择的新文件，或打印到 stdout。
+它不会更新项目记录、执行提案或上传资料。
 
 官网是 GitHub Pages 静态站，scripts、画稿和字体从同一 host 加载，不增加 analytics、账号登录、模型调用或访问者资料上传。交互示例在浏览器内运行；安装插件仍需在 Codex 中运行复制的命令。访问请求适用 GitHub 的托管政策。
 

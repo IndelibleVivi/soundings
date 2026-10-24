@@ -26,6 +26,8 @@ When feedback or evidence changes an assumption:
 
 Do not keep an old active path “just in case” after its behavior has been replaced. Version control and explicit candidate artifacts provide recovery; stale parallel instructions recreate the same misunderstanding later.
 
+When a substantial judgment already has an [evidence-linked workpaper](../../study/references/evidence-linked-synthesis.md), use its declared dependencies to locate affected conclusions and preserve unrelated ones. An impact query is a starting inventory: inspect the actual affected artifacts and callers for dependencies the author did not record. Reconsider a conclusion when supporting evidence or counterevidence changes, then update its grounds and the authorized work; the tool neither changes those artifacts nor accepts the correction.
+
 If the user says a candidate is unintelligible, unrelated to the goal, or not a meaningful product advance, treat that as evidence that its representative role failed. Trace that role back to the agent proposal that created it. Remove the candidate from current claims, acceptance scenarios, and dependent plans; do not merely improve its presentation or run more tests on it. Preserve independently useful maintenance at its honest scope, then return to the accepted outcome and produce the replacement result the commission still requires. Historical evidence may record that the rejected candidate existed, but it must remain visibly rejected rather than current proof of value.
 
 ## Bound feedback to what it establishes

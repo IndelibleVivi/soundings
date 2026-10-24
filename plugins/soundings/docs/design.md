@@ -6,7 +6,9 @@ Soundings develops evidence, understanding, possibilities, and judgeable choices
 
 Version 0.2 separated the completion of an inquiry action from the completion of the commission. Version 0.3.1 makes project-grounded inquiry explicit: Soundings can discover a consequential unresolved question in existing work and pursue it to a result the project can use. It also corrects the initial 0.3.0 framing by keeping portable research handoffs at optional maintenance scope and removing a rejected generic motion artifact from the forward product contract. A query may end before synthesis is done; a choice may be settled while its authorized correction still needs to reach the artifacts. The requested outcome determines delivery.
 
-The `0.4.0` candidate addresses two connected gaps: discovery can be skipped before an open choice because the agent already knows a plausible implementation, and returned research can stop at a summary without changing the initiating work. Its source contract makes the open choice itself a reason for discovery and makes the receiver responsible for a local judgment, a concrete effect, and a return to the original scene. These are intended behaviors; [current state](../../../docs/current-state.md) separates their implementation from observed effect.
+The `0.4.0` methods addressed two connected gaps: discovery can be skipped before an open choice because the agent already knows a plausible implementation, and returned research can stop at a summary without changing the initiating work. Their source contract makes the open choice itself a reason for discovery and makes the receiver responsible for a local judgment, a concrete effect, and a return to the original scene. These remain intended behaviors; [current state](../../../docs/current-state.md) separates their implementation from observed effect.
+
+The `0.5.0` source candidate develops the evidence-to-judgment and revision seam. Study owns a conditional method for keeping deciding passages, counterevidence, inferences, and dependent judgments recoverable. An optional local workpaper renders exact cited excerpts and traverses authored dependencies. It does not make the interpretation true, run research, or repair the historical discovery failure by itself. The [development programme](../../../docs/programme.md) connects this construction line to the project's wider capability and maturity conditions.
 
 The design responds to two opposite failures:
 
@@ -148,6 +150,49 @@ The contract distinguishes source representation from generated interpretation, 
 
 Scoped `find` admits literal windows only within the selected line range and supplies an explicit continuation after the first omitted window has been handled. Capture stages complete JSON and uses a no-clobber hard link before exposing a snapshot name; it requires filesystem hard-link support and does not promise power-loss durability.
 
+## Evidence-linked judgments and revision
+
+The optional `skills/search/scripts/workpaper.py` composes the existing evidence
+loader with an explicitly authored research record. Study's
+[evidence-linked synthesis method](../skills/study/references/evidence-linked-synthesis.md)
+owns the interpretive relationship; the [format contract](../skills/search/references/workpaper-format.md)
+owns the local commands and input fields. The existing project record remains
+the authority for accepted work. The helper neither chooses a question nor
+replaces synthesis with a citation registry.
+
+```mermaid
+flowchart TB
+    S[Saved source snapshots]
+    W[Authored findings and dependencies]
+    R[Standalone research workpaper]
+    I[Declared affected judgments]
+    A[Authorized revision in actual work]
+
+    S -->|exact excerpts| R
+    W -->|render reasoning and conditions| R
+    W -->|trace declared links| I
+    R -->|local judgment| A
+    I -->|check actual dependents| A
+```
+
+The snapshot and workpaper are supplied data. `inspect` checks citations and the
+authored graph; `render` places exact source excerpts beside the authored
+reasoning; `impact` traverses only declared links. Both supporting evidence and
+counterevidence can seed an impact query. Historical or superseded findings
+remain visible, and current descendants of superseded findings need review.
+No command changes findings, snapshots, or project artifacts automatically.
+After an authorized revision, the owner updates the authored grounds and keeps
+the earlier observations at their historical scope.
+
+A source locator, exact excerpt, authored inference, declared dependency, and
+accepted correction are distinct observations. The graph does not infer missing
+conditions, source independence, semantic entailment, reading history, or
+undeclared dependents. A generated synthesis retains its representation label.
+The rendered workpaper is selected task content that can be reread without its
+original store; it may contain private quotations and locators. No network,
+automatic retention, executor, new project authority, or schema migration of
+existing evidence/packets is introduced.
+
 ## Optional portable research handoffs
 
 The previous helper could be used by another harness only with access to the selected store. The optional `skills/search/scripts/packet.py` now makes that selection portable: an explicit brief, a manifest, and copies of named evidence snapshots. It reuses the existing evidence schema and loader. The recipient reads the copied store with the same evidence CLI; no import or original file path is required.
@@ -171,7 +216,7 @@ Research effort, response size, and retention remain separate. Capture is an exp
 
 ## Current boundaries
 
-The `0.4.0` candidate has no:
+The `0.5.0` source candidate has no:
 
 - a global Soundings router;
 - fixed stages or mandatory artifacts;
