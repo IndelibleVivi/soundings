@@ -19,7 +19,7 @@ Soundings 帮助 Codex 查清一个问题、理解一组材料、发展一个创
 
 它们是能力，不是阶段。没有 router、规定顺序、访谈或强制报告。清晰的小任务应直接完成；domain methods 保留其证据标准与制作职责，换方法仍然是在继续同一份委托。
 
-> `0.5.0` 源码候选把跨来源判断接到精确证据和定向纠正，并提供可选的本地 workpaper。[0.4.0 对照](docs/dogfood-0.4.0.md)中读到指导后仍跳过主动发现的结果保持不变；小修保持直接。新增支持能力不等于已经建立行为改善。见[发展 programme](docs/programme.md)和[当前状态](docs/current-state.md)；[0.3.1 观察](docs/dogfood-0.3.1.md)保留历史范围。
+> `0.6.0` 源码候选让选定的 authored judgments 随交接接续，并比较前后修订，保留较早的依赖路径。[0.4.0 对照](docs/dogfood-0.4.0.md)中读到指导后仍跳过主动发现的结果保持不变；小修保持直接。新增支持能力不等于已经建立行为改善。见[发展 programme](docs/programme.md)和[当前状态](docs/current-state.md)；[0.3.1 观察](docs/dogfood-0.3.1.md)保留历史范围。
 
 ## 安装与升级
 
@@ -111,7 +111,9 @@ Study 的[证据关联综合方法](plugins/soundings/skills/study/references/ev
 
 需要反复组装引用、检查依赖时，可选的
 [workpaper CLI](plugins/soundings/skills/search/references/workpaper-format.md)
-使用显式编写的 JSON 研究稿与已有 evidence snapshots：
+使用显式编写的 JSON 研究稿与已有 evidence snapshots。
+下列命令对应 `0.6.0` source candidate；源码更新不会让旧安装自动拥有 `compare`
+或 `packet.v2`，实际安装状态见下方[当前状态](#当前状态)：
 
 ```bash
 python3 /path/to/search/scripts/workpaper.py inspect /path/to/workpaper.json \
@@ -120,13 +122,18 @@ python3 /path/to/search/scripts/workpaper.py render /path/to/workpaper.json \
   --store /path/to/private/task-evidence --output /path/to/new-research.md
 python3 /path/to/search/scripts/workpaper.py impact /path/to/workpaper.json \
   --store /path/to/private/task-evidence --finding persistence-premise
+python3 /path/to/search/scripts/workpaper.py compare /path/to/before.json /path/to/after.json \
+  --before-store /path/to/earlier-evidence --after-store /path/to/current-evidence
 ```
 
 生成稿包含精确引用的原文、source locators、representation、支持与反证，
-离开原 store 仍可阅读。Impact 报告显式依赖中的直接与间接后继，不修改 artifacts，
-也不发现未记录的关系。引用覆盖不等于阅读记录；有效链接不能证明推断成立。
+离开原 store 仍可阅读。Impact 报告显式依赖中的直接与间接后继；compare 保留
+改动字段及旧、新两版的依赖路径，新稿删掉边或 finding 后仍可复查旧关系。
+不同 store 中相同 ref 的保存内容冲突也会明确显示。它们提供待复查线索，不修改
+artifacts、不发现未记录的关系，也不接受一次纠正。引用覆盖不等于阅读记录；有效链接不能证明推断成立。
 普通任务继续用 prose 即可。[可运行 walkthrough](docs/examples/evidence-linked-synthesis.md)
-用构造来源走完比较、导出、搬迁与纠正。
+用构造来源走完比较、导出、搬迁与 operator guide 的实际纠正。保留收到的依据，
+再另写新版本；待解问题和未读材料仍由任务本身的 working understanding 保留。
 
 ## 从未解问题继续一个项目
 
@@ -134,7 +141,8 @@ Soundings 可以从已有项目材料发展值得追究的问题，保留问题�
 
 ### 可选的交接 maintenance
 
-研究需要转到其他目录或 harness 时，可选 `packet.py` 只复制明确提供的 brief 和选定快照：
+研究需要转到其他目录或 harness 时，可选 `packet.py` 复制明确提供的 brief 和选定
+快照，也可携带 authored workpaper。原有用法仍创建 `packet.v1`：
 
 ```bash
 python3 /path/to/search/scripts/packet.py create \
@@ -146,6 +154,14 @@ python3 /path/to/search/scripts/evidence.py read s-REFERENCE \
 ```
 
 接手者无须原 store 就能回读副本。Packet 是选定的任务数据，不授予新权限，也不是 executor；创建不会上传。另行获准转交之前，检查 brief 与来源内容，工具不会自动脱敏私人正文或 locator。见[研究交接与 packet 边界](plugins/soundings/skills/search/references/research-handoffs.md)和[诊断研究实例](docs/examples/diagnosing-evidence-loss.md)。
+
+用 `--workpaper /path/to/workpaper.json --cited` 替代 `--ref`，创建带有规范化
+authored workpaper 及其引用快照的 `packet.v2`。需要额外上下文时，使用
+`--workpaper` 加重复的 `--ref`，必须选全每个引用。V2 操作需将 `packet.py`、
+`workpaper.py`、`evidence.py` 放在一起；原 v1 操作仍只需两个脚本。接手者无须
+从 brief 重建判断；收到的 packet 保留为较早依据，新来源与修订另存。
+Inspect 拒绝不完整包、额外成员和成员 symlinks，不会自动恢复中断写入，
+也不判断研究是否已经完成。
 
 `find` 现在接受精确行范围，并提示读完省略窗口后如何继续。Capture 只发布完整写完的快照、不替换旧 ref；需要支持 hard link 的文件系统。[Evidence 契约](plugins/soundings/skills/search/references/evidence-reading.md)说明续读、失败恢复与预算语义。
 
@@ -201,9 +217,9 @@ python3 evals/check.py
 
 ## 当前状态
 
-- **Source：** `0.5.0` 是证据关联综合与定向纠正的候选，继续保留开放选择与任务接续方法。Package 仍由四个独立 Skills 与可选本地 helpers 构成。
-- **Validation 与 behavior：** [当前状态](docs/current-state.md)记录本轮源码、工具和 walkthrough 检查；[0.4.0 对照](docs/dogfood-0.4.0.md)保留通过的小修、可运行产物，以及开放候选任务中未通过的主动发现验收。[0.3.1](docs/dogfood-0.3.1.md)保留早先 installed-host 观察。这些检查与观察不建立 `0.5.0` 的行为改善。
-- **Installation 与 activation：** 2026-10-25 实读本机 enabled `0.4.0`，33 个 package 文件与本轮修改前源码逐字节一致。这是新的安装状态观察，不是新的行为 pass；本轮尚未安装或激活 `0.5.0` 候选。
+- **Source：** `0.6.0` 是证据关联 inquiry 的接续与修订候选：可搬迁的 authored workpaper、跨版本比较，以及把纠正带回实际工作的配套方法。Package 仍由四个独立 Skills 与可选本地 helpers 构成。
+- **Validation 与 behavior：** [当前状态](docs/current-state.md)记录本轮源码、工具和 walkthrough 检查；[0.4.0 对照](docs/dogfood-0.4.0.md)保留通过的小修、可运行产物，以及开放候选任务中未通过的主动发现验收。[0.3.1](docs/dogfood-0.3.1.md)保留早先 installed-host 观察。这些检查与观察不建立 `0.6.0` 的行为改善。
+- **Installation 与 activation：** 2026-10-25 实读本机 installed/enabled `0.5.0`，37 个 package 文件与该版本源码逐字节一致。这更新了较早的 `0.4.0` 观察，不确定安装发生时间，也不是新的行为 pass；本轮尚未安装或激活 `0.6.0` 候选。
 - **Publication：** 公开 [marketplace repo](https://github.com/IndelibleVivi/soundings)分发其中的当前 package。源码发布、本地安装、激活与行为接受分别报告；源码版本不代表新增 tagged release。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。
@@ -212,8 +228,9 @@ python3 evals/check.py
 
 Soundings 不增加 MCP server、search backend、hooks、固定 worker team 或自动 memory。可选本地 helpers 没有网络调用。显式 `capture` 把来源文本和 metadata 保存在你指定的本地目录，直至你自行移除；它不执行留存策略，不认证 provenance，也不自动更新来源。私人 store 应放在公开 repo 外。
 
-显式编写的 workpaper 和生成稿可能含原文、私人 locators 与解释；另行获准转交前须检查
-实际内容。Inspect 与 impact 只读；render 只写明确选择的新文件，或打印到 stdout。
+显式编写的 workpaper 和生成稿可能含原文、私人 locators 与解释；compare 也可能包含
+完整的已改变快照内容。另行获准转交前须检查实际输出。Inspect、impact 与 compare 只读；
+render 只写明确选择的新文件，或打印到 stdout。
 它不会更新项目记录、执行提案或上传资料。
 
 官网是 GitHub Pages 静态站，scripts、画稿和字体从同一 host 加载，不增加 analytics、账号登录、模型调用或访问者资料上传。交互示例在浏览器内运行；安装插件仍需在 Codex 中运行复制的命令。访问请求适用 GitHub 的托管政策。

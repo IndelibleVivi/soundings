@@ -19,7 +19,7 @@ The name comes from taking soundings: deliberate probes into something whose dep
 
 These are capabilities, not stages. There is no router, required sequence, interview, or mandatory report. A small clear task should remain direct. Domain methods retain their evidence standards and production responsibilities; changing methods continues the same commission.
 
-> The `0.5.0` source candidate connects cross-source judgments to exact evidence and targeted revision, with an optional local workpaper. The earlier [0.4.0 comparison](docs/dogfood-0.4.0.md) still records failed proactive discovery after guidance was read; small repairs stayed direct. New supporting capability does not establish a behavior improvement. See the [development programme](docs/programme.md) and [current state](docs/current-state.md); the [0.3.1 observations](docs/dogfood-0.3.1.md) remain historical evidence.
+> The `0.6.0` source candidate carries selected authored judgments across a handoff and compares their revisions without losing earlier dependency paths. The earlier [0.4.0 comparison](docs/dogfood-0.4.0.md) still records failed proactive discovery after guidance was read; small repairs stayed direct. New supporting capability does not establish a behavior improvement. See the [development programme](docs/programme.md) and [current state](docs/current-state.md); the [0.3.1 observations](docs/dogfood-0.3.1.md) remain historical evidence.
 
 ## Install and upgrade
 
@@ -117,7 +117,9 @@ reopens the affected work while independent goals remain intact.
 
 For repeated citation assembly and dependency checking, the optional
 [workpaper CLI](plugins/soundings/skills/search/references/workpaper-format.md)
-uses an explicitly authored JSON record and existing evidence snapshots:
+uses an explicitly authored JSON record and existing evidence snapshots.
+The following commands describe the `0.6.0` source candidate. An older installed
+copy does not gain `compare` or `packet.v2` from a source update; see [status](#status):
 
 ```bash
 python3 /path/to/search/scripts/workpaper.py inspect /path/to/workpaper.json \
@@ -126,15 +128,24 @@ python3 /path/to/search/scripts/workpaper.py render /path/to/workpaper.json \
   --store /path/to/private/task-evidence --output /path/to/new-research.md
 python3 /path/to/search/scripts/workpaper.py impact /path/to/workpaper.json \
   --store /path/to/private/task-evidence --finding persistence-premise
+python3 /path/to/search/scripts/workpaper.py compare /path/to/before.json /path/to/after.json \
+  --before-store /path/to/earlier-evidence --after-store /path/to/current-evidence
 ```
 
 The render includes exact cited excerpts, source locators, representation,
 support and challenges, so it can be read without the original store. Impact
-reports direct and transitive declared dependents; it does not change artifacts
-or discover unrecorded relationships. Cited coverage is not a reading log, and
+reports direct and transitive declared dependents. Comparison preserves changed
+fields and old as well as new dependency paths, even when a later revision
+removes an edge or finding. Conflicting saved contents under the same ref in
+separate stores stay visible. These are review candidates: neither command
+changes artifacts, discovers unrecorded relationships, or accepts a correction.
+Cited coverage is not a reading log, and
 valid links do not prove a sound inference. Ordinary tasks can stay in prose.
 The [runnable walkthrough](docs/examples/evidence-linked-synthesis.md) covers
-comparison, export, relocation, and correction with constructed sources.
+comparison, export, relocation, and correction of an operator guide with
+constructed sources. Keep a received basis while authoring the next version;
+the live inquiry question and unread material still belong in the task's
+working understanding.
 
 ## Continue a project from its unresolved question
 
@@ -142,7 +153,9 @@ Soundings can develop a useful question from existing project material and retai
 
 ### Optional handoff maintenance
 
-When research moves to another directory or harness, the optional `packet.py` copies only an explicit brief and selected snapshots:
+When research moves to another directory or harness, the optional `packet.py`
+copies an explicit brief and selected snapshots, optionally including an
+authored workpaper. The original form remains `packet.v1`:
 
 ```bash
 python3 /path/to/search/scripts/packet.py create \
@@ -154,6 +167,17 @@ python3 /path/to/search/scripts/evidence.py read s-REFERENCE \
 ```
 
 The recipient can reread the copied snapshots without the original store. A packet is selected task data, not new authority or an executor. Creation never uploads it. Inspect the brief and source contents before any separately authorized transfer; locators and private text are not automatically redacted. See [research handoffs and packet limits](plugins/soundings/skills/search/references/research-handoffs.md) and the [worked diagnostic inquiry](docs/examples/diagnosing-evidence-loss.md).
+
+Use `--workpaper /path/to/workpaper.json --cited` instead of `--ref` to create
+`packet.v2` with the normalized authored workpaper and only its cited snapshots.
+To include additional selected context, use `--workpaper` with repeated `--ref`;
+every citation must be included. Keep `packet.py`, `workpaper.py` and `evidence.py`
+together for v2 operations. Existing v1 operations still need only the original
+two scripts. The recipient can render and revise the selected judgment without
+reconstructing it from a brief; the received packet stays the earlier basis,
+with new evidence and revisions kept separately. Inspection rejects partial
+packets, extra members and member symlinks. It neither resumes an interrupted
+write nor establishes that the research is complete.
 
 `find` now accepts an exact line scope and reports how to continue after reading an omitted window. Capture publishes only a fully written snapshot without replacing old refs; it requires a filesystem with hard-link support. See the [evidence contract](plugins/soundings/skills/search/references/evidence-reading.md) for continuation, failure recovery, and budget semantics.
 
@@ -227,9 +251,9 @@ establish a Soundings benefit or completed proactive-discovery acceptance.
 
 ## Status
 
-- **Source:** `0.5.0` is a candidate for evidence-linked synthesis and targeted revision, building on the open-choice and continuation methods. Four independent Skills and optional local helpers remain the package shape.
-- **Validation and behavior:** [current state](docs/current-state.md) records the current source, tool, and walkthrough checks. The [0.4.0 comparison](docs/dogfood-0.4.0.md) retains passing small repairs, functioning artifacts, and failed proactive discovery in its open candidate task. [0.3.1](docs/dogfood-0.3.1.md) records earlier installed-host observations. These checks and observations do not establish behavior improvement for `0.5.0`.
-- **Installation and activation:** on 2026-10-25, the local host reported enabled `0.4.0`, with all 33 package files matching the pre-change source. This is a fresh installation-state observation, not a new behavior pass. The `0.5.0` candidate has not been installed or activated in this change.
+- **Source:** `0.6.0` is a candidate for continuing and revising an evidence-linked inquiry: portable authored workpapers, comparison across revisions, and methods that carry corrections into the actual work. Four independent Skills and optional local helpers remain the package shape.
+- **Validation and behavior:** [current state](docs/current-state.md) records the current source, tool, and walkthrough checks. The [0.4.0 comparison](docs/dogfood-0.4.0.md) retains passing small repairs, functioning artifacts, and failed proactive discovery in its open candidate task. [0.3.1](docs/dogfood-0.3.1.md) records earlier installed-host observations. These checks and observations do not establish behavior improvement for `0.6.0`.
+- **Installation and activation:** on 2026-10-25, the local host reported installed and enabled `0.5.0`; its 37 package files matched that source version byte for byte. This updates the earlier `0.4.0` observation, without establishing when installation occurred or a new behavior pass. The `0.6.0` candidate has not been installed or activated in this change.
 - **Publication:** the public [marketplace repository](https://github.com/IndelibleVivi/soundings) distributes its current package. Source publication, local installation, activation, and behavior acceptance remain separate; no new tagged release is implied by a source version.
 
 Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
@@ -239,8 +263,9 @@ Bounded successful cases do not establish cross-model consistency, causal improv
 Soundings adds no MCP server, search backend, hooks, fixed worker team, or automatic memory. Its optional local helpers have no network calls. Explicit `capture` stores source text and metadata at the local directory you choose until you remove them; it does not enforce retention policies, certify provenance, or automatically refresh sources. Keep private stores outside public repositories.
 
 An explicitly authored workpaper and its rendered report can contain source text,
-private locators, and interpretation. Inspect them before any separately
-authorized transfer. Inspection and impact are read-only; rendering writes only
+private locators, and interpretation. A comparison can include complete changed
+saved source values. Inspect these outputs before any separately
+authorized transfer. Inspection, impact and comparison are read-only; rendering writes only
 to an explicitly selected new output, or prints to stdout. It does not update a
 project record, execute a proposal, or upload material.
 

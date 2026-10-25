@@ -62,6 +62,22 @@ actual deliverable and revisit the initiating use scene, following
 [returning findings to the work](../../search/references/returning-to-the-work.md).
 A dependency warning or corrected report alone does not complete that work.
 
+When the inquiry spans revisions, keep a readable earlier basis until the
+correction is accepted. Preserve finding IDs for the same judgment so the
+relationship can be compared; a genuinely different claim can have a new ID.
+Do not remove an old dependency merely to clear its warning. Explain whether
+the conclusion changed, was retired, or survives on different grounds. Inspect
+the old paths as well as the new ones: a removed intermediary can still point
+to work that has not been corrected.
+
+For a long or interrupted inquiry, resume at the uncertainty that changes the
+answer. Recover which material was actually inspected, which promising material
+is still unread, what the current synthesis cannot distinguish, and the next
+observation that would help. Cited ranges alone cannot recover that frontier.
+If the needed source or capability is unavailable, qualify the judgment and
+continue the independent work the evidence supports. Do not restart a completed
+search or keep reading without a question that can affect the result.
+
 ## Optional local workpaper
 
 When repeated citation assembly and dependency checking deserve deterministic
@@ -69,7 +85,11 @@ support, [the workpaper CLI](../../search/references/workpaper-format.md) connec
 an explicitly authored JSON record to existing evidence snapshots. It can inspect
 exact cited ranges, render a standalone Markdown workpaper with source excerpts
 and counterevidence, and report the declared descendants of a changed finding or
-source reference. Search, Study, Explore, and Shape can use the same bounded
+source reference. It can also compare two explicit revisions, including paths
+that existed only in the earlier graph and conflicting saved content under the
+same ref in different stores. The comparison names review candidates; it cannot
+determine whether a rewrite actually repaired their reasoning. Search, Study,
+Explore, and Shape can use the same bounded
 artifact without becoming a required sequence.
 
 The author supplies the reasoning, conditions, relationships, and status. The
@@ -77,6 +97,11 @@ tool supplies exact source text and mechanical checks. Its inventory is **cited
 coverage**, not evidence of what an agent read; a successful check does not prove
 truth, sufficient context, source independence, source freshness, or adoption.
 No snapshot or project artifact is changed by an inspection or impact query.
+The same applies to comparison. Keep an explicit received packet as a baseline;
+author the next revision and capture new sources outside that packet. The
+[handoff method](../../search/references/research-handoffs.md) can carry the
+selected workpaper with its cited sources, so the receiver need not reconstruct
+the author's reasoning from a brief or a rendered report alone.
 
 Use the existing project record directly when that is sufficient. If a workpaper
 is useful, keep it and its sources in the task's authorized local location;

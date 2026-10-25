@@ -3,8 +3,9 @@
 This is an original constructed walkthrough, not a provider comparison or an
 agent-behavior result. It shows the optional local workpaper supporting a real
 research task: explain apparently conflicting persistence claims, make a
-conditional recommendation, and revisit only the conclusions affected by a
-changed runtime selection.
+conditional recommendation, continue it in another directory, and correct an
+operator guide after the selected runtime changes. Both the source material and
+the notes-tool scenario are constructed; no live provider is being characterized.
 
 The decisive difference is a process boundary. In the constructed v1, commit
 keeps values in one process; in v2, committed values survive restart. A generated
@@ -46,6 +47,7 @@ sources = {
            "Only committed values survive restart.\n", "verbatim"),
     "summary": ("Earlier generated summary, version unspecified:\n"
                 "A successful commit makes values durable.\n", "generated"),
+    "unrelated": ("Unselected material must stay outside the packet.\n", "verbatim"),
 }
 refs = {}
 for name, (text, representation) in sources.items():
@@ -102,60 +104,111 @@ print(run("workpaper.py", "inspect", record, "--store", out / "evidence"))
 print(run("workpaper.py", "render", record, "--store", out / "evidence",
           "--output", out / "initial.md"))
 
-# Explicitly select portable evidence, then read only the relocated store.
+# Carry the authored reasoning and only its cited sources in one explicit packet.
 brief = out / "brief.md"
-brief.write_text("Constructed offline-notes inquiry; task data only.\n",
+brief.write_text("Constructed offline-notes inquiry; task data only.\n"
+                 "Explain the version distinction and update the operator guide.\n"
+                 "Offline notes remain a requirement. Check which release is selected;\n"
+                 "the snapshots do not establish the eventual application's recovery.\n",
                  encoding="utf-8")
 receiver = out / "receiver"
 receiver.mkdir()
 args = ["create", "--store", out / "evidence", "--brief", brief,
-        "--output", receiver / "packet"]
-for ref in refs.values():
-    args.extend(["--ref", ref])
+        "--workpaper", record, "--cited", "--output", out / "transfer-packet"]
 print(run("packet.py", *args))
-shutil.copyfile(record, receiver / "workpaper.json")
+shutil.move(out / "transfer-packet", receiver / "packet")
 (out / "evidence").rename(out / "retained-original-evidence")
+record.rename(out / "retained-original-workpaper.json")
+baseline = receiver / "packet/workpaper.json"
 store = receiver / "packet/evidence"
-print(run("workpaper.py", "render", receiver / "workpaper.json",
+print(run("packet.py", "inspect", receiver / "packet"))
+assert not (store / (refs["unrelated"] + ".json")).exists()
+print(run("workpaper.py", "render", baseline,
           "--store", store, "--output", receiver / "relocated.md"))
+assert (out / "initial.md").read_bytes() == (receiver / "relocated.md").read_bytes()
 
-# New task evidence selects v2; flag the old premise before fixing descendants.
+# The receiver's existing deliverable is separate from the received evidence.
+guide = receiver / "operator-guide.md"
+guide.write_text("Keep notes local.\n"
+                 "Store v1 loses values on restart; use the application-owned store.\n"
+                 "Run the application's recovery check before relying on saved notes.\n",
+                 encoding="utf-8")
+shutil.copyfile(guide, out / "initial-operator-guide.md")
+
+# Resume in a separate working store, preserving the received basis.
+working_store = receiver / "working-evidence"
+shutil.copytree(store, working_store)
+selection = receiver / "selected-release.txt"
+selection.write_text("The project now selects Store v2.\n"
+                     "The offline-notes requirement remains in force.\n", encoding="utf-8")
+selected_ref = json.loads(run(
+    "evidence.py", "capture", selection, "--store", working_store,
+    "--source", "constructed:runtime-selection", "--title", "Selected release",
+    "--representation", "verbatim",
+))["snapshot"]["ref"]
+paper = json.loads(baseline.read_text(encoding="utf-8"))
+independent_before = json.loads(json.dumps(paper["findings"][4]))
+paper["findings"].append(finding(
+    "selected-runtime", "observation", "The selected release is now v2.",
+    [{"ref": selected_ref, "start_line": 1, "end_line": 2, "relation": "supports"}],
+))
 paper["findings"][3]["status"] = "superseded"
 pending = receiver / "needs-review.json"
 pending.write_text(json.dumps(paper, ensure_ascii=False, indent=2) + "\n",
                    encoding="utf-8")
-print(run("workpaper.py", "inspect", pending, "--store", store))
-print(run("workpaper.py", "impact", pending, "--store", store,
+print(run("workpaper.py", "inspect", pending, "--store", working_store))
+print(run("workpaper.py", "impact", pending, "--store", working_store,
           "--finding", "persistence-premise"))
 
 # The author revises the recommendation; impact does not perform this change.
 paper["findings"][5]["text"] = "Use v2 native commit; retain recovery checks."
-paper["findings"][5]["depends_on"] = ["runtime-v2", "offline-requirement"]
+paper["findings"][5]["depends_on"] = ["runtime-v2", "selected-runtime", "offline-requirement"]
 paper["findings"][5]["conditions"] = ["Selected runtime is now v2."]
 paper["findings"][6]["text"] = "Document v2 commit and recovery behavior."
 revised = receiver / "revised.json"
 revised.write_text(json.dumps(paper, ensure_ascii=False, indent=2) + "\n",
                    encoding="utf-8")
-print(run("workpaper.py", "inspect", revised, "--store", store))
-print(run("workpaper.py", "render", revised, "--store", store,
+print(run("workpaper.py", "compare", baseline, revised,
+          "--before-store", store, "--after-store", working_store))
+print(run("workpaper.py", "inspect", revised, "--store", working_store))
+print(run("workpaper.py", "render", revised, "--store", working_store,
           "--output", receiver / "revised.md"))
-print("Read the initial, relocated, and revised Markdown files in", out)
+assert paper["findings"][4] == independent_before
+
+# The author carries the changed relationship into the actual guide.
+guide.write_text("Keep notes local.\n"
+                 "The project selects Store v2; use its native commit.\n"
+                 "Only committed values survive restart.\n"
+                 "Run the application's recovery check before relying on saved notes.\n",
+                 encoding="utf-8")
+assert "application-owned store" not in guide.read_text(encoding="utf-8")
+assert "Only committed values survive restart." in guide.read_text(encoding="utf-8")
+assert "Keep notes local." in guide.read_text(encoding="utf-8")
+print(run("packet.py", "inspect", receiver / "packet"))
+print("Read the reports and receiver/operator-guide.md in", out)
 PY
 ```
 
 Inspect the actual reports. The short restart qualification and the generated
 summary's representation should remain visible. The initial and relocated
-reports carry the same source material without the original store. The impact
+reports are byte-identical without the original store or workpaper. The impact
 query reaches `architecture` and `operator-guide`, with a path explaining each
 dependency; `offline-requirement` remains independent of the changed premise.
 Before revision, current descendants of the superseded premise need review.
-After the author revises their grounds, that stale dependency is gone.
+After the author revises their grounds, that dependency is gone from the new
+graph. Comparison still exposes its old paths, so a removed edge does not hide
+the original correction obligation. Inspect both the revised research artifact
+and the actual guide: the release condition changed, while local notes and the
+need for application recovery checks stayed intact. The received packet remains
+unchanged and inspectable.
 
 The CLI checks the exact references and declared relationships. The author
 still decides whether the inference holds, which version is selected, and what
 actual implementation or guide must change. This walkthrough produces research
-artifacts only; it implements no notes application and establishes no product,
-behavior, causal-benefit, or human-acceptance result.
+artifacts and revises one constructed operator guide. It implements no notes
+application, does not run an application's recovery test, and establishes no
+agent-behavior, causal-benefit, or human-acceptance result. A changed JSON field
+alone cannot establish that an affected real project has been corrected.
 
 For the full input and command contract, including failures and privacy, read
 [workpaper format](../../plugins/soundings/skills/search/references/workpaper-format.md).

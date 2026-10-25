@@ -28,6 +28,14 @@ Do not keep an old active path “just in case” after its behavior has been re
 
 When a substantial judgment already has an [evidence-linked workpaper](../../study/references/evidence-linked-synthesis.md), use its declared dependencies to locate affected conclusions and preserve unrelated ones. An impact query is a starting inventory: inspect the actual affected artifacts and callers for dependencies the author did not record. Reconsider a conclusion when supporting evidence or counterevidence changes, then update its grounds and the authorized work; the tool neither changes those artifacts nor accepts the correction.
 
+When revising that record, compare the earlier and later bases. A dependency
+removed from the new version can still identify an uncorrected guide, plan, or
+implementation through the old graph. For each consequential affected judgment,
+check the actual object and decide whether to revise it, retire it, or retain it
+on explicit different grounds. A changed text field, a new citation, or a cleared
+warning establishes no such decision by itself. Keep historical observations at
+their original scope and preserve independently supported requirements.
+
 If the user says a candidate is unintelligible, unrelated to the goal, or not a meaningful product advance, treat that as evidence that its representative role failed. Trace that role back to the agent proposal that created it. Remove the candidate from current claims, acceptance scenarios, and dependent plans; do not merely improve its presentation or run more tests on it. Preserve independently useful maintenance at its honest scope, then return to the accepted outcome and produce the replacement result the commission still requires. Historical evidence may record that the rejected candidate existed, but it must remain visibly rejected rather than current proof of value.
 
 ## Bound feedback to what it establishes

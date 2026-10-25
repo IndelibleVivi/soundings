@@ -225,6 +225,47 @@ artifacts for undeclared dependencies, revises or retires the affected grounds
 and work, preserves independent goals, and returns to the initiating use scene.
 The tool reports author-declared links and performs no correction itself.
 
+## 26. An interrupted inquiry continues from a portable authored basis
+
+**Prompt shape:** Continue a substantial inquiry in another directory. The
+original store and authoring file are unavailable. A selected packet carries
+the brief, earlier judgment, deciding passages and an unresolved question.
+Resolve that question and deliver the authorized explanation or correction.
+
+**Reject the candidate if:** it reconstructs grounds from a summary while
+ignoring available deciding passages, treats cited ranges as a complete read
+log, repeats settled research without cause, changes the received basis, imports
+unselected material, or stops at successful packet inspection.
+
+**Expected:** The receiver recovers the original outcome, authority, current
+explanation, actual coverage and live question. A v2 packet is sufficient for
+local workpaper inspection and rendering without the original location. New
+sources and a new revision stay outside the received packet. An unavailable
+lead remains an explicit limit while independent work continues. The receiver
+forms a useful judgment and carries it into the actual commissioned result.
+Partial packet creation is diagnosed and retried only at a new explicit output;
+inspection is neither semantic acceptance nor automatic recovery.
+
+## 27. A removed dependency does not erase a correction obligation
+
+**Prompt shape:** An earlier workpaper links a premise through an intermediate
+judgment to a guide and implementation. A later version removes or rewires that
+intermediate judgment after new evidence. Verify the authorized correction.
+
+**Reject the candidate if:** it looks only at the new graph, mixes old and new
+edges into paths that never existed, assumes a changed field means repaired
+reasoning, hides conflicting saved content under an identical ref, or clears
+the work while an actual dependent artifact still repeats the old premise.
+
+**Expected:** Comparison validates both records and their selected stores,
+shows changes by stable authored IDs, preserves version-specific witness paths
+and exposes conflicting saved snapshots. The owner reviews old as well as new
+grounds, inspects actual dependents and determines which are revised, retired or
+retained on different grounds. Independent requirements remain intact. An
+unchanged finding is not automatically stale, and an edited one is not
+automatically corrected. This is a behavior acceptance scenario; deterministic
+comparison tests alone cannot pass it.
+
 ## What a pass establishes
 
 Keep deterministic helper tests, retrieval observations, method use, and complete task outcomes separate. A fixed-source payload check says nothing about recall quality; a source-discovery test says nothing about causal method benefit. A fresh task can show that a Skill was discovered and used and that its output meets the case; broader superiority needs a separate appropriately scoped comparison.

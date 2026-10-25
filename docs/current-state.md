@@ -4,7 +4,50 @@ Updated: 2026-10-25.
 
 ## Current construction and programme
 
-The source package is a `0.5.0` candidate for evidence-linked synthesis and
+The source package is a `0.6.0` candidate for continuing and revising an
+evidence-linked inquiry. Optional `packet.v2` carries a validated normalized
+authored workpaper with explicitly selected cited sources, while v1 remains
+supported. Workpaper comparison retains changes and separate old/new dependency
+paths, including paths deleted from the new graph. Methods preserve the
+received basis, resume the live question and carry corrections into actual work.
+
+Fresh source checks passed: four Skill validations, plugin JSON syntax, and
+the provider-neutral `python3 evals/check.py` gate: **126 tests** (72 local
+helper/packet/workpaper, 40 research/observation/comparison, 14 natural-suite),
+with the explicit existing Field Lab checkout and no skipped tests or target
+model calls. This adds nine packet integration tests and ten revision-comparison
+tests to the previous helper gate. Tests cover old/new paths after removal or
+rewiring, separate valid graphs whose union would cycle, same-ref snapshot
+conflicts reaching unchanged authored dependents, question order versus content,
+the reversed 1,100-finding chain, UTF-8/CRLF output and unchanged inputs.
+
+The documented walkthrough ran successfully: an authored packet was relocated
+while original paths became unavailable; the rendered reports were byte-identical.
+New source material and a revision stayed outside the received basis. Comparison
+retained the old guide path after the new graph removed it; the author rewrote
+the actual constructed operator guide while preserving the offline requirement
+and outstanding application-recovery question. The packet remained inspectable.
+Failure checks reject incomplete packets, omitted citations, extra members,
+redirected workpaper names and member symlinks. V1 remains usable with only the
+original two scripts; missing v2 helper support has a visible diagnostic.
+
+A coordinator-owned source-directed application used four earlier snapshots,
+then four new implementation/check/readback snapshots, and revised eight
+findings into eleven. It preserved independent entrypoints and the historical
+failed discovery observation, then carried the judgment into the public
+methods, paired READMEs and programme. This is an applied local inquiry, not an
+independent fresh-session pass, natural-selection observation or causal result.
+The continuation architecture diagram was rendered and inspected in a browser.
+
+The `0.6.0` candidate has not been installed or behavior-accepted. Comparison is
+literal structural review, not semantic correspondence or correction acceptance;
+its full output, including changed saved source values, may be large. The
+earlier construction and its evidence remain scoped below; no historical run is
+a pass for this version.
+
+## Previous construction: 0.5.0
+
+The `0.5.0` construction introduced evidence-linked synthesis and
 targeted revision. Study connects deciding passages, conditions, counterevidence,
 inferences, and dependent judgments. The optional local `workpaper.py` checks
 explicit citations, renders a standalone research artifact, and reports declared
@@ -153,14 +196,13 @@ private outside Git.
 
 ## Installation and integration
 
-On 2026-10-25, the local Codex host reported installed and enabled `0.4.0` from
-the Git marketplace. Its 33 package files matched the pre-change canonical
-source byte for byte. This corrects the previously stale current-state claim
-that the last installation observed was `0.3.1`; the dated historical behavior
-records retain their original scope. This readback does not establish when the
-installation occurred or a new fresh-session behavior pass.
+The latest 2026-10-25 readback reported installed and enabled `0.5.0` from the
+Git marketplace. Its 37 package files matched canonical commit `6c30a0c` byte
+for byte. This supersedes the earlier same-day observation of installed
+`0.4.0` with 33 matching package files, while preserving that historical scope.
+It establishes neither the installation time nor fresh-session behavior.
 
-The `0.5.0` candidate has not been installed or activated in this change.
+The `0.6.0` candidate has not been installed or activated in this change.
 Updating source does not update an existing task's loaded methods.
 
 The [host integration guide](../plugins/soundings/docs/host-integration.md) is a portable contract for early visibility, resource delivery, and continuation. It does not install a hook or configure a harness. A companion Servotab source candidate adds the open-choice cue to its canonical router and Design method, with generated package checks passing; see [Servotab's own state](https://github.com/IndelibleVivi/servotab/blob/main/docs/current-state.md). Its source changes do not establish installation or activation.
@@ -178,8 +220,11 @@ delivery. Both the historical four-run budget and this separate seven-start
 trial budget are exhausted; further live evaluation requires its own scope and
 authorization.
 
-For the new construction line, forward scenarios 24–25 require a useful
-cross-source explanation and an authorized correction that reaches actual
-artifacts after a changed premise. Exact excerpts and a dependency warning alone
-do not pass those scenarios. Local tool and documentation checks do not consume
-or imply a new target-model invocation budget.
+Forward scenarios 24–27 require a useful cross-source explanation, interruption
+and relocation, retained earlier grounds, and an authorized correction reaching
+actual artifacts. Exact excerpts, a valid packet or dependency comparison alone
+do not pass those scenarios. Local tool checks and the constructed walkthrough
+do not establish independent host behavior or imply a new invocation budget.
+The [programme](programme.md) now prioritizes the first missed action in ordinary
+work and use of the connected path in complete commissions, rather than another
+record format or research-infrastructure layer by default.

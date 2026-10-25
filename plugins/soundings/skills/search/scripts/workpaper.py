@@ -29,8 +29,16 @@ FINDING_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*")
 RECORD_KEYS = {"schema", "outcome", "question", "findings", "open_questions"}
 RECORD_REQUIRED = {"schema", "outcome", "question", "findings"}
 FINDING_KEYS = {"id", "kind", "text", "status", "conditions", "evidence", "depends_on"}
+FINDING_CONTENT_FIELDS = ("kind", "text", "status", "conditions", "evidence", "depends_on")
 EVIDENCE_KEYS = {"ref", "start_line", "end_line", "relation", "note"}
 EVIDENCE_REQUIRED = {"ref", "start_line", "end_line", "relation"}
+SNAPSHOT_CONTENT_FIELDS = (
+    "source",
+    "title",
+    "representation",
+    "captured_at",
+    "content",
+)
 
 
 class WorkpaperError(evidence.EvidenceError):
@@ -785,6 +793,255 @@ def impact(
     }
 
 
+def _citations_by_ref(data: dict) -> dict[str, list[dict]]:
+    citations_by_ref: dict[str, list[dict]] = defaultdict(list)
+    for finding in data["record"]["findings"]:
+        for index, citation in enumerate(finding["evidence"]):
+            citations_by_ref[citation["ref"]].append({
+                "finding": finding["id"],
+                "citation_index": index,
+                "ref": citation["ref"],
+                "start_line": citation["start_line"],
+                "end_line": citation["end_line"],
+                "relation": citation["relation"],
+                "note": citation["note"],
+            })
+    return dict(citations_by_ref)
+
+
+def _descendant_paths(premise: str, data: dict) -> list[dict]:
+    """Find shortest declared dependent paths within one validated revision."""
+    descendants = []
+    visited: set[str] = set()
+    queue: deque[tuple[str, list[str]]] = deque(
+        (dependent, [premise, dependent])
+        for dependent in data["reverse"].get(premise, [])
+    )
+    while queue:
+        current, path = queue.popleft()
+        if current in visited:
+            continue
+        visited.add(current)
+        finding = data["by_id"][current]
+        descendants.append({
+            "id": current,
+            "status": finding["status"],
+            "witness_path": path,
+        })
+        for dependent in data["reverse"].get(current, []):
+            if dependent not in visited:
+                queue.append((dependent, path + [dependent]))
+    return descendants
+
+
+def _finding_order(before: dict, after: dict) -> dict:
+    before_ids = [finding["id"] for finding in before["record"]["findings"]]
+    after_ids = [finding["id"] for finding in after["record"]["findings"]]
+    before_positions = {finding_id: index for index, finding_id in enumerate(before_ids)}
+    after_positions = {finding_id: index for index, finding_id in enumerate(after_ids)}
+    common_before = [finding_id for finding_id in before_ids if finding_id in after_positions]
+    common_after = [finding_id for finding_id in after_ids if finding_id in before_positions]
+    moved_common = [
+        {
+            "id": finding_id,
+            "before_position": before_positions[finding_id],
+            "after_position": after_positions[finding_id],
+        }
+        for finding_id in common_before
+        if before_positions[finding_id] != after_positions[finding_id]
+    ]
+    return {
+        "before": before_ids,
+        "after": after_ids,
+        "common_before": common_before,
+        "common_after": common_after,
+        "common_reordered": common_before != common_after,
+        "moved_common": moved_common,
+    }
+
+
+def compare(
+    before_path: Path,
+    after_path: Path,
+    before_store: Path,
+    after_store: Path,
+) -> dict:
+    """Compare two validated authored revisions without merging their graphs.
+
+    Stable authored finding IDs are the only correspondence. Each revision is
+    loaded against its own explicitly selected snapshot store.
+    """
+    before = load(before_path, before_store)
+    after = load(after_path, after_store)
+    before_record = before["record"]
+    after_record = after["record"]
+    before_ids = [finding["id"] for finding in before_record["findings"]]
+    after_ids = [finding["id"] for finding in after_record["findings"]]
+    before_positions = {finding_id: index for index, finding_id in enumerate(before_ids)}
+    after_positions = {finding_id: index for index, finding_id in enumerate(after_ids)}
+
+    added_findings = [
+        {
+            "id": finding_id,
+            "position": after_positions[finding_id],
+            "finding": after["by_id"][finding_id],
+        }
+        for finding_id in after_ids
+        if finding_id not in before["by_id"]
+    ]
+    removed_findings = [
+        {
+            "id": finding_id,
+            "position": before_positions[finding_id],
+            "finding": before["by_id"][finding_id],
+        }
+        for finding_id in before_ids
+        if finding_id not in after["by_id"]
+    ]
+
+    changed_findings = []
+    unchanged_findings = []
+    for finding_id in before_ids:
+        if finding_id not in after["by_id"]:
+            continue
+        old = before["by_id"][finding_id]
+        new = after["by_id"][finding_id]
+        changed_fields = [
+            field for field in FINDING_CONTENT_FIELDS
+            if old[field] != new[field]
+        ]
+        if changed_fields:
+            changed_findings.append({
+                "id": finding_id,
+                "before_position": before_positions[finding_id],
+                "after_position": after_positions[finding_id],
+                "changed_fields": changed_fields,
+                "before": old,
+                "after": new,
+            })
+        else:
+            unchanged_findings.append({
+                "id": finding_id,
+                "status": new["status"],
+                "before_position": before_positions[finding_id],
+                "after_position": after_positions[finding_id],
+            })
+
+    global_changes: dict[str, dict] = {}
+    for field in ("outcome", "question", "open_questions"):
+        if before_record[field] != after_record[field]:
+            global_changes[field] = {
+                "before": before_record[field],
+                "after": after_record[field],
+            }
+
+    before_citations = _citations_by_ref(before)
+    after_citations = _citations_by_ref(after)
+    snapshot_conflicts = []
+    for ref in before_citations:
+        if ref not in after_citations:
+            continue
+        old = before["snapshots"][ref]
+        new = after["snapshots"][ref]
+        changed_fields = [
+            field for field in SNAPSHOT_CONTENT_FIELDS
+            if old[field] != new[field]
+        ]
+        if not changed_fields:
+            continue
+        snapshot_conflicts.append({
+            "ref": ref,
+            "changed_fields": changed_fields,
+            "before": {field: old[field] for field in changed_fields},
+            "after": {field: new[field] for field in changed_fields},
+            "before_citations": before_citations[ref],
+            "after_citations": after_citations[ref],
+            "semantics": (
+                "same snapshot ref name in separately selected stores; these are "
+                "loaded local values, not an authenticity or freshness finding"
+            ),
+        })
+
+    # A saved source can change even when its citations and authored finding
+    # fields do not. Keep that review reason separate from the literal diff.
+    conflict_seeds: dict[str, dict[str, list[str]]] = {
+        "before": defaultdict(list), "after": defaultdict(list),
+    }
+    for conflict in snapshot_conflicts:
+        for version in ("before", "after"):
+            for citation in conflict[version + "_citations"]:
+                refs = conflict_seeds[version][citation["finding"]]
+                if conflict["ref"] not in refs:
+                    refs.append(conflict["ref"])
+    changed_ids = {finding["id"] for finding in changed_findings}
+    effects = []
+    for finding_id in before_ids + [item for item in after_ids if item not in before["by_id"]]:
+        for version, data, other in (("before", before, after), ("after", after, before)):
+            if finding_id not in data["by_id"]:
+                continue
+            change = None
+            if finding_id not in other["by_id"]:
+                change = "removed" if version == "before" else "added"
+            elif finding_id in changed_ids:
+                change = "changed"
+            refs = conflict_seeds[version].get(finding_id, [])
+            if change is None and not refs:
+                continue
+            effects.append({
+                "premise": finding_id,
+                "change": change or "snapshot_conflict",
+                "version": version,
+                "conflicting_refs": refs,
+                "descendants": _descendant_paths(finding_id, data),
+            })
+
+    questions_before = before_record["open_questions"]
+    questions_after = after_record["open_questions"]
+    return {
+        "schema": SCHEMA,
+        "operation": "compare",
+        "before": {
+            "record": str(before_path),
+            "store": str(before_store),
+        },
+        "after": {
+            "record": str(after_path),
+            "store": str(after_store),
+        },
+        "global_changes": {
+            "changed_fields": list(global_changes),
+            "changes": global_changes,
+        },
+        "findings": {
+            "added": added_findings,
+            "removed": removed_findings,
+            "changed": changed_findings,
+            "unchanged": unchanged_findings,
+        },
+        "ordering": {
+            "findings": _finding_order(before, after),
+            "open_questions": {
+                "before": questions_before,
+                "after": questions_after,
+                "sequence_changed": questions_before != questions_after,
+                "reordered": (
+                    questions_before != questions_after and
+                    sorted(questions_before) == sorted(questions_after)
+                ),
+            },
+        },
+        "dependency_effects": effects,
+        "snapshot_conflicts": snapshot_conflicts,
+        "semantics": (
+            "structural comparison by stable authored finding IDs, with each "
+            "revision's dependency graph and selected snapshot store loaded "
+            "separately; not semantic equivalence, source authentication, "
+            "freshness, correction, acceptance, or execution authority"
+        ),
+        "project_artifacts_changed": False,
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
@@ -806,6 +1063,19 @@ def main(argv: list[str] | None = None) -> int:
     seed = trace.add_mutually_exclusive_group(required=True)
     seed.add_argument("--finding")
     seed.add_argument("--ref")
+    comparison = commands.add_parser(
+        "compare", help="compare two revisions using stable authored finding IDs"
+    )
+    comparison.add_argument("before", type=Path)
+    comparison.add_argument("after", type=Path)
+    comparison.add_argument(
+        "--before-store", required=True, type=Path,
+        help="evidence.v1 store selected for the before revision",
+    )
+    comparison.add_argument(
+        "--after-store", required=True, type=Path,
+        help="evidence.v1 store selected for the after revision",
+    )
     args = parser.parse_args(argv)
 
     try:
@@ -818,12 +1088,20 @@ def main(argv: list[str] | None = None) -> int:
                 sys.stdout.buffer.write(report.encode("utf-8"))
             else:
                 _write_new(args.output, report)
-        else:
+        elif args.command == "impact":
             result = impact(
                 args.workpaper,
                 args.store,
                 finding_id=args.finding,
                 ref=args.ref,
+            )
+            sys.stdout.buffer.write((evidence.compact_json(result) + "\n").encode("utf-8"))
+        else:
+            result = compare(
+                args.before,
+                args.after,
+                args.before_store,
+                args.after_store,
             )
             sys.stdout.buffer.write((evidence.compact_json(result) + "\n").encode("utf-8"))
     except (evidence.EvidenceError, OSError, UnicodeError) as exc:

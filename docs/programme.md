@@ -42,28 +42,39 @@ evidence and product decision.
 | Discover a worthwhile project question | Study's project-grounded method; explicit real-project observations in the [0.3.1 record](dogfood-0.3.1.md) | Useful ordinary-task outcomes across projects and competing domain methods, with selection distinguished from task success |
 | Look outward before an open choice hardens | Search's open-choice policy, purpose-matched source reading, host integration contract | The [0.4.0 comparison](dogfood-0.4.0.md) failed this criterion even after guidance was read; delivery, tool affordances, first commitment, and final result need separate observations |
 | Reconcile evidence into a local explanation | Study's alignment, mechanism, counterexample, and coverage methods; [evidence-loss inquiry](examples/diagnosing-evidence-loss.md) | Repeated useful syntheses with applicable evidence, independent grounds where claimed, and no unsupported causal leap |
-| Keep a judgment checkable through revision | Exact evidence snapshots; optional evidence-linked workpapers with source excerpts and declared dependency queries | Actual use must preserve the deciding conditions and carry the corrected judgment into the real deliverable; structural checks alone do not establish this |
+| Keep a judgment checkable through revision | Exact evidence snapshots; optional workpapers with source excerpts, declared dependency queries and two-revision comparison retaining old/new paths | Actual use must preserve the deciding conditions and carry the corrected judgment into the real deliverable; changed fields and structural checks alone do not establish this |
 | Develop creative possibilities and transfer references | Explore's complete-candidate method and [playable constructed activity](examples/six-minutes-to-elsewhere.md) | Reference-medium observation, relationship transfer, complete delivery, and appropriate author or participant feedback |
-| Propagate consequential corrections | Shape's scoped correction method, shared working understanding, optional dependency inspection | Correction must reach actual plans, content, code, and acceptance while preserving independent goals; no graph can find undeclared dependencies automatically |
+| Continue a substantial inquiry elsewhere | Selected brief and evidence packets; optional authored workpaper carried with its citations; separate received basis and next working revision | The receiver must resume the live question, recover actual coverage and unread leads, and produce the commissioned result; a portable artifact is not automatic memory or continuity |
+| Propagate consequential corrections | Shape's scoped correction method, shared working understanding, optional old/new dependency inspection | Correction must reach actual plans, content, code, and acceptance while preserving independent goals; no graph can find undeclared dependencies or accept a correction automatically |
 | Understand and improve behavior reliably | Deterministic helper gate, guided and natural-task suites, decision-bound observations and receipt-bound comparison | Appropriate fresh tasks and independent semantic review; invocation, acquisition, functional delivery, quality, and causal benefit remain separate claims |
 
 [Current state](current-state.md) owns exact candidate, checks, installation,
 and publication facts. Historical runs retain their original contracts and
 outcomes. The capability map does not relabel them as passes for a later version.
 
-## Current construction line: evidence into judgment and revision
+## Current construction line: evidence into usable continuation and revision
 
 The source work connects a previously text-only seam: the relationship between
 saved source passages, an authored explanation, counterevidence, and the later
 judgments that depend on it. Study owns the interpretive method. The optional
 `workpaper.py` supplies deterministic citation assembly and dependency traversal
-over explicitly supplied data. Search can bring material into it; Explore can
+over explicitly supplied data. Two-revision comparison preserves changed
+grounds and old dependency paths even after later rewiring. An optional v2
+packet carries the selected authored record with its cited sources, while v1
+brief/snapshot readers remain supported. Search can bring material into it; Explore can
 retain reference observations and proposed transfers; Shape can use it to
 locate affected conclusions before correcting the actual work.
 
 The complete local journey is capture, author a cross-source judgment, inspect
 its citations, render a readable standalone research artifact, reuse selected
 sources elsewhere, and revisit declared descendants when a premise changes.
+The received packet remains an earlier basis; new sources and authored revisions
+belong in a separate working location. The expanded constructed walkthrough
+carries a changed runtime selection through the reasoning into an operator
+guide, while preserving the offline requirement and the remaining application
+recovery question. It does not implement a notes application or establish agent
+behavior acceptance.
+
 Snapshots remain source material; the workpaper remains authored interpretation.
 No command treats citation presence as reading, agreement as independence,
 current status as freshness, or a graph edge as permission to act. Existing
@@ -79,13 +90,17 @@ and invocation budget.
 
 ## Continue along connected responsibilities
 
-1. **Complete and exercise the judgment path.** Make the optional local tools
-   usable through the installed method paths and maintain a worked reader
-   journey. Inspect the substantive reasoning as well as mechanical links.
-2. **Resolve the first missed action in ordinary work.** Use the existing
+1. **Resolve the first missed action in ordinary work.** Use the existing
    observation tools to distinguish an unrecognized open choice, an inaccessible
    tool, a source-selection failure, and an unsupported early commitment. Change
    the implicated boundary; adding more method text is not itself a result.
+2. **Use the continuation path in complete commissions.** The local path now
+   supports an explicit authored handoff, a separate working revision and review
+   of earlier grounds. Exercise whether that support improves a substantial
+   explanation or authorized correction, including its actual deliverable.
+   Inspect reasoning and acquisition as well as mechanical links. Ordinary work
+   need not acquire a workpaper; adding another record format is not the next
+   default construction step.
 3. **Develop the result in its real medium.** Carry source relationships into
    an explanation, creative work, or implementation, then inspect what the user
    can actually do. Complete the commission rather than handing back the next

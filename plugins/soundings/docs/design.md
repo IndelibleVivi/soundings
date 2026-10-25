@@ -8,7 +8,7 @@ Version 0.2 separated the completion of an inquiry action from the completion of
 
 The `0.4.0` methods addressed two connected gaps: discovery can be skipped before an open choice because the agent already knows a plausible implementation, and returned research can stop at a summary without changing the initiating work. Their source contract makes the open choice itself a reason for discovery and makes the receiver responsible for a local judgment, a concrete effect, and a return to the original scene. These remain intended behaviors; [current state](../../../docs/current-state.md) separates their implementation from observed effect.
 
-The `0.5.0` source candidate develops the evidence-to-judgment and revision seam. Study owns a conditional method for keeping deciding passages, counterevidence, inferences, and dependent judgments recoverable. An optional local workpaper renders exact cited excerpts and traverses authored dependencies. It does not make the interpretation true, run research, or repair the historical discovery failure by itself. The [development programme](../../../docs/programme.md) connects this construction line to the project's wider capability and maturity conditions.
+The `0.6.0` source candidate continues the evidence-to-judgment line across handoffs and revisions. Study owns the interpretive method; optional local tools carry an authored workpaper with explicitly selected sources and compare earlier and later grounds without losing deleted dependency paths. The task owner carries the resulting judgment into actual work. Neither the methods nor tool correctness repair the historical discovery failure by themselves. The [development programme](../../../docs/programme.md) connects this construction line to the project's wider capability and maturity conditions.
 
 The design responds to two opposite failures:
 
@@ -181,8 +181,20 @@ reasoning; `impact` traverses only declared links. Both supporting evidence and
 counterevidence can seed an impact query. Historical or superseded findings
 remain visible, and current descendants of superseded findings need review.
 No command changes findings, snapshots, or project artifacts automatically.
+`compare` validates two explicit records and their selected stores. Stable
+authored finding IDs establish correspondence, not text similarity or a shared
+source URL. It reports changed fields, additions, removals and presentation
+order, then traces old and new dependency paths separately. Combining edges
+from different versions could invent a path that existed in neither, so the
+graphs remain distinct. A removed premise or intermediary can still expose old
+descendants. Conflicting saved snapshots under the same ref in separate stores
+remain visible; no hashing or source-authentication service is implied.
+
 After an authorized revision, the owner updates the authored grounds and keeps
-the earlier observations at their historical scope.
+the earlier observations at their historical scope. Changed fields, current
+status and a cleared warning do not establish that a correction reached the
+actual deliverable. The owner inspects the affected objects, including
+undeclared dependencies, and returns to the initiating scene.
 
 A source locator, exact excerpt, authored inference, declared dependency, and
 accepted correction are distinct observations. The graph does not infer missing
@@ -190,23 +202,58 @@ conditions, source independence, semantic entailment, reading history, or
 undeclared dependents. A generated synthesis retains its representation label.
 The rendered workpaper is selected task content that can be reread without its
 original store; it may contain private quotations and locators. No network,
-automatic retention, executor, new project authority, or schema migration of
-existing evidence/packets is introduced.
+automatic retention, executor, or new project authority is introduced.
+`evidence.v1` and `workpaper.v1` are unchanged; existing records are not migrated.
 
 ## Optional portable research handoffs
 
-The previous helper could be used by another harness only with access to the selected store. The optional `skills/search/scripts/packet.py` now makes that selection portable: an explicit brief, a manifest, and copies of named evidence snapshots. It reuses the existing evidence schema and loader. The recipient reads the copied store with the same evidence CLI; no import or original file path is required.
+The optional `skills/search/scripts/packet.py` makes selected inquiry material
+portable. Existing `packet.v1` contains a brief, manifest and named snapshots;
+its two-script recipient remains supported. With explicit `--workpaper`,
+`packet.v2` adds a validated normalized authored record. Selection is repeated
+`--ref`, including every cited ref, or explicit `--cited` for the workpaper's
+citation projection. Uncited workpapers remain visibly uncited and may have no
+snapshots. V2 uses all three adjacent helpers. No existing packet is rewritten.
+
+The following view focuses on continuing an authored inquiry through v2. It
+shows local data operations and the caller's authorized integration, not an
+automatic workflow or a new executor:
 
 ```mermaid
-flowchart LR
-    R[Existing project record] -->|selected brief| P[Local inquiry packet]
-    S[Explicit snapshot store] -->|named snapshots only| P
-    P -->|authorized file transfer| T[Recipient directory or harness]
-    T -->|reread evidence and continue inquiry| J[Findings and limits]
-    J -->|coordinator accepts and integrates| R
+flowchart TB
+    P[Existing project record and authority]
+    S[Authored workpaper and saved sources]
+    T[Explicit packet.v2]
+    B[Received basis kept for review]
+    N[Next revision and separate working store]
+    C[Read-only comparison of both versions]
+    J[Owner reviews grounds and actual dependents]
+    A[Authorized correction in project artifacts]
+
+    P -->|selected brief| T
+    S -->|explicit refs or cited-only selection| T
+    T -->|caller copies local files| B
+    B -->|author separately and acquire new evidence| N
+    B -->|earlier graph and citations| C
+    N -->|later graph and citations| C
+    C -->|changes and old/new witness paths| J
+    J -->|qualified judgment| A
+    A -->|revisit original use scene| P
 ```
 
-This diagram describes implemented local selection/readback and the caller-owned handoff. The tool performs no transfer, delegation, or acceptance itself. Packet creation writes a manifest last, refuses an existing output, and reports failure rather than a successful partial packet. Inspection checks membership and readability, not authenticity, confidentiality, evidence quality, or task permission. An interrupted packet stays local for diagnosis; no automatic cleanup or upload occurs.
+The tools perform no transfer, delegation, or acceptance. Creation validates
+selected inputs before writing, refuses an existing output, and writes the
+manifest last. Inspection revalidates membership and citations; it rejects
+member symlinks, redirected workpaper names and extra files. It checks no
+authenticity, confidentiality, evidence quality, or task permission. An
+interrupted packet stays local for diagnosis; recovery uses a new explicit
+destination rather than an implicit overwrite, cleanup, or upload.
+
+The received packet remains the earlier basis. Capturing new evidence inside it
+would change declared membership, so the receiver authors and captures into a
+separate selected working location. Long-task continuation also needs the live
+question, actual reading extent, unread leads and access failures in the task's
+existing understanding; citation inventory is not that frontier.
 
 The brief preserves why the question matters, settled choices versus proposals, evidence dependencies, competing explanations, read coverage, and the remaining responsibility. Use the project's existing record for accepted findings, useful unused clues, and reopening conditions. The packet is a selected copy for continuation, never a second canonical project record. A generated synthesis can travel alongside source text with its representation intact; it is not independent corroboration of its own sources.
 
@@ -216,7 +263,7 @@ Research effort, response size, and retention remain separate. Capture is an exp
 
 ## Current boundaries
 
-The `0.5.0` source candidate has no:
+The `0.6.0` source candidate has no:
 
 - a global Soundings router;
 - fixed stages or mandatory artifacts;

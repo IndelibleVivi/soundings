@@ -33,10 +33,13 @@ python3 /path/to/search/scripts/workpaper.py impact WORKPAPER.json \
 
 python3 /path/to/search/scripts/workpaper.py impact WORKPAPER.json \
   --store /path/to/private/evidence --ref s-SNAPSHOT_REFERENCE
+
+python3 /path/to/search/scripts/workpaper.py compare BEFORE.json AFTER.json \
+  --before-store /path/to/earlier/evidence --after-store /path/to/later/evidence
 ```
 
-`inspect` and `impact` write compact JSON to stdout. `render` writes Markdown to
-stdout unless `--output` names a new file. `inspect` and `impact` never write.
+`inspect`, `impact` and `compare` write compact JSON to stdout. `render` writes
+Markdown to stdout unless `--output` names a new file. The other commands never write.
 All successful stdout is UTF-8 bytes without locale encoding or newline
 translation, preserving cited Unicode and original line endings.
 `render --output` refuses every existing path, requires the parent directory to
@@ -230,14 +233,79 @@ It is not a complete semantic blast radius, a claim that every returned finding
 actually changes, or a source-freshness calculation. It changes no evidence and
 no project artifact.
 
+## Comparison across revisions
+
+`compare BEFORE AFTER --before-store OLD_STORE --after-store NEW_STORE`
+validates both complete workpapers and all their citations before returning
+JSON. The same explicit store can be selected for both. Stores may also be
+different relocated or working copies; no original file, locator, provider or
+network is read. The Python API is
+`compare(before_path, after_path, before_store, after_store)` and returns the
+same JSON-serializable data. Existing `workpaper.v1` inputs are unchanged.
+
+Correspondence uses exact authored finding IDs. Equal text, title, URL, source
+ref or array position does not merge findings or infer that a renamed ID is the
+same claim. Loading normalizes optional `note` and `open_questions` defaults;
+omitting an optional empty default is not a content change.
+
+The output has `schema: soundings.workpaper.v1`, `operation: compare`, the two
+explicit record/store locations, and these views:
+
+| Field | What it reports |
+| --- | --- |
+| `global_changes` | `changed_fields` and exact before/after values for authored `outcome`, `question`, and `open_questions`. A changed outcome is not automatically a valid continuation of the same commission. |
+| `findings` | `added` and `removed` records, `changed` records with exact changed fields and before/after declarations, and `unchanged` IDs with authored status and positions. Fields are kind, text, status, conditions, citations, and dependencies. |
+| `ordering.findings` | Zero-based full before/after positions, common-ID order, `common_reordered` for relative order changes, and `moved_common` for absolute shifts, including shifts caused by insertions/removals. Ordering alone does not seed dependency review. |
+| `ordering.open_questions` | Exact sequences, `sequence_changed`, and `reordered`. Reordered is true only for a changed sequence with the same strings and multiplicities; a new or removed question is not merely a reorder. |
+| `dependency_effects` | One entry per affected seed and version, retaining `premise`, `change`, `version`, `conflicting_refs`, and `descendants`. Each descendant has its authored status and a shortest `witness_path` from that premise. |
+| `snapshot_conflicts` | Shared cited refs whose saved content or metadata differs between the two selected stores, exact changed fields/values, and the citing findings/ranges/relations/notes in each version. |
+
+Added findings seed the after graph, removed findings seed the before graph,
+and changed finding fields seed both where the ID exists. A conflict in a shared
+cited snapshot also seeds its citing findings in each version, even if their
+authored fields are unchanged. `change` is `added`, `removed`, `changed`, or
+`snapshot_conflict`; `conflicting_refs` preserves an additional source-conflict
+reason when the finding itself also changed.
+
+Each seed is traversed within that version's validated graph. No edge is merged
+across versions: old and new edges together could invent a path or cycle that
+exists in neither record. Removed intermediaries remain inspectable through old
+witness paths. Findings may be current or superseded; neither status is a
+semantic acceptance result. The output includes one shortest path per seed and
+descendant, not every possible reasoning path. Global changes remain explicit
+context for review; the helper cannot infer their semantic reach.
+
+Conflicts compare `source`, `title`, `representation`, `captured_at`, and exact
+`content`, including line endings. Only refs cited in both records are compared;
+this is not an audit of either entire store. Distinct refs remain distinct even
+when their URL or title agrees. A conflict exposes loaded local values, not
+which value is authentic, fresh, or correct. Changing a source under an existing
+ref is not the supported refresh path; capture a new ref instead. An unchanged
+finding means its normalized declaration fields match, not that its grounds are
+unchanged or unaffected by a source conflict.
+
+The result is read-only and includes `project_artifacts_changed: false`. It
+performs no correction, source retrieval, semantic matching, acceptance, or
+automatic state update. It prints the complete comparison, with no byte cap or
+silent clipping. Many changed premises, long witness paths or large changed
+source values can produce a large response. Inspect the substantive reasoning
+and actual dependent work rather than treating a field diff as a completed fix.
+
 ## Revision
 
-To revise a premise, author a new current finding or mark the prior one
-`superseded`, then update the declarations deliberately. Re-run `inspect` and
-the relevant `impact` query. Reopening or correcting affected findings is still
-an authored judgment. Capture fresh source material separately when current
-facts matter; an old snapshot remains old.
+Retain the earlier record and its selected store while reviewing a correction.
+Keep a stable ID for the same judgment; use a new ID for a genuinely different
+claim. Preserve historical observations at their conditions, mark a superseded
+interpretation clearly, and update declarations deliberately. Re-run `inspect`,
+the relevant `impact` query, and `compare` against the earlier basis. Reopening
+or correcting affected findings is still an authored judgment. A removed edge,
+changed text or cleared warning does not establish that the actual deliverable
+was corrected. Capture fresh material separately when current facts matter;
+an old snapshot remains old.
 
 Keep the workpaper with the task that uses it. If the project already has a
 record suited to the decision, preserve accepted findings and reopening
 conditions there instead of promoting this task artifact into another ledger.
+For a handoff, [the optional packet](research-handoffs.md) can carry this
+authored record with explicit cited sources. Keep that received basis unchanged
+and author the next revision in a separate working location.
