@@ -246,7 +246,7 @@ python3 evals/check.py
 
 - **Source：** `0.7.0` 是连接本地 inquiry 的候选：显式取材、实际返回的阅读进度、线索、成果版本、反馈和恢复。已有 workpaper 与 packet.v1/v2 继续支持；四个独立 Skills 仍是入口。
 - **Validation 与 behavior：** [当前状态](docs/current-state.md)记录本轮源码、工具和 walkthrough 检查；[0.4.0 对照](docs/dogfood-0.4.0.md)保留通过的小修、可运行产物，以及开放候选任务中未通过的主动发现验收。[0.3.1](docs/dogfood-0.3.1.md)保留早先 installed-host 观察。[0.7.0 源码定向使用](docs/dogfood-0.7.0.md)增加了完整研究、搬迁纠正、创作修订和小修直做的观察，不建立安装后 host 选择或因果收益。
-- **Installation 与 activation：** 2026-11-07 新鲜读回 installed/enabled `0.6.0`，39 个 package 文件与本次建设前的源码逐字节一致。这更新了 2026-10-25 的 `0.5.0` 安装观察，不确定安装发生时间，也不是新的行为 pass。`0.7.0` 的安装与 fresh-context 使用分别检查，见当前状态。
+- **Installation 与 activation：** 2026-11-07 已刷新 Git marketplace，安装并启用 `0.7.0`；44 个 package 文件与实现源码逐字节一致，安装版 CLI 对搬迁 inquiry 的 resume 输出也与源码版一致。这更新了较早的 `0.6.0`／39 文件观察。现有任务不会自动重载，请新开任务使用更新的方法；这不是隐式选择或一般行为 pass。
 - **Publication：** 公开 [marketplace repo](https://github.com/IndelibleVivi/soundings)分发其中的当前 package。源码发布、本地安装、激活与行为接受分别报告；源码版本不代表新增 tagged release。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。

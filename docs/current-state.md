@@ -229,22 +229,33 @@ private outside Git.
 
 ## Installation and integration
 
-The fresh 2026-11-07 CLI readback reported installed and enabled `0.6.0`
+On 2026-11-07, the Git marketplace was refreshed and source candidate `0.7.0`
+installed. CLI readback reported installed and enabled; all 44 package files
+matched implementation commit `8e3445b` byte for byte. Installed `workspace.py`
+resumed the relocated inquiry and produced the same 12,558-byte Markdown as the
+canonical source. This establishes installation identity and that CLI path,
+not fresh-session Skill activation, implicit selection or general improvement.
+Start a new task to load updated methods; an existing task does not reload them.
+
+The earlier same-day CLI readback reported installed and enabled `0.6.0`
 from the Git marketplace. Its 39 package files matched source commit `28c8c0d`
 byte for byte before this construction. This supersedes the 2026-10-25
 installed `0.5.0` / 37-file observation, which in turn superseded the earlier
 same-day `0.4.0` / 33-file observation. None establishes installation time or a
 fresh behavior pass.
 
-Source candidate `0.7.0` installation and fresh-context use are separate from
-source validation. Updating source does not change the methods already loaded
-in an existing task.
+These earlier observations retain their historical scope; they are not current
+installation status or passes for the new candidate.
 
 The [host integration guide](../plugins/soundings/docs/host-integration.md) is a portable contract for early visibility, resource delivery, and continuation. It does not install a hook or configure a harness. A companion Servotab source candidate adds the open-choice cue to its canonical router and Design method, with generated package checks passing; see [Servotab's own state](https://github.com/IndelibleVivi/servotab/blob/main/docs/current-state.md). Its source changes do not establish installation or activation.
 
 ## Publication and next gate
 
 This is a source candidate, not a new tagged release. Website deployment is outside this construction. Source, installation and behavior results are reported separately above.
+
+Implementation commit [`8e3445b`](https://github.com/IndelibleVivi/soundings/commit/8e3445bf681aa6f8e5f4dc7c00deda03aac4cf05)
+is published on public `main`. Its [deterministic GitHub gate](https://github.com/IndelibleVivi/soundings/actions/runs/42330466804)
+passed. Website candidate changes were not included in that publication.
 
 The broader proactive-discovery gate remains reliable transition from open-choice guidance
 through applicable inquiry into a completed useful result. The 0.7.0 source-directed use supplies
