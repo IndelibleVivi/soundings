@@ -52,6 +52,14 @@ For a substantial comparison whose conclusions will be reused or revised, read [
 
 For a research handoff across sessions or harnesses, read [research handoffs](references/research-handoffs.md). Its optional local packet helper carries an explicit brief and selected snapshots without depending on the original store.
 
+When an authorized inquiry needs retained reading progress, evolving results,
+or a later session, read [the inquiry workspace](references/inquiry-workspace.md).
+It connects host discovery and source acquisition to delivered line ranges,
+unread leads, real artifact versions, feedback and resume. Use the explicit
+workspace rather than maintaining those connections by hand; ordinary queries
+still use the direct host tools. Its public-text fetch is optional and cannot
+replace browser or media observation.
+
 ## Preserve what the source actually contributes
 
 Separate:

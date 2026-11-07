@@ -31,6 +31,13 @@ Reconciling the materials is not the endpoint; the study should leave you with a
 
 When consequential findings must remain checkable through reuse or correction, read [evidence-linked synthesis](references/evidence-linked-synthesis.md). Keep the deciding passages, source conditions, counterevidence, and inference recoverable; distinguish authored dependencies from complete coverage. Its optional local workpaper can assemble exact excerpts and expose affected judgments, while the synthesis and authorized follow-through remain your responsibility.
 
+For an inquiry that must survive interruption, use an explicitly selected
+[inquiry workspace](../search/references/inquiry-workspace.md) when appropriate.
+Resume the question and actual reading extent before deciding what to reread;
+keep the explanation itself as a usable result, with later revisions linked to
+their earlier grounds. A saved range or a restored record does not establish
+understanding. Preserve independent project requirements through a correction.
+
 ## Fill only the gaps that matter
 
 Material already present does not force a new search. Use what is there when it can support the judgment, and look outward when the commission itself asks for possibilities or when a decision-relevant gap remains and the current request permits it. Discovery can be useful without an already-known defect. If important material cannot be reached, name the specific gap and how it bounds the conclusion. Read [coverage-and-limits](references/coverage-and-limits.md) when deciding how much more to gather, when coverage is partial, or when a conclusion risks reading stronger than the evidence.

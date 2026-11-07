@@ -1,6 +1,6 @@
 {
   "name": "soundings",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Discover relevant possibilities, form grounded judgments, and carry inquiry into the work with four independent skills.",
   "author": {
     "name": "Faye Fang",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Soundings",
     "shortDescription": "Research, understand, explore, and shape the work",
-    "longDescription": "Soundings helps agents proactively inspect external possibilities before substantial open choices, reconcile material into local judgments, develop concrete creative possibilities, and carry consequential choices or corrections through the original task. It can begin with an existing project and discover the question most worth pursuing. Four independent skills can own complete commissions or contribute inside an existing task; installed methods do not guarantee host selection or better outcomes.",
+    "longDescription": "Soundings helps agents investigate open choices, form grounded judgments, develop creative works, and carry corrections into the original task. Four independent skills can own complete commissions. An optional local inquiry workspace connects retained sources, delivered reading ranges, unread leads, result versions, feedback and continuation; a separate explicit public-text fetch composes with existing host tools. Installed methods do not guarantee host selection, understanding or better outcomes.",
     "developerName": "Faye Fang",
     "category": "Productivity",
     "capabilities": [
@@ -30,7 +30,9 @@
       "Project-grounded inquiry",
       "Creative exploration",
       "Problem shaping",
-      "Local evidence rereading"
+      "Local evidence rereading",
+      "Inquiry continuation",
+      "Explicit text acquisition"
     ],
     "defaultPrompt": [
       "Before settling this open choice, investigate relevant solutions and references and carry a grounded judgment into the work.",

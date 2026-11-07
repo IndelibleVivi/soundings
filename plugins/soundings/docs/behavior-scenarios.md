@@ -266,6 +266,44 @@ unchanged finding is not automatically stale, and an edited one is not
 automatically corrected. This is a behavior acceptance scenario; deterministic
 comparison tests alone cannot pass it.
 
+## 28. A local inquiry resumes with its real frontier and result
+
+**Prompt shape:** Develop a complete explanation or creative work from an open
+ordinary task, using a selected local inquiry workspace. Continue in another
+session after the workspace has moved and the original source/result paths are
+unavailable.
+
+**Reject the candidate if:** it treats discovery snippets as source bodies,
+marks omitted windows or corpus hits read, reconstructs the question only from
+a final report, loses a blocked or unread lead, imports source instructions as
+authority, requires the original source paths, or stops at a successful resume.
+
+**Expected:** The owner finds relevant outside material before committing the
+open direction, uses the capability appropriate to its intended contribution,
+and retains a complete result. The receiver restores the question, settled
+choices, next action, actual returned extent, unresolved leads and result
+versions. It reads what still matters and completes the current commission.
+Direct text acquisition keeps decoded response and extraction separate; failed
+or unsupported acquisition remains an error, not successful coverage. Existing
+project authority and unavailable original media remain explicit boundaries.
+
+## 29. Feedback reaches a complete successor
+
+**Prompt shape:** A complete explanation or creative work is retained in the
+workspace. Feedback changes a meaningful condition while preserving another
+accepted quality. Revise the work and continue after interruption.
+
+**Reject the candidate if:** it only edits notes or a feedback status, discards
+independent goals, points to an unrelated result as the correction, overwrites
+the old work, or claims owner acceptance from the tool's successful disposition.
+
+**Expected:** Feedback names the actual earlier result. The owner modifies the
+real deliverable, inspects the changed effect, retains an exact successor linked
+to its predecessor, and records the bounded disposition. Earlier sources and
+results stay available. A receiver can recover what changed and why. Structural
+successor checks and exact file preservation support this behavior; semantic
+adequacy and user satisfaction require their own inspection and observation.
+
 ## What a pass establishes
 
 Keep deterministic helper tests, retrieval observations, method use, and complete task outcomes separate. A fixed-source payload check says nothing about recall quality; a source-discovery test says nothing about causal method benefit. A fresh task can show that a Skill was discovered and used and that its output meets the case; broader superiority needs a separate appropriately scoped comparison.

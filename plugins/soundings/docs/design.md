@@ -8,7 +8,7 @@ Version 0.2 separated the completion of an inquiry action from the completion of
 
 The `0.4.0` methods addressed two connected gaps: discovery can be skipped before an open choice because the agent already knows a plausible implementation, and returned research can stop at a summary without changing the initiating work. Their source contract makes the open choice itself a reason for discovery and makes the receiver responsible for a local judgment, a concrete effect, and a return to the original scene. These remain intended behaviors; [current state](../../../docs/current-state.md) separates their implementation from observed effect.
 
-The `0.6.0` source candidate continues the evidence-to-judgment line across handoffs and revisions. Study owns the interpretive method; optional local tools carry an authored workpaper with explicitly selected sources and compare earlier and later grounds without losing deleted dependency paths. The task owner carries the resulting judgment into actual work. Neither the methods nor tool correctness repair the historical discovery failure by themselves. The [development programme](../../../docs/programme.md) connects this construction line to the project's wider capability and maturity conditions.
+The `0.7.0` source candidate connects the evidence-to-judgment line to a selected local inquiry workspace: acquisition, returned reading extent, leads, actual result versions, feedback and continuation. Study owns interpretation; existing workpapers and packets retain their contracts. The task owner carries judgments and corrections into actual work. Tool correctness does not by itself repair the historical discovery failure. The [development programme](../../../docs/programme.md) connects this construction line to the project's wider capability and maturity conditions.
 
 The design responds to two opposite failures:
 
@@ -128,8 +128,8 @@ tasks, reference corpora, counterexamples, visible-event annotations and researc
 interpretation. Existing Skill Field Lab owns execution, fixed inputs, receipts
 and review binding. Four historical/current component combinations are normal
 canary subjects; a true no-Skill control remains distinct. Generated compositions
-and raw run artifacts stay outside Git. No new runner, backend, router, hook,
-automatic memory or runtime state has been added. Offline invariant checks and
+and raw run artifacts stay outside Git. That research pack adds no runner,
+backend, router, hook, automatic memory or runtime state. Offline invariant checks and
 explicit annotations do not prove autonomous inquiry or useful evidence use.
 
 Guided JSON probes and ordinary implementation commissions are separate test
@@ -261,9 +261,60 @@ Source locators and content are copied as supplied and may contain sensitive mat
 
 Research effort, response size, and retention remain separate. Capture is an explicit authorized local write, not a side effect of searching. A new capture creates a new reference; old reads do not refresh silently. Optional remote corpus experiments, including Cloudflare, remain separate proposals with their own account, retention, and deployment decisions.
 
+## Connected local inquiry
+
+The optional `workspace.py` makes the selected inquiry's working state directly
+usable by another process or host session. It reuses evidence.v1 snapshots and
+keeps the live question, next action, settled choices, unread or blocked leads,
+delivered line ranges, exact result versions and feedback connected. The
+existing project record remains the authority for accepted decisions. A task
+that does not need retention or continuation stays direct.
+
+```mermaid
+flowchart LR
+    U[Commission and feedback]
+    H[Host and independent Skills]
+    T[Existing discovery and media tools]
+    W[Explicit local inquiry workspace]
+    A[Actual explanation, creative work or change]
+    U --> H
+    H --> T
+    T -->|selected captured material| W
+    W -->|question, extent, leads and prior results| H
+    H --> A
+    A -->|immutable selected result versions| W
+    U -->|bounded feedback and revision| A
+```
+
+This is an ownership view, not a sequence of Skills. The host selects actions
+and enforces permission. The workspace never invokes a model, chooses a
+question, follows a stored instruction, or accepts a correction. Its revision
+commit boundary retains earlier state; source and result members remain
+immutable. Fork creates an explicitly selected new working location, preserving
+refs and embedded artifact bytes without the original source paths. Received
+packet.v1/v2 retains its existing stricter membership and earlier-basis meaning.
+
+Workspace read/find retains only returned windows. A corpus search result is
+not a source-body read; a returned range is not semantic understanding. Feedback
+is attached to a concrete result version and a disposition names an actual
+successor, but the owner still inspects the real object and use scene. Existing
+workpaper citation assembly and revision comparison remain independently usable;
+the workspace adds no second synthesis schema.
+
+The separate `acquire.py` provides a bounded direct GET for one selected public
+text URL, with no external dependency or model call. It retains decoded response
+text, then separately captures labelled HTML extraction with a link to its raw
+basis. Existing host tools remain the discovery and original-medium paths.
+It sends the selected request to its host without cookies, credentials or an
+environment proxy; it does not upload workspace content. A browser, PDF reader,
+authenticated connector, semantic corpus or research executor retains its own
+contract. No search service, provider registry or background acquisition is
+introduced. The [workspace reference](../skills/search/references/inquiry-workspace.md)
+owns the exact workflow, failure handling and retention boundaries.
+
 ## Current boundaries
 
-The `0.6.0` source candidate has no:
+The `0.7.0` source candidate has no:
 
 - a global Soundings router;
 - fixed stages or mandatory artifacts;

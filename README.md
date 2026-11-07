@@ -19,7 +19,7 @@ The name comes from taking soundings: deliberate probes into something whose dep
 
 These are capabilities, not stages. There is no router, required sequence, interview, or mandatory report. A small clear task should remain direct. Domain methods retain their evidence standards and production responsibilities; changing methods continues the same commission.
 
-> The `0.6.0` source candidate carries selected authored judgments across a handoff and compares their revisions without losing earlier dependency paths. The earlier [0.4.0 comparison](docs/dogfood-0.4.0.md) still records failed proactive discovery after guidance was read; small repairs stayed direct. New supporting capability does not establish a behavior improvement. See the [development programme](docs/programme.md) and [current state](docs/current-state.md); the [0.3.1 observations](docs/dogfood-0.3.1.md) remain historical evidence.
+> The `0.7.0` source candidate adds an explicit local inquiry workspace: source acquisition, delivered reading ranges, unread leads, complete result versions, feedback and continuation remain connected inside ordinary Codex work. The earlier [0.4.0 comparison](docs/dogfood-0.4.0.md) still records failed proactive discovery after guidance was read. See the [development programme](docs/programme.md) and [current state](docs/current-state.md) for what is implemented, checked and behavior-observed.
 
 ## Install and upgrade
 
@@ -70,6 +70,53 @@ Look through this project's accepted goals and current artifacts. Find the unres
 
 Study owns discovery when the question must emerge from relationships in existing material. Search, Explore, Shape, or the active domain method may do the deciding work without turning the commission into a required pipeline.
 
+## Continue an inquiry in ordinary work
+
+Keep the main entry in the Codex conversation. For a substantial commission,
+ask the agent to use an explicit local workspace when it needs retained sources,
+later sessions or feedback rounds:
+
+```text
+Develop this into a complete result. Keep the live question, sources you actually
+read, unread leads, result versions and feedback in a private local inquiry
+workspace, so we can continue in another task without starting over.
+```
+
+The optional [workspace CLI](plugins/soundings/skills/search/references/inquiry-workspace.md)
+uses Python 3.10+ and the standard library. It reuses exact evidence snapshots;
+`resume` brings back the question, current next action, returned line ranges,
+unread or blocked leads, actual result copies and unresolved feedback. `fork`
+copies the explicitly selected workspace to a new working location while
+preserving source refs, history and result bytes. These are task data; the
+existing project record still owns accepted decisions.
+
+Discovery uses the host's existing web search, selected corpus or connectors.
+Known public text URLs can also be acquired directly:
+
+```sh
+python3 /path/to/search/scripts/workspace.py init --workspace /private/task/inquiry \
+  --outcome "A usable explanation or creative work" \
+  --question "What must we understand before choosing the direction?" \
+  --next-action "Inspect the relevant outside material"
+python3 /path/to/search/scripts/acquire.py https://example.org/source \
+  --workspace /private/task/inquiry
+python3 /path/to/search/scripts/workspace.py resume \
+  --workspace /private/task/inquiry --format markdown --max-bytes 32768
+```
+
+Use the installed Search directory and actual private paths. A direct fetch
+retains the decoded response; HTML extraction is a separate labelled snapshot.
+For PDF, authenticated sources or interactive media, use the host's supported
+reader/browser and `workspace.py capture`. Corpus `search` is literal; hits do
+not mark a source read. Only ranges returned by workspace `read`/`find` enter
+its delivery record. Delivery does not establish comprehension.
+
+Register the actual complete explanation, work or implementation with
+`artifact`; attach `feedback` to its version, revise the real deliverable, then
+register the successor and its disposition. A saved version or resolved flag
+does not establish semantic correction or owner acceptance. Ordinary queries
+and settled small changes need no workspace.
+
 ## Let references change the work
 
 For a substantial choice that remains open—product form, interaction, visual expression, architecture, or implementation—Search calls for relevant external discovery before substantial commitment. A clear goal does not settle how to achieve it. Reuse references that still fit; a precise repair or faithful implementation of an accepted choice stays direct.
@@ -118,8 +165,9 @@ reopens the affected work while independent goals remain intact.
 For repeated citation assembly and dependency checking, the optional
 [workpaper CLI](plugins/soundings/skills/search/references/workpaper-format.md)
 uses an explicitly authored JSON record and existing evidence snapshots.
-The following commands describe the `0.6.0` source candidate. An older installed
-copy does not gain `compare` or `packet.v2` from a source update; see [status](#status):
+The following commands were introduced in `0.6.0` and remain supported in
+`0.7.0`. An installed copy gains new commands only through installation, not a
+source update; see [status](#status):
 
 ```bash
 python3 /path/to/search/scripts/workpaper.py inspect /path/to/workpaper.json \
@@ -251,16 +299,18 @@ establish a Soundings benefit or completed proactive-discovery acceptance.
 
 ## Status
 
-- **Source:** `0.6.0` is a candidate for continuing and revising an evidence-linked inquiry: portable authored workpapers, comparison across revisions, and methods that carry corrections into the actual work. Four independent Skills and optional local helpers remain the package shape.
-- **Validation and behavior:** [current state](docs/current-state.md) records the current source, tool, and walkthrough checks. The [0.4.0 comparison](docs/dogfood-0.4.0.md) retains passing small repairs, functioning artifacts, and failed proactive discovery in its open candidate task. [0.3.1](docs/dogfood-0.3.1.md) records earlier installed-host observations. These checks and observations do not establish behavior improvement for `0.6.0`.
-- **Installation and activation:** on 2026-10-25, the local host reported installed and enabled `0.5.0`; its 37 package files matched that source version byte for byte. This updates the earlier `0.4.0` observation, without establishing when installation occurred or a new behavior pass. The `0.6.0` candidate has not been installed or activated in this change.
+- **Source:** `0.7.0` is a candidate for connected local inquiry: explicit acquisition, delivered reading progress, leads, result versions, feedback and resume. Existing workpapers and packet.v1/v2 remain supported; four independently discoverable Skills remain the entrypoints.
+- **Validation and behavior:** [current state](docs/current-state.md) records the current source, tool, and walkthrough checks. The [0.4.0 comparison](docs/dogfood-0.4.0.md) retains passing small repairs, functioning artifacts, and failed proactive discovery in its open candidate task. [0.3.1](docs/dogfood-0.3.1.md) records earlier installed-host observations. The [0.7.0 source-directed use](docs/dogfood-0.7.0.md) adds complete research, relocation/correction, creative revision and direct-work observations. It does not establish installed-host selection or causal benefit.
+- **Installation and activation:** a fresh 2026-11-07 readback reported installed and enabled `0.6.0`; its 39 package files matched that source before this construction. This supersedes the 2026-10-25 `0.5.0` installation observation, without establishing installation time or a new behavior pass. Candidate `0.7.0` installation and fresh-context use are separate checks; see current state.
 - **Publication:** the public [marketplace repository](https://github.com/IndelibleVivi/soundings) distributes its current package. Source publication, local installation, activation, and behavior acceptance remain separate; no new tagged release is implied by a source version.
 
 Bounded successful cases do not establish cross-model consistency, causal improvement, or complete scenario coverage. A heavily populated host may shorten Skill descriptions to fit its context budget; discovery remains dependent on the host and its active inventory.
 
 ## Privacy, network, and authority
 
-Soundings adds no MCP server, search backend, hooks, fixed worker team, or automatic memory. Its optional local helpers have no network calls. Explicit `capture` stores source text and metadata at the local directory you choose until you remove them; it does not enforce retention policies, certify provenance, or automatically refresh sources. Keep private stores outside public repositories.
+Soundings adds no MCP server, search backend, hooks, fixed worker team, or automatic memory. Evidence, packet, workpaper and workspace operations are local. The optional `acquire.py` performs a bounded direct GET of an explicitly supplied URL, without credentials, cookies or an environment proxy. HTTPS/public destinations are the defaults; HTTP/private-network access requires explicit options and task authority. Redirects are checked, but this local utility is not a hardened network sandbox. It supports text, HTML, JSON and XML; the default source limit is 2 MiB and timeout is 20 seconds. Unsupported, undecodable or oversized content fails visibly. Use host readers for other media.
+
+Explicit capture or acquisition retains text and metadata in the directory you choose. A workspace also retains result files, reading-delivery ranges, history and feedback until you remove it. It does not enforce retention, authenticate sources, refresh them silently, upload content or grant execution permission. Keep private workspaces outside public repositories and inspect all selected content before separately authorized transfer.
 
 An explicitly authored workpaper and its rendered report can contain source text,
 private locators, and interpretation. A comparison can include complete changed

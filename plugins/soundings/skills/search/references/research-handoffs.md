@@ -2,6 +2,13 @@
 
 Use this when a substantial inquiry crosses a session, worker, directory, or harness, or when the same retained material must support a changed question. An ordinary answer needs no packet. Existing project records remain the authority; this is a selected handoff, not another master record.
 
+When the commission already uses an explicit [inquiry workspace](inquiry-workspace.md),
+resume its question, delivered extent, leads, result versions and feedback.
+Its explicit fork creates a new working location with those connections intact.
+A workspace is mutable task material; a received packet below remains a selected
+earlier basis with its own fixed membership. Choose the form the continuation
+needs, rather than wrapping every workspace in another packet.
+
 ## Hand over a question someone can finish
 
 Preserve why the question matters, which choices are already settled, and what result would let the work advance. Name the competing explanations and the observation that could distinguish them. Give the receiver a complete responsibility where useful, rather than a quota of links or a transcript of the coordinator's thinking.

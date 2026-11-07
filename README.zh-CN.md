@@ -19,7 +19,7 @@ Soundings 帮助 Codex 查清一个问题、理解一组材料、发展一个创
 
 它们是能力，不是阶段。没有 router、规定顺序、访谈或强制报告。清晰的小任务应直接完成；domain methods 保留其证据标准与制作职责，换方法仍然是在继续同一份委托。
 
-> `0.6.0` 源码候选让选定的 authored judgments 随交接接续，并比较前后修订，保留较早的依赖路径。[0.4.0 对照](docs/dogfood-0.4.0.md)中读到指导后仍跳过主动发现的结果保持不变；小修保持直接。新增支持能力不等于已经建立行为改善。见[发展 programme](docs/programme.md)和[当前状态](docs/current-state.md)；[0.3.1 观察](docs/dogfood-0.3.1.md)保留历史范围。
+> `0.7.0` 源码候选增加显式本地 inquiry 工作区，让取材、实际返回的阅读范围、未读线索、完整成果版本、反馈与接续在日常 Codex 工作中保持连接。[0.4.0 对照](docs/dogfood-0.4.0.md)中读到指导后仍跳过主动发现的结果保持不变。已实现、已检查和实际行为观察分别见[发展 programme](docs/programme.md)与[当前状态](docs/current-state.md)。
 
 ## 安装与升级
 
@@ -70,6 +70,33 @@ $shape 原型变成了评分问卷，这不是想要的体验。保留六轮与�
 
 当问题需要从现有材料的关系里长出来时，由 Study 接住发现；真正决定答案的工作可以继续交给 Search、Explore、Shape 或当前 domain method，无须变成强制 pipeline。
 
+## 在日常工作中接续 inquiry
+
+主要入口仍是 Codex 对话。较长的研究或创作委托需要保留材料、换会话继续或吸收反馈时，可以自然地说：
+
+```text
+把它做到完整可用。请用一个私有本地 inquiry 工作区，保留当前问题、实际读到的来源、未读线索、成果版本和反馈，让我们换一次任务也能接着做。
+```
+
+可选的[工作区 CLI](plugins/soundings/skills/search/references/inquiry-workspace.md)使用 Python 3.10+ 与标准库，复用现有精确 evidence snapshots。`resume` 恢复当前问题、下一步、实际返回的行范围、未读或受阻线索、成果副本和未处理反馈；`fork` 将显式选择的工作区复制到新的工作位置，保留 refs、历史和成果原字节。它们都是任务材料，已接受决定仍以项目现有记录为准。
+
+发现来源使用 host 已有 web search、选定 corpus 或 connector。对于已知公开文本 URL，也可以直接取材：
+
+```sh
+python3 /path/to/search/scripts/workspace.py init --workspace /private/task/inquiry \
+  --outcome "一份可使用的解释或创作作品" \
+  --question "选定方向之前，什么最值得理解？" \
+  --next-action "观察相关外部材料"
+python3 /path/to/search/scripts/acquire.py https://example.org/source \
+  --workspace /private/task/inquiry
+python3 /path/to/search/scripts/workspace.py resume \
+  --workspace /private/task/inquiry --format markdown --max-bytes 32768
+```
+
+请使用实际安装的 Search 目录与私有工作路径。直接取材保留解码后的 response；HTML 抽取另存带标签的 snapshot。PDF、登录后来源或互动媒介由 host 的 reader/browser 读取，再通过 `workspace.py capture` 接入。工作区 corpus `search` 是 literal search，命中不计作已读；只有工作区 `read`/`find` 实际返回的范围进入 delivery record，返回过不等于已经理解。
+
+用 `artifact` 保留真正完整的解释、作品或实现文件；把 `feedback` 关联到对应版本，修改实际成果，再登记 successor 与处理理由。保存新版本或清除反馈标记不建立语义纠正或 owner acceptance。普通查询和已定形的小修不需要工作区。
+
 ## 让参考进入正在做的工作
 
 产品形态、交互、视觉表达、架构或实现仍有重要开放选择时，Search 要求在大量投入前主动接触相关外部可能性。目标清楚不等于做法已定。仍然适用的参考可以复用；明确的小修和已接受方向的忠实实施应直接继续。
@@ -112,7 +139,7 @@ Study 的[证据关联综合方法](plugins/soundings/skills/study/references/ev
 需要反复组装引用、检查依赖时，可选的
 [workpaper CLI](plugins/soundings/skills/search/references/workpaper-format.md)
 使用显式编写的 JSON 研究稿与已有 evidence snapshots。
-下列命令对应 `0.6.0` source candidate；源码更新不会让旧安装自动拥有 `compare`
+下列命令由 `0.6.0` 引入，并继续受 `0.7.0` 支持；源码更新不会让旧安装自动拥有 `compare`
 或 `packet.v2`，实际安装状态见下方[当前状态](#当前状态)：
 
 ```bash
@@ -217,16 +244,18 @@ python3 evals/check.py
 
 ## 当前状态
 
-- **Source：** `0.6.0` 是证据关联 inquiry 的接续与修订候选：可搬迁的 authored workpaper、跨版本比较，以及把纠正带回实际工作的配套方法。Package 仍由四个独立 Skills 与可选本地 helpers 构成。
-- **Validation 与 behavior：** [当前状态](docs/current-state.md)记录本轮源码、工具和 walkthrough 检查；[0.4.0 对照](docs/dogfood-0.4.0.md)保留通过的小修、可运行产物，以及开放候选任务中未通过的主动发现验收。[0.3.1](docs/dogfood-0.3.1.md)保留早先 installed-host 观察。这些检查与观察不建立 `0.6.0` 的行为改善。
-- **Installation 与 activation：** 2026-10-25 实读本机 installed/enabled `0.5.0`，37 个 package 文件与该版本源码逐字节一致。这更新了较早的 `0.4.0` 观察，不确定安装发生时间，也不是新的行为 pass；本轮尚未安装或激活 `0.6.0` 候选。
+- **Source：** `0.7.0` 是连接本地 inquiry 的候选：显式取材、实际返回的阅读进度、线索、成果版本、反馈和恢复。已有 workpaper 与 packet.v1/v2 继续支持；四个独立 Skills 仍是入口。
+- **Validation 与 behavior：** [当前状态](docs/current-state.md)记录本轮源码、工具和 walkthrough 检查；[0.4.0 对照](docs/dogfood-0.4.0.md)保留通过的小修、可运行产物，以及开放候选任务中未通过的主动发现验收。[0.3.1](docs/dogfood-0.3.1.md)保留早先 installed-host 观察。[0.7.0 源码定向使用](docs/dogfood-0.7.0.md)增加了完整研究、搬迁纠正、创作修订和小修直做的观察，不建立安装后 host 选择或因果收益。
+- **Installation 与 activation：** 2026-11-07 新鲜读回 installed/enabled `0.6.0`，39 个 package 文件与本次建设前的源码逐字节一致。这更新了 2026-10-25 的 `0.5.0` 安装观察，不确定安装发生时间，也不是新的行为 pass。`0.7.0` 的安装与 fresh-context 使用分别检查，见当前状态。
 - **Publication：** 公开 [marketplace repo](https://github.com/IndelibleVivi/soundings)分发其中的当前 package。源码发布、本地安装、激活与行为接受分别报告；源码版本不代表新增 tagged release。
 
 有限案例成功不证明跨模型一致、因果增益或全部场景覆盖。Skills 很多的 host 可能缩短 description 以满足 context budget；发现能力仍取决于 host 与当前 inventory。
 
 ## Privacy、network 与 authority
 
-Soundings 不增加 MCP server、search backend、hooks、固定 worker team 或自动 memory。可选本地 helpers 没有网络调用。显式 `capture` 把来源文本和 metadata 保存在你指定的本地目录，直至你自行移除；它不执行留存策略，不认证 provenance，也不自动更新来源。私人 store 应放在公开 repo 外。
+Soundings 不增加 MCP server、search backend、hooks、固定 worker team 或自动 memory。Evidence、packet、workpaper 和 workspace 操作保持本地；可选 `acquire.py` 对显式给定的 URL 发起有大小限制的直接 GET，不使用 credentials、cookies 或环境代理。默认只接收 HTTPS 与公开目标；HTTP/private-network 访问需要显式选项和当前任务授权。Redirect 也会检查，但这个本地工具不是加固的网络 sandbox。支持文本、HTML、JSON 和 XML，默认来源上限 2 MiB、timeout 20 秒；不支持、无法准确解码或超限的内容明确失败，其他媒介使用 host reader。
+
+显式 capture 或 acquisition 将文本和 metadata 留在你选择的目录；工作区还保留成果文件、阅读返回范围、历史和反馈，直至你移除。工具不执行留存策略，不认证来源，不静默刷新，不上传内容，也不授予执行权。私人工作区应放在公开 repo 之外；另行授权转移之前，请检查全部选定材料。
 
 显式编写的 workpaper 和生成稿可能含原文、私人 locators 与解释；compare 也可能包含
 完整的已改变快照内容。另行获准转交前须检查实际输出。Inspect、impact 与 compare 只读；

@@ -1,8 +1,41 @@
 # Current state
 
-Updated: 2026-10-25.
+Updated: 2026-11-07.
 
-## Current construction and programme
+## Current construction: 0.7.0
+
+The source candidate connects explicit local inquiry state with acquisition,
+returned reading ranges, unread/blocked leads, result versions, feedback and
+continuation in ordinary Codex conversations. Workspaces are explicitly chosen
+working locations, not automatic memory, execution authority or a new host.
+The existing project record remains the accepted-decision authority.
+
+The provider-neutral gate passed 148 tests (94 helper/workspace/acquisition,
+40 research/observation/comparison and 14 natural-suite) with an explicit
+existing Field Lab checkout, no skips and no target-model invocation in that
+gate. The new source paths add 14 workspace and eight acquisition tests.
+After the final capture-input staging refinement, all 22 affected tests passed
+again. Four Skill validations, manifest JSON and relative documentation paths
+also passed. The connected architecture diagram was rendered and inspected in
+a browser.
+
+The [bounded source-directed use](dogfood-0.7.0.md) completed four fresh native
+starts and one continuation: a complete storage/recovery design, a relocated
+receiver carrying a changed premise into real successor artifacts, a complete
+paper activity with constructed-feedback revision, and a direct formatter fix.
+The receiver preserved all 38 earlier revisions after original selected paths
+became unavailable; a restricted Markdown codec passed roundtrip and malformed
+input checks. A print defect in the creative worksheet was found in a browser,
+retained as an earlier candidate, and corrected in a separate successor; seven
+sheets fit the A4 content area under print-media emulation.
+
+These are source-directed commissions with coordinator review, not installed-host
+implicit selection, a controlled benefit comparison, physical printing or human
+playtests. The original codec sample failure and print defect remain separate
+observations. The historical proactive-discovery failure is not reclassified.
+Candidate installation is reported separately below.
+
+## Previous construction: 0.6.0
 
 The source package is a `0.6.0` candidate for continuing and revising an
 evidence-linked inquiry. Optional `packet.v2` carries a validated normalized
@@ -39,7 +72,7 @@ methods, paired READMEs and programme. This is an applied local inquiry, not an
 independent fresh-session pass, natural-selection observation or causal result.
 The continuation architecture diagram was rendered and inspected in a browser.
 
-The `0.6.0` candidate has not been installed or behavior-accepted. Comparison is
+At the completion of that source construction, `0.6.0` had not been installed or behavior-accepted. The later installation observation is recorded below. Comparison is
 literal structural review, not semantic correspondence or correction acceptance;
 its full output, including changed saved source values, may be large. The
 earlier construction and its evidence remain scoped below; no historical run is
@@ -196,31 +229,35 @@ private outside Git.
 
 ## Installation and integration
 
-The latest 2026-10-25 readback reported installed and enabled `0.5.0` from the
-Git marketplace. Its 37 package files matched canonical commit `6c30a0c` byte
-for byte. This supersedes the earlier same-day observation of installed
-`0.4.0` with 33 matching package files, while preserving that historical scope.
-It establishes neither the installation time nor fresh-session behavior.
+The fresh 2026-11-07 CLI readback reported installed and enabled `0.6.0`
+from the Git marketplace. Its 39 package files matched source commit `28c8c0d`
+byte for byte before this construction. This supersedes the 2026-10-25
+installed `0.5.0` / 37-file observation, which in turn superseded the earlier
+same-day `0.4.0` / 33-file observation. None establishes installation time or a
+fresh behavior pass.
 
-The `0.6.0` candidate has not been installed or activated in this change.
-Updating source does not update an existing task's loaded methods.
+Source candidate `0.7.0` installation and fresh-context use are separate from
+source validation. Updating source does not change the methods already loaded
+in an existing task.
 
 The [host integration guide](../plugins/soundings/docs/host-integration.md) is a portable contract for early visibility, resource delivery, and continuation. It does not install a hook or configure a harness. A companion Servotab source candidate adds the open-choice cue to its canonical router and Design method, with generated package checks passing; see [Servotab's own state](https://github.com/IndelibleVivi/servotab/blob/main/docs/current-state.md). Its source changes do not establish installation or activation.
 
 ## Publication and next gate
 
-This is a source candidate, not a new tagged release. No candidate installation, website deployment, or marketplace reinstall was performed.
+This is a source candidate, not a new tagged release. Website deployment is outside this construction. Source, installation and behavior results are reported separately above.
 
-The remaining proactive-discovery behavior gate is the transition from reading open-choice guidance
-through applicable inquiry into a completed useful result. The earlier
+The broader proactive-discovery gate remains reliable transition from open-choice guidance
+through applicable inquiry into a completed useful result. The 0.7.0 source-directed use supplies
+bounded connected examples, not a general or causal repair of the earlier failure. The earlier
 comparison failed proactive inquiry; the later tools trial observed constructed
 reference-source acquisition but no completed reading-desk implementation.
 Further diagnosis must retain direct-work controls and inspect judgment and
-delivery. Both the historical four-run budget and this separate seven-start
+delivery. The separate 0.7.0 budget used four fresh starts and one continuation;
+no further target-model call is implied by passing local checks. Both the historical four-run budget and this separate seven-start
 trial budget are exhausted; further live evaluation requires its own scope and
 authorization.
 
-Forward scenarios 24–27 require a useful cross-source explanation, interruption
+Forward scenarios 24–29 require a useful cross-source explanation, interruption
 and relocation, retained earlier grounds, and an authorized correction reaching
 actual artifacts. Exact excerpts, a valid packet or dependency comparison alone
 do not pass those scenarios. Local tool checks and the constructed walkthrough

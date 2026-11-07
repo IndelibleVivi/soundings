@@ -12,6 +12,14 @@ Use when a commission needs several acquisition paths, a provider comparison, or
 
 These operations can be composed; they are not required service slots or a registry to install. Provider-specific behavior should remain visible when it changes evidence or experience. Prefer the existing supported path before adding an adapter. New capability can be justified by a worthwhile commission that becomes possible or substantially deeper; the current tools need not fail completely first.
 
+For a retained commission, the optional [inquiry workspace](inquiry-workspace.md)
+connects these acquisition paths to selected evidence, actual CLI-returned
+reading ranges, leads and result versions. Use host discovery for unknown URLs;
+the separate `acquire.py` can fetch one explicitly selected public text URL.
+It cannot observe interaction, replace authenticated readers, or supply semantic
+corpus retrieval. Capture host-reader output with its actual representation and
+coverage instead of pretending the direct fetch supports every medium.
+
 For corpus retrieval, distinguish the live source, captured evidence, and search projection. They may share infrastructure while having different update and retention semantics. Index metadata supports selection; it need not be the full record of authorship, revision, adoption, or validity. Keep those distinctions in a rereadable source when the conclusion needs them. A relevance score is not factual confidence, and scores from different providers are not automatically comparable.
 
 Evaluate retrieval at the actual question: unknown project names, exact technical strings, paraphrases, missing qualifiers, outdated duplicates, and no supported answer can expose different limitations. Do not claim semantic benefit from a literal-search toy or from a successful API call. If remote upload, credentials, paid execution, or retention are unavailable or unauthorized, finish the supported local comparison and identify exactly which inference still needs a live observation.

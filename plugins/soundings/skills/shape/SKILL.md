@@ -74,6 +74,13 @@ A response is sufficient when it resolves the dependency for the next action. â€
 
 Use [assumptions-and-corrections](references/assumptions-and-corrections.md) when feedback changes the current frame, a plan or specification contains agent-added product meaning, or the correction must propagate across artifacts. Update affected descendants, retire superseded active paths within authority, and preserve independent goals. Do not over-correct by removing wanted behavior that the feedback did not reject.
 
+If the commission uses an [inquiry workspace](../search/references/inquiry-workspace.md),
+attach feedback to the actual result version, revise the actual project artifact,
+and retain the successor with its reason before recording a disposition. A
+resolved feedback flag records the author's claim; inspect the changed result
+and preserve the owner's acceptance boundary. The workspace supplies neither
+permission nor a semantic judge.
+
 ## Continue as soon as the work is decision-ready
 
 Stop the shaping intervention when the relevant action no longer depends on an unowned product or value choice. Preserve useful openness that does not block that action. Carry the revised relationship through affected plans, specifications, tasks, code, and acceptance criteria within the current authority; a decision that leaves the old active path in place is not a complete correction. This does not end the larger commission: if the user authorized developing the selected direction, correcting its descendants, or producing a complete artifact, continue under the relevant method until that outcome is fulfilled. If the commission is the decision itself, a supported recommendation and appropriately bounded unknowns can be the complete result.

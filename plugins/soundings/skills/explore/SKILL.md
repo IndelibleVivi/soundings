@@ -33,6 +33,13 @@ Turn the direction into something the person can meet: a scene, a rule set, a sa
 
 Do not stop at naming features, offering options, or saying a direction "could work". If the current request authorizes making it and it fits the task, make it and hand back something the person can react to.
 
+When development crosses sessions or feedback rounds, the optional
+[inquiry workspace](../search/references/inquiry-workspace.md) keeps reference
+observations, unread leads, complete result versions and feedback together.
+Preserve the actual work, not just a description or citation list. Returning
+to a saved candidate does not establish its effect: inspect or play it in its
+medium, then carry the user's bounded feedback into the next complete version.
+
 ## Keep what is accepted and keep going
 
 Keep goals the person already accepted; ordinary uncertainty about details is not a reason to reopen them or to ask for new approval, and a goal does not have to be fully settled before Explore can work. When a result does not land, distinguish a failed interpretation, interaction relationship, execution, or candidate fidelity, since they call for different revisions. Inspect the actual effect and preserve accepted parts while changing the condition that failed; one rejection does not remove everything the person accepted.
